@@ -1,0 +1,1 @@
+gobuster dir -u "url" -w "diccionario"
