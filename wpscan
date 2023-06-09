@@ -1,0 +1,2 @@
+wpscan -url "" 
+wpscan -url "" --usernames "" --passwords "dictio"
