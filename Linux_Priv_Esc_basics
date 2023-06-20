@@ -31,5 +31,27 @@ una vez en el abrir una shell que será llamada como root: ":!sh"
 4)Explotar el crontab
 El CRON se usa para programar la ejecución de una app o comando.
 
+el file se encuentra en /etc/crontab
+
+Si alguno de los scripts del crontab que es corrido por el root puede ser modificado por un usuario en nuestro poder, podríamos aprovecharlo
+para inyectar código y volvernos root
+
+5) Explotar el PATH
+Cuando encontramos un script que puede pertenece al root que corre algún comando (todo es un archivo en linux, 
+con lo cual los comandos son evocaciones a un script) y que puede ser corrido por un user en nuestro poder
+podemos ir a una carpeta donde tengamos permisos, crear un script con el mismo nombre del comando y luego cambiar el PATH del 
+sistema para que, cuando el script sea corrido busque el comando creado por nosotros y no el original.
+
+echo "/bin/bash" > "comando"
+
+export PATH=/"carpeta":$PATH
+
+corremos el script y como root ejecutará nuestro código malicioso.
+
+
+
+
+
+
 
 
