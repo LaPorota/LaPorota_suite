@@ -59,5 +59,8 @@ Find development tools and supported languages:
 find / -name perl*
 find / -name python*
 find / -name gcc*
-find / -perm -u=s -type f 2>/dev/null: Find files with the SUID bit, which allows us to run the file with a higher privilege level than the current user.
 
+SUID enumeration
+find / -perm -u=s -type f 2>/dev/null: Find files with the SUID bit, which allows us to run the file with a higher privilege level than the current user.
+enumerar los SUID y buscar la forma de explotarlos en gtfbins
+https://gtfobins.github.io/#+suid
