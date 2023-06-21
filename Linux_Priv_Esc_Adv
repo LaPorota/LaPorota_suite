@@ -116,3 +116,13 @@ Passwords y keys en los arhivos historicos:
 
 cat ~/.*history | less
 
+Passwords y keys en los archivos de configuración:
+leer los archivos de configuración en búsqueda de información sensible
+
+Passwords y keys- SSH keys:
+
+con ls -la podemos ver archivos ocultos en una carpeta. Leerlos siempre es beneficioso
+
+
+
+
