@@ -67,3 +67,9 @@ https://gtfobins.github.io/#+suid
 
 
 Explotar LD_PRELOAD y LD_LIBRARY_PATH
+
+
+Explotar cronjobs por medio de la variable de entorno:
+Dependiendo del orden de los paths dentro de la variable de entorno PATH del cronlab, podemos suplantar un archivo
+en tanto tengamos privilegios sobre una carpeta que, dentro del path, sea anterior a la carpeta donde reside el archivo.
+
