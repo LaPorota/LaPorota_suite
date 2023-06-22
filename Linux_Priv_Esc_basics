@@ -1,6 +1,7 @@
 Linenum:
 https://github.com/rebootuser/LinEnum/blob/master/LinEnum.sh
 
+python -c "import pty;pty.spawn('/bin/bash')"
 
 1)buscar explotar suid/guid files
 
