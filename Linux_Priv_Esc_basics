@@ -59,3 +59,6 @@ conseguir una rootbash en un sh escribible:
 cp /bin/bash /tmp/rootbash; chmod +s /tmp/rootbash
 
 
+
+
+
