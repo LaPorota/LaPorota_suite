@@ -1,0 +1,5 @@
+Tautologías positivas:
+la concatenación de instrucciones va siempre con +
+
+Explotando el information schema via xml:
+999 &#x53;ELECT * FROM information_schema.tables
