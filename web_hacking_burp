@@ -1,5 +1,8 @@
 Tautologías positivas:
 la concatenación de instrucciones va siempre con +
 
+https://sqlwiki.netspi.com/attackQueries/informationGathering/#mysql
+
+
 Explotando el information schema via xml:
 999 &#x53;ELECT * FROM information_schema.tables
