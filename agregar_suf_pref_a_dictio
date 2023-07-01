@@ -1,0 +1,5 @@
+Sufijo
+sed 's/$/sufijo/' diccionario.txt > diccionario_modificado.txt
+
+Prefijo
+sed 's/^/prefijo/' diccionario.txt > diccionario_modificado.txt
