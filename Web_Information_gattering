@@ -1,6 +1,7 @@
 #######################################################Ffuf:
 ffuf -u <target_url>/FUZZ -w <wordlist_file> -e .<extension>
 
+ffuf -u <target_url>/FUZZ -w <wordlist_file> -e <extension> -mc 200
 ####################################################### Gobuster
 Easy search
 gobuster dir -u "url" -w "diccionario"
