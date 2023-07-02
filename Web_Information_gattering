@@ -1,3 +1,13 @@
-Ffuf:
+#######################################################Ffuf:
 ffuf -u <target_url>/FUZZ -w <wordlist_file> -e .<extension>
+
+####################################################### Gobuster
+Easy search
+gobuster dir -u "url" -w "diccionario"
+
+add files with extensions
+
+gobuster dir -u <target_url> -w <wordlist_file> -x <extension>
+
+
 
