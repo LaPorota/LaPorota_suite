@@ -1,1 +1,7 @@
+Easy search
 gobuster dir -u "url" -w "diccionario"
+
+add files with extensions
+
+gobuster dir -u <target_url> -w <wordlist_file> -x <extension>
+
