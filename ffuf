@@ -8,3 +8,6 @@ ffuf -w dictionary:FUZZ -u http://FUZZ.site/
 
 vhosts enum:
 ffuf -w dictionary:FUZZ -u http://site:PORT/ -H 'Host: FUZZ.site'
+
+parameter fuzzing:
+ffuf -w dictionary:FUZZ -u http://site:PORT/admin/admin.php?FUZZ=key -fs xxx
