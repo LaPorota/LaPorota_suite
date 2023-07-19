@@ -2,6 +2,9 @@ recursive scanning:
 ffuf -w dictionary:FUZZ -u http://SERVER_IP:PORT/FUZZ -recursion -recursion-depth 1 -e .php -v
 
 
-subdomine enum:
+sub-domine enum:
 
 ffuf -w dictionary:FUZZ -u http://FUZZ.site/
+
+vhosts enum:
+ffuf -w dictionary:FUZZ -u http://site:PORT/ -H 'Host: FUZZ.site'
