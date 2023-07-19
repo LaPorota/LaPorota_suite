@@ -4,4 +4,4 @@ ffuf -w dictionary:FUZZ -u http://SERVER_IP:PORT/FUZZ -recursion -recursion-dept
 
 subdomine enum:
 
-ffuf -w /opt/useful/SecLists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u http://FUZZ.academy.htb/
+ffuf -w dictionary:FUZZ -u http://FUZZ.site/
