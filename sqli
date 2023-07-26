@@ -26,6 +26,9 @@ INSERT INTO table_name VALUES (column1_value, column2_value, column3_value, ...)
 ver el contenido de una tabla completa:
 SELECT * FROM <tabla>;
 
+Buscar un dato en base a un patrón (coincidencia de letras en un nombre, etc):
+SELECT * FROM <tabla> WHERE <campo> LIKE <condición >
+
 eliminar una tabla de un servidor:
 DROP TABLE <tabla>;
 
@@ -37,6 +40,16 @@ ALTER TABLE <tabla> DROP <columna>
 
 ################## Modificar un dato de un registro:
 UPDATE <tabla> SET <columna> = <valor> WHERE <condición (ej: "id > 1")>;
+
+Sql payloads para testing:
+
+
+' 	%27
+" 	%22
+# 	%23
+; 	%3B
+) 	%29
+
 
 
 
