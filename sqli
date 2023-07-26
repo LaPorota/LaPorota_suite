@@ -1,0 +1,43 @@
+####################### MySql
+connect:
+mysql -u <user> -h <host> -P <port> -p (password, nunca ponerlo en el comando sino cuando el sistema pregunte)
+
+ver privilegios:
+SHOW GRANTS
+
+ver bases:
+SHOW DATABASES;
+
+entrar en una base:
+USE <db>;
+
+ver tablas:
+SHOW TABLES;
+
+ver estructura de una tabla:
+DESCRIBE <tabla>;
+  
+crear una DB:
+CREATE DATABASE "nombre";
+
+insertar un registro en una tabla:
+INSERT INTO table_name VALUES (column1_value, column2_value, column3_value, ...);
+
+ver el contenido de una tabla completa:
+SELECT * FROM <tabla>;
+
+eliminar una tabla de un servidor:
+DROP TABLE <tabla>;
+
+################## Modificar una tabla(nombre, campos, agregar o eliminar una columna)
+ALTER TABLE <tabla> ADD <nombre_columna> <tipo_de_valor>;
+ALTER TABLE <tabla> RENAME COLUMN <columna_actual> TO <nuevo_nombre>;
+ALTER TABLE <tabla> MODIFY <columna a modificar> <tipo de dato al que se cambia>;
+ALTER TABLE <tabla> DROP <columna>
+
+################## Modificar un dato de un registro:
+UPDATE <tabla> SET <columna> = <valor> WHERE <condición (ej: "id > 1")>;
+
+
+
+
