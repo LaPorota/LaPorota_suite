@@ -32,6 +32,15 @@ SELECT * FROM <tabla> WHERE <campo> LIKE <condición >
 eliminar una tabla de un servidor:
 DROP TABLE <tabla>;
 
+## consultar tablas de una db mediante el information schema:
+select 1,TABLE_NAME,TABLE_SCHEMA,4 from INFORMATION_SCHEMA.TABLES where table_schema='<db>'--
+
+select 1,COLUMN_NAME,TABLE_NAME,TABLE_SCHEMA from INFORMATION_SCHEMA.COLUMNS where table_name='<table>'--
+
+
+
+
+
 ################## Modificar una tabla(nombre, campos, agregar o eliminar una columna)
 ALTER TABLE <tabla> ADD <nombre_columna> <tipo_de_valor>;
 ALTER TABLE <tabla> RENAME COLUMN <columna_actual> TO <nuevo_nombre>;
