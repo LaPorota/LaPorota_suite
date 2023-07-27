@@ -50,6 +50,11 @@ Sql payloads para testing:
 ; 	%3B
 ) 	%29
 
+##############Funciones o verbos útiles:
+croup_concat(): concatena o une en un mismo resultado un grupo de resultados, ya sean conjuntos de datos de diferentes columnas
+                o el conjunto de resulrados de la extracción de varios registros de una misma columna
+UNION: union nos permite concatenar varias queries distintas(la cantidad de campos o celdas a consultar tiene que ser exacta)
+
 ############## Version de la base de datos:
 
 # MySQL and MSSQL
@@ -68,6 +73,11 @@ ver columnas dentro de una tabla SQLITE:
 
 extraer campos de una tabla SQLITE:
 (SELECT group_concat(<campo1> || "," || <camp2> || "," || <campo3> || ":") from <tabla>)
+
+
+
+########### Database enumeration
+
 
 
 
