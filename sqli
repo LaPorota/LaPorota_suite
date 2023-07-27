@@ -32,6 +32,9 @@ SELECT * FROM <tabla> WHERE <campo> LIKE <condición >
 eliminar una tabla de un servidor:
 DROP TABLE <tabla>;
 
+### Leer variables de entorno:
+SHOW VARIABLES LIKE '<variable>';
+
 ### enumerar privilegios del usuario:
 SELECT 1, grantee, privilege_type, 4 FROM information_schema.user_privileges--
 
