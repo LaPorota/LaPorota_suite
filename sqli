@@ -31,6 +31,8 @@ SELECT * FROM <tabla> WHERE <campo> LIKE <condición >
 
 eliminar una tabla de un servidor:
 DROP TABLE <tabla>;
+### enumerar privilegios del usuario:
+SELECT 1, grantee, privilege_type, 4 FROM information_schema.user_privileges--
 
 ## consultar tablas de una db mediante el information schema:
 select 1,TABLE_NAME,TABLE_SCHEMA,4 from INFORMATION_SCHEMA.TABLES where table_schema='<db>'--
