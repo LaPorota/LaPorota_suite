@@ -37,6 +37,8 @@ netstat -l : muestra los puertos escuchando
 netstat -s: lista el uso de las estadisticas de red despues del protocolo
 netstat -i: muestra las interfaces
 
+netstat -antp | grep -i list : muestra servicios abiertos como ftp, localhost, etc...
+
 find:
 find . -name flag1.txt: find the file named “flag1.txt” in the current directory
 find /home -name flag1.txt: find the file names “flag1.txt” in the /home directory
