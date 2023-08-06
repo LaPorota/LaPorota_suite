@@ -1,3 +1,15 @@
+#######################################Passive plugins enumeration
+
+curl -s -X GET http://página | sed 's/href=/\n/g' | sed 's/src=/\n/g' | grep 'wp-content/plugins/*' | cut -d"'" -f2
+
+######################################Passive themes enumeration
+
+curl -s -X GET http://blog.inlanefreight.com | sed 's/href=/\n/g' | sed 's/src=/\n/g' | grep 'themes' | cut -d"'" -f2
+
+
+
+######################################WPSCAN
+
 wpscan -url "" 
 wpscan -url "" --usernames "" --passwords "dictio"
 
