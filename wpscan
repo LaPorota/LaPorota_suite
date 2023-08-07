@@ -19,7 +19,7 @@ curl -s -I -X GET http://blog.inlanefreight.com/?author=1
 
 ######################################WPSCAN
 
-wpscan -url "" 
+wpscan -url "" --enumerate ap
 wpscan -url "" --usernames "" --passwords "dictio"
 
 
