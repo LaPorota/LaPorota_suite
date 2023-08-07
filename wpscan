@@ -13,7 +13,7 @@ listar de a un usuario
 curl -s -I -X GET http://blog.inlanefreight.com/?author=1
 
 o la lista de usuarios en un json:
-curl -s -I -X GET http://blog.inlanefreight.com/?author=1
+curl http://blog.inlanefreight.com/wp-json/wp/v2/users | jq
 
 
 
