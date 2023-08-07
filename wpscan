@@ -7,6 +7,15 @@ curl -s -X GET http://página | sed 's/href=/\n/g' | sed 's/src=/\n/g' | grep 'w
 curl -s -X GET http://blog.inlanefreight.com | sed 's/href=/\n/g' | sed 's/src=/\n/g' | grep 'themes' | cut -d"'" -f2
 
 
+##################################### User Enumeration
+
+listar de a un usuario
+curl -s -I -X GET http://blog.inlanefreight.com/?author=1
+
+o la lista de usuarios en un json:
+curl -s -I -X GET http://blog.inlanefreight.com/?author=1
+
+
 
 ######################################WPSCAN
 
