@@ -16,6 +16,9 @@ para bypassear blacklisted characters se puede utilizar una extracción del cara
 ${PATH:0:1} (en este caso estaríamos extrayendo el caracter del index 0 de la variable PATH que sería "/"
 $env:HOMEPATH[0] mismo ejemplo en windows
 
+podemos concatenar estas técnicas, ej:
+127.0.0.1%0a{ls,${PATH:0:1}home}
+
 SQL Injection 	' , ; -- /* */
 Command Injection 	; &&
 LDAP Injection 	* ( ) & |
