@@ -1,0 +1,29 @@
+
+Semicolon 	; 	%3b 	Both
+New Line 	 \n 	%0a 	Both
+Background 	& 	%26 	Both (second output generally shown first)
+Pipe 	      | 	%7c 	Both (only second output is shown)
+AND 	     && 	%26%26 	Both (only if first succeeds)
+OR 	       || 	%7c%7c 	Second (only if first fails)
+Sub-Shell  `` 	%60%60 	Both (Linux-only)
+Sub-Shell  $() 	%24%28%29 	Both (Linux-only)
+
+podemos luego de encontrar el conector entre comandos, si hay algún filtro posterior utilizar diferentes secuencias:
+${IFS} inserta un espacio y una tabulación y luego el comando
+{ls,-la} agrega comandos como argumentos y agregando espacios en los mismos
+
+para bypassear blacklisted characters se puede utilizar una extracción del caracter del index de una variable de entorno:
+${PATH:0:1} (en este caso estaríamos extrayendo el caracter del index 0 de la variable PATH que sería "/"
+$env:HOMEPATH[0] mismo ejemplo en windows
+
+SQL Injection 	' , ; -- /* */
+Command Injection 	; &&
+LDAP Injection 	* ( ) & |
+XPath Injection 	' or and not substring concat count
+OS Command Injection 	; & |
+Code Injection 	' ; -- /* */ $() ${} #{} %{} ^
+Directory Traversal/File Path Traversal 	../ ..\\ %00
+Object Injection 	; & |
+XQuery Injection 	' ; -- /* */
+Shellcode Injection 	\x \u %u %n
+Header Injection 	\n \r\n \t %0d %0a %09
