@@ -11,3 +11,8 @@ for char in '%20' '%0a' '%00' '%0d0a' '/' '.\\' '.' '…' ':'; do
     done
 done
 
+
+siempre agregar, previo al código malicioso un "tipo de archivo" en base a los magicnumbers:
+"
+GIFF8
+<?php .... ?>
