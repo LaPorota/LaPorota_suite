@@ -139,5 +139,6 @@ sqlmap -u "http://www.example.com/?id=1" --passwords --batch
 PAYLOADALLTHETHINGS:
 https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection
 
-
+sqlmap hackthebox guide:
+https://medium.com/@joshthedev/step-13-sqlmap-essentials-68829d907492
 
