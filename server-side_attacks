@@ -1,0 +1,177 @@
+####AJP Proxy
+
+According to Apache, AJP (or JK) is a wire protocol. It is an optimized version of the HTTP protocol to allow a standalone web server such as Apache to talk to Tomcat. 
+Historically, Apache has been much faster than Tomcat at serving static content. 
+The idea is to let Apache serve the static content when possible but proxy the request to Tomcat for Tomcat-related content.
+
+When we come across open AJP proxy ports (8009 TCP) during penetration tests, we may be able to use them to access the "hidden" Apache Tomcat Manager behind it. 
+Although AJP-Proxy is a binary protocol, we can configure our own Nginx or Apache webserver with AJP modules to interact with it and access the underlying application. 
+This way, we can discover administrative panels, applications, and websites that would be otherwise inaccessible.
+
+To see how we can configure our own Nginx or Apache webserver with AJP modules to interact with an open AJP proxy and access the underlying application, 
+jump to the next interactive section.
+
+Note: If you want to replicate such a vulnerable environment on a local machine, you can start an Apache Tomcat Docker exposing only the AJP-Proxy as follows:
+
+First, create a file called tomcat-users.xml including the below.
+tomcat-users.xml
+
+<tomcat-users>
+  <role rolename="manager-gui"/>
+  <role rolename="manager-script"/>
+  <user username="tomcat" password="s3cret" roles="manager-gui,manager-script"/>
+</tomcat-users>
+
+After this file is created, install the docker package in your local machine and start the Apache Tomcat Server by issuing the commands below.
+Docker Installation
+
+LaPorota@htb[/htb]$ sudo apt install docker.io
+$ sudo docker run -it --rm -p 8009:8009 -v `pwd`/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml --name tomcat "tomcat:8.0"
+
+
+####Nginx Reverse Proxy & AJP
+
+When we come across an open AJP proxy port (8009 TCP), we can use Nginx with the ajp_module to access the "hidden" Tomcat Manager. This can be done by compiling the Nginx source code and adding the required module, as follows:
+
+    Download the Nginx source code
+    Download the required module
+    Compile Nginx source code with the ajp_module.
+    Create a configuration file pointing to the AJP Port
+
+Download Nginx Source Code
+
+LaPorota@htb[/htb]$ wget https://nginx.org/download/nginx-1.21.3.tar.gz
+$ tar -xzvf nginx-1.21.3.tar.gz
+
+Compile Nginx source code with the ajp module
+
+LaPorota@htb[/htb]$ git clone https://github.com/dvershinin/nginx_ajp_module.git
+$ cd nginx-1.21.3
+$ sudo apt install libpcre3-dev
+$ ./configure --add-module=`pwd`/../nginx_ajp_module --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --modules-path=/usr/lib/nginx/modules
+$ make
+$ sudo make install
+$ nginx -V
+
+nginx version: nginx/1.21.3
+built by gcc 10.2.1 20210110 (Debian 10.2.1-6)
+configure arguments: --add-module=../nginx_ajp_module --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --modules-path=/usr/lib/nginx/modules
+
+Note: In the following configuration, we are using port 8009, which is Tomcat's default port for AJP, and this is how we would use it in a real environment. However, to complete the exercise at the end of this section you should specify the IP and port of the target you will spawn (they will both be visible right next to "Target:"). The port you will see is essentially mapped to port 8009 of the underlying Docker container.
+
+Comment out the entire server block and append the following lines inside the http block in /etc/nginx/conf/nginx.conf.
+Pointing to the AJP Port
+
+upstream tomcats {
+	server <TARGET_SERVER>:8009;
+	keepalive 10;
+	}
+server {
+	listen 80;
+	location / {
+		ajp_keep_conn on;
+		ajp_pass tomcats;
+	}
+}
+
+Note: If you are using Pwnbox, then port 80 will be in use already, so, in the above configuration change port 80 to 8080. Finally, in the next step, use port 8080 with cURL.
+
+Start Nginx and check if everything is working correctly by issuing a cURL request to your local host.
+
+LaPorota@htb[/htb]$ sudo nginx
+$ curl http://127.0.0.1:80
+
+
+
+
+
+
+Apache Reverse Proxy & AJP
+
+Luckily, Apache has the AJP module precompiled for us. We will need to install it, though, as it doesn't come in default installations. Configuring the AJP-Proxy in our Apache server can be done as follows:
+
+    Install the libapache2-mod-jk package
+    Enable the module
+    Create the configuration file pointing to the target AJP-Proxy port
+
+Note: As mentioned in the previous section, port 80 is in use in Pwnbox, and Apache also uses it as its default port. You can change Apache's default port on "/etc/apache2/ports.conf" to any other port. If you use port 8080, don't forget to stop nginx beforehand with `sudo nginx -s stop.` In the following configuration, we are using 8009, which is Tomcat's default port for AJP, and this is how we would use it in a real environment. However, to complete the exercise at the end of the previous section, this time using Apache, you should specify the IP and port of the target you will spawn (they will both be visible right next to "Target:"). The port you will see is essentially mapped to port 8009 of the underlying Docker container.
+
+The required commands and configuration files are the following:
+
+LaPorota@htb[/htb]$ sudo apt install libapache2-mod-jk
+$ sudo a2enmod proxy_ajp
+$ sudo a2enmod proxy_http
+$ export TARGET="<TARGET_IP>"
+$ echo -n """<Proxy *>
+Order allow,deny
+Allow from all
+</Proxy>
+ProxyPass / ajp://$TARGET:8009/
+ProxyPassReverse / ajp://$TARGET:8009/""" | sudo tee /etc/apache2/sites-available/ajp-proxy.conf
+$ sudo ln -s /etc/apache2/sites-available/ajp-proxy.conf /etc/apache2/sites-enabled/ajp-proxy.conf
+$ sudo systemctl start apache2
+
+Note: The below cURL command is the one you would normally use, since Apache is listening on port 80 by default. Remember that you had to change port 80 to another one of your choosing. So, to complete the exercise of the previous section, next step would be to specify the port of your choosing while using cURL, "curl http://127.0.0.1:8080" for example.
+Accessing the "hidden" Tomcat page
+
+LaPorota@htb[/htb]$ curl http://127.0.0.1
+
+<SNIP>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Apache Tomcat/X.X.XX</title>
+        <link href="favicon.ico" rel="icon" type="image/x-icon" />
+        <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link href="tomcat.css" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <div id="navigation" class="curved container">
+                <span id="nav-home"><a href="https://tomcat.apache.org/">Home</a></span>
+                <span id="nav-hosts"><a href="/docs/">Documentation</a></span>
+                <span id="nav-config"><a href="/docs/config/">Configuration</a></span>
+                <span id="nav-examples"><a href="/examples/">Examples</a></span>
+                <span id="nav-wiki"><a href="https://wiki.apache.org/tomcat/FrontPage">Wiki</a></span>
+                <span id="nav-lists"><a href="https://tomcat.apache.org/lists.html">Mailing Lists</a></span>
+                <span id="nav-help"><a href="https://tomcat.apache.org/findhelp.html">Find Help</a></span>
+                <br class="separator" />
+            </div>
+            <div id="asf-box">
+                <h1>Apache Tomcat/X.X.XX</h1>
+            </div>
+            <div id="upper" class="curved container">
+                <div id="congrats" class="curved container">
+                    <h2>If you're seeing this, you've successfully installed Tomcat. Congratulations!</h2>
+                </div>
+<SNIP>
+
+If we configure everything correctly, we will be able to access the Apache Tomcat manager using both cURL and our web browser.
+
+
+
+
+
+
+
+Server-Side Request Forgery (SSRF) Overview
+
+Server-Side Request Forgery (SSRF) attacks, listed in the OWASP top 10, allow us to abuse server functionality to perform internal or external resource requests on behalf of the server. To do that, we usually need to supply or modify URLs used by the target application to read or submit data. Exploiting SSRF vulnerabilities can lead to:
+
+    Interacting with known internal systems
+    Discovering internal services via port scans
+    Disclosing local/sensitive data
+    Including files in the target application
+    Leaking NetNTLM hashes using UNC Paths (Windows)
+    Achieving remote code execution
+
+We can usually find SSRF vulnerabilities in applications that fetch remote resources. When hunting for SSRF vulnerabilities, we should look for:
+
+    Parts of HTTP requests, including URLs
+    File imports such as HTML, PDFs, images, etc.
+    Remote server connections to fetch data
+    API specification imports
+    Dashboards including ping and similar functionalities to check server statuses
+
