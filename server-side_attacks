@@ -175,3 +175,8 @@ We can usually find SSRF vulnerabilities in applications that fetch remote resou
     API specification imports
     Dashboards including ping and similar functionalities to check server statuses
 
+
+
+
+
+https://infosecwriteups.com/exploiting-server-side-request-forgery-ssrf-vulnerability-faeb7ddf5d0e
