@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.80 scan initiated Thu Aug 17 14:43:17 2023 as: nmap -&#45;script php-version.nse -p 80 -oX algo.xml 172.16.77.130 -->
+<nmaprun scanner="nmap" args="nmap -&#45;script php-version.nse -p 80 -oX algo.xml 172.16.77.130" start="1692294197" startstr="Thu Aug 17 14:43:17 2023" version="7.80" xmloutputversion="1.04">
+<scaninfo type="connect" protocol="tcp" numservices="1" services="80"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<host starttime="1692294197" endtime="1692294197"><status state="up" reason="syn-ack" reason_ttl="0"/>
+<address addr="172.16.77.130" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="http" method="table" conf="3"/><script id="php-version" output="Versions from logo query (less accurate): 5.1.3 - 5.1.6, 5.2.0 - 5.2.17&#xa;Versions from credits query (more accurate): 5.2.3 - 5.2.5, 5.2.6RC3&#xa;Version from header x-powered-by: PHP/5.2.4-2ubuntu5.10"/></port>
+</ports>
+<times srtt="283" rttvar="3772" to="100000"/>
+</host>
+<runstats><finished time="1692294197" timestr="Thu Aug 17 14:43:17 2023" elapsed="0.32" summary="Nmap done at Thu Aug 17 14:43:17 2023; 1 IP address (1 host up) scanned in 0.32 seconds" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>
