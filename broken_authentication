@@ -83,4 +83,19 @@ wfuzz -z range,00000-99999 --ss "Valid" "https://brokenauthentication.hackthebox
 Crear una cuenta, generar un token de restauración de password, intentar un refresh de pass de la cuenta de la victima y utilizar el token generado para nuestra cuenta.
 
 
+##############Lista para probar políticas de contraseñas:
+qwerty						
+Qwerty						
+Qwerty1						
+Qwertyu1						
+Qwert1!						
+Qwerty1!						
+QWERTY1						
+QWERT1!						
+QWERTY1!						
+Qwerty!						
+Qwertyuiop12345!@#$%
+
+
+
 
