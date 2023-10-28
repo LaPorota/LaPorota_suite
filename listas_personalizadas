@@ -13,6 +13,8 @@ Crear listas personalizadas de password:
 sed -ri '/^.{,7}$/d' diccionario           # remove shorter than 8
 sed -ri '/[!-/:-@\[-`\{-~]+/!d' diccionario # remove no special chars
 sed -ri '/[0-9]+/!d' diccionario           # remove no numbers
+sed -i '/[A-Z]/!d' diccionario             # remueve las palabras sin mayusculas
+
 
 crear listas personalizadas de users:
 
