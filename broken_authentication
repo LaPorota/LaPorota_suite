@@ -97,5 +97,8 @@ Qwerty!
 Qwertyuiop12345!@#$%
 
 
+############################ Modficar la contraseña de un tercer usuario:
+
+Ir al formulario de reseteo de password y agregar en los campos enviados (con un proxy) campos como "username" o "userid" con el nombre del usuario a cambiar
 
 
