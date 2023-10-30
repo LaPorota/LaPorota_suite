@@ -101,4 +101,9 @@ Qwertyuiop12345!@#$%
 
 Ir al formulario de reseteo de password y agregar en los campos enviados (con un proxy) campos como "username" o "userid" con el nombre del usuario a cambiar
 
+########################## Comprobar tokens con decodify:
+https://github.com/s0md3v/Decodify
+
+
+
 
