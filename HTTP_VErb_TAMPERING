@@ -1,0 +1,2 @@
+################### Bypass mediante manipulación de métodos:
+Intentar, cuando nos vemos restringidos para acceder a una página o a una funcionalidad cambiar el verbo HTTP de la request
