@@ -1,0 +1,8 @@
+############ Hijacking:
+cuando un usuario malicioso se apodera de una cookie de sesión de otro usuario y la puede utilizar para loguearse sin credenciales en una app
+
+########### Session fixation:
+A menudo nos encontramos aplicaciones que nos brindan unsa sesion pre-logueo. En algunos casos el token de sesión o la cookie permanecen y son asignados a nuestro usuario luego
+de loguearnos.
+Esto quiere decir que si esta cookie o token viaja en la url, un atacante puede crear una url con un token creado por el ciberdelincuente, pasarle dicho link a la victima,
+una vez logueada la victima, el atacante puede hacer un hijacking con el token creado por el mismo.
