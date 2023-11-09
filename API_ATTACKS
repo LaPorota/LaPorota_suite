@@ -63,3 +63,15 @@ if args.target and args.option == "yes": # if the target option is set and args.
             print("URL is invalid")
 
 
+python shell.py -t url/path-to-file/file.php -o yes
+
+############################ FIle inclusion:
+cuando vemos que un endpoint nos permite buscar o presentar archivos (ej downloads) siempre es un buen momento para probar una LFI:
+curl "http://<TARGET IP>:3000/api/download/..%2f..%2f..%2f..%2fetc%2fhosts"
+siempre se recomienda encodear el payload.
+
+####################### XSS
+
+Si vemos que los valores introducidos en la url del endpoint se reflejan en la página siempre es un buen momento para probar XSS.
+P.D.: Siempre encodear una vez.
+
