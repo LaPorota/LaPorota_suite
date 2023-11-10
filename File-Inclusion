@@ -27,6 +27,10 @@ https://insecure-website.com/loadImage?filename=..\..\..\windows\win.ini
 Cuando abrimos un archivo alojado en el servidor como por ejemplo, una imagen (accediendo al archivo en sí) podemos interceptar
 la request e intentar, si hay una variable de entorno que lo llama, un path transversal
 
+Aveces la funcionalidad que carga los archivos tiene una validación de extensión para determinar que el file es el correcto.
+esto podemos bypassearlo agregando algunos chars como 00%:
+filename=../../../etc/passwd%00.png
+
 ############### RCE
 
 podemos lograr rce utilizando el filtro "data" si el parametro allow_url_include se encuentra habilitado:
