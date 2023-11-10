@@ -1,3 +1,6 @@
+siempre que se haga una consulta sobre un item a un backend contastar si es posible una injección de comando aparte de una sqli, 
+algunos backends corren código para hacer querys sobre aplicaciones légacy ;)
+
 
 Semicolon 	; 	%3b 	Both
 New Line 	 \n 	%0a 	Both
