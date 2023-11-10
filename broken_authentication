@@ -2,7 +2,7 @@ SIEMPRE BUSCAR EL ROBOTS.txt EN BUSQUEDA DE SUBDIRECTORIOS IMPORTANTES!!!
 
 LEER BIEN EL Código tanto html como js para buscar links a subdirectorios no adivinables!
 
-User enum:
+###########################User enum:
 hacer fuerza bruta al login de las siguientes formas:
 
 1)Probar con el login por carteles como "invalid user"
@@ -73,7 +73,10 @@ for username in usernames:
 
 4)Hacer fuerza bruta en el formulario de registro buscando en las respuestas los users que ya están registrados.
 
+###################### Bypass MF2
 
+En muchas páginas al momento de introducir bien las credenciales uno ya se encuentra "logueado realmente", al pedirnos el segundo
+factor de autenticación podríamos probar saltearlo redirigiendonos a una página posterior al login como el perfil.
 
 #############Buscar entrar a un sitio por confianza en la ip:
 
