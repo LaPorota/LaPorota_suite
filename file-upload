@@ -38,3 +38,17 @@ ver código fuente de un archivo php:
 <!DOCTYPE svg [ <!ENTITY xxe SYSTEM "php://filter/convert.base64-encode/resource=index.php"> ]>
 <svg>&xxe;</svg>
 
+
+########################### File upload wth path transversal:
+Podemos encontrarnos con que en algunos casos logramos subir un archivo malicioso, pero al momento de ejecutarlo en 
+el servidor, este está impedido de ejecutarse mostrandonos el texto plano (si lo escondimos en una foto podríamos
+intentar ejecutarla y que nada pase).
+Esto se debe a que algunos servidores limitan la ejecución de código en directorios puntuales.
+Para esto podemos combinar el path transversal agregándolo en la cabecera Content-Disposition:
+Content-Disposition: form-data; name="avatar"; filename="../exploit.php" (debemos seguir todos los procedimientos de
+evación de filtros de path transversal si es que el servidor tiene alguna validación).
+Luego, con el mismo path transversal podemos llamarlo.
+
+
+
+
