@@ -52,7 +52,8 @@ Esto se debe a que algunos servidores limitan la ejecución de código en direct
 Para esto podemos combinar el path transversal agregándolo en la cabecera Content-Disposition:
 Content-Disposition: form-data; name="avatar"; filename="../exploit.php" (debemos seguir todos los procedimientos de
 evación de filtros de path transversal si es que el servidor tiene alguna validación).
-Luego, con el mismo path transversal podemos llamarlo.
+Luego, con el mismo path transversal podemos llamarlo. (puede que al momento de llamarlo, si debimos encodear el path}
+transversal en la subida, no debamos encodearlo en la ejecución)
 
 
 
