@@ -53,7 +53,23 @@ Para esto podemos combinar el path transversal agregándolo en la cabecera Conte
 Content-Disposition: form-data; name="avatar"; filename="../exploit.php" (debemos seguir todos los procedimientos de
 evación de filtros de path transversal si es que el servidor tiene alguna validación).
 Luego, con el mismo path transversal podemos llamarlo. (puede que al momento de llamarlo, si debimos encodear el path}
-transversal en la subida, no debamos encodearlo en la ejecución)
+transversal en la subida, no debamos encodearlo en la ejecución).
+
+####################### Blacklist bypass:
+Fuerza bruta de extensión:
+Si nos encontramos un filtro de blacklist, podemos hacer fuerza bruta sobre la extención del archivo malicioso buscando una extención permitida.
+
+.htaccess poisoning/spoofing:
+
+Podemos encontrarnos que no hay una extensión permitida dentro de las shells que necesitamos o que, aunque hubiera alguna, no hubiera permisos de ejecución. 
+Podemos subir un archivo .htaccess envenenado que nos permita la ejecucion:
+
+1)repetimos la subida cabiando los siguientes parámetros:
+filename= .htaccess
+content-type = text/plain
+payload= AddType application/x-httpd-php .l33t (con esto habilitamos la ejecución de archivos con la extensión l33t)
+
+subimos nuevamente la shell con la extensión ".l33t" y ejecutamos.
 
 
 
