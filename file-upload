@@ -71,6 +71,11 @@ payload= AddType application/x-httpd-php .l33t (con esto habilitamos la ejecuci�
 
 subimos nuevamente la shell con la extensión ".l33t" y ejecutamos.
 
+recursión de extensiones:
+Podemos también, si hay un filtro que busque por palabras puntuales y las elimine, sumar recursión a la extensión de
+los archivos: shell.p.phphp
+
+
 
 
 
