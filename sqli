@@ -181,4 +181,11 @@ desloguearemos.
 cookie' AND (SELECT CASE WHEN (Username = 'Administrator' AND SUBSTRING(Password, NUMERO_DEL_INDEX, 1)='CHAR_A_PROBAR) THEN 1/0 ELSE 'a' END FROM Users)
 En este caso, si la página da un error, quiere decir que la letra es la correspondiente
 
+#####################Visible ERROR-based sqli:
+
+Si la página nos muestra una query, nosotros podemos subvertir el valor de la misma:
+https://portswigger.net/web-security/learning-paths/sql-injection/sql-injection-error-based-sql-injection/sql-injection/blind/lab-sql-injection-visible-error-based#
+
+
+
 
