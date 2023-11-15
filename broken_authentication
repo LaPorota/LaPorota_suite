@@ -11,10 +11,11 @@ hacer fuerza bruta al login de las siguientes formas:
 Ejemplo de tiempo de respuesta con burp spoofeando la ip para baypassear restricciones:
 https://portswigger.net/web-security/authentication/password-based/lab-username-enumeration-via-response-timing
 
-
-
-
 4)Hacer fuerza bruta en el formulario de registro buscando en las respuestas los users que ya están registrados.
+
+Fuerza Bruta sobre ip blockeada:
+
+https://portswigger.net/web-security/authentication/password-based/lab-broken-bruteforce-protection-ip-block
 
 ###################### Bypass MF2
 
