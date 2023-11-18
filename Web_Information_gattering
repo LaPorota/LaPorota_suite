@@ -29,5 +29,8 @@ subdominios
 assetfinder --subs-only pagina 
 
 
+####################################################WFUZZ
+wfuzz -c -z file,'diccionario' -u 'target' -H 'HOST:FUZZ.target'
+
 
 
