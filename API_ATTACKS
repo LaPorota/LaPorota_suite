@@ -30,6 +30,7 @@ while True:
 ########################### Information disclosure
 
 Tenemos que invertir mucho tiempo en fuzzig cuando testeamos una api.
+Si la api manifiesta una versión como "v2", siempre vale la pena probar versiones anteriores que pueden quedar como shadow
 
 
 ##########################arbitrary file inclusion.
