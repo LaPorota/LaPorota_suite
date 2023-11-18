@@ -1,8 +1,15 @@
-#######################################################Ffuf:
+ENUMERACIÖN DE SUBDOMINIOS:
+assetfinder --subs-only pagina 
+wfuzz -c -z file,'diccionario' -u 'target' -H 'HOST:FUZZ.target'
+
+ENUMERACIÖN DE DIRECTORIOS:
+dirb target
+
+############Ffuf:
 ffuf -u <target_url>/FUZZ -w <wordlist_file> -e .<extension>
 
 ffuf -u <target_url>/FUZZ -w <wordlist_file> -e <extension> -mc 200
-####################################################### Gobuster
+########## Gobuster
 Easy search
 gobuster dir -u "url" -w "diccionario"
 
@@ -22,15 +29,6 @@ http://"ip o url"/wp-content/themes/"tema"/404.php
 
 si la reverse shell es la monkey, para migrar a una shell más estable:
 python -c 'import pty;pty.spawn("/bin/bash")' 
-
-
-####################################################ASSETFINDER
-subdominios
-assetfinder --subs-only pagina 
-
-
-####################################################WFUZZ
-wfuzz -c -z file,'diccionario' -u 'target' -H 'HOST:FUZZ.target'
 
 
 
