@@ -24,5 +24,10 @@ si la reverse shell es la monkey, para migrar a una shell más estable:
 python -c 'import pty;pty.spawn("/bin/bash")' 
 
 
+####################################################ASSETFINDER
+subdominios
+assetfinder --subs-only pagina 
+
+
 
 
