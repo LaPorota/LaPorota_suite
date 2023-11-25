@@ -1,6 +1,7 @@
 ENUMERACIÖN DE SUBDOMINIOS:
 assetfinder --subs-only pagina 
 wfuzz -c -z file,'diccionario' -u 'target' -H 'HOST:FUZZ.target'
+wfuzz -c -t 100 --hl=461 --hc=404 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -H "Host: FUZZ.schooled.htb" http://10.10.10.234
 
 ENUMERACIÖN DE DIRECTORIOS:
 dirb target
