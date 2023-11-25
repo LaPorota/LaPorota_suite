@@ -4,7 +4,7 @@ wfuzz -c -z file,'diccionario' -u 'target' -H 'HOST:FUZZ.target'
 
 ENUMERACIÖN DE DIRECTORIOS:
 dirb target
-
+searchdir -u target
 ############Ffuf:
 ffuf -u <target_url>/FUZZ -w <wordlist_file> -e .<extension>
 
