@@ -87,3 +87,18 @@ Muchas letras del unicode se ven exáctamente iguales. Podemos, por medio de enc
 sitios falsos.
 Herramientas para crear esto son:
 https://www.irongeek.com/homoglyph-attack-generator.php 
+utilizando hologlyphs podemos evadir filtros, puesto que, aunque para el ojo humano se vean igual,
+para la computadora los caracteres se ven totalmente diferentes.
+
+####################Hijacking por encodeo
+ejemplo:
+Find a user account to hijack. For the sake of this example let us hijack the account belonging to user bigbird.
+Create a new spotify account with username ᴮᴵᴳᴮᴵᴿᴰ (in python this is the string u’\u1d2e\u1d35\u1d33\u1d2e\u1d35\u1d3f\u1d30′).
+Send a request for a password reset for your new account.
+A password reset link is sent to the email you registered for your new account. Use it to change the password.
+Now, instead of logging in to account with username ᴮᴵᴳᴮᴵᴿᴰ, try logging in to account with username bigbird with the new password.
+Success! Mission accomplished.
+
+Unicode security guide:
+https://websec.github.io/unicode-security-guide/
+
