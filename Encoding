@@ -1,0 +1,19 @@
+Principales tipos de encodeado usados en las webs:
+
+#########URL: 
+caracteres usualmente encodeados:
+#    %23
+?    %3F
+&    %24
+%    %F25
+/    %2f
++    %2b (este indica un espacio)
+
+
+########HTML:
+
+
+
+####Base(32 | 64):
+
+Unicode
