@@ -99,6 +99,13 @@ A password reset link is sent to the email you registered for your new account. 
 Now, instead of logging in to account with username ᴮᴵᴳᴮᴵᴿᴰ, try logging in to account with username bigbird with the new password.
 Success! Mission accomplished.
 
+
+##################################################TOOLS
+
 Unicode security guide:
 https://websec.github.io/unicode-security-guide/
-
+Unicode Utilities:
+https://util.unicode.org/UnicodeJsps/
+http://www.panix.com/~eli/unicode/convert.cgi
+http://codepoints.net/
+http://txtn.us/
