@@ -9,11 +9,76 @@ caracteres usualmente encodeados:
 /    %2f
 +    %2b (este indica un espacio)
 
-
 ########HTML:
+El encodeo de caracteres html se puede hacer:
+
+Decimal: se compone por &+#+D(numero decimal)+; == &#60;
+hexadecimal: se compone de &+#x+H(hexadecimal case-insensitive); == &#x3c
 
 
+Ambos se pueden variar quitando los ";" o agregando uno o más ceros previos al número== &#0000060 o &#x000003c
 
-####Base(32 | 64):
+#########Base(32 | 64):
 
-Unicode
+Base16 == hexadecimal.
+Base36: Es el más compacto. Caso insensitivo, alphanumérico. Tabla encodeada:
+B36   Decimal
+0	    0
+1	    1
+2	    2
+3	    3
+4	    4
+5	    5
+6	    6
+7	    7
+8	    8
+9	    9
+A	    10
+B	    11
+C	    12
+D	    13
+E	    14
+F	    15
+G	    16
+H	    17
+I	    18
+J	    19
+K	    20
+L	    21
+M	    22
+N	    23
+O	    24
+P	    25
+Q	    26
+R	    27
+S	    28
+T	    29
+U	    30
+V	    31
+W	    32
+X	    33
+Y	    34
+Z	    35
+
+base64: alfanumerico, case sensitive, sumado al "+" y "/"
+Para en codear divide los datos en grupos de 6 bits.
+si el total de números de bits no es múltiplo de 6 agregará "null" bits (representados "=") hasta que llegue 
+a los necesarios.
+La mayoría de los navegadores soportan nativamente base64 con las funciones btoa(encodear) y atob(para decodear):
+window.btoa('encodeame esta')
+window.atob('base64 a desencodear')
+
+#########Unicode
+Si queremos manejar UNICODE debemos encodearlos primeramente usando base64.
+Fue creado para que todos puedan usar las pc en cualquier lenguaje.
+Compuesto por letras, números, glifos, sirílicos. 
+Es muy utilizado para pasar filtros.
+Hay 3 formas de mapear UNICODE:
+—utf-8
+—utf-16
+—utf-32
+Unicode        utf-8           utf-16        utf-32
+u+0049         49              0049         00000049
+u+2665         e2 99 a5        2665         00002665
+u+1f37b        f0 9f 8D BB     d83c df7b    0001f37b
+
