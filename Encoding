@@ -82,3 +82,8 @@ u+0049         49              0049         00000049
 u+2665         e2 99 a5        2665         00002665
 u+1f37b        f0 9f 8D BB     d83c df7b    0001f37b
 
+Hologlyph attack:
+Muchas letras del unicode se ven exáctamente iguales. Podemos, por medio de encodear, generar
+sitios falsos.
+Herramientas para crear esto son:
+https://www.irongeek.com/homoglyph-attack-generator.php 
