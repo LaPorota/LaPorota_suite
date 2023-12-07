@@ -1,3 +1,7 @@
 ################### Bypass mediante manipulación de métodos:
 Intentar, cuando nos vemos restringidos para acceder a una página o a una funcionalidad cambiar el verbo HTTP de la request. Esto también sirve para evadir sistemas de prevención y securización sobre métodos puntuales
 
+En el caso de usar el verbo HEAD: eliminar el content-type para probar si se está haciendo una validación
+del mismo. El content-type muestra el tipo de información que será enviada (json, xml, etc.). Cuando usamos la etiqueta
+Head intentando bypassear el content type será formulado con lo que debería ser enviado en el caso de una petición
+GET.
