@@ -12,7 +12,7 @@ si soporta el modo interactivo:
 nmap --interactive
 !sh
 
-
+/usr/share/nmap/scripts
 escaneo avanzado con evasión:
 
 (para el lab: correr snort: powershell : .\snort.exe -i 5 -A console -c C:\Snort\etc\snort.conf )
