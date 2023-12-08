@@ -21,3 +21,4 @@ Reconocimiento de hosts:
 metodo para usar el ARP constatando si efectivamente hay un nodo del otro lado
 sudo nmap -sn -n -PS rango de ip
 
+sudo nmap -Pn -S ip_a_spoofear -e interfaz ip_victima
