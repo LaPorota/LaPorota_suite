@@ -65,7 +65,7 @@ URI=Uniform Resource Identifier.
 http://yourls.org/
 
 #####URL AUTHORITY OBFUSCATION:
-Las URL son compuestas por varias "autoridades" ver imagen (URL authority)
+Las URL son compuestas por varias partes/secciones ver imagen (URL authority)
 
 Podemos pasar filtros simulando un envío de credenciales(userinfo) a una página que no utiliza autenticación ej:
 https://www.google.com@hack.me/t/xss
