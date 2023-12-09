@@ -1,0 +1,43 @@
+Los WAFs demuestran en diversos lados su presencia:
+
+
+#############Valores de las cookies:
+
+### Citrix netscaler
+agrega las siguientes cookies:
+ns_af
+citrix_ns_id
+NSC_
+
+###F5 BIG-IP ASM
+Usa cookies que inician con TS y continuan con una string que respeta el siguiente regex: "^TS[a-zA-Z0-9]{3,6}"
+
+###Barracuda
+barra_counter_session 
+BNI__BARRACUDA_LB_COOKIE
+
+
+############# HEADER REWRITE
+
+muchos wafs, luego de una petición maliciosa reescriben cabeceras por ejemplo en la server.
+
+############# HPPT RESPONSE CODE
+
+mod_security = 406 Not Acceptable
+AQTRONIX WebKnight = 999 no hacking
+
+############# RESPONSE BODY
+
+
+TOOLS:
+wafW00f
+nmap script http-waf-fingerprint
+imperva-detect (se enfoca en detectar el waf de imperva)
+
+
+
+
+
+
+
+
