@@ -1,4 +1,4 @@
-Reemplazos para funciones clásicas:
+Reemplazos para funciones clásicas y ofuscación:
 
 #######XSS:
 
@@ -73,3 +73,28 @@ Usamos el espacio de credenciales para pasar una página que se encuentra en el 
 pasar, llevándonos a hack.me que, al no requerir credenciales, ignora la primer parte.
 
 Podemos también agregar caracteres UNICODE en el userinfo ya que en este segmento de la URL son aceptados.
+
+#####OFUSCAMIENTO DE HOST:
+
+##Dword(Double Word):vuelve las ip un número tipo integer de 16 bists. ej:
+216.58.215.78 == http://3627734862 
+
+##Octal:
+Podemos traducir una ip a octal(base8), encodeando cada octeto.
+http://octeto1enoctal.octeto2enoctal.octeto3enoctal.octeto4enoctal
+A este caso podemos agregarle ceros a la izquierda a cada número.
+
+##HEXADECIMAL(base16)
+Puede convertirse la ip a hexadecimal completamente o dividir cada número:
+http://0xd83ad74e  o http://0xd8.0x3a.0xd7.0x4e
+A esta opción también podemos agregarle ceros a la izquierda a cualquier octeto luego del "0x"
+
+Podemos mezclar todas estas técnicas.
+
+tool:
+http://www.silisoftware.com/tools/ipconverter.php
+
+
+
+
+
