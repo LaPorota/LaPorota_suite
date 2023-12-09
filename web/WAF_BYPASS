@@ -64,7 +64,9 @@ URI=Uniform Resource Identifier.
 ###URI shortening:
 http://yourls.org/
 
-URL AUTHORITY OBFUSCATION:
+#####URL AUTHORITY OBFUSCATION:
+Las URL son compuestas por varias "autoridades" ver imagen (URL authority)
+
 Podemos pasar filtros simulando un envío de credenciales(userinfo) a una página que no utiliza autenticación ej:
 https://www.google.com@hack.me/t/xss
 Usamos el espacio de credenciales para pasar una página que se encuentra en el whitelist con el fin de que al leerla el WAF o filtro la deje
