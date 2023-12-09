@@ -18,6 +18,9 @@ Pueden trabajar con whitelist o blacklist.
 whitelist: Permite solamente lo que está explícito en las reglas.
 Blacklist: Permite todo lo que esté explicitamente denegado.
 
+Los wafs pueden trabajar en forma pasiva o reactiva:
+Usualmente cuando están recién deployados/implementados trabajan de manera pasiva para evitar bloqueos innecesarios y falsos positivos
+
 
 
 
