@@ -1,0 +1,9 @@
+Filtros:
+
+RE/RegEx (regular expressions): identificación de patrones en los inputs.
+se manejan con regular expression engines: dos tipos DFA(text-directed) & NFA(regex-directed).
+El más usado es NFA por la grán mayoría de los lenguajes.
+
+La sintaxis y comportamiento de un engine se llama "regular expression flavor"
+lista comparativa de flavors:
+http://en.wikipedia.org/wiki/Comparison_of_regular_expression_engines
