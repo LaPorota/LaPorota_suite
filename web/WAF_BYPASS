@@ -134,6 +134,7 @@ echo $x[0001]; ///octal index       'i'
 echo $x[0x02]; ///hexadecimal index 'u'
 echo $x[0b11]; ///Binario index     's'
 
-
-
+## NON-ALPHANUMERIC
+tool:
+https://hackvertor.co.uk/public#   (encode => phpnonalpha)
 
