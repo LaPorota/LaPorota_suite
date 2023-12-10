@@ -127,7 +127,13 @@ http://dean.edwards.name/packer/
 
 ##Numerical data types:
 Al igual que en JS podemos utilizar encodeados como octal, hexadecimal, decimal y binario(este último desde PHP 5.4.0)
-Podemos recorrer un array 
+Podemos recorrer un array utilizando los encodings y entre otras formas:
+$x='giuseppe';
+echo $x[0];    ///Decimal index     'G' 
+echo $x[0001]; ///octal index       'i'
+echo $x[0x02]; ///hexadecimal index 'u'
+echo $x[0b11]; ///Binario index     's'
+
 
 
 
