@@ -127,6 +127,7 @@ http://dean.edwards.name/packer/
 
 ##Numerical data types:
 Al igual que en JS podemos utilizar encodeados como octal, hexadecimal, decimal y binario(este último desde PHP 5.4.0)
+Podemos recorrer un array 
 
 
 
