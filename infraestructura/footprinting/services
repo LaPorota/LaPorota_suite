@@ -1,0 +1,33 @@
+##############################################################################FTP
+###########FTP: TCP conection
+Soporta passwords
+##comandos:
+ls -R (listado recursivo)
+opciones como debug y trace nos permiten (en algunos casos obtener más información)
+status: nos muestra el estado del ftp incluyendo algunas posibilidades que tenemos como usuario.
+
+descargar todos los archivos de un ftp:
+wget -m --no-passive ftp://anonymous:anonymous@10.129.14.136
+nmap -p 21 -sC -A ip
+###########TFTP:(trivial file transfer protocol) UDP connection
+no soporta autenticación y permite solamente el lectura y escritura de archivos.
+Solo pueden verse archivos o carpetas que estén compartidos con todos los usuarios.
+usualmente se encuentra en redes internas.
+##comandos:
+Connect :conecta
+get
+put
+quit
+status
+verbose
+
+VsFTPd:
+El servidor ftp más usado en distribuciones linux. 
+config file == /etc/vsftpd.conf
+manual de configuraciones == http://vsftpd.beasts.org/vsftpd_conf.html
+en adición, el archivo ftpusers es una lista de los archivos que están prohibidos para loguearse.
+
+
+######################################### SMB
+
+
