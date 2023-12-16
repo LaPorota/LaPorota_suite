@@ -28,6 +28,22 @@ manual de configuraciones == http://vsftpd.beasts.org/vsftpd_conf.html
 en adición, el archivo ftpusers es una lista de los archivos que están prohibidos para loguearse.
 
 
-######################################### SMB
+######################################### SMB(Windows) SAMBA(Linux)
+
+Sirve para regular accesos a archivos y directorios y otros recursos, como impresoras, routers o interfaces dentro de una red. Carpeta compartida
+
+
+
+SMB Version 	Supported 	                            Features
+CIFS 	        Windows NT 4.0 	                        Communication via NetBIOS interface
+SMB 1.0 	    Windows 2000 	                          Direct connection via TCP
+SMB 2.0 	   Windows Vista, Windows Server 2008 	    Performance upgrades, improved message signing, caching feature
+SMB 2.1 	   Windows 7, Windows Server 2008 R2 	      Locking mechanisms
+SMB 3.0 	    Windows 8, Windows Server 2012 	        Multichannel connections, end-to-end encryption, remote storage access
+SMB 3.0.2 	  Windows 8.1, Windows Server 2012 R2 	
+SMB 3.1.1 	  Windows 10, Windows Server 2016 	      Integrity checking, AES-128 encryption
+
+
+samba config file== /etc/samba/smb.conf
 
 
