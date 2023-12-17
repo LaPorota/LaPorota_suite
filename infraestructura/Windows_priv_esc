@@ -146,6 +146,7 @@ runas /savecred /user:admin C:\PrivEsc\reverse.exe
 
 
 
+########################## SAM
 
 
 
