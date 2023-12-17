@@ -1,0 +1,1 @@
+xfreerdp /u:(username) /p:(password) /v:(Machine IP) /dynamic-resolution
