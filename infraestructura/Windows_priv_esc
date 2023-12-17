@@ -16,3 +16,10 @@ C:\Windows\Temp
 
 Conocer las apps/binarios bloqueados en el sistema:
 GetAppLockerPolicy == https://docs.microsoft.com/en-us/powershell/module/applocker/get-applockerpolicy?view=windowsserver2019-ps
+
+
+LISTAR USUARIOS =  net user
+
+ESCALADO DE REGISTRO CON AUTORUN:
+
+
