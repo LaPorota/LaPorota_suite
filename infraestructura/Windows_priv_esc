@@ -20,6 +20,7 @@ GetAppLockerPolicy == https://docs.microsoft.com/en-us/powershell/module/applock
 
 LISTAR USUARIOS =  net user
 
-ESCALADO DE REGISTRO CON AUTORUN:
+Explotación de servicios con permisos inseguros:
+
 
 
