@@ -29,6 +29,15 @@ LISTAR USUARIOS =  net user
 Listar procesos:
 tasklist /svc
 
+Ver variables de entorno:
+set
+
+ver información del sistema: 
+systeminfo
+En este apartado podremos ver cosas interesantes como la versión del sistema, si es una maquina física o una VM y la última vez que fue encendida (system boot time). Esto
+último nos da una idea de si ha recibido parches recientemente (una computadora que fue prendida hace 6 meses muy posiblemente no haya recibido parches de actualizaciones en
+ese tiempo)
+
 
 ##################################################################EXPLOTACION DE SERVICIOS
 
