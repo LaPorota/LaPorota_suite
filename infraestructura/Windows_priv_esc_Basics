@@ -25,6 +25,11 @@ GetAppLockerPolicy == https://docs.microsoft.com/en-us/powershell/module/applock
 LISTAR USUARIOS =  net user
 
 
+
+Listar procesos:
+tasklist /svc
+
+
 ##################################################################EXPLOTACION DE SERVICIOS
 
 ###################EXPLOTACIÖN DE SERVICIOS CON PERMISOS INSEGUROS:
