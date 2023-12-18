@@ -39,8 +39,15 @@ En este apartado podremos ver cosas interesantes como la versión del sistema, s
 ese tiempo)
 
 Ver los hot-fixes del sistema
-wmic qfe
+cmd: wmic qfe
+powershell: Get-HotFix | ft -AustoSize
 
+Ver los programas instalados:
+cmd: wmic product get name
+powershell: Get-WmiObject - Class Win32_Product | select Name, Version
+
+Ver las conexiones TCP y UDP en la pc:
+netstat -ano
 ##################################################################EXPLOTACION DE SERVICIOS
 
 ###################EXPLOTACIÖN DE SERVICIOS CON PERMISOS INSEGUROS:
