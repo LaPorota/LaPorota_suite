@@ -24,8 +24,6 @@ GetAppLockerPolicy == https://docs.microsoft.com/en-us/powershell/module/applock
 
 LISTAR USUARIOS =  net user
 
-
-
 Listar procesos:
 tasklist /svc
 
@@ -55,9 +53,6 @@ whoami /priv
 conocer los grupos a los que pertenece el user:
 whoami /groups
 
-listar users en el sistema:
-net user
-
 Listar grupos en el sistema:
 net localgroup
 
@@ -66,6 +61,9 @@ net localgroup GRUPO
 
 ver la política de passwords y otras informaciones de cuenta:
 net accounts
+
+ver los usuarios logueados y datos de sus sessiones:
+query user
 ##################################################################EXPLOTACION DE SERVICIOS
 
 ###################EXPLOTACIÖN DE SERVICIOS CON PERMISOS INSEGUROS:
