@@ -48,6 +48,24 @@ powershell: Get-WmiObject - Class Win32_Product | select Name, Version
 
 Ver las conexiones TCP y UDP en la pc:
 netstat -ano
+
+privilegios de nuestro user:
+whoami /priv
+
+conocer los grupos a los que pertenece el user:
+whoami /groups
+
+listar users en el sistema:
+net user
+
+Listar grupos en el sistema:
+net localgroup
+
+ver miembros de un grupo:
+net localgroup GRUPO
+
+ver la política de passwords y otras informaciones de cuenta:
+net accounts
 ##################################################################EXPLOTACION DE SERVICIOS
 
 ###################EXPLOTACIÖN DE SERVICIOS CON PERMISOS INSEGUROS:
