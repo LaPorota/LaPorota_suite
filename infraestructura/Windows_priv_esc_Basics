@@ -46,6 +46,7 @@ powershell: Get-WmiObject - Class Win32_Product | select Name, Version
 
 Ver las conexiones TCP y UDP en la pc:
 netstat -ano
+las conexiones al local host (127.0.0.1 o ::1) son de procesos que corren solamente dentro del sistema, son propensas entonces a ser menos seguras por no estar en expuestas. 
 
 privilegios de nuestro user:
 whoami /priv
