@@ -1,1 +1,7 @@
+REMOTE DESK CONECTION
 xfreerdp /u:(username) /p:(password) /v:(Machine IP) /dynamic-resolution
+
+UNZIP FILES LINUX:
+unzip file.zip
+
+gunzip -S .zip file.zip
