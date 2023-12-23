@@ -66,4 +66,15 @@ Exploiting sudo WGET:
 https://vk9-sec.com/wget-privilege-escalation/
 
 
+robar ssh KEYS:
+
+si podemos acceder a la carpeta ".ssh" de un user (/home/user/.ssh o root/.ssh), podemos leer la id_rsa.
+la copiamos y en nuestra máquina creamos con vim un id_rsa
+
+vim id_rsa
+
+copiamos el contenido de la key, luego esc ":w" esc ":x"
+
+luego nos conectamos por ssh con el nombre del usuario a impersonar y la instrucción -i id_rsa
+
 
