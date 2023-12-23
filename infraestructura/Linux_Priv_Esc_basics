@@ -51,7 +51,10 @@ export PATH=/"carpeta":$PATH
 corremos el script y como root ejecutará nuestro código malicioso.
 
 
-
+Aprovechar los NOPASSWD:
+si podemos correr un programa como otro usuario sin password (sudo -l)
+podemos impersonarlo usando el siguiente comando:
+sudo -u usuario_a_impersonar programa
 
 
 conseguir una rootbash en un sh escribible:
