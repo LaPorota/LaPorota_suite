@@ -1,0 +1,7 @@
+
+Ver carpetas compartidas:
+smbclient -N -L \\\\ip
+
+ingresar a una carpeta:
+smbclient \\\\ip\\carpeta
+
