@@ -78,3 +78,7 @@ copiamos el contenido de la key, luego esc ":w" esc ":x"
 luego nos conectamos por ssh con el nombre del usuario a impersonar y la instrucción -i id_rsa
 
 
+podemos generar también una ssh key si tenemos permiso de escritura en la carpeta .ssh/authorized_keys
+ssh-keygen -f key
+
+
