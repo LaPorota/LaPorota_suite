@@ -1,2 +1,11 @@
 Kerberos maneja tickets. Con el fin de evitar dar la contraseña a cada servicio genera tickets individuales a cada proceso.
 
+Para llevar adelante este ataque necesitamos un ticket válido de kerberos. Puede ser:
+-Un TGS(ticket granting service) el ticket específico para un servicio.
+-Un TGT (Ticket granting ticket) que sirve para pedir la generación de tickets para un servicio puntual.
+
+####Buscando tickets de kerberos:
+##Windows
+En windows los tickets de kerberos son guardados en el LSASS
+#Extraerlos con mimikatz
+mimikatz.exe privilege::debug "sekurlsa::tickets /export"
