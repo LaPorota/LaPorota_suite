@@ -1,1 +1,2 @@
+Kerberos maneja tickets. Con el fin de evitar dar la contraseña a cada servicio genera tickets individuales a cada proceso.
 
