@@ -5,3 +5,14 @@ Mostrar shares disponibles:
 showmount -e <ip>
 
 
+montar la partición compartida para recorrerla:
+mkdir target-NFS
+sudo mount -t nfs 10.129.14.128:/ ./target-NFS/ -o nolock
+cd target-NFS
+tree .
+
+Luego podemos recorrer el contenido como cualquier otro directorio.
+
+Para teminar, desmontamos:
+sudo umount ./target-NFS
+
