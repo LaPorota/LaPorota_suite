@@ -46,4 +46,12 @@ SMB 3.1.1 	  Windows 10, Windows Server 2016 	      Integrity checking, AES-128 
 
 samba config file== /etc/samba/smb.conf
 
+Conectando desde linux:
+Listar:
+smbclient -N -L //10.129.14.128
+
+conectarse a una carpeta compartida:
+smbclient //10.129.14.128/notes -U
+
+
 
