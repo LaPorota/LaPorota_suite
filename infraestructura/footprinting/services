@@ -57,3 +57,7 @@ podemos usar smbmap para listar contenidos:
 smbmap -H 10.129.14.128
 
 
+###############################################SMTP
+metasploit:
+scanner/smtp/smtp_enum
+
