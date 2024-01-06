@@ -1,1 +1,7 @@
+footprint con nmap:
+sudo nmap --script nfs* <ip> -sV -p<puerto>
+
+Mostrar shares disponibles:
+showmount -e <ip>
+
 
