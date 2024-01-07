@@ -1,7 +1,9 @@
-snmpwalk -v2c -c public <ip>
-
+Buscar etiquetas:
 sudo apt install onesixtyone
-
 onesixtyone -c /opt/useful/SecLists/Discovery/SNMP/snmp.txt <ip>
+nos va a devolver (si encuentra algo) información sobre el server. entre corchetes va a estar la etiqueta
+
+snmpwalk -v2c -c <etiqueta> <ip>
+
 
 sudo apt install braa
