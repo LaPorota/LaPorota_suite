@@ -1,0 +1,4 @@
+use auxiliary/scanner/ipmi/ipmi_version 
+
+escanear y dumpear hashes:
+use auxiliary/scanner/ipmi/ipmi_dumphashes 
