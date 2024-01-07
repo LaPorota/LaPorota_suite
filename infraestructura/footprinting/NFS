@@ -11,7 +11,7 @@ sudo mount -t nfs 10.129.14.128:/ ./target-NFS/ -o nolock
 cd target-NFS
 tree .
 
-Luego podemos recorrer el contenido como cualquier otro directorio.
+Luego podemos recorrer el contenido como cualquier otro directorio (si no nos deja ingresar, con la cuenta de root podemos)
 
 Para teminar, desmontamos:
 sudo umount ./target-NFS
