@@ -1,0 +1,3 @@
+responder -I <interface>
+
+podemos romper el ntlmv2 con hashcat 5600
