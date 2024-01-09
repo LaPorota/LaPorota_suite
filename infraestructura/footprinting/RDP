@@ -1,0 +1,8 @@
+Usualmente está alojado en el puerto 3389
+
+nmap -Pn -p3389 192.168.2.143 
+
+
+Conectarse:
+rdesktop -u admin -p password123 192.168.2.143
+
