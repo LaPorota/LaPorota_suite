@@ -1,0 +1,20 @@
+Una vez que tenemos credenciales para loguearnos por ssh a un servidor, podemos forwardear uno de sus servicios a uno de nuestros puertos locales:
+ssh -L <puerto_local>:localhost:<puerto_victima> <user>@<ip>
+
+podemos constatar si esto funcionó con netstat:
+netstat -antp | grep <puerto_local>
+
+podemos escanearlo para ver que el servicio sea el mismo que el de la victima:
+nmap -v -sV -p<puerto_local> localhost
+
+######################TUNELING SSG
+Crear una conexión utilizando la conexión ssh con la victima como tunel para realizar acciones:
+Creamos una conexión ssh y le decimos que todo se va a enrutar por medio de un puerto local (el puerto 9050 es el default de proxychains):
+ssh -D 9050 <victima>@<ip>
+
+Luego agregamos al proxy chains este puerto:
+sudo nano /etc/proxychains.conf
+socks4 	127.0.0.1 9050 
+
+luego, sin cerrar la conexión ssh podemos utilizar nuestras herramientas para escanear host de alguna de las subredes que son alcanzadas solo por el host victima utilizando proxychains:
+proxychains nmap....
