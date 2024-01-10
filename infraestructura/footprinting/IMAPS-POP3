@@ -1,7 +1,9 @@
+Imaps gestiona los mails, pop3 los envíos y recibidas.
+
 sudo nmap 10.129.14.128 -sV -p110,143,993,995 -sC
 
 conectar a imaps:
-openssl s_client -connect 10.129.14.128:imaps
+openssl s_client -connect 10.129.14.128:imaps o telnet <ip> 143
 1 LOGIN username password ///	User's login.
 1 LIST "" *	/// Lists all directories.
 1 CREATE "INBOX"	//// Creates a mailbox with a specified name.
@@ -11,11 +13,14 @@ openssl s_client -connect 10.129.14.128:imaps
 1 SELECT INBOX	////Selects a mailbox so that messages in the mailbox can be accessed.
 1 UNSELECT INBOX	///// Exits the selected mailbox.
 1 FETCH <ID> all	//// Retrieves data associated with a message in the mailbox.
+1 FETCH <id> body[] ///// shows the email body
 1 CLOSE	//// Removes all messages with the Deleted flag set.
 1 LOGOUT	//// Closes the connection with the IMAP server.
 
+
+
 conectar a pop3:
-openssl s_client -connect 10.129.14.128:pop3s
+openssl s_client -connect 10.129.14.128:pop3s o telnet <ip> 110
 
 USER username	//// Identifies the user.
 PASS password	//// Authentication of the user using its password.
