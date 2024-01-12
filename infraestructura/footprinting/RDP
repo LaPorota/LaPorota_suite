@@ -9,6 +9,10 @@ rdesktop -u admin -p password123 192.168.2.143
 REMOTE DESK CONECTION
 xfreerdp /u:(username) /p:(password) /v:(Machine IP) /dynamic-resolution
 
+remote desktop desde windows:
+mstsc /console
+seguir el wizzard
+
 #########Impersonar un usuario conectado por rdp:
 Necesitamos tener privilegios de administrador.
 primero vemos si hay otro usuario conectado:
