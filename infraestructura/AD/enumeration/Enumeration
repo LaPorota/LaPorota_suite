@@ -1,3 +1,4 @@
+
 #####PASIVA
 
 Identificando hosts de manera pasiva:
@@ -22,7 +23,7 @@ Podemos guardar el listado de todos los hosts descubiertos en un documento y lue
 
 sudo nmap -v -A -iL hosts.txt -oA /home/htb-student/Documents/host-enum (siempre debemos guardar el resultado durante un asset)
 
-##Enumerar users de un AD
+################################## Enumerar users de un AD sin credenciales:
 
 Para esto usamos la herramienta kerbrute:
 git clone https://github.com/ropnop/kerbrute.git
@@ -35,3 +36,22 @@ sudo mv kerbrute_linux_amd64 /usr/local/bin/kerbrute (este último paso es para 
 kerbrute userenum -d INLANEFREIGHT.LOCAL --dc <ip_domain_controller> <diccionario_de_users> -o valid_ad_users
 
 
+ENUM4LINUX:
+enum4linux -U 172.16.5.5  | grep "user:" | cut -f2 -d"[" | cut -f1 -d"]"
+
+RPCCLIENT :
+rpcclient -U "" -N 172.16.5.5
+--- enumdomusers
+
+CRACKMAPEXEC:
+crackmapexec smb 172.16.5.5 --users
+
+LDAPSEARCH:
+ldapsearch -h 172.16.5.5 -x -b "DC=INLANEFREIGHT,DC=LOCAL" -s sub "(&(objectclass=user))"  | grep sAMAccountName: | cut -f2 -d" "
+
+WINDAPSEARCH:
+./windapsearch.py --dc-ip 172.16.5.5 -u "" -U
+
+############################# ENUMERAR USERS DE AD CON CREDENCIALES:
+
+sudo crackmapexec smb 172.16.5.5 -u htb-student -p Academy_student_AD! --users
