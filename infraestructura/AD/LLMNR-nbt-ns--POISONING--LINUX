@@ -1,0 +1,15 @@
+LLMNR=Link-Local Multicast Name Resolution
+NBT-NS = NetBIOS Name Service
+
+Sirven como metodos alternativos de identificación de hosts cuendo el DNS falla ;) Cuando pasa esto, la máquina va a preguntarle al resto de las máquinas por la dirección correcta del host mediante LLMNR.
+Nativamente LLMNR usa el puerto 5355 UDP.
+Si LLMNR falla, va a usar NBT-NS. NBT-NS usa el puerto 137 UDP.
+
+Podemos utilizar el responder para poisonear estos tipos de request y que el resto de las máquinas se conecten con nosotros para que nos den sus hashes de usuario NetNTLM.
+
+sudo responder -I <interface>
+
+los resultados de los hashes coleccionados se encontrarán en la carpeta:
+ /usr/share/responder
+
+luego podemos crackear los hashes NTLMv2 con hashcat 5600
