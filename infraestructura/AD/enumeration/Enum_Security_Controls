@@ -1,0 +1,10 @@
+OBTENER EL ESTADO DEL DEFENDER
+Get-MpComputerStatus
+
+APPLOCKER:
+Es el whitelister de aplicaciones de windows.
+Get-AppLockerPolicy -Effective | select -ExpandProperty RuleCollections
+
+Si el powershell se encuentra bloqueado en una ruta sola podemos llamarlo desde otras locaciones:
+%SystemRoot%\SysWOW64\WindowsPowerShell\v1.0\powershell.exe
+PowerShell_ISE.exe
