@@ -8,3 +8,14 @@ Get-AppLockerPolicy -Effective | select -ExpandProperty RuleCollections
 Si el powershell se encuentra bloqueado en una ruta sola podemos llamarlo desde otras locaciones:
 %SystemRoot%\SysWOW64\WindowsPowerShell\v1.0\powershell.exe
 PowerShell_ISE.exe
+
+LAPS:
+Se usa para randomizar y rotar las passwords locales de administrador. Podemos ver quienes pueden leer estos archivos:
+Find-LAPSDelegatedGroups
+
+ Find-AdmPwdExtendedRights:
+Con esto podemos ver los extended rights que tienen los usuarios
+
+
+Get-LAPSComputers:
+Nos permite ver las computadoras que tienen LAPS instalado y a veces los passwords randomizados que estas poseen
