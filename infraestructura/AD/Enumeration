@@ -1,0 +1,37 @@
+#####PASIVA
+
+Identificando hosts de manera pasiva:
+SIEMPRE DEBEMOS GUARDAR LOS RESULTDOS PARA LUEGO MIRARLOS CON MAS DETENIMIENTO!!
+
+Podemos usar wireshark para identificar hosts por medio del protocolo ARP y mdns(este para encontrar host de resolución dns de las redes).
+
+Si el host es sin gráficos podemos usar tcpdump:
+sudo tcpdump -i <interfaz>
+
+Podemos también utilizar responder en modo analizis:
+sudo responder -I <interfaz> -A 
+
+
+####ACTIVA:
+
+Podemos usar fping(un ping con esteroides que envía múltiples paquetes a la vez para testear más rápido las trazas ICMP y nos devuelve información bien prsentada)
+fping -asgq 172.16.5.0/23
+
+
+Podemos guardar el listado de todos los hosts descubiertos en un documento y luego utilizar nmap contra él:
+
+sudo nmap -v -A -iL hosts.txt -oA /home/htb-student/Documents/host-enum (siempre debemos guardar el resultado durante un asset)
+
+##Enumerar users de un AD
+
+Para esto usamos la herramienta kerbrute:
+git clone https://github.com/ropnop/kerbrute.git
+cd kerbrute
+make all
+cd dist
+sudo mv kerbrute_linux_amd64 /usr/local/bin/kerbrute (este último paso es para agregarla al path y usarlo como variable de entorno)
+
+
+kerbrute userenum -d INLANEFREIGHT.LOCAL --dc <ip_domain_controller> <diccionario_de_users> -o valid_ad_users
+
+
