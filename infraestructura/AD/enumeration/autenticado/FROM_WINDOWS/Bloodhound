@@ -1,0 +1,5 @@
+Identifica vectores de ataque en un AD por medio de las relaciones de los objetos.
+
+SharpHound.exe
+
+.\SharpHound.exe -c All --zipfilename ILFREIGHT
