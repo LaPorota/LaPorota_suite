@@ -1,5 +1,8 @@
 https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon
 
+invocarlo desde poweshell
+ . .\PowerView.ps1
+
 Información sobre un usuario:
 Get-DomainUser -Identity <user> -Domain inlanefreight.local | Select-Object -Property name,samaccountname,description,memberof,whencreated,pwdlastset,lastlogontimestamp,accountexpires,admincount,userprincipalname,serviceprincipalname,useraccountcontrol
 
