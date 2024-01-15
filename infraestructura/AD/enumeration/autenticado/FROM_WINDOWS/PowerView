@@ -1,0 +1,18 @@
+https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon
+
+Información sobre un usuario:
+Get-DomainUser -Identity <user> -Domain inlanefreight.local | Select-Object -Property name,samaccountname,description,memberof,whencreated,pwdlastset,lastlogontimestamp,accountexpires,admincount,userprincipalname,serviceprincipalname,useraccountcontrol
+
+Traer información de un grupo de manera recursiva:
+Con el siguiente comando podemos traer información de los miembros de un grupo y si el AD ve que otros grupos están anidados a este, también nos traerá los miembros de dichos grupos
+que heredan las capacidades del primer grupo:
+Get-DomainGroupMember -Identity "<grupo>" -Recurse
+
+Enumerar confianzas:
+Get-DomainTrustMapping
+
+Testear si nuestro user tiene local admin access:
+Test-AdminAccess -ComputerName <host_name>
+
+Listar miembros con el atributo SPN (son a los que se les puede hacer kerberoasting)
+ Get-DomainUser -SPN -Properties samaccountname,ServicePrincipalName
