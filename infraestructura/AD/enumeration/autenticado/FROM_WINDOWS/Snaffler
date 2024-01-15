@@ -1,0 +1,5 @@
+https://github.com/SnaffCon/Snaffler
+Snaffler enumera hosts de un dominio, luego enumera los shares y luego recorre los directorios con permiso de lectura que tiene nuestro usuario buscando información valiosa.
+
+Snaffler.exe -s -d <dominio> -o snaffler.log -v data
+
