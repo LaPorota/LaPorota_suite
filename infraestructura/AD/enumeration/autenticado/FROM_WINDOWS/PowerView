@@ -16,3 +16,8 @@ Test-AdminAccess -ComputerName <host_name>
 
 Listar miembros con el atributo SPN (son a los que se les puede hacer kerberoasting)
  Get-DomainUser -SPN -Properties samaccountname,ServicePrincipalName
+
+#####SHARPVIEW
+Soporta los mismos comandos que powerview, pero sirve como evasión, al ser portable, cuando está prohibido tener un powershell o un powerview en un host.
+Información sobre un user:
+.\SharpView.exe Get-DomainUser -Identity <user>
