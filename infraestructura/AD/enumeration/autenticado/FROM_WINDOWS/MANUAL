@@ -1,0 +1,109 @@
+####################### BYpass logs
+Powershell desde la versión 3.0 guarda los logs de sesión. Para evitar esto, podemos usar versiones anteriores.
+
+Podemos ver la versión del powershell con el comando Get-host y si es mayor a 2, downgradear el ps.
+
+powershell.exe -version 2
+
+Quedará un log de la degradación del servicio, pero no de lo que hagamos luego.
+
+
+############################# ENUMERATION
+Nombre del host:
+hostname
+
+versión del SO:
+[System.Environment]::OSVersion.Version
+
+Parches & hotfixes:
+wmic qfe get Caption,Description,HotFixID,InstalledOn
+
+Imprimir las configuraciones y el estado de nuestro adaptador de red:
+ipconfig /all
+
+Mostrar listas de variables de entorno para la sesión:
+set
+
+ver domain name:
+echo %USERDOMAIN%
+
+ver el nombre del DC al que pertenece la pc
+echo %logonserver%
+
+Podemos cubrir toda la información anterior con:
+Systeminfo
+
+Saber los módulos que están activos en powershell:
+Get-Module
+
+Podemos conseguir la historia del powershell de un user (sinónimo del .bach_history)
+Get-Content C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Windows\Powershell\PSReadline\ConsoleHost_history.txt
+
+ver variables de entorno:
+Get-ChildItem Env: | ft Key,Value
+
+Ver estado de firewall:
+netsh advfirewall show allprofiles
+
+Ver el estado del defender:
+Get-MpComputerStatus
+
+Ver los usuarios logueados en el sistema:
+ qwinsta
+
+Mostrar tabla ARP
+arp -a
+
+Ver la tabla de ruteo
+route print
+
+Ver información del DomainController y de las relaciones de confianza:
+wmic ntdomain get Caption,Description,DnsForestName,DomainName,DomainControllerAddress
+
+
+############# FUNCIONES NET
+Para bypassear logs podemos usar el comando NET1
+Ver grupos del Dominio:
+net1 group /domain
+
+información sobre un user:
+net1 user /domain <user>
+
+net accounts	////Information about password requirements
+net accounts /domain	////Password and lockout policy
+net group /domain	////Information about domain groups
+net group "Domain Admins" /domain	////List users with domain admin privileges
+net group "domain computers" /domain	/////List of PCs connected to the domain
+net group "Domain Controllers" /domain	/////List PC accounts of domains controllers
+net group <domain_group_name> /domain	////User that belongs to the group
+net groups /domain	//////List of domain groups
+net localgroup	/////All available groups
+net localgroup administrators /domain	/////List users that belong to the administrators group inside the domain (the group Domain Admins is included here by default)
+net localgroup Administrators	//////Information about a group (admins)
+net localgroup administrators [username] /add	/////Add user to administrators
+net share	//////Check current shares
+net user <ACCOUNT_NAME> /domain	//////Get information about a user within the domain
+net user /domain	//////List all users of the domain
+net user %username%	//////Information about the current user
+net use x: \computer\share	//////Mount the share locally
+net view	//////Get a list of computers
+net view /all /domain[:domainname]	//////Shares on the domains
+net view \computer /ALL	//////List shares of a computer
+net view /domain	//////List of PCs of the domain
+
+############ DSquery
+
+Requiere permisos de administrador.
+
+Listar usuarios:
+dsquery user
+
+Listar computadoras:
+ dsquery computer
+
+Buscar users con password no requerido:
+dsquery * -filter "(&(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=32))" -attr distinguishedName userAccountControl
+
+Buscar DCs:
+ dsquery * -filter "(userAccountControl:1.2.840.113556.1.4.803:=8192)" -limit 5 -attr sAMAccountName
+
