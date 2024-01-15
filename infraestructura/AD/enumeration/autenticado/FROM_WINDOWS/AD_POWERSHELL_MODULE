@@ -1,0 +1,28 @@
+############################# ActiveDirectory PowerShell Module
+
+Es un módulo de powershell para administrar ADs. Tiene 147 comandos.
+
+Primero revisamos si está el módulo listando los módulos activos:
+Get-Module
+
+Si el módulo no está podemos importarlo
+Import-Module ActiveDirectory
+
+Información sobre el dominio:
+Get-ADDomain
+
+Información sobre los usuarios del dominio.
+Get-ADUser -Filter {ServicePrincipalName -ne "$null"} -Properties ServicePrincipalName
+
+Información sobre relaciones de confianza:
+Get-ADTrust -Filter *
+
+Enumerar grupos del AD:
+Get-ADGroup -Filter * | select name
+
+Información sobre un grupo:
+Get-ADGroup -Identity "<grupo>"
+
+Información sobre los miembros de un grupo:
+Get-ADGroupMember -Identity "<grupo>"
+
