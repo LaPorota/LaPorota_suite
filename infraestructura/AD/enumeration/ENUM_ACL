@@ -1,0 +1,36 @@
+###################PowerView
+
+La forma más practica es enumerar los ACLs en base a un usuario sobre el que tengamos control.
+Primero definimos el SID de un usuario en una variable de entorno
+
+Import-Module .\PowerView.ps1
+$sid = Convert-NameToSid <user>
+
+Luego podemos ver los objetos del dominio a los que tiene derecho:
+Get-DomainObjectACL -ResolveGUIDs -Identity * | ? {$_.SecurityIdentifier -eq $sid} 
+
+Los objetos se encontrarán en el atributo "ObjectDN" y los ACE se encontrarán en el "ObjectAceType" 
+
+Si encontramos un objeto sobre el que tenemos privilegios elevados en cuanto a ACEs, podemos seguirlo con el siguiente comando para ver hasta dónde nos puede llevar:
+
+$sid2 = Convert-NameToSid <object/user>
+Get-DomainObjectACL -ResolveGUIDs -Identity * | ? {$_.SecurityIdentifier -eq $sid2} -Verbose
+
+Si el objeto o user tiene privilegios elevados en algún grupo, podemos ver a qué otros grupos está anidado este grupo y, por ende, a qué permisos hereda.
+Get-DomainGroup -Identity "<group>" | select memberof
+
+Podemos entonces buscar los ACL de los otros grupos a los que está anidado este último grupo.
+$itgroupsid = Convert-NameToSid "<grupo>"
+Get-DomainObjectACL -ResolveGUIDs -Identity * | ? {$_.SecurityIdentifier -eq $itgroupsid} -Verbose
+
+De esta manera podemos seguir recursivamente viendo qué derechos privilegios podemos heredar, sobre qué objetos, sobre qué usuarios y qué privilegios tienen estos buscando
+lograr un vector de ataque que nos permita elevar nuestros privilegios o movernos lateralmente.
+
+####################POWERSEHLL
+Primero creamos una lista de users en el dominio:
+Get-ADUser -Filter * | Select-Object -ExpandProperty SamAccountName > ad_users.txt
+
+Luego la recorremos con un for each
+foreach($line in [System.IO.File]::ReadLines("C:\Users\htb-student\Desktop\ad_users.txt")) {get-acl  "AD:\$(Get-ADUser $line)" | Select-Object Path -ExpandProperty Access | Where-Object {$_.IdentityReference -match 'INLANEFREIGHT\\wley'}}
+
+EL objectype indica los ACE sobre los que tenemos permiso, pero se reproducirá de forma no legible para los humanos. Deberemos googlearlo para saber qué dice.
