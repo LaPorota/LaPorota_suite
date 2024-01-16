@@ -1,0 +1,20 @@
+Listas que definen qué usuario tiene privilegios para acceder a un file y el nivel de los mismos.
+Las settings de estas se llaman ACE.
+Hay dos tipos de ACLs: 
+DACL = Define los principios de seguridad que se dan a un objeto. Si no hay un DACL aplicado a un objeto, todos los que quieran acceder a él van a tener full rights.
+       si hay DACL pero no tiene ninguna ACE agregada, entonces nadie podrá acceder al archivo.
+SACL = Permite a los administradores a loguear los intentos de acceder a objetos seguros.
+
+ACEs. Hay tres tipos de ACE:
+Access denied = Muestran si un user o grupo tiene el acceso explicitamente denegado a un objeto.
+Access allowed = Muestran si un ""  "" "   """"""""""" Permitido a un objeto
+System audit = Auditan si un user o grupo intentó acceder a un objeto brindando información de si se dio el acceso o no y de qué forma.
+
+Los ACE están conformados por 4 componentes:
+1) SID del user o grupo que tiene acceso al objeto
+2) La flag del tipo de ACE (denegado, allowed, sistem audit)
+3) Flags que especifican si un objeto hijo  puede o no heredar los permisos de acceso del objeto padre.
+4) Una marca de acceso(valor de 32bits que define los permisos otorgados sobre el objeto)
+
+Los ACEs son importantes porque podemos abusar de ellos y usualmente, en empresas de grandes tamaños, son difíciles de manejar. Sus fallas de configuración tampoco saltan en scanners.
+
