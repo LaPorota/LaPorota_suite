@@ -5,6 +5,7 @@ Para realizar este ataque necesitamos tener un user con los permisos: Replicatin
 Los domain/enterprise admins y los default domain administrators los tienen por default.
 
 Conseguir el SID de un usuario:
+Import-Module .\PowerView.ps1
 Get-DomainUser -Identity adunn  |select samaccountname,objectsid,memberof,useraccountcontrol |fl
 
 SID viene en el parámetro "objectsid"
