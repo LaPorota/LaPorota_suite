@@ -9,6 +9,7 @@ $sid = Convert-NameToSid <user>
 Luego podemos ver los objetos del dominio a los que tiene derecho:
 Get-DomainObjectACL -ResolveGUIDs -Identity * | ? {$_.SecurityIdentifier -eq $sid} 
 
+Podemos también si queremos reducir el tiempo de la búsqueda, buscar sobre un objeto puntual cambiando el * de identity por "<user/object/group>"
 Los objetos se encontrarán en el atributo "ObjectDN" y los ACE se encontrarán en el "ObjectAceType" 
 
 Si encontramos un objeto sobre el que tenemos privilegios elevados en cuanto a ACEs, podemos seguirlo con el siguiente comando para ver hasta dónde nos puede llevar:
