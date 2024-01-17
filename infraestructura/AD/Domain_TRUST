@@ -1,0 +1,23 @@
+Muchas empresas grandes adquieren nuevas empresas a lo largo del tiempo. Migrar los usuarios de estas a la nueva empresa cuesta mucho trabajo y tiempo, 
+es por esto que directamente mantienen la subestructura del AD y entablan una relación de confianza con el nuevo dominio.
+En estos casos suelen heredar vulnerabilidades o desconfiguraciones.
+
+una TRUST establece una relación de forest-forest o domain-domain permitiendo a usuarios acceder a recursos de otros dominios fuera del main domine en el
+que la cuenta pertenece. La TRUST crea un link de autenticación entre sistemas y puede permitir comunicaciones en un sentido o bidireccionales.
+Una organización puede crear varios tipos de TRUST:
+Parent-child: Dos o más dominios dentro del mismo forest. Los child domain tienen una trust bilateral con el parent-domain. Los usuarios del child domain 
+              pueden autenticarse en el parent domain y visceversa.
+Cross-link: Una trust entre child domains para hacer más rápida la autenticación.
+External: Una trust no transitiva entre dos dominios de bosques separados que no estan unidos por forest trust. 
+Tree-root: Una comunicación bilateral transitiva entre un forest root domain y una nuevo tree root domain. Se crean por diseño cuando agregamos un nuevo tree root domain en un forest
+Forest: Una relación transitiva entre dos forest root domains
+ESAE: Un bosque utilizado para manejar el AD.
+
+Relaciones transitivas y no transitivas:
+Transitivas = Extienden las trust a objetos que el los que el child domain confía. Ejemplo:
+              Si el Domain A tiene una una relaciónd e confianza con el Domain B, y el Domain B tiene una relación transitiva con el Domain C, 
+              entonces el Domain A va a confiar automáticamente en el Domain C.
+No transitiva= El child domain es el único en quien confía.
+
+Usualmente los Domain Trust están mal configurados y nos pueden proveer vectores de ataque críticos.
+
