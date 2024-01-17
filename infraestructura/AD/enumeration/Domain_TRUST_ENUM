@@ -21,3 +21,16 @@ No transitiva= El child domain es el único en quien confía.
 
 Usualmente los Domain Trust están mal configurados y nos pueden proveer vectores de ataque críticos.
 
+ENUMeración de relaciones de confianza de un dominio:
+AD Powershell:
+Import-Module activedirectory
+Get-ADTrust -Filter *
+
+Powerview:
+import-module .\powerview.ps1
+Get-DomainTrust 
+
+Podemos también hacer un mapa de las trust del dominio para elegir un vector de ataque:
+Get-DomainTrustMapping
+
+De acá en más podemos empezar a enumerar las TRUST de nuestro domain para buscar movernos lateralmente o verticalmente.
