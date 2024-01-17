@@ -1,0 +1,59 @@
+Recorrer las computadoras del dominio para encontrar si un usuario tiene permisos para conectarse por medio de diferentes servicios.
+WINRM:
+# Specify the username you want to check
+$user = "A"
+
+# Get all computers in the domain
+$computers = Get-ADComputer -Filter *
+
+# Loop through each computer and check if the user has WinRM access
+foreach ($computer in $computers) {
+    $computerName = $computer.Name
+
+    # Test WinRM connection
+    $result = Test-WSMan -ComputerName $computerName -Credential $user -ErrorAction SilentlyContinue
+
+    if ($result) {
+        Write-Host "$user can connect to $computerName via WinRM"
+    }
+}
+
+
+RDP:
+# Especifica el nombre de usuario que deseas verificar
+$user = "A"
+
+# Obtiene todos los equipos en el dominio
+$computers = Get-ADComputer -Filter *
+
+# Loop a través de cada equipo y verifica la conexión RDP
+foreach ($computer in $computers) {
+    $computerName = $computer.Name
+
+    # Intenta establecer una conexión RDP
+    $result = Test-NetConnection -ComputerName $computerName -Port 3389 -ErrorAction SilentlyContinue
+
+    if ($result.TcpTestSucceeded) {
+        Write-Host "$user puede conectarse a $computerName mediante RDP"
+    }
+}
+
+
+MSSQL:
+# Especifica el nombre de usuario que deseas verificar
+$user = "A"
+
+# Obtiene todos los equipos en el dominio
+$computers = Get-ADComputer -Filter *
+
+# Loop a través de cada equipo y verifica la conexión a SQL Server
+foreach ($computer in $computers) {
+    $computerName = $computer.Name
+
+    # Intenta establecer una conexión a SQL Server (puerto 1433)
+    $result = Test-NetConnection -ComputerName $computerName -Port 1433 -ErrorAction SilentlyContinue
+
+    if ($result.TcpTestSucceeded) {
+        Write-Host "$user puede conectarse a SQL Server en $computerName"
+    }
+}
