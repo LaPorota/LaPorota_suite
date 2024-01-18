@@ -9,6 +9,8 @@ rdesktop -u admin -p password123 192.168.2.143
 REMOTE DESK CONECTION
 xfreerdp /u:(username) /p:(password) /v:(Machine IP) /dynamic-resolution
 
+para compartir una carpeta
+xfreerdp /u:(username) /p:(password) /v:(Machine IP) /dynamic-resolution /drive:SHARE,/path/shared
 remote desktop desde windows:
 mstsc /console
 seguir el wizzard
