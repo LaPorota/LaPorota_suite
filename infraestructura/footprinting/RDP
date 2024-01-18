@@ -10,7 +10,7 @@ REMOTE DESK CONECTION
 xfreerdp /u:(username) /p:(password) /v:(Machine IP) /dynamic-resolution
 
 para compartir una carpeta
-xfreerdp /u:(username) /p:(password) /v:(Machine IP) /dynamic-resolution /drive:SHARE,/path/shared
+xfreerdp /u:(username) /p:(password) /v:(Machine IP) /dynamic-resolution +clipboard /drive:SHARE,/path/shared
 remote desktop desde windows:
 mstsc /console
 seguir el wizzard
