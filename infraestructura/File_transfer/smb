@@ -7,6 +7,9 @@ auxiliary/scanner/smb/smb_login
 Ver carpetas compartidas:
 smbclient -N -L \\\\ip
 
+con aut:
+smbclient -L //192.168.1.100 -U john%secret_password
+
 ingresar a una carpeta:
 smbclient \\\\ip\\carpeta
 
