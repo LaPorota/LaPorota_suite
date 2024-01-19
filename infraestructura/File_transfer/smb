@@ -14,6 +14,9 @@ ingresar a una carpeta:
 smbclient \\\\ip\\carpeta
 
 
+desde windows powershell:
+ls \\academy-ea-dc01.inlanefreight.local\c$
+
 Facil smb traspaso:
 Attacker:
 sudo python3 /usr/share/doc/python3-impacket/examples/smbserver.py -smb2support CompData /home/path_donde_se_guardan_los_archivos
