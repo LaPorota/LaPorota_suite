@@ -28,6 +28,11 @@ manual de configuraciones == http://vsftpd.beasts.org/vsftpd_conf.html
 en adición, el archivo ftpusers es una lista de los archivos que están prohibidos para loguearse.
 
 
+traerse todo lo posible de un ftp:
+wget -m --no-passive ftp://anonymous:anonymous@10.10.10.98
+
+
+
 ######################################### SMB(Windows) SAMBA(Linux)
 
 Sirve para regular accesos a archivos y directorios y otros recursos, como impresoras, routers o interfaces dentro de una red. Carpeta compartida
