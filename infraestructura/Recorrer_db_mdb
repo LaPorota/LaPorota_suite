@@ -1,0 +1,2 @@
+con esto traemos todo el contenido de una db mdb
+for i in $(mdb-tables backup.mdb); do mdb-export backup.mdb $i > tables/$i; done
