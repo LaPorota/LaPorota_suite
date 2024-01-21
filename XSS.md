@@ -77,7 +77,10 @@ eval()=
 
 #### DOM Y JQUERY
 attr()=permite modificar un elemento del dom. Podríamos aprovecharnos con un codigo como este: javascript:alert(document.domain)
-$(): función selectora, nos permite inyectar objetos en el DOM. Podemos explotarlo creando un Iframe <iframe src="https://vulnerable-website.com#" onload="this.src+='<img src=1 onerror=alert(1)>'">
+
+$(): función selectora, nos permite inyectar objetos en el DOM. Podemos explotarlo creando un Iframe 
+
+        <iframe src="https://vulnerable-website.com#" onload="this.src+='<img src=1 onerror=alert(1)>'">
 
 
 Sinks más comunes para dom xss:
