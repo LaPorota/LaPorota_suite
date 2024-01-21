@@ -26,10 +26,9 @@ O la lista de usuarios en un json:
 #### BF:
         wpscan -url "" --usernames "" --passwords "dictio"
 
-pasar comando para insertar código como parametro:
 
-
-####Acceder a la pagina php con la shell
+### Explotar una WP desde la página de error 404
+#### Acceder a la pagina php con la shell
         http://"ip o url"/wp-content/themes/"tema"/404.php
 
 si la reverse shell es la monkey, para migrar a una shell más estable:
