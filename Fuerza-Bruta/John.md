@@ -14,7 +14,11 @@ John trae muchas herramientas para crackear archivos específicos. Estas transfo
 Ejemplo:
 
  <tool> <file_to_crack> > file.hash
+
+ 
   pdf2john server_doc.pdf > server_doc.hash
 
 luego podemos crackear el hash resultante con john.
+
+
 para encontrar estas herramientas: locate *2john*
