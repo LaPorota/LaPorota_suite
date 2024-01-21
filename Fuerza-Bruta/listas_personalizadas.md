@@ -21,9 +21,11 @@
     
 
 
-### crear listas personalizadas de users:
+### Crear listas personalizadas de users:
 
     git clone https://github.com/urbanadventurer/username-anarchy.git
+
+
     ./username-anarchy nombre_apellido > diccionario donde almacernar los resultados
 
 podemos modificar listas con hashcat aplicandole reglas para que estas sean modificadas en base a las mismas:
