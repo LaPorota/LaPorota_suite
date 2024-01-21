@@ -60,7 +60,7 @@ transversal en la subida, no debamos encodearlo en la ejecución).
 Fuerza bruta de extensión:
 Si nos encontramos un filtro de blacklist, podemos hacer fuerza bruta sobre la extención del archivo malicioso buscando una extención permitida.
 
-###### .htaccess poisoning/spoofing:
+#### .htaccess poisoning/spoofing:
 
 Podemos encontrarnos que no hay una extensión permitida dentro de las shells que necesitamos o que, aunque hubiera alguna, no hubiera permisos de ejecución. 
 Podemos subir un archivo .htaccess envenenado que nos permita la ejecucion:
