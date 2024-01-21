@@ -85,14 +85,22 @@ $(): función selectora, nos permite inyectar objetos en el DOM. Podemos explota
 
 Sinks más comunes para dom xss:
 document.write()
+
 document.writeln()
+
 document.domain
+
 element.innerHTML
+
 element.outerHTML
+
 element.insertAdjacentHTML
+
 element.onevent
 
+
 jquery:
+
 add()
 after()
 append()
