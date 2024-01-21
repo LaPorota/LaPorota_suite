@@ -83,7 +83,7 @@ $(): función selectora, nos permite inyectar objetos en el DOM. Podemos explota
         <iframe src="https://vulnerable-website.com#" onload="this.src+='<img src=1 onerror=alert(1)>'">
 
 
-Sinks más comunes para dom xss:
+#### Sinks más comunes para dom xss:
 document.write()
 
 document.writeln()
@@ -99,28 +99,48 @@ element.insertAdjacentHTML
 element.onevent
 
 
-jquery:
+#### jquery:
 
 add()
+
 after()
+
 append()
+
 animate()
+
 insertAfter()
+
 insertBefore()
+
 before()
+
 html()
+
 prepend()
+
 replaceAll()
+
 replaceWith()
+
 wrap()
+
 wrapInner()
+
 wrapAll()
+
 has()
+
 constructor()
+
 init()
+
 index()
+
 jQuery.parseHTML()
+
 $.parseHTML()
+
 
 
 
