@@ -12,6 +12,7 @@ Agrega algunas reglas, muchas vienen por default con llamar al comando. Estas re
 ###### cracking files:
 John trae muchas herramientas para crackear archivos específicos. Estas transforman la encriptación del archivo puntual en hashes con los que John puede trabajar
 Ejemplo:
+
  <tool> <file_to_crack> > file.hash
   pdf2john server_doc.pdf > server_doc.hash
 
