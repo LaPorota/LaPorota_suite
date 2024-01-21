@@ -1,13 +1,13 @@
 Siempre agregar las entidades luego de la declaración del XML!!!
 
-################# Idenificación
+### Idenificación
 
 CUando encontramos alguna request que posea un xml, primero vemos si alguno de los datos de la misma se ve reflejado en la response.
 Luego inyectamos en ese dato una nueva entidad:
 
-<!DOCTYPE "nombre" [
-  <!ENTITY "variable" "dato de la entidad">
-]>
+    <!DOCTYPE "nombre" [
+      <!ENTITY "variable" "dato de la entidad">
+    ]>
 
 Para llamar a la nueva entidad rellenamos el campo del xml con "&variable;" 
 Si el formulario es vulnerable mostrará el dato de la entidad, de no serlo mostrará &variable;
