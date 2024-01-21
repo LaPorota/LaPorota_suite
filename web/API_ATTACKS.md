@@ -72,7 +72,7 @@ un c√≥digo simple en python para aprovechar esta shell y transformarla en una m√
 
 #### FIle inclusion:
 cuando vemos que un endpoint nos permite buscar o presentar archivos (ej downloads) siempre es un buen momento para probar una LFI:
-curl "http://<TARGET IP>:3000/api/download/..%2f..%2f..%2f..%2fetc%2fhosts"
+                curl "http://<TARGET_IP>:3000/api/download/..%2f..%2f..%2f..%2fetc%2fhosts"
 siempre se recomienda encodear el payload.
 
 #### XSS
