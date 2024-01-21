@@ -1,7 +1,7 @@
 
-Single crack mode:
-John va a buscar romper el hash con una lista que tiene por defecto
-john --format=<hash_type> <hash or hash_file>
+##### Single crack mode:
+###### John va a buscar romper el hash con una lista que tiene por defecto
+  john --format=<hash_type> <hash or hash_file>
 
 Se le puede agregar una o más(separárndolas por comas) listas con el comando --wordlist
 john --format=<hash_type> <hash or hash_file> --wordlist=<word_list>
