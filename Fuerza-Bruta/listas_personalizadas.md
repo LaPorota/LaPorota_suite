@@ -7,7 +7,7 @@
     sed 's/^/prefijo/' diccionario.txt > diccionario_modificado.txt
 
 
-###Crear listas personalizadas de password:
+### Crear listas personalizadas de password:
 
 #### 1)usar cupp para generar el diccionario
 #### 2)Limpiar el diccionario en base a las politicas de contraseñas del sitio:
