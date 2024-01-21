@@ -1,16 +1,16 @@
-RPC scann
-nmap -p port --script=nfs-ls,nfs-statfs,nfs-showmount ip   
+#### RPC scann
+    nmap -p port --script=nfs-ls,nfs-statfs,nfs-showmount ip   
 
-Smb scann:
-nmap -p port --script=smb-enum-shares.nse,smb-enum-users.nse ip
-
-
+#### Smb scann:
+    nmap -p port --script=smb-enum-shares.nse,smb-enum-users.nse ip
 
 
-escalar privilegios con nmap (en la pc victima)
+
+
+#### Escalar privilegios con nmap (en la pc victima)
 si soporta el modo interactivo:
-nmap --interactive
-!sh
+    nmap --interactive
+    !sh
 
 /usr/share/nmap/scripts
 escaneo avanzado con evasión:
