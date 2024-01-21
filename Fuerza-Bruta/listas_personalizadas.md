@@ -13,17 +13,9 @@
 #### 2)Limpiar el diccionario en base a las politicas de contraseñas del sitio:
 
     sed -ri '/^.{,7}$/d' diccionario           # remove shorter than 8
-
-    
     sed -ri '/[!-/:-@\[-`\{-~]+/!d' diccionario # remove no special chars
-
-    
     sed -ri '/[0-9]+/!d' diccionario           # remove no numbers
-
-    
     sed -i '/[A-Z]/!d' diccionario             # remueve las palabras sin mayusculas
-
-    
     sed -i 's/\b[a-z][a-zA-Z0-9]*\b//g' diccionario #remueve todas las palabras que no inicien con mayuscula
 
     
