@@ -1,4 +1,4 @@
-Siempre agregar las entidades luego de la declaración del XML!!!
+### Siempre agregar las entidades luego de la declaración del XML!!!
 
 ### Idenificación
 
@@ -164,7 +164,7 @@ cramos un xml en nuestro servidor:
         git clone https://github.com/enjoiz/XXEinjector.git
 
 
-guardamos la request http que tenemos en burp a un archivo desde el inicio hasta la declaración del xml y agregamos xxeinject ej:
+##### Guardamos la request http que tenemos en burp a un archivo desde el inicio hasta la declaración del xml y agregamos xxeinject ej:
 
 POST /blind/submitDetails.php HTTP/1.1
 
