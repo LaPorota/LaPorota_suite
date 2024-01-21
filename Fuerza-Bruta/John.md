@@ -9,7 +9,7 @@
 --rules:
 Agrega algunas reglas, muchas vienen por default con llamar al comando. Estas reglas consisten en capitalizar letras, etc.
 
-##### cracking files:
+##### Cracking files:
 John trae muchas herramientas para crackear archivos específicos. Estas transforman la encriptación del archivo puntual en hashes con los que John puede trabajar
 Ejemplo:
 
