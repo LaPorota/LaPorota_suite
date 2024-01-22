@@ -34,6 +34,10 @@ O la lista de usuarios en un json:
 #### BF:
         wpscan -url "" --usernames "" --passwords "dictio"
 
+también puede hacerse:
+
+        sudo wpscan --password-attack xmlrpc -t 20 -U <user> -P <dictio> --url <sitio>
+
 
 ### Explotar una WP desde la página de error 404
 #### Acceder a la pagina php con la shell
