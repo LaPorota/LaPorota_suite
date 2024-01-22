@@ -12,5 +12,5 @@
 
 #### Automated scan:
 
-    perl joobscan.pl -u <site> --enumerate-components 
+    perl joomscan.pl -u <site> --enumerate-components 
     
