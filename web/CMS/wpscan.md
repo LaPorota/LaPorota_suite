@@ -7,7 +7,8 @@
 
 
 Tener en cuenta que cada plugin tiene un readme que se encuentra en:
-        /wp-content/plugins/ <plugin-name> /readme.txt
+
+/wp-content/plugins/<plugin-name>/readme.txt
 #### Passive themes enumeration
 
     curl -s -X GET http://blog.inlanefreight.com | sed 's/href=/\n/g' | sed 's/src=/\n/g' | grep 'themes' | cut -d"'" -f2
