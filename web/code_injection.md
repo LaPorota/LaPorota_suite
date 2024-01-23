@@ -104,6 +104,7 @@ o aplicando un reversing:
 #### Encodear un comando:
 
 ejemplo de comando pasado a base64:
+
     echo -n 'cat /etc/passwd | grep 33' | base64
 
 resultado: Y2F0IC9ldGMvcGFzc3dkIHwgZ3JlcCAzMw==
