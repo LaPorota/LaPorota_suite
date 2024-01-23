@@ -1,40 +1,34 @@
-#### ENUMERACIÖN DE SUBDOMINIOS:
+#### ENUMERACIÓN DE SUBDOMINIOS:
 ##### Asset Finder
     assetfinder --subs-only pagina
 
 ##### WFUZZ
     wfuzz -c -z file,'diccionario' -u 'target' -H 'HOST:FUZZ.target'
 
+Cancelar 404 o filesize 
 
     wfuzz -c -t 100 --hl=461 --hc=404 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -H "Host: FUZZ.schooled.htb" http://10.10.10.234
 
 #### ENUMERACIÖN DE DIRECTORIOS:
-dirb target
-searchdir -u target
-############Ffuf:
-ffuf -u <target_url>/FUZZ -w <wordlist_file> -e .<extension>
+##### Dirb:
+        dirb target
+##### Dirsearch
 
-ffuf -u <target_url>/FUZZ -w <wordlist_file> -e <extension> -mc 200
-########## Gobuster
-Easy search
-gobuster dir -u "url" -w "diccionario"
+        dirsearch -u target
+#### Ffuf:
 
-add files with extensions
+        ffuf -u <target_url>/FUZZ -w <wordlist_file> -e .<extension> 
 
-gobuster dir -u <target_url> -w <wordlist_file> -x <extension>
+#### Gobuster
+##### Easy search
+        gobuster dir -u "url" -w "diccionario"
 
+##### Add files with extensions
 
-###################################################### wpscan
-wpscan -url "" 
-wpscan -url "" --usernames "" --passwords "dictio"
+        gobuster dir -u <target_url> -w <wordlist_file> -x <extension>
 
 
 
-acceder a la pagina php con la shell
-http://"ip o url"/wp-content/themes/"tema"/404.php
-
-si la reverse shell es la monkey, para migrar a una shell más estable:
-python -c 'import pty;pty.spawn("/bin/bash")' 
 
 
 
