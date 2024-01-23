@@ -11,6 +11,6 @@ Si el server trabaja detrás de un reverse proxy podemos impulsar un error 404. 
 
 Otra forma es revisando el /docs:
 
-        curl -s http://app-dev.inlanefreight.local:8080/docs/ | grep Tomcat 
+    curl -s http://app-dev.inlanefreight.local:8080/docs/ | grep Tomcat 
 
 
