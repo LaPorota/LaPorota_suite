@@ -111,22 +111,29 @@ Podemos aprovechar también los PHAR:
 
 
 
-###########################LOG POISONING:
+### LOG POISONING:
 
 podemos envenenar un logs sobre los que tenga privilegios de lectura:
 
 
-############PHP SESSION POISONING:
+#### PHP SESSION POISONING:
 
 CUando un sitio usa una cookie PHPSESSID, guarda estos archivos en el backend:
-en linux: /var/lib/php/sessions/
-windows: C:\Windows\Temp\
+##### En linux
+                /var/lib/php/sessions/
+##### En Windows:
+                C:\Windows\Temp\
+
 si la cookie tiene el valor "el4ukv0kqbvoirg7nkp4dncpk3" será guardada en /var/lib/php/sessions/sess_el4ukv0kqbvoirg7nkp4dncpk3
 
 Si podemos acceder a nuestra session por medio de LFI, podemos ver los parametros que guarda y relacionarlos con los parametros
 que podemos controlar dentro del sitio, ejemplo: si el sitio nos permite cambiar de lenguaje, este sería un excelete parametro.
 podríamos cambiar el valor de el parametro con LFI por cualquier otro dato:
-http://<SERVER_IP>:<PORT>/index.php?language=session_poisoning
+
+
+                http://<SERVER_IP>:<PORT>/index.php?language=session_poisoning
+
+
 luego ingresar nuevamente al log de la sesión y ver si este último dato se encuentra en el mismo.
 Podríamos entonces agregar una shell simple:
 http://<SERVER_IP>:<PORT>/index.php?language=%3C%3Fphp%20system%28%24_GET%5B%22cmd%22%5D%29%3B%3F%3E
