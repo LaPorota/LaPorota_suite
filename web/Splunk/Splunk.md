@@ -10,3 +10,7 @@
 
     https://10.129.201.50:8000/en-US/app/launcher/home
 
+### Exploitation
+
+Podemos tener RCE si creamos una aplicación en python, batch o Powershell.
+
