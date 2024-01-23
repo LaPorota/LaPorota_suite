@@ -51,12 +51,18 @@ podemos encontrarnos otras medidas como firewalls que nos bloqueen los comandos,
 Case manipulation:
 WhOaMi 
 Para las terminales case-sensitive como la terminal de linux, podemos utilizar comandos como:
-$(tr "[A-Z]"%09"[a-z]"<<<"WhOaMi")
+
+  $(tr "[A-Z]"%09"[a-z]"<<<"WhOaMi")
+
+  
 o aplicando un reversing:
-linux:
-$(rev<<<'imaohw')
-windows:
-iex "$('imaohw'[-1..-20] -join '')"
+
+##### Linux:
+
+  $(rev<<<'imaohw')
+
+##### Windows:
+  iex "$('imaohw'[-1..-20] -join '')"
 
 encodear un comando:
 ejemplo de comando pasado a base64:
