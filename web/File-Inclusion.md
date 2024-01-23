@@ -1,4 +1,4 @@
-#############LFI
+### LFI
 
 intentar movimientos de path transversal:
 tricks:
@@ -7,21 +7,21 @@ agregar recursividad para que, al limpiar, el filtro elimine los bad chars permi
 buscará "../" este patrón, al eliminarlo nos quedará nuevamente un "../"
 encodear en unrl una o más veces el payload.
 
-filtros php:
+#### filtros php:
 
 podemos usar filtros php para poder leer el código fuente de archivos: php://filter/read=convert.base64-encode/resource=config
 
 podemos encontrar posibilidades de path transversal en la carga de objetos externos dentro del html:
 
-<img src="/loadImage?filename=218.png">
+        <img src="/loadImage?filename=218.png">
 
 podríamos utilizar esta funcionalidad encontrada en el img dentro de la barra de búsqueda:
 
-https://insecure-website.com/loadImage?filename=../../../etc/passwd
+        https://insecure-website.com/loadImage?filename=../../../etc/passwd
 
 mismo ejemplo en windows:
 
-https://insecure-website.com/loadImage?filename=..\..\..\windows\win.ini
+        https://insecure-website.com/loadImage?filename=..\..\..\windows\win.ini
 
 
 Cuando abrimos un archivo alojado en el servidor como por ejemplo, una imagen (accediendo al archivo en sí) podemos interceptar
@@ -29,7 +29,7 @@ la request e intentar, si hay una variable de entorno que lo llama, un path tran
 
 Aveces la funcionalidad que carga los archivos tiene una validación de extensión para determinar que el file es el correcto.
 esto podemos bypassearlo agregando algunos chars como 00%:
-filename=../../../etc/passwd%00.png
+        filename=../../../etc/passwd%00.png
 
 ############### RCE
 
