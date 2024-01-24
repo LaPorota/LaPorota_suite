@@ -21,8 +21,8 @@
 ###### Los archivos MAP permiten a las aplicaciones acceder a archivos grandes sin tener que leerlos o escribirlos en memoria(son un lugar genial para buscar claves harcodeadas).
 ##### 5)Le damos doble click y podemos ver los magic bytes 
 ##### 6)Damos click derecho y la "address" y le damos a "dump memory file".
-##### Lo corremos con strings y vemos qué info podemos obtener.
-
+##### 7)Lo corremos con strings y vemos qué info podemos obtener.
+    C:\TOOLS\Strings\strings64.exe .\restart-service_00000000001E0000.bin
 #### B explotar:
 
 Una vez que ya sabemos la arquitectura del programa y en qué está escrito podemos buscar algun reverse de ejecutables propio del lenguaje en que está escrito, correrlo y buscar la información.
