@@ -7,7 +7,7 @@
     https://github.com/dpgg101/GitLabUserEnum
 
 ### Exploit:
-
+If our version is 13.10.2 and we can get a user creds or create a user, we can use next exploit:
 #### URL
     https://www.exploit-db.com/exploits/49951
 #### USE
