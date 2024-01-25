@@ -23,6 +23,10 @@
 #### Buscar ssh-rsa:
       grep -rnw "ssh-rsa" /home/* 2>/dev/null | grep ":1"
 
+#### Listar las carpetas .ssh
+Al listar la carpeta si hay un file KNOWN_HOSTS, este contiene public keys para todos los hosts a los que el usuario se conectó.
+            ls ~/.ssh
+
 #### Ver el bash history:
       tail -n5 /home/*/.bash*
 
