@@ -1,5 +1,8 @@
 ## ENUMERATION
 
+### Información de uid:
+                id
+Si el user se encuentra dentro de los grupos: LXD, DOCKER,DISK o ADM ir al módulo 3-GROUP ABUSING
 ### 1)Enumerar usuarios:
 Las dos maneras de enumerar usuarios más certeras son:
 ##### Revisar los usuarios que tienen shells en el passwd:
