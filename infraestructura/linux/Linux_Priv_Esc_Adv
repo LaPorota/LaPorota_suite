@@ -40,7 +40,7 @@ netstat -i: muestra las interfaces
 netstat -antp | grep -i list : muestra servicios abiertos como ftp, localhost, etc...
 
 Podemos buscar un archivo que contenga una palabra si tenemos permiso de SUDO con:
-sudo grep -r "palabra" /
+grep -r "palabra" /
 
 
 find:
