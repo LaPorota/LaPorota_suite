@@ -12,8 +12,8 @@ cat /etc/issue: el archivo issue nos brinda info del sistema operativo, puede se
 ps : muestra los procesos que están corriendo en el sistema
 ps -A : muestra todos los procesos corriendo en el sistema
 ps axjf : muestra los árboles de procesos.
-ps aux: muestra todos los procesos agregando el user que los llama
-
+ps aux: muestra todos los procesos agregando el user que los llama incluyendo los demons y los que no están asociados a ninguna terminal.
+ps au: muestra los procesos asociados a usuarios
 env: muestra las variables de entorno del sistema
 
 sudo -l : muestra los comandos que podemos correr como root sin password desde un usuario inferior
