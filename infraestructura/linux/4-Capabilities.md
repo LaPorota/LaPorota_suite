@@ -15,13 +15,13 @@ Las capabilities permiten que corramos binarios con permisos elevados sin usar S
 - cap_sys_resource =	Allows to modify system resource limits, such as the maximum number of open file descriptors or the maximum amount of memory that can be allocated.
 - cap_sys_module =	Allows to load and unload kernel modules, potentially allowing it to modify the operating system's behavior or gain access to sensitive information.
 - cap_net_bind_service =	Allows to bind to network ports, potentially allowing it to gain access to sensitive information or perform unauthorized actions.
-
+### Valores de las cap
 - =	This value sets the specified capability for the executable, but does not grant any privileges. This can be useful if we want to clear a previously set capability for the executable.
 - +ep =	This value grants the effective and permitted privileges for the specified capability to the executable. This allows the executable to perform the actions that the capability allows but does not allow it to perform any actions that are not allowed by the capability.
 - +ei =	This value grants sufficient and inheritable privileges for the specified capability to the executable. This allows the executable to perform the actions that the capability allows and child processes spawned by the executable to inherit the capability and perform the same actions.
 - +p =	This value grants the permitted privileges for the specified capability to the executable. This allows the executable to perform the actions that the capability allows but does not allow it to perform any actions that are not allowed by the capability. This can be useful if we want to grant the capability to the executable but prevent it from inheriting the capability or allowing child processes to inherit it.
 
-Capabilities que pueden ser usadas para escalar privilegios:
+### Capabilities que pueden ser usadas para escalar privilegios:
 
 - cap_setuid =	Allows a process to set its effective user ID, which can be used to gain the privileges of another user, including the root user.
 - cap_setgid =	Allows to set its effective group ID, which can be used to gain the privileges of another group, including the root group.
