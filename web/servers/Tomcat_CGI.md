@@ -30,4 +30,4 @@ Encodeado:
 #### Con metasploit:
 Muy seguido nos encontramos que es difícil explotar estas apps puesto que el proceso es engorroso, metasploit tiene un módulo capaz de permitirnos una reverseshell
 
-use exploit/windows/http/tomcat_cgi_cmdlineargs
+            use exploit/windows/http/tomcat_cgi_cmdlineargs
