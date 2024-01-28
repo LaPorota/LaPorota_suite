@@ -29,6 +29,8 @@ Cancelar 404 o filesize
 
 
 
+### Enum vhosts
 
+        ffuf -w subdomains-10000.txt -H “Host: FUZZ.inlanefreight.local” -u http://MACHINE_IP -fs {size}
 
 
