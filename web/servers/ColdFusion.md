@@ -13,6 +13,10 @@
   - admin.cfm
   - CFIDE/administrator/index.cfm
  
-Suele disponibilizar dos carpetas importantes:
+##### Suele disponibilizar dos carpetas importantes:
 - CFIDE ( El path al login del admin se encuentra dentro de esta carpeta /CFIDE/administrator)
 - cfdocs
+
+### ATTACKING ColdFusion:
+
+Usar searchsploit
