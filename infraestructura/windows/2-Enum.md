@@ -39,6 +39,7 @@ En este apartado podremos ver cosas interesantes como la versión del sistema, s
 ese tiempo)
 
 #### Ver los hot-fixes del sistema
+
 ##### cmd
     wmic qfe
 ##### powershell 
