@@ -21,12 +21,29 @@ C:\Windows\Temp
 
 ## Sobre los usuarios
 
+#### privilegios de nuestro user:
+    whoami /priv
+
+#### conocer los grupos a los que pertenece el user:
+    whoami /groups
+
+#### Listar grupos en el sistema:
+    net localgroup
+
+#### ver miembros de un grupo:
+    net localgroup <GRUPO>
+
+#### LISTAR USUARIOS  
+    net user
+
+#### ver los usuarios logueados y datos de sus sessiones:
+    query user
+
 #### Conocer las apps/binarios bloqueados en el sistema:
     GetAppLockerPolicy == https://docs.microsoft.com/en-us/powershell/module/applocker/get-applockerpolicy?view=windowsserver2019-ps
 
 
-#### LISTAR USUARIOS  
-    net user
+
 
 #### Listar procesos:
     tasklist /svc
@@ -61,23 +78,12 @@ ese tiempo)
 
 las conexiones al local host (127.0.0.1 o ::1) son de procesos que corren solamente dentro del sistema, son propensas entonces a ser menos seguras por no estar en expuestas. 
 
-#### privilegios de nuestro user:
-    whoami /priv
 
-#### conocer los grupos a los que pertenece el user:
-    whoami /groups
-
-#### Listar grupos en el sistema:
-    net localgroup
-
-#### ver miembros de un grupo:
-    net localgroup <GRUPO>
 
 #### ver la política de passwords y otras informaciones de cuenta:
     net accounts
 
-#### ver los usuarios logueados y datos de sus sessiones:
-    query user
+
 
 
 
