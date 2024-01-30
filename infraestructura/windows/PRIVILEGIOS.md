@@ -52,3 +52,10 @@ Restore files and directories
 Administrators	
 
 This security setting determines which users can bypass file, directory, registry, and other persistent object permissions when they restore backed up files and directories. It determines which users can set valid security principals as the owner of an object.
+
+
+
+
+## SeImpersonate
+
+
