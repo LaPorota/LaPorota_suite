@@ -1,4 +1,4 @@
-Si tenemos acceso como administradores en el equipo victima, hay tres archivos del registro interesantes de copiar para luego intentar crackear offline:
+Si tenemos acceso como administradores en el equipo victima o privilegios de SeBackupPrivileges, hay tres archivos del registro interesantes de copiar para luego intentar crackear offline:
 hklm\sam : Contiene los hashes asociados con la cuenta local.
 hklm\system: contiene la bootkey con la que fue encriptada la SAM
 hklm\security: Guarda en la caché las credenciales de las cuentas de dominio.
