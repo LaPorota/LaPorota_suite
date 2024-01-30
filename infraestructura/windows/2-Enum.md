@@ -18,6 +18,9 @@ https://tryhackme.com/room/windows10privesc
 Carpeta TMP:
 C:\Windows\Temp
 
+
+## Sobre los usuarios
+
 #### Conocer las apps/binarios bloqueados en el sistema:
     GetAppLockerPolicy == https://docs.microsoft.com/en-us/powershell/module/applocker/get-applockerpolicy?view=windowsserver2019-ps
 
