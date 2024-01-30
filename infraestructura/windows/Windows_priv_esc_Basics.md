@@ -50,7 +50,8 @@ ese tiempo)
 ##### powershell
     Get-WmiObject - Class Win32_Product | select Name, Version
 
-####Ver las conexiones TCP y UDP en la pc:
+### Ver las conexiones TCP y UDP en la pc:
+    
     netstat -ano
 
 
