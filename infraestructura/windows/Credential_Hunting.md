@@ -32,3 +32,14 @@ También traer contraseñas de chrome:
 
     gc 'C:\Users\htb-student\AppData\Local\Google\Chrome\User Data\Default\Custom Dictionary.txt' | Select-String password
 
+Powershell History
+
+    gc (Get-PSReadLineOption).HistorySavePath
+
+Podemos también en un oneliner recorrer todos los archivos historicos de powershell a los que tenemos acceso
+
+    foreach($user in ((ls C:\users).fullname)){cat "$user\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt" -ErrorAction SilentlyContinue}
+
+El archivo unnatend.xml puede tener contraseñas también
+
+
