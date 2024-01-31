@@ -21,5 +21,6 @@ Ejemplo:
 luego podemos crackear el hash resultante con john.
 
 
-para encontrar estas herramientas: locate 
-            *2john*
+para encontrar estas herramientas: 
+
+            locate *2john*
