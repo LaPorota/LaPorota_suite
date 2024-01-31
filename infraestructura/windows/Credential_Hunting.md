@@ -66,5 +66,5 @@ Podemos acceder a ella y luego robarla para cargarla en nuestra pc atacante o du
 - Invoke-SqliteQuery -Database $db -Query "SELECT Text FROM Note" | ft -wrap
 
 ##### Linux:
-- Robamos el archivo plum.sqlite-wal
+- Robamos el archivo
 - Corremos con strings
