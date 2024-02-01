@@ -98,5 +98,6 @@ para esto podemos usar SessionGopher
 
 ##### 1) listamos las redes
         netsh wlan show profile
-##### 2) netsh wlan show profile <red> key=clear
+##### 2) Dumpeamos los datos
+        netsh wlan show profile <red> key=clear
         
