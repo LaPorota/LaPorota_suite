@@ -71,15 +71,32 @@ Podemos acceder a ella y luego robarla para cargarla en nuestra pc atacante o du
 
 #### Cmdkey saved credentials
 Podemos listar las keys guardadas en el cmd. En un entorno de AD podríamos llegar a encontrar contraseñas guardadas que nos permitan acceder a otros recursos con su ruta incluída.
+
         cmdkey /list
 
 También podemos correr cosas como el usuario si tiene las creds guardadas en el cmd
+
         runas /savecred /user:inlanefreight\bob "COMMAND HERE"
 
 #### Extraer credenciales de los browsers:
 Podemos usar herramientas como sharpchrome para lograrlo
+
         .\SharpChrome.exe logins /unprotect
 
 
+#### Extraer credenciales de Putty, Winscp, Filezilla, SuperPutty y RDP
+para esto podemos usar SessionGopher
 
+        Import-Module .\SessionGopher.ps1
+        
+        Invoke-SessionGopher -Target <Domain>
+
+#### Clear-text passwords en el registro
+        HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
+
+#### Contraseñas de wifi
+
+##### 1) listamos las redes
+        netsh wlan show profile
+##### 2) netsh wlan show profile <red> key=clear
         
