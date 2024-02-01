@@ -68,3 +68,18 @@ Podemos acceder a ella y luego robarla para cargarla en nuestra pc atacante o du
 ##### Linux:
 - Robamos el archivo
 - Corremos con strings
+
+#### Cmdkey saved credentials
+Podemos listar las keys guardadas en el cmd. En un entorno de AD podríamos llegar a encontrar contraseñas guardadas que nos permitan acceder a otros recursos con su ruta incluída.
+        cmdkey /list
+
+También podemos correr cosas como el usuario si tiene las creds guardadas en el cmd
+        runas /savecred /user:inlanefreight\bob "COMMAND HERE"
+
+#### Extraer credenciales de los browsers:
+Podemos usar herramientas como sharpchrome para lograrlo
+        .\SharpChrome.exe logins /unprotect
+
+
+
+        
