@@ -68,8 +68,9 @@ ese tiempo)
 ##### cmd
     wmic product get name
 ##### powershell
-    Get-WmiObject - Class Win32_Product | select Name, Version
-
+    $INSTALLED = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* |  Select-Object DisplayName, DisplayVersion, InstallLocation
+    $INSTALLED += Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion, InstallLocation
+    $INSTALLED | ?{ $_.DisplayName -ne $null } | sort-object -Property DisplayName -Unique | Format-Table -AutoSize
 ### Ver las conexiones TCP y UDP en la pc:
     
     netstat -ano
@@ -82,3 +83,6 @@ las conexiones al local host (127.0.0.1 o ::1) son de procesos que corren solame
 #### ver la política de passwords y otras informaciones de cuenta:
     net accounts
 
+
+
+  
