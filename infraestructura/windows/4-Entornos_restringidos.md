@@ -8,3 +8,8 @@ Estos casos son muchos, dejo la guia de htb
 
     https://academy.hackthebox.com/module/67/section/2502
 
+### Explotación por medio de librerías.
+Muchas veces nos vemos impedidos de correr archivos .exe, en esos casos podemos intentar correr librerías con payloads maliciosos.
+
+    rundll32.exe <DLL>
+
