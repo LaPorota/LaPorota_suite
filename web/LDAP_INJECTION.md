@@ -24,3 +24,13 @@ Todos los search filters deben estar encerrados en paréntesis. Cada componente 
 - ">=" : mayor o igual que
 - "<=" : Menor o igual que
 - "~=" : Aproximadamente
+
+#### Concatenadores:
+- "(&()())" : AND. ejemplo:  "(&(name=Kaylie)(title=Manager))"
+- "(|()())" : OR. ejemplo: "(|(name=Kaylie)(title=Manager))"
+- "(!())" : NOT. ejemplo: "(!(name=Kaylie))"
+
+#### Wildcards
+- (name=*) matchea todas las entries que tengan un atributo "name"
+- (name=k*) matchea todas las entries que tengan un atriburo "name" y cuyo valor inicie con k
+- (name=\*a\*) matchea todas las entries con atributo name y que dentro de su valor tenga una letra a
