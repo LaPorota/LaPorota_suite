@@ -1,6 +1,7 @@
-## Authentication bypass
-
+# INFO
 El xpath injection funciona parecido a las SQLI (es como una prima). Posee una sintaxis diferente y aborda los indexes de nodos dentro de un xml.
+
+## Authentication bypass
 
 #### Bypass mediante boolean simple:
 
