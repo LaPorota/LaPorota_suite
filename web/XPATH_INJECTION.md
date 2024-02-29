@@ -1,7 +1,7 @@
 # INFO
 El xpath injection funciona parecido a las SQLI (es como una prima). Posee una sintaxis diferente y aborda los indexes de nodos dentro de un xml.
 
-## Authentication bypass
+## Authentication Bypass
 
 #### Bypass mediante boolean simple:
 
@@ -19,4 +19,12 @@ El xpath injection funciona parecido a las SQLI (es como una prima). Posee una s
 
     ' or contains(.,'admin') or '
 
+
+## Data Exfiltration
+
+#### Basic Data Exfiltration
+##### REHACER EL MODULO Y TOMAR BIEN NOTA
+
+
+    
 
