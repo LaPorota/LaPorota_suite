@@ -1,1 +1,3 @@
 ./GetNPUsers.py [The Domain Name]/ -usersfile [filename of your userlist] -no-pass -dc-ip [the IP address of the DC]
+
+Hashcat 18200
