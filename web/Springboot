@@ -1,0 +1,3 @@
+Si encontramos una página hecha con springboot podemos hacer una enumeración con la lista de seclist
+
+ffuf -w /usr/share/wordlists/SecLists/Discovery/Web-Content/spring-boot.txt  -u http://cozyhosting.htb/FUZZ
