@@ -1,0 +1,3 @@
+https://github.com/cornerpirate/JS2PDFInjector
+
+java -jar JS2PDFInjector.jar $pdf /path/to/javascript.js
