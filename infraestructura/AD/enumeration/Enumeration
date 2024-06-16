@@ -18,6 +18,8 @@ sudo responder -I <interfaz> -A
 Podemos usar fping(un ping con esteroides que envía múltiples paquetes a la vez para testear más rápido las trazas ICMP y nos devuelve información bien prsentada)
 fping -asgq 172.16.5.0/23
 
+Manuelmente:
+for i in {1..255};do ping -c 1 192.168.110.$i > /dev/null; if [ $? -eq 0 ];then echo 192.168.110.$i;fi;done
 
 Podemos guardar el listado de todos los hosts descubiertos en un documento y luego utilizar nmap contra él:
 
