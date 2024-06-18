@@ -1,1 +1,5 @@
+Permitir correr scripts:
 set-executionpolicy remotesigned
+
+Apagar antivirus
+Powershell -ep bypass
