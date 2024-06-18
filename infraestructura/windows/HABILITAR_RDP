@@ -1,0 +1,6 @@
+1:
+Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -value 0
+
+Luego:
+
+New-NetFirewallRule -Displayname "Remote Desktop" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 3389
