@@ -105,5 +105,7 @@ Las operaciones de actualización o update de documentos cuentan con dos operado
 
         
 
+### Remover documentos:
 
+        db.apples.remove({price: {$lt: 0.8}})
 
