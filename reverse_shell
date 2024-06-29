@@ -1,4 +1,3 @@
-
 ############################################################### Java (jenkins)
 conseguir shell inversa desde el script console
 r = Runtime.getRuntime()
