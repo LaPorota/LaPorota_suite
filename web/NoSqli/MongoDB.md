@@ -40,6 +40,15 @@ Podemos también insertar múltiples documentos agregando otro json separado por
 
         db.apples.find({})
 
+## Operadores de query:
+
+| operador | descripción | ejemplo |
+|-----------|-----------|-----------|
+| $eq   | matchea los valores iguales a "x"|  type: {$eq: "Pink Lady"}    |
+| $gt | Datos     | Datos     |
+| Fila 3    | Datos     | Datos     |
+
+
 ### Seleccionar datos:
 
         db.apples.find({<field>:<value>})
