@@ -96,3 +96,14 @@ db.apples.find({
     ]
 });
 
+
+### Updatear documentos:
+
+Las operaciones de actualización o update de documentos cuentan con dos operadores: uno de filtrado y uno de update. El filtro selecciona un documento mientras que el update indica el nuevo valor:
+
+        db.apples.updateOne({type: "Granny Smith"}, {$set: {price: 1.99}})
+
+        
+
+
+
