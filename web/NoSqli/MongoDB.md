@@ -75,4 +75,24 @@ Podemos también insertar múltiples documentos agregando otro json separado por
 |-----------|-----------|-----------|
 | $mod    | Busca valores que divididos por un número específico dan como resultado un valor específico     | price: {$mod: [4, 0]}     |
 | $regex    | Busca expresiones regulares     | type: {$regex: /^G.*/}     |
-| $where    | Matchea documentos que tengan una expresión JS     | $where: 'this.type.length === 9'     |
+| $where    | Matchea documentos en base a expresiones javascript     | $where: `this.price < 0.70`    |
+
+
+### Ejemplo de búsqueda con operadores:
+Buscamos en todos los documentos valores de la clave type" que empiecen con "G" y que sean de un "precio" menor a "0.70"
+
+db.apples.find({
+    $and: [
+        {
+            type: {
+                $regex: /^G/
+            }
+        },
+        {
+            price: {
+                $lt: 0.70
+            }
+        }
+    ]
+});
+
