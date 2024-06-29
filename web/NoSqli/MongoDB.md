@@ -40,17 +40,22 @@ Podemos también insertar múltiples documentos agregando otro json separado por
 
         db.apples.find({})
 
-## Operadores de query:
-
-| operador | descripción | ejemplo |
-|-----------|-----------|-----------|
-| $eq   | matchea los valores iguales a "x"|  type: {$eq: "Pink Lady"}    |
-| $gt | Datos     | Datos     |
-| Fila 3    | Datos     | Datos     |
-
 
 ### Seleccionar datos:
 
         db.apples.find({<field>:<value>})
 
 
+## Operadores de query:
+
+### Comparativos:
+
+| operador | descripción | ejemplo |
+|-----------|-----------|-----------|
+| $eq   | matchea los valores iguales a "x"|  type: {$eq: "Pink Lady"}    |
+| $gt | matchea los valores mayores a "X"     | price: {$gt: 0.30}     |
+| $gte    | matchea valores mayores o iguales a "x"     | price: {$gte: 0.50}    |
+| $in    | Busca si un valor exite en un array específico     | type: {$in: ["Granny Smith", "Pink Lady"]}    |
+| $lt    | matchea valores menores a "x"    |   price: {$lt: 0.60}   |
+| $lte    | matchea valores menores o iguales a "x"     |   price: {$lte: 0.75}   |
+| $nin    | busca si un dato no se encuentra en un array específico     |  type: {$nin: ["Golden Delicious", "Granny Smith"]}    |
