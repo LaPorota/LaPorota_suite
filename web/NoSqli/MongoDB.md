@@ -81,20 +81,20 @@ Podemos también insertar múltiples documentos agregando otro json separado por
 ### Ejemplo de búsqueda con operadores:
 Buscamos en todos los documentos valores de la clave type" que empiecen con "G" y que sean de un "precio" menor a "0.70"
 
-db.apples.find({
-    $and: [
-        {
-            type: {
-                $regex: /^G/
-            }
-        },
-        {
-            price: {
-                $lt: 0.70
-            }
-        }
-    ]
-});
+        db.apples.find({
+            $and: [
+                {
+                    type: {
+                        $regex: /^G/
+                    }
+                },
+                {
+                    price: {
+                        $lt: 0.70
+                    }
+                }
+            ]
+        });
 
 
 ### Updatear documentos:
