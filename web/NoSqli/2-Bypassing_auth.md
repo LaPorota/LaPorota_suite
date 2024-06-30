@@ -14,6 +14,10 @@ BUscamos un caso de resolución negativa. Luego agregamos a la variable del post
 
 De esta forma el loging buscara datos que no matcheen con los introducidos y nos dará el acceso como el primer dato de la lista(que usualmente es el admin :D ).
 
+#### Si tuvieramos un usuario pero no su contraseña, podríamos también aplicarlo sobre el campo password:
+
+    username=admin&password[$ne]=x
+
 ### Por expresiones regulares:
 
 Podemos abusar de las expresiones regulares para poder traernos todos los registros y matcheará el primer registro como datos de login agregando la expresión [$regex]=.*
