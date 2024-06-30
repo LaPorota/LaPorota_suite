@@ -27,23 +27,27 @@ el campo _id se recerba como primary key del documento y debe ser único para to
 
         use <db>
 
+### Mostrar las colecciones dentro de una DB
+
+        show collections
+
 ### Insertar datos en una db:
 
-        db.apples.insertOne({<field:<value>, <field>:<value>})
+        db.<collection>.insertOne({<field:<value>, <field>:<value>})
 
 Podemos también insertar múltiples documentos agregando otro json separado por una coma:
 
-        db.apples.insertOne({<field:<value>, <field>:<value>}, {<field:<value>, <field>:<value>})
+        db.<collection>.insertOne({<field:<value>, <field>:<value>}, {<field:<value>, <field>:<value>})
 
 
 ### Listar todos los documentos en una colección:
 
-        db.apples.find({})
+        db.<collection>.find({})
 
 
 ### Seleccionar datos:
 
-        db.apples.find({<field>:<value>})
+        db.<collection>.find({<field>:<value>})
 
 
 ## Operadores de query:
@@ -81,7 +85,7 @@ Podemos también insertar múltiples documentos agregando otro json separado por
 ### Ejemplo de búsqueda con operadores:
 Buscamos en todos los documentos valores de la clave type" que empiecen con "G" y que sean de un "precio" menor a "0.70"
 
-        db.apples.find({
+        db.<collection>.find({
             $and: [
                 {
                     type: {
@@ -101,11 +105,11 @@ Buscamos en todos los documentos valores de la clave type" que empiecen con "G" 
 
 Las operaciones de actualización o update de documentos cuentan con dos operadores: uno de filtrado y uno de update. El filtro selecciona un documento mientras que el update indica el nuevo valor:
 
-        db.apples.updateOne({type: "Granny Smith"}, {$set: {price: 1.99}})
+        db.<collection>.updateOne({type: "Granny Smith"}, {$set: {price: 1.99}})
 
         
 
 ### Remover documentos:
 
-        db.apples.remove({price: {$lt: 0.8}})
+        db.<collection>.remove({price: {$lt: 0.8}})
 
