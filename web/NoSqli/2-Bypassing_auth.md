@@ -18,5 +18,5 @@ De esta forma el loging buscara datos que no matcheen con los introducidos y nos
 
 Podemos abusar de las expresiones regulares para poder traernos todos los registros y matcheará el primer registro como datos de login agregando la expresión [$regex]=.*
 
-username[$regex]=.*&password[$regex]=.*
+username[$regex]=.\*&password[$regex]=.\*
 
