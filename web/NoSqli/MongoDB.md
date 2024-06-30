@@ -79,7 +79,7 @@ Podemos también insertar múltiples documentos agregando otro json separado por
 |-----------|-----------|-----------|
 | $mod    | Busca valores que divididos por un número específico dan como resultado un valor específico     | price: {$mod: [4, 0]}     |
 | $regex    | Busca expresiones regulares     | type: {$regex: /^G.*/}     |
-| $where    | Matchea documentos en base a expresiones javascript     | $where: `this.price < 0.70`    |
+| $where    | Matchea documentos en base a expresiones javascript     | $where: `this.price < 0.70 && this.firstName.length === 6 and this.lastName.startsWith('R')`    |
 
 
 ### Ejemplo de búsqueda con operadores:
