@@ -24,3 +24,14 @@ Podemos abusar de las expresiones regulares para poder traernos todos los regist
 
 username[$regex]=.\*&password[$regex]=.\*
 
+
+### Por length:
+
+Podemos también aplicar lógica para validar todo dato cuyo length sea mayor a 0
+
+        username[$gt]=&password[$gt]=
+
+
+Otra opción con la misma lógica sería:
+
+        username[$gte]=&password[$gte]=
