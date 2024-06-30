@@ -11,3 +11,13 @@ https://github.com/cr0hn/nosqlinjection_wordlists/blob/master/mongodb_nosqli.txt
 
     wfuzz -z file,/usr/share/seclists/Fuzzing/Databases/NoSQL.txt -u http://127.0.0.1/index.php -d '{"trackingNum": FUZZ}'
 
+
+### NoSQLmap
+
+    git clone https://github.com/codingo/NoSQLMap.git
+
+
+### BurpSuite NoSQLIScanner
+
+    https://github.com/matrix/Burp-NoSQLiScanner
+
