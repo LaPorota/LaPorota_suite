@@ -8,7 +8,7 @@ Podemos aprovechar los operadores para forzar una exfiltración de toda la data 
 
 ### No-Match
 
-    variable[$ne]=noexistente
+        variable[$ne]=noexistente
 
 ### Length
 
@@ -16,17 +16,17 @@ En este caso los terminos a buscar van en blanco.
 
 Buscar todos los documentos que sean mayores que
 
-    variable[$gt]=
+        variable[$gt]=
 
 Buscar todos los documentos que sean mayores o iguales a
 
-    variable[$gte]=
+        variable[$gte]=
 
 ### TILDA
 Usamos la tilda para buscar todos los datos que sean menores a la misma (tilda es el valor imprimible más largo de los valores ASCII).
 
-    variable[$lt]=~
+        variable[$lt]=~
 
 Misma lógica con menor o igual:
 
-    variable[$lte]=~
+        variable[$lte]=~
