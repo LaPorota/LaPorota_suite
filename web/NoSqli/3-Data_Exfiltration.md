@@ -4,7 +4,7 @@ Podemos aprovechar los operadores para forzar una exfiltración de toda la data 
 
 ### Regex:
 
-        variable[$regex]=.\*
+        variable[$regex]=.*
 
 ### No-Match
 
