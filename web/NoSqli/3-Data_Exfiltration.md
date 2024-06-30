@@ -30,3 +30,13 @@ Usamos la tilda para buscar todos los datos que sean menores a la misma (tilda e
 Misma lógica con menor o igual:
 
         variable[$lte]=~
+
+
+## En objetos JSON:
+
+Podemos introducir estas queryes en objetos JSON dentro del value encerrado en llaves:
+
+{
+        "username": { "$ne" : "x"p}
+
+}
