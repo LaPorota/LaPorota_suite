@@ -37,6 +37,6 @@ Misma lógica con menor o igual:
 Podemos introducir estas queryes en objetos JSON dentro del value encerrado en llaves:
 
 {
-        "username": { "$ne" : "x"p}
+        "username": { "$ne" : "x"}
 
 }
