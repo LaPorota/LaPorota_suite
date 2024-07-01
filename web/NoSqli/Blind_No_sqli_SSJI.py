@@ -13,7 +13,6 @@ def request(r):
         verify=False
         )
     
-    print(a.elapsed.total_seconds())
     if(len(a.content)==2445):  #### cantidad de bytes de la response
         return True
     else:
