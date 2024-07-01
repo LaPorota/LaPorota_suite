@@ -26,3 +26,15 @@ Podríamos indicarle a la lógica que siempre devuelva true, logueandonos inclus
 Siempre encodear el envío.
 
     username=" || true || ""=="&password=x
+
+
+## Blind SSJI bypass
+
+- funciona igual que el blind Nosqli
+- Usualmente cuando logramos loguearnos no nos da el nombre del user.
+
+    " || (this.username.match('^.*')) || ""=="
+
+Podemos entonces empezar a agregar caracteres con el fin de adivinar el user. Sabremos que es el caracter cuando nos loguea.
+
+
