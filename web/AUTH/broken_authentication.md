@@ -2,7 +2,7 @@ SIEMPRE BUSCAR EL ROBOTS.txt EN BUSQUEDA DE SUBDIRECTORIOS IMPORTANTES!!!
 
 LEER BIEN EL Código tanto html como js para buscar links a subdirectorios no adivinables!
 
-###########################User enum:
+### User enum:
 hacer fuerza bruta al login de las siguientes formas:
 
 1)Probar con el login por carteles como "invalid user"
@@ -17,24 +17,24 @@ Fuerza Bruta sobre ip blockeada:
 
 https://portswigger.net/web-security/authentication/password-based/lab-broken-bruteforce-protection-ip-block
 
-###################### Bypass MF2
+### Bypass MF2
 
 En muchas páginas al momento de introducir bien las credenciales uno ya se encuentra "logueado realmente", al pedirnos el segundo
 factor de autenticación podríamos probar saltearlo redirigiendonos a una página posterior al login como el perfil.
 
-#############Buscar entrar a un sitio por confianza en la ip:
+### Buscar entrar a un sitio por confianza en la ip:
 
 Agregando la cabecera "X-Forwarded-For" y una ip de confianza como "127.0.0.1"
 
 
-###############Token de reseteo predecible:
+### Token de reseteo predecible:
 
 wfuzz -z range,00000-99999 --ss "Valid" "https://brokenauthentication.hackthebox.eu/token.php?user=admin&token=FUZZ"
 
 Crear una cuenta, generar un token de restauración de password, intentar un refresh de pass de la cuenta de la victima y utilizar el token generado para nuestra cuenta.
 
 
-##############Lista para probar políticas de contraseñas:
+#### Lista para probar políticas de contraseñas:
 qwerty						
 Qwerty						
 Qwerty1						
@@ -48,14 +48,14 @@ Qwerty!
 Qwertyuiop12345!@#$%
 
 
-############################ Modficar la contraseña de un tercer usuario:
+### Modficar la contraseña de un tercer usuario:
 
 Ir al formulario de reseteo de password y agregar en los campos enviados (con un proxy) campos como "username" o "userid" con el nombre del usuario a cambiar
 
-########################## Comprobar tokens con decodify:
+### Comprobar tokens con decodify:
 https://github.com/s0md3v/Decodify
 
-############################ BF una cookie de sesión con John
+### BF una cookie de sesión con John
 john --incremental=LowerNum --min-length=6 --max-length=6 --stdout| wfuzz -z stdin -b HTBSESS=FUZZ --ss "Welcome" -u https://brokenauthentication.hackthebox.eu/profile.php 
 
 --incremental= tipo de caracteres que podemos observar en la cookie
