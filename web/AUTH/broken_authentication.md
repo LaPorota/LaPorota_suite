@@ -40,15 +40,25 @@ Crear una cuenta, generar un token de restauración de password, intentar un ref
 
 #### Lista para probar políticas de contraseñas:
 qwerty						
-Qwerty						
-Qwerty1						
-Qwertyu1						
-Qwert1!						
-Qwerty1!						
-QWERTY1						
-QWERT1!						
-QWERTY1!						
-Qwerty!						
+
+Qwerty	
+
+Qwerty1		
+
+Qwertyu1		
+
+Qwert1!		
+
+Qwerty1!			
+
+QWERTY1				
+
+QWERT1!				
+
+QWERTY1!				
+
+Qwerty!		
+
 Qwertyuiop12345!@#$%
 
 
@@ -63,7 +73,9 @@ https://github.com/s0md3v/Decodify
 john --incremental=LowerNum --min-length=6 --max-length=6 --stdout| wfuzz -z stdin -b HTBSESS=FUZZ --ss "Welcome" -u https://brokenauthentication.hackthebox.eu/profile.php 
 
 --incremental= tipo de caracteres que podemos observar en la cookie
+
 -- min and max-lenght= el minimo y máximo de caracteres en la cookie.
+
 con esto alimentamos a wfuzz para hacer fuzzing en la coockie.
 
 
