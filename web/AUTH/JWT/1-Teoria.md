@@ -18,9 +18,6 @@ alg= El algoritmo con que son encriptados los datos dentro del payload.
 
 #### Usuales algorítmos con los alg:
 
-
-
-
 | ALG |  ALGORITMO|
 |-----------|-----------|
 | HS256    | HMAC using SHA-256     |
@@ -35,3 +32,14 @@ alg= El algoritmo con que son encriptados los datos dentro del payload.
 | PS256    | RSASSA-PSS using SHA-256 and MGF1 with SHA-256     |
 | PS384    | RSASSA-PSS using SHA-384 and MGF1 with SHA-384     |
 | PS512    | RSASSA-PSS using SHA-512 and MGF1 with SHA-512     |
+
+### Payload
+
+Contiene parámetros que definen llamadas redundantes a la session/user/autorización.
+
+### Signature
+
+- Es una firma que está compuesta por el header, el payload una secret key (secret signing key) usando el algorítmo del header.
+- Si algun dato del header o del peyload es manipulado, la firma dejará de hacer match con el token y eso permitirá la detección de la manipulación y denegará el uso del mismo.
+
+
