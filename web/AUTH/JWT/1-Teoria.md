@@ -1,7 +1,7 @@
-- Los JWT son tokens sesión
-- Constan de tres partes:
-    -Header
-    -Payload
-    -Signature
+1 Los JWT son tokens sesión
+2 Constan de tres partes:
+    - Header
+    - Payload
+    - Signature
 
-- Suelen usarse para la autenticación y la autorización.
+3 Suelen usarse para la autenticación y la autorización.
