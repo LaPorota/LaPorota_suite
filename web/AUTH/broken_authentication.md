@@ -6,9 +6,13 @@ LEER BIEN EL Código tanto html como js para buscar links a subdirectorios no ad
 hacer fuerza bruta al login de las siguientes formas:
 
 1)Probar con el login por carteles como "invalid user"
+
 2)Probar si al poner el user y una contraseña erronea el user sigue apareciendo en el form.
+
 3)Comprobar el tiempo de respuesta al momento de intentar los logueos:
+
 Ejemplo de tiempo de respuesta con burp spoofeando la ip para baypassear restricciones:
+
 https://portswigger.net/web-security/authentication/password-based/lab-username-enumeration-via-response-timing
 
 4)Hacer fuerza bruta en el formulario de registro buscando en las respuestas los users que ya están registrados.
