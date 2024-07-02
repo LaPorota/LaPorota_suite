@@ -1,14 +1,16 @@
 Si encontramos un hash NTLM podemos hacer uso del mismo aprovechando las facilidades que ofrecen los SO para correr servicios sin tener que poner la contraseña una y otra vez
 
 
-####################################WINDOWS
-#####Pass the hash con Mimikatz:
-requerimos el hash NTLM o RC4
-User
-Dominio
-mimikatz.exe privilege::debug "sekurlsa::pth /user:<user> /rc4:<hash> /domain:<dominio o nombre del host> /run:<.exe a ejecutar>" exit
+### WINDOWS
+##### Pass the hash con Mimikatz:
+Requerimos:
+- Hash NTLM o RC4
+- User
+- Dominio
 
-#####PTH con Powershell & Invoke-TheHash:
+  mimikatz.exe privilege::debug "sekurlsa::pth /user:<user> /rc4:<hash> /domain:<dominio o nombre del host> /run:<.exe a ejecutar>" exit
+
+##### PTH con Powershell & Invoke-TheHash:
 Target - Hostname or IP address of the target.
 Username - Username to use for authentication.
 Domain - Domain to use for authentication. This parameter is unnecessary with local accounts or when using the @domain after the username.
