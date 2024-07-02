@@ -25,7 +25,7 @@ El sentido de este ataque es intentar "generar" o "impersonar" la clave publica 
 1. Dentro del contenedor encontraremos la herramienta jwt_forgery.py (corre con python3)
 2. Deberemos pasarle dos tokens jwt para que la app pueda computarlos (para conseguirlos basta con loguearnos varias veces)
 
-    python3 jwt_forgery.py <JWT1> <JWT2>
+        python3 jwt_forgery.py token1 token2
 
 3. El script creará varios tokens factibles de ser usados en el servicio web forzados al algoritmo HS256 y una RSA usada para crear la firma dentro de un archivo.pem .
 4. Probamos usar los tokens en la aplicación web y vemos si los acepta como válidos.
