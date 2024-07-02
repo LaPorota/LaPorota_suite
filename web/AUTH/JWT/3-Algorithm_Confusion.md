@@ -27,7 +27,7 @@ El sentido de este ataque es intentar "generar" o "impersonar" la clave publica 
 
         python3 jwt_forgery.py token1 token2
 
-3. El script creará varios tokens factibles de ser usados en el servicio web forzados al algoritmo HS256 y una RSA usada para crear la firma dentro de un archivo.pem .
+3. El script creará varios tokens factibles de ser usados en el servicio web forzados al algoritmo HS256 y una RSA usada para crear la firma dentro de un archivo.pem. Habrá un .pem por cada token, podemos sacar el pem correspondiente en el orden que aparece su creción en el log coincidente con el orden de los tokens forjados por el script.
 4. Probamos usar los tokens en la aplicación web y vemos si los acepta como válidos.
 5. De ser aceptado algún token podremos ahora forjar uno nuevo manipulando el payload.
 6. Vamos a cyberchef
