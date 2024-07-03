@@ -1,7 +1,7 @@
 import requests
 
 # Configura tu API key de VirusTotal
-API_KEY = 'dbb07d533b3db77ec8b1cf9aa3533bb15de5aa00decfbe532d5c39f15d34755d'
+API_KEY = ''
 
 def search_url(url):
     params = {'apikey': API_KEY, 'query': url}
