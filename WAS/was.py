@@ -5,7 +5,7 @@ from modules.reporter_pdf2 import pdf_maker
 from modules.clickjacker import clickjacker
 
 
-host = 'https://tienda.claro.com.py'
+host = ''
 host2 = "http://172.16.77.130"
 resultados = {}
 
