@@ -64,7 +64,18 @@ Es la más común y la más segura. El flujo es el mismo que el flujo de cominic
 
 5. Access token Grant
 
-   El authorization server valida el authorization code y brinda un valid access token para el resource server.
+   El authorization server valida el authorization code y brinda un valid access token para presentar al resource server.
 
-7. 
+6. Sesource request
+
+   El client usa el access token para hacer una request al resource server. (usualmente el token es utilizado en las siguentes cabeceras)
+
+   Authorization: Bearer RsT5OjbzRn430zqMLgV3Ia
+7. Resource response
+
+   El resource server responde el recurso pedido.
+
+#### Implicit grant.
+
+Es más corto que el 
    
