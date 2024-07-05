@@ -84,9 +84,20 @@ Es la más común y la más segura. El flujo es el mismo que el flujo de cominic
 
 #### Implicit grant.
 
-Su flujo es más corto que el authorization code grant porque se saltea el autorization code exchange. Esto es menos seguro porque **los access tokens quedan expuestos en el browser**
+Su flujo es más corto que el authorization code grant porque se saltea el autorization code exchange. Esto es menos seguro porque **los access tokens quedan expuestos en el browser**. De igual manera este flujo es válido hasta el OAuth 2.0, en el 2.1 ya es removido.
 
 1. Authorization request
 
    En la implicit grant la Authorization request tiene algunos leves cambios en comparación a la del authorization code grant.
+
+   - El response_type es seteado a "token"
+2. Resource owner Authentication
+
+   El authorization server va a pedirle al user que se loguee y autorice al cliente a acceder a los recursos requeridos
+
+3. Access token grant
+
+   El authorization server redirige al browser a la URL especificada pero en vez de proveer un authorization code, la URL contiene el access token.
+
+En adelante los pasos son iguales al Authorization code grant.
    
