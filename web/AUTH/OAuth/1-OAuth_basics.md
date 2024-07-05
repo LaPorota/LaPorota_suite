@@ -4,6 +4,9 @@
 - Suele usarse en casos de SSO.
 - No comparte las credenciales entre servicios
 
+---
+
+
 ### Entidades
 
 El protocolo OAuth está comprendido por las siguientes entidades:
@@ -17,6 +20,8 @@ El protocolo OAuth está comprendido por las siguientes entidades:
 
 ##### el Auth server y el Resource server suelen ser el mismo host.
 
+---
+
 ### Flujo de comunicación del OAuth:
 
 1. El client hace una petición de autorización al resource owner
@@ -25,6 +30,8 @@ El protocolo OAuth está comprendido por las siguientes entidades:
 4. El client recibe un access token del authorization server
 5. El client presenta el access token al resource server
 6. El client recibe el recurso pedido del resource server
+
+---
 
 ### Grants (concesiones) 
 
