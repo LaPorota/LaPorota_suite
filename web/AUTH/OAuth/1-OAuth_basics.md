@@ -57,4 +57,14 @@ Es la más común y la más segura. El flujo es el mismo que el flujo de cominic
    - state: El token randomizado creado en la Authorization request para poder identificar y concatenar las requests
      
 4. Access token request
+
+   Luego de obtener el authorization code, el client pide un access token al authorization server. Esta request adosa dos parametros a la Authorization request:
+   - Client_secret: Un valor secreto asignado al cliente por el authorization server durante la registración inicial. Este valor autentica al client en el authorization server
+   - grant_type: siempre seteada a "authorization_code" para identificar que se está haciendo una authorization code grant.
+
+5. Access token Grant
+
+   El authorization server valida el authorization code y brinda un valid access token para el resource server.
+
+7. 
    
