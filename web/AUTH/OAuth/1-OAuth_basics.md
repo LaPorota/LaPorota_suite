@@ -84,4 +84,4 @@ Es la más común y la más segura. El flujo es el mismo que el flujo de cominic
 
 #### Implicit grant.
 
-Su flujo es más corto que el authorization code grant porque se saltea el autorization code exchange. Esto es menos seguro porque *los access tokens quedan expuestos en el browser*
+Su flujo es más corto que el authorization code grant porque se saltea el autorization code exchange. Esto es menos seguro porque **los access tokens quedan expuestos en el browser**
