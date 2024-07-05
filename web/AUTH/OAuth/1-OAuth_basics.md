@@ -44,4 +44,14 @@ Es la más común y la más segura. El flujo es el mismo que el flujo de cominic
    - response_type: Para el authorization code grant suele ser seteada como "code"
    - scope: Indica los recursos a los que el cliente quiere acceder. (OPCIONAL)
    - state: Un random string similar a CSRF token para seguir el callback (OPCIONAL)
-2.
+2. Resource owner Authentication
+   El authorization server va a hacer una request de login al user y le va a pedir la autorización para brindar los recursos al client
+3. Authorization code grant.
+   El authorization server redirige al browser a la URL especificada en el redirect_uri de la authorization request.
+
+   Esta request tiene dos parametros:
+   - code: El codigo de autorización brindado por el authorization server
+   - state: El token randomizado creado en la Authorization request para poder identificar y concatenar las requests
+     
+4. Access token request
+   
