@@ -17,4 +17,4 @@ En este caso buscamos un campo donde podamos validar una respuesta. Luego buscam
 
 ### Conseguir el length de un dato de la tabla
 
-<dato>' AND \LEN(\<campo a consultar del usuario>)=<length>
+<dato>' AND LEN(\<campo a consultar del usuario>)=\<length>
