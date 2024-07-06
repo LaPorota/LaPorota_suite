@@ -1,41 +1,42 @@
-####################### MySql
+### MySql
+
 connect:
-mysql -u <user> -h <host> -P <port> -p (password, nunca ponerlo en el comando sino cuando el sistema pregunte)
+    mysql -u <user> -h <host> -P <port> -p (password, nunca ponerlo en el comando sino cuando el sistema pregunte)
 
 ver privilegios:
-SHOW GRANTS
+    SHOW GRANTS
 
 ver bases:
-SHOW DATABASES;
+    SHOW DATABASES;
 
 entrar en una base:
-USE <db>;
+    USE <db>;
 
 ver tablas:
-SHOW TABLES;
+    SHOW TABLES;
 
 ver estructura de una tabla:
-DESCRIBE <tabla>;
+    DESCRIBE <tabla>;
   
 crear una DB:
-CREATE DATABASE "nombre";
+    CREATE DATABASE "nombre";
 
 insertar un registro en una tabla:
-INSERT INTO table_name VALUES (column1_value, column2_value, column3_value, ...);
+    INSERT INTO table_name VALUES (column1_value, column2_value, column3_value, ...);
 
 ver el contenido de una tabla completa:
-SELECT * FROM <tabla>;
+    SELECT * FROM <tabla>;
 
 Buscar un dato en base a un patrón (coincidencia de letras en un nombre, etc):
-SELECT * FROM <tabla> WHERE <campo> LIKE <condición >
+    SELECT * FROM <tabla> WHERE <campo> LIKE <condición >
 
 eliminar una tabla de un servidor:
-DROP TABLE <tabla>;
+    DROP TABLE <tabla>;
 
 ### Leer variables de entorno:
-SHOW VARIABLES LIKE '<variable>';
+    SHOW VARIABLES LIKE '<variable>';
 
-SELECT variable_name, variable_value FROM information_schema.global_variables where variable_name="secure_file_priv"
+    SELECT variable_name, variable_value FROM information_schema.global_variables where variable_name="secure_file_priv"
 
 ### enumerar privilegios del usuario:
 SELECT 1, grantee, privilege_type, 4 FROM information_schema.user_privileges--
