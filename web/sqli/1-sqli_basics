@@ -36,6 +36,7 @@ eliminar una tabla de un servidor:
 ### Leer variables de entorno:
     SHOW VARIABLES LIKE '<variable>';
 
+### Ver si tenemos permisos para relacionarnos con archivos
     SELECT variable_name, variable_value FROM information_schema.global_variables where variable_name="secure_file_priv"
 
 ### enumerar privilegios del usuario:
