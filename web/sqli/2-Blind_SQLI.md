@@ -1,7 +1,7 @@
 ### Info
 
 - En las Blind SQLI no habrá una respuesta de datos en la página.
-- Deberemos buscar alteraciones no sustanciales en la respuesta.
+
 
 ### Categorías
 
