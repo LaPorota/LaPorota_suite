@@ -13,8 +13,8 @@ En este caso buscamos un campo donde podamos validar una respuesta. Luego buscam
 
 ### validar cantidad de campos en una tabla
 
-<dato>' AND (select count(*) from users) > 0
+        \<dato>' AND (select count(*) from users) > 0
 
 ### Conseguir el length de un dato de la tabla
 
-<dato>' AND LEN(\<campo a consultar del usuario>)=\<length>
+        \<dato>' AND LEN(\<campo a consultar del usuario>)=\<length>
