@@ -23,3 +23,7 @@ En este caso buscamos un campo donde podamos validar una respuesta. Luego buscam
 Podemos trabajarlo con valores ASCII(en números del 32 al 127) y luego decodearlos para tener el caracter legible
 
         <dato>'+AND+ASCII(SUBSTRING(password,<index_del_char>,1))=<valor ASCII>--+-
+
+Una buena página para hacer esta decodificación una vez logrados los resultados(recordar copiar separados los ASCII, luego la página los junta:
+
+https://www.duplichecker.com/ascii-to-text.php
