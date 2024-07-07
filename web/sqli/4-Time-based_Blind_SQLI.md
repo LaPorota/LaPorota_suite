@@ -23,5 +23,5 @@ Aplicamos lógica de tiempo en SQL para ver si se inyecta y es validada analizan
 
 
 
-##Apendice:
+## Apéndice:
 SQLMAP tiene todas las respuestas xD
