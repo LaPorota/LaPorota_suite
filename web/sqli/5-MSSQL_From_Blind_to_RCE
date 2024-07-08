@@ -23,4 +23,5 @@ Si esto funciona, podriamos enviarnos una shell reversa
 
 ';exec xp_cmdshell '<shell reversa>'.
 
-
+podemos usar revshell para generar reverseshells de manera sencilla:
+https://www.revshells.com/
