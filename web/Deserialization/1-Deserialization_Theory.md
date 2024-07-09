@@ -115,4 +115,6 @@ Buscar casos en código que nos permitan encontrar deserializaciones inseguras:
       Inicia con 00 01 00 00 00 ff ff ff ff (hex) o AAEAAAD///// (base64)
 #### Ruby
       inicia con 04 08
-      
+
+##### Ruby también puede usar base64
+      BAhbD2kGaQdpCGkJaQppC2kMaQ1pDmkA
