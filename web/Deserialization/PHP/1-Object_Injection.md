@@ -17,3 +17,5 @@ Para esto no solo cambiamos el mail del user, sino también el size del tipo de 
     
 
 Podríamos aprovechar, si alguno de los valores se refleja en la página, para realizar inyecciones XSS.
+
+
