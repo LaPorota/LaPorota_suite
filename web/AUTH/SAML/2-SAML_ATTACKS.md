@@ -2,7 +2,7 @@
 
 Si un servidor está muy mal configurado, podríamos intentar borrar todas las signatures dentro del XML.
 
-Estas signatures se encuentran en las tags "ds:Signature".
+Estas signatures se encuentran en las tags **"ds:Signature"**.
 
 Puede haber muchas signatures en un mismo xml.
 
