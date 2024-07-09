@@ -15,3 +15,5 @@ Teniendo en cuenta el caso de ejemplo, si quisieramos impersonar al admin deber�
 
 Para esto no solo cambiamos el mail del user, sino también el size del tipo de dato quedando: **s:16:"admin@porota.com"**
     
+
+Podríamos aprovechar, si alguno de los valores se refleja en la página, para realizar inyecciones XSS.
