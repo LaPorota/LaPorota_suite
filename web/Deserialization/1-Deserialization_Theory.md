@@ -37,3 +37,27 @@ var_dump($reconstructed_data);
       [2]=>
       float(7.77)
     }
+---
+
+### Serialización en python
+
+Las librerías más comunes de serialización de datos en python son: PyYAML, JSONpickle y Pickle.
+
+      import pickle
+      original_data = ["HTB", 123, 7.77]
+      serialized_data = pickle.dumps(original_data)
+
+#### Objeto serializado:
+
+      b'\x80\x04\x95\x16\x00\x00\x00\x00\x00\x00\x00]\x94(\x8c\x03HTB\x94K{G@\x1f\x14z\xe1G\xae\x14e.'
+### ATENCIÓN!!
+
+**Pickle usa varios protocolos y el resultado es muy distinto según cual se use:**
+
+Usando el mismo array pero con el protocolo 0 el objeto serializado da:
+
+      b'(lp0\nVHTB\np1\naI123\naF7.77\na.'
+
+Documentación sobre cómo trabajar los protocolos:
+
+      https://docs.python.org/3/library/pickle.html#pickle.dump
