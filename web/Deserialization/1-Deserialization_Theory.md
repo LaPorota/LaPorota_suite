@@ -13,6 +13,16 @@
 #### Objeto serializado:
 
     a:3:{i:0;s:3:"HTB";i:1;i:123;i:2;d:7.77;}
+##### Descomposición del objeto serializado
+
+      a:3:{ \\ (a)rray de (3) items
+      
+      i:0;s:3: "HTB"  \\ (i)ndex 0 del array; (s)tring de (3) caracteres con valor "HTB"
+      
+      i:1;i:123; \\ (i)ndex (1) del array; dato tipo (i)nteger conm valor de (123)
+      
+      i:2;d:7.77; \\ (i)ndex (2) del array; dato tipo (d)ouble con valor de (7.77)
+      }
 
 #### Objeto reconstruido:
 $reconstructed_data = unserialize($serialized_data);
