@@ -1,3 +1,8 @@
+## Atomático
+
+SAML Raider en burp suite
+
+## Manual
 ### Signature exclusion attack
 
 Si un servidor está muy mal configurado, podríamos intentar borrar todas las signatures dentro del XML.
