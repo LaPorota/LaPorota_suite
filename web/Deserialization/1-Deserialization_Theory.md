@@ -62,7 +62,7 @@ Documentación sobre cómo trabajar los protocolos:
 
       https://docs.python.org/3/library/pickle.html#pickle.dump
 
-
+---
 ### Whitebox cases
 
 Buscar casos en código que nos permitan encontrar deserializaciones inseguras:
@@ -83,6 +83,7 @@ Buscar casos en código que nos permitan encontrar deserializaciones inseguras:
 ##### Ruby
       Marshal.load()
 
+---
 ### Blackbox cases
 ##### PHP
       a:4:{i:0;s:4:"Test";i:1;s:4:"Data";i:2;a:1:{i:0;i:4;}i:3;s:7:"ACADEMY";}
