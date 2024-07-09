@@ -61,3 +61,57 @@ Usando el mismo array pero con el protocolo 0 el objeto serializado da:
 Documentación sobre cómo trabajar los protocolos:
 
       https://docs.python.org/3/library/pickle.html#pickle.dump
+
+
+### Whitebox cases
+
+Buscar casos en código que nos permitan encontrar deserializaciones inseguras:
+
+##### PHP
+      unserialize()
+
+##### Python Pickle
+      pickle.loads()
+##### Python JSONPickle
+      jsonpickle.decode()
+##### Python PyYaML / ruamel.yam
+      yaml.load()
+##### Java
+      readObject()
+##### C# / .NET
+      Deserialize()
+##### Ruby
+      Marshal.load()
+
+### Blackbox cases
+##### PHP
+      a:4:{i:0;s:4:"Test";i:1;s:4:"Data";i:2;a:1:{i:0;i:4;}i:3;s:7:"ACADEMY";}
+#### Python Pickle
+
+##### Protocol 0
+      (lp0\nS'Test'\np1\naS'Data'\np2\na(lp3\nI4\naaS'ACADEMY'\np4\na.
+##### Protocol 1
+      Arranca con 80 01 y termina en un punto
+##### Protocol 2
+      Arranca con 80 02 y termina en un punto
+##### Protocol 3
+      arranca con 80 03 y termina con punto
+##### Protocol 4
+      arrranca con 80 04 95 y termina con punto
+##### Protocol 5
+      arranca con 80 05 95 y temrina con un punto
+
+#### Python JSONPickle
+
+      ["Test", "Data", [4], "ACADEMY"]
+#### Python PyYAML / ruamel.yaml
+      - Test\n- Data\n- - 4\n- ACADEMY\n
+#### Java
+      
+      inicia con AC ED 00 05 73 72 en (hex) o rO0ABXNy (base64)
+#### C# / .NET
+
+      Inicia con 00 01 00 00 00 ff ff ff ff (hex) o AAEAAAD///// (base64)
+#### Ruby
+      inicia con 04 08
+      
