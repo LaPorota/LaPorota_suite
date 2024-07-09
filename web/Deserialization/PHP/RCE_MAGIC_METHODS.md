@@ -23,3 +23,23 @@
 | __debuginfo    | Llamado cuando var_dump es llamado sobre un objeto   |
 | __unserialize     |  Llamado cuando necesitamos un deserializar un objeto  |
 | __serialize    | Llamado cuando necesitamos serializar un objeto   |
+
+
+### Whitebox
+
+Supongamos que tenemos el siguiente código que recibe un objeto serializado:
+
+       public function __construct($Name, $Email, $Password, $ProfilePic) {
+            $this->setName($Name);
+            $this->setEmail($Email);
+            $this->setPassword($Password);
+            $this->setProfilePic($ProfilePic);
+        }
+    
+        public function __wakeup() {
+            shell_exec('echo "$(date +\'[%d.%m.%Y %H:%M:%S]\') Imported settings for user \'' . $this->getName() . '\'" >> /tmp/htbank.log');
+        }
+    
+        public function __sleep() {
+            return array("Name", "Email", "Password", "ProfilePic");
+        }
