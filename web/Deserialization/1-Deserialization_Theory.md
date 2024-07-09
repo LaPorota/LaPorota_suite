@@ -16,6 +16,7 @@
 
 #### Objeto reconstruido:
 $reconstructed_data = unserialize($serialized_data);
+
 var_dump($reconstructed_data);
 
     array(3) {
