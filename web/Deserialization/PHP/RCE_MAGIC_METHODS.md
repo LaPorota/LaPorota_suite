@@ -43,3 +43,7 @@ Supongamos que tenemos el siguiente código que recibe un objeto serializado:
         public function __sleep() {
             return array("Name", "Email", "Password", "ProfilePic");
         }
+
+Vemos que la función __wakeup es utilizada para deserializar y asentar esto en un log por medio de la ejecución de código en la terminal y que invoca al atributo NAME del objeto.
+
+
