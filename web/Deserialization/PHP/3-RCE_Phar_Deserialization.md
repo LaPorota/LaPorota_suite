@@ -31,7 +31,7 @@ A modo de ejemplo, supongamos que encontramos un file upload, podríamos generar
         $phar->stopBuffering();
 
 
-  2) Lo ejecutamos y este nos va a crear el archivo exploit.phar
+2) Lo ejecutamos y este nos va a crear el archivo exploit.phar
 #####  Si tenemos el siguiente error:
     PHP Fatal error:  Uncaught UnexpectedValueException: creating archive "exploit.phar" disabled by the php.ini setting phar.readonly in XXXXX
     Stack trace:
@@ -42,3 +42,4 @@ A modo de ejemplo, supongamos que encontramos un file upload, podríamos generar
 ##### Podemos solucionarlo cambiando la propiedad phar.readonly = On a Off dentro del archivo:
     /etc/php/<php version>/cli/php.ini
 
+3) Subimos el archivo y buscamos llamarlo con el wrapper phar://
