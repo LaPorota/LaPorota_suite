@@ -43,3 +43,8 @@ A modo de ejemplo, supongamos que encontramos un file upload, podríamos generar
     /etc/php/<php version>/cli/php.ini
 
 3) Subimos el archivo y buscamos llamarlo con el wrapper phar://
+
+---
+### Mas info detallada sobre el ataque:
+
+        https://i.blackhat.com/us-18/Thu-August-9/us-18-Thomas-Its-A-PHP-Unserialization-Vulnerability-Jim-But-Not-As-We-Know-It-wp.pdf
