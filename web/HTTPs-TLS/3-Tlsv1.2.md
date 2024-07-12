@@ -26,7 +26,7 @@ Podemos desglozarlo en:
    - Una lista de ciphers soportada por el cliente para realizar el intercambio
 2) El server responde con un mensaje "ServerHello".
    El server elige  una versión igual o inferior a la versión de TLS dada por el cliente y elige uno de los ciphers dentro de la lista del "CLientHello".
-3)El server brinda al cliente un certificado demostrando su identidad
+3) El server brinda al cliente un certificado demostrando su identidad
 4) Si se cnosensuó un cihper, el server  envía una nueva clave en el mensaje "ServerKeyExchange"
 5) El server envía el mensaje "ServerHelloDone"
 6) El cliente responde con el mensaje "clientKeyExchange" que contiene la clave compartida del cliente.
