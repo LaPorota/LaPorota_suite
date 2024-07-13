@@ -37,8 +37,9 @@ Padbuster necesita:
 - Si es enviado mediante un POST debemos indicarlo con la flag -POST
 - Si el datofinal está encodeado debemos indicarle el encoding con la flag -encoding y un value (en el caso de b64 es 0)
 
-  padbuster http://127.0.0.1:1337/admin "AAAAAAAAAAAAAAAAAAAAAJQB/nhNEuPuNC8ox7cN1z0=" 16 -encoding 0 -cookies "user=AAAAAAAAAAAAAAAAAAAAAJQB/nhNEuPuNC8ox7cN1z0="
+   padbuster http://127.0.0.1:1337/admin "AAAAAAAAAAAAAAAAAAAAAJQB/nhNEuPuNC8ox7cN1z0=" 16 -encoding 0 -cookies "user=AAAAAAAAAAAAAAAAAAAAAJQB/nhNEuPuNC8ox7cN1z0="
 
+Podemos también decirle cual es el error que nos hace de oráculo con la flag -error y el error: -error 'invalid padding'
 
 Padbuster va probar rellenar los bloques con el fin de adivinar cual es el bit que representa el padding y en base al mismo, desencriptar el mensaje.
 
