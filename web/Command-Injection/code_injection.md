@@ -1,22 +1,16 @@
 siempre que se haga una consulta sobre un item a un backend contastar si es posible una injección de comando aparte de una sqli, 
 algunos backends corren código para hacer querys sobre aplicaciones légacy ;)
 
-
-Semicolon 	; 	%3b 	Both
-
-New Line 	 \n 	%0a 	Both
-
-Background 	& 	%26 	Both (second output generally shown first)
-
-Pipe 	      | 	%7c 	Both (only second output is shown)
-
-AND 	     && 	%26%26 	Both (only if first succeeds)
-
-OR 	       || 	%7c%7c 	Second (only if first fails)
-
-Sub-Shell  `` 	%60%60 	Both (Linux-only)
-
-Sub-Shell  $() 	%24%28%29 	Both (Linux-only)
+|Nombre | simbolo | hexa | argumento a ejecutar|
+|----|---|---|---|
+|Semicolon |	; |	%3b |	Both |
+|New Line 	| \n |	%0a |	Both | 
+|Background | 	& | 	%26 |	Both (second output generally shown first)|
+|Pipe 	   |   /| |	%7c |	Both (only second output is shown) |
+|AND 	|     && |	%26%26 |	Both (only if first succeeds)|
+|OR 	  |     /|/| |	%7c%7c |	Second (only if first fails) |
+|Sub-Shell | `` |	%60%60 |	Both (Linux-only)|
+|Sub-Shell | $() |	%24%28%29 |	Both (Linux-only)|
 
 podemos luego de encontrar el conector entre comandos, si hay algún filtro posterior utilizar diferentes secuencias:
 
