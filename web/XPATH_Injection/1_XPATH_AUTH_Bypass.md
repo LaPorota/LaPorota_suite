@@ -22,8 +22,8 @@ El xpath injection funciona parecido a las SQLI (es como una prima). Posee una s
 
 ## Data Exfiltration
 
-#### Basic Data Exfiltration
-##### REHACER EL MODULO Y TOMAR BIEN NOTA
+
+
 
 
     
