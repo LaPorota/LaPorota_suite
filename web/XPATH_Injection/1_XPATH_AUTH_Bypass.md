@@ -20,7 +20,7 @@ El xpath injection funciona parecido a las SQLI (es como una prima). Posee una s
     ' or contains(.,'admin') or '
 
 
-## Data Exfiltration
+
 
 
 
