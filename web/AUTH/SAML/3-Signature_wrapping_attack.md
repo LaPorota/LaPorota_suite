@@ -24,14 +24,21 @@ El idP puede firmar toda la SAML response o solamente la SAML Assertion. El elem
         	 </saml:Assertion>   
         </samlp:Response>
 
-  Como vemos en este caso, el nodo **ds:Reference** está firmando la SAML Assertion solamente y no toda la response debido a que en su URI la referencia.
+Como vemos en este caso, el nodo **ds:Reference** está firmando la SAML Assertion solamente y no toda la response debido a que en su URI la referencia.
 
-  ### Locaciones de la firma
+### Locaciones de la firma
 
   | Lugar | Desc |
   |-------|------|
   |Enveloped | la firma es descendiente del recurso firmado |
   |Enveloping | La firma es predecesora del elemento firmado|
-  |detached | la firma no es descendiente ni predecesora del recurso firmado |
+  |detached | la firma no es descendiente ni predecesora del recurso firmado (la firma no comparte nodo con el recurso firmado) |
 
-  El caso del ejemplo es entonces **enveloped**
+El caso del ejemplo es, entonces, **enveloped**
+
+### Iniciando el ataque:
+
+Podemos entonces inyectar una nueva SAML assertion antes de la assertion firmada. Esto no invalida la firma siendo que la verdadera sigue sin ser cambiada y presente en la SAML Response. 
+
+De esta manera, la lógica de la verificación de firmas encontrará la SAML assertion firmada y dará lugar a la lógica de autenticación que buscará la primer SAML assertion(la inyectada) presente en la response.
+
