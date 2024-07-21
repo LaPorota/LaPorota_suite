@@ -11,4 +11,21 @@
 ##### Descarga:
     https://www.jetbrains.com/decompiler/
 
+##### Desco
+
+Simplemente cargamos el archivo desde file > open.
+
+Haciendole click derecho a la carpeta general creada en el assembly explorer > export project podemos generar una copia para luego analizarla por separado con otras herramientas.
+
+
+#### ILSpy (cross-platform)
+
+##### Descarga
+
+    https://github.com/icsharpcode/ILSpy/releases
+
+##### Desco
+
+Funciona igual que dotPeek (pero en algunos casos el código es más parecido al original)
+
 
