@@ -118,3 +118,9 @@ Buscar casos en código que nos permitan encontrar deserializaciones inseguras:
 
 ##### Ruby también puede usar base64
       BAhbD2kGaQdpCGkJaQppC2kMaQ1pDmkA
+
+---
+
+### Gadgets
+
+Un gadget es un objeto seteado de una manera específica que ejecuta una acción durante la deserialización. Podemos usar un gadget o una gadget chain
