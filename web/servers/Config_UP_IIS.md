@@ -25,3 +25,6 @@ En inicio buscamos :
 2) Dentro damos click derecho y seleccionamos "ver sitios"
 3) Luego agregar sitio
 4) Agregamos nombre del sitio, en aplication pool .net v4.5, configuramos el path a la carpeta del servicio y le proporcionamos un puerto.
+
+
+Si debemos hacer debug recordar dar permisos de escritura a la carpeta del servicio web para IIS 
