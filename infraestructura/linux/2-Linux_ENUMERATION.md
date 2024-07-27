@@ -33,6 +33,10 @@ Esto nos sirve para saber si el servidor realmente se usa. Un server que se usa 
 ##### podemos revisar un grupo en especial con getent:
         getent group <grupo>
 
+##### Listar usuarios logeados
+
+        who
+
 #### Enumerar los archivos históricos:
 Para el current user:
         history
@@ -44,6 +48,10 @@ Buscar archivos históricos:
 
 
 ### 2)Enumerar servicios y apps:
+
+##### Mostrar estado de las conexiones
+
+        netstat
 
 ##### Paquetes instalados:
 
@@ -93,8 +101,15 @@ Buscar las vulnerabilidades en GTFObins:
 #### Enumerar procesos
 
         ps aux
+#### Listar USBs conectados
 
+        lsusb
+#### Listar Archivos Abiertos
 
+        lsof
+#### Listar PCIs
 
+        lspci
 
+        
     
