@@ -36,3 +36,11 @@ Lo más importante de la función packer es el "return". Ahí es donde la funci�
             
     console.log(p);
 
+Para hacer todo esto de manera más cómoda podemos usar Prettier.
+
+    https://prettier.io/playground/
+
+#### Recursive packing
+
+Vamos a encontrar que muchas veces se hacen varios empaquetados sobre un código. Primero se empaquetan funciones específicas y luego se empaqueta todo el código. Tendremos que realizar los pasos anteriores sobre el codigo general y luego sobre las funciones propias hasta obtener un código limpio.
+
