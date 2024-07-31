@@ -63,5 +63,7 @@ click derecho > find all references.
 Para hacerlo más ordenado y facil de visualizar primero debemos foldear todo. Shortcuts:
 
 ctrl + a
+
 ctrl + k
+
 ctrl + 0 (el de arriba de las letras)
