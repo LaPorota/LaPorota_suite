@@ -36,9 +36,14 @@ Lo más importante de la función packer es el "return". Ahí es donde la funci�
             
     console.log(p);
 
-Para hacer todo esto de manera más cómoda podemos usar Prettier.
+Para hacer todo esto de manera más cómoda podemos usar Prettier para presentar mejór el texto y jsconsole para correrlo.
 
+###### Prettier
     https://prettier.io/playground/
+
+###### JSConsole
+
+    https://jsconsole.com/
 
 #### Recursive packing
 
