@@ -49,3 +49,10 @@ Para hacer todo esto de manera más cómoda podemos usar Prettier para presentar
 
 Vamos a encontrar que muchas veces se hacen varios empaquetados sobre un código. Primero se empaquetan funciones específicas y luego se empaqueta todo el código. Tendremos que realizar los pasos anteriores sobre el codigo general y luego sobre las funciones propias hasta obtener un código limpio.
 
+---
+
+### Dead code
+
+Son variables o funciones que están guardadas dentro de un JS que no son usadas o referenciadas en ningun lado. Es código no necesario que se utiliza para engordar el script y volver más complicada la lectura por un humano o un antivirus ya que se hace más dificil discernir cuál códogo está en uso y cuál no.
+También, podemos encontrar variables y funciones de Dead Code que son llamadas por funciones que tampoco son usadas. Esto se vuelve más complicado cuando nos encontramos que tenemos varios archivos JS y que una función que parece no utilizada es referenciada desde otro script.
+
