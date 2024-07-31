@@ -31,3 +31,8 @@ Las funciones packer usualmente inician con unas pocas funciones que decodean el
         })(
             'dh dl=di' ...SNIP... ''
         )
+
+Lo más importante de la función packer es el "return". Ahí es donde la función va a devolver el código original luego de restorearlo. Lo único que debemos hacer es encontrar esta parte, reemplasar el return por un console.log para imprimir la función original en la consola.
+            
+    console.log(p);
+
