@@ -56,3 +56,6 @@ Vamos a encontrar que muchas veces se hacen varios empaquetados sobre un código
 Son variables o funciones que están guardadas dentro de un JS que no son usadas o referenciadas en ningun lado. Es código no necesario que se utiliza para engordar el script y volver más complicada la lectura por un humano o un antivirus ya que se hace más dificil discernir cuál códogo está en uso y cuál no.
 También, podemos encontrar variables y funciones de Dead Code que son llamadas por funciones que tampoco son usadas. Esto se vuelve más complicado cuando nos encontramos que tenemos varios archivos JS y que una función que parece no utilizada es referenciada desde otro script.
 
+Para buscar estas líneas de código y quitarlas del script de manera sencilla podemos usar vscode, cargar el código y luego en cada variable o funcion:
+
+click derecho > find all references.
