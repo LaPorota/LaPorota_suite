@@ -59,3 +59,9 @@ También, podemos encontrar variables y funciones de Dead Code que son llamadas 
 Para buscar estas líneas de código y quitarlas del script de manera sencilla podemos usar vscode, cargar el código y luego en cada variable o funcion:
 
 click derecho > find all references.
+
+Para hacerlo más ordenado y facil de visualizar primero debemos foldear todo. Shortcuts:
+
+ctrl + a
+ctrl + k
+ctrl + 0 (el de arriba de las letras)
