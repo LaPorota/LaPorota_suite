@@ -29,5 +29,4 @@ Las políticas deben contener:
 - Capacidad de adquirir hardware, software o recurso externo sin un proceso de adquisición completo.
 - Un cheatsheet de forense/investigaciones
 
-### Herramientas
 
