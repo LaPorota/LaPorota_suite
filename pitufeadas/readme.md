@@ -1,6 +1,6 @@
 ## Disclaimer
 
-Aunque mi vocación profesional esta abocada al RED TEAM de manera inamovible, el BLUE TEAM (en adelante “Los pitufos”) ha tomado una importante relevancia en los últimos años.
+Aunque mi vocación profesional esta destinada al RED TEAM de manera inamovible, el BLUE TEAM (en adelante “Los pitufos”) ha tomado una importante relevancia en los últimos años.
 
 Las inyecciones e intrusiones que antaño eran simples e indetectables, hoy se han vuelto uno con el olvido debido a la incontable cantidad de herramientas de defensa de perímetro y endpoints que inunda el mercado contemporáneo.
 
