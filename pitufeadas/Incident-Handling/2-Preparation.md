@@ -29,4 +29,45 @@ Las políticas deben contener:
 - Capacidad de adquirir hardware, software o recurso externo sin un proceso de adquisición completo.
 - Un cheatsheet de forense/investigaciones
 
+---
+
+### Medidas de protección más importantes
+
+#### DMARC
+
+Protección de email contra phishing.
+
+La idea de DMARC es rechazar los emails que "pretenden" originarse en la organización. 
+
+Aunque es muy eficiente para bloquear phishing, requiere mucho testeo y fortaleciemiento de las reglas antes de llevarlo a un ambiente productivo debido a que puede muy fácilmente bloquear mails legítimos. Tiene muchos falsos positivos.
+
+#### Endpoint Hardening
+
+Hay algunos standars muy reconocidos de endpoint hardening:
+
+- Deshabilitar LLMNR/NetBIOS
+- Implementado de LAPS (sistema que gestiona la rotación de la contraseña del administrador para que no sea la misma en todos los dispositivos) y remover privilegios de administración de los usuarios regulares.
+- Setear powershell en "ConstrainedLanguage" mode. (Modo que limita en gran proporción los comandos que pueden ser ejecutados en powershell).
+- Habilitar ASR (Attack Surface Reduction) si se está usando MS Defender.
+- Bloquear la ejecución desde las carpetas writeables por el usuario. 
+- Bloquear la ejecución de scripts como: .hta, .vbs, .cmd, .bat, .js o similares.
+- Utilizar host-based Firewalls con el fin de hacer bloqueos de endpoint a endpoint
+- Implementar un EDR.
+
+#### Network Protection
+
+
+- Segmentación de red. Es importante para impedir que una brecha de seguridad se expanda por toda la red.
+- Los sistemas críticos deben estar aislados.
+- Los sistemas internos no deben estar expuestos a internet.
+- Implemantación de IDS/IPS.
+- Asegurar que solo los dispositivos aprobados por la organización puedan conectarse a la red.
+
+#### IAM, MFA y PASSWORDS
+
+- Usar contraseñas fuertes (fuertes y complejas no son lo mismo)
+- Implementar identity managers para gestionar la identidad y los privilegios de los usuarios
+- Implementar MFA para prevenir los accesos en caso de robo de credenciales.
+
+
 
