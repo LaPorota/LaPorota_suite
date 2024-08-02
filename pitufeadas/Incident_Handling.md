@@ -5,3 +5,10 @@
 
 ### Términos
 
+#### Evento
+
+Es toda acción realizada dentro de un sistema o red.
+
+#### Incidente
+
+Es todo evento que desate consecuencias negativas
