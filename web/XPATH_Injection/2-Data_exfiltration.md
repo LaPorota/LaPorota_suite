@@ -22,3 +22,11 @@ Si tuvieramos varios parámetros pasándose al servidor, podríamos hacer inyecc
 
     page.php?a=SOMETHINGINVALID')+or+('1'='1&b=../../..//text()
 
+
+### Advanced Data exfiltration
+
+No siempre es posible extraer el XML entero de una vez. En casos donde la aplicación se vea configurada para traer un número fijo de datos, la respuesta será en esa cantidad.
+
+Debido a esto deberemos la profundidad del esquema del XML (los nodos y subnodos).
+
+Para hacer esto debemos iterar recursivamente buscando exfiltrar datos recorriendo desde el root agregando /* y luego el index como si fuera un array [x]
