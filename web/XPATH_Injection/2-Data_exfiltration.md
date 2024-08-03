@@ -29,4 +29,20 @@ No siempre es posible extraer el XML entero de una vez. En casos donde la aplica
 
 Debido a esto deberemos la profundidad del esquema del XML (los nodos y subnodos).
 
-Para hacer esto debemos iterar recursivamente buscando exfiltrar datos recorriendo desde el root agregando /* y luego el index como si fuera un array [x]
+Para hacer esto debemos iterar recursivamente buscando exfiltrar datos recorriendo desde el root agregando /* y luego el index como si fuera un array [x].
+
+/*= se mueve al root del documento y trae todo lo encontrado en el index pasado entre brackets
+
+La inyección quedaría así:
+
+    <dato_x>+|+/*[1]
+
+
+Sin embargo usualmente los sitios están esperando un STRING y si de pronto esta indicación que le dimos referenciada a un subnodo que tiene dentro una profundidad, no habría un resultado puesto que desde el servidor nos traería un array.
+
+Debemos entonces iterar hasta encontrar la profundidad del esquema completo del subnodo agregando nuevamente /*[1] hasta que traiga resultados. Funciona como una MATRIZ o ARRAY MULTINIVEL.
+
+    <dato_x>+|+/*[1]/*[1]
+
+Podremos entonces iterando una y otra vez llegar a la profundidad del esquema y exfiltrar todo cambiando los indexes para buscar datos concretos.
+
