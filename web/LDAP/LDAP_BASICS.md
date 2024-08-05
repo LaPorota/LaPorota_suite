@@ -30,7 +30,30 @@ Todos los search filters deben estar encerrados en paréntesis. Cada componente 
 - "(|()())" : OR. ejemplo: "(|(name=Kaylie)(title=Manager))"
 - "(!())" : NOT. ejemplo: "(!(name=Kaylie))"
 
+
 #### Wildcards
 - (name=*) matchea todas las entries que tengan un atributo "name"
 - (name=k*) matchea todas las entries que tengan un atriburo "name" y cuyo valor inicie con k
 - (name=\*a\*) matchea todas las entries con atributo name y que dentro de su valor tenga una letra a
+
+#### Lista de atributos
+
+Aunque los atributos siguientes son los más comunes, cada organización puede crear atributos customizados.
+
+| atributo | desc |
+|---|---|
+| cn | Nombre completo |
+|giveName | Primer nombre |
+|sn | Apellido |
+|uid | User ID |
+|objectClass | tipo de objeto |
+|distinguishedName | Distinguished Name |
+|ou | Organization unit |
+|title | titulo de una persona |
+|telephoneNumber | Número de teléfono |
+|description | Descripción |
+|mail | mail |
+| street | dirección |
+|postalCode | codigo postal |
+|member | grupos a los que pertenece |
+|userPassword | User Password |
