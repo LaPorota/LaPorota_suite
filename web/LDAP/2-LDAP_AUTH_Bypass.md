@@ -15,7 +15,7 @@ Imaginemos que tenemos una empresa cuyos usuarios inicien con MSF y un número, 
 
 ### Universal true
 
-Podemos inyectar un caso de universal true inyectando un or junto a un true(para esta búsqueda sí requerimos el nombre de un user válido):
+Podemos inyectar un caso de universal true inyectando un or junto a un true(para esta búsqueda sí requerimos el nombre de un user válido) y agregamos un cierre de paréntesis al final de la contraseña:
 
     admin)(|(&
 
