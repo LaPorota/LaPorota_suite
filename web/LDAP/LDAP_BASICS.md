@@ -5,7 +5,7 @@ Las aplicaciones web usan el LDAP para integrarse con el AD u otro servicio de d
 
 - Directory server (DS): es la entidad que guarda datos(no es un database server)
 - LDAP ENTRY: guarda datos de una entidad y tiene 3 componentes principales:
-    - Distinguished Name (DN): es un identificador único que consiste en multiples RELATIVE DISTINGUISHED NAMES (RDNs), Cada RDN consiste en un par de clave-valor
+    - Distinguished Name (DN): es un identificador único que consiste en multiples RELATIVE DISTINGUISHED NAMES (RDNs), Cada RDN consiste en un par de clave-valor (ej: **iud=admin,dc=dominio,dc=com**)
     - TIenen multiples atributos que guardan datos. Cada atributo consisten en un tipo de atributo y un valor seteado.
     - Tienen o pueden tener multiples object classes que consisten en tipos de atributos relacionados a un tipo particular de objeto, instancia, persona o grupo.
 - LDAP define "Operations"(acciones que un cliente puede iniciar)
