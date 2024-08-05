@@ -21,6 +21,6 @@ Podemos inyectar un caso de universal true inyectando un or junto a un true(para
 
 La query(del lado del server) quedaría:
 
-    (&(uid=admin)(|(&)(userPassword=abc)
+    (&(uid=admin)(|(&)(userPassword=abc)))
 
 
