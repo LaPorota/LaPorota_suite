@@ -13,6 +13,8 @@ Imaginemos que tenemos una empresa cuyos usuarios inicien con MSF y un número, 
 
     (&(uid=MSF*)(userPassword=*))
 
+El * puede ir tanto delante, detrás o a ambos lados del substring.
+
 ### Universal true
 
 Podemos inyectar un caso de universal true inyectando un or junto a un true(para esta búsqueda sí requerimos el nombre de un user válido) y agregamos un cierre de paréntesis al final de la contraseña:
