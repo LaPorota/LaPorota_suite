@@ -218,4 +218,8 @@ https://raw.githubusercontent.com/DragonJAR/Security-Wordlist/main/LFI-WordList-
 
 
 
+### Ficheros importantes
+
+        /etc/apache2/sites-available/000-default.conf 
+Guarda los sitios que hay en apache
 
