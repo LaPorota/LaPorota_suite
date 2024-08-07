@@ -87,6 +87,8 @@ Se define mediantne el protocolo, el host(incluyendo dentro de él los subdomini
 #### Preflight requests
 Son todas las que no son simple requests
 
+# CONTINUARÁ...
+
 ### Headers de CORS:
 
 | header | desc |
