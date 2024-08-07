@@ -56,3 +56,5 @@ Es un atributo agregado a las cookies que determinan si la cookie puede ser envi
 |Strict | El browser no envía la cookie en ninguna request cross-origin. |
 
 
+---
+
