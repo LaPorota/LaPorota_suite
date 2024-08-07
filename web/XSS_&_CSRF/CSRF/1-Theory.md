@@ -71,6 +71,9 @@ Se define mediantne el protocolo, el host(incluyendo dentro de él los subdomini
 - video
 - scripts
 
+---
+---
+
 ## CORS
 
 - Cross-Origin Resource Sharing
