@@ -57,4 +57,48 @@ Es un atributo agregado a las cookies que determinan si la cookie puede ser envi
 
 
 ---
+## Same Origin Policy
+
+Es un mecanismo de seguridad implementado en los browsers para impedir las cross-origin. Especialmente que un JS corriendo en un origen pueda tener acceso a otro. 
+
+### Origen
+
+Se define mediantne el protocolo, el host(incluyendo dentro de él los subdominios) y el puerto de una URL. La Same Origin Policy aplica cuando dos URLs son distintas en alguna de estas tres propiedades.
+
+### Excepciones
+
+- img
+- video
+- scripts
+
+## CORS
+
+- Cross-Origin Resource Sharing
+- Es un standard de W3C para definir excepciones en la Same-Origin policy.
+- Establece los trusted origins y los verbos HTTP permitidos para el cross-origin.
+
+### Tipos de request
+
+#### Simple requests
+
+- Pueden ser GET o HEAD sin custom headers
+- Pueden ser POST sin custom headers, content-type, application/x-www-form-urlencoded, multipart/form-data o text/plain
+
+#### Preflight requests
+Son todas las que no son simple requests
+
+### Headers de CORS:
+
+| header | desc |
+|----|---|
+|Access-Control-Allow-Origin | Define las excepciones de la SOP para un origen específico |
+|Access-Control-Expose-Headers | Define excepciones de la SOP para headers específicos |
+|Access-Control-Allow-Methods | Define excepciones de la SOP para los verbos HTTP provenientes de una request preflight |
+|Access-Control-Allow-Headers | Define excepciones de la SOP para los headers HTTP de una request preflight |
+|Access-Control-Allow-Credentials | Si se setea en **true** define las excepciones de la SOP inclusive si la request cross-origin contiene credenciales (cookies o authorization headers) |
+|Access-Control-Max-Age | Define cuanto tiempo va a ser capturada la información de los CORS-headers sin necesitar una nueva request preflight |
+
+
+
+
 
