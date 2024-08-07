@@ -45,4 +45,14 @@ En el ejemplo del payload anterior, el atacante debería introducir un parametro
 
 #### SameSite Cookies
 
-## CONTINUARA...
+Es un atributo agregado a las cookies que determinan si la cookie puede ser enviada mediante cross-origin requests. 
+
+##### Valores del atributo:
+
+| valor | desc |
+|---|---|
+|none | la cookie es enviada mediante todas las cross-origin requests |
+|lax | el browser solamente puede enviar la cookie en algunos casos. Solamente por métodos get y no puede ser enviada mediante JS |
+|Strict | El browser no envía la cookie en ninguna request cross-origin. |
+
+
