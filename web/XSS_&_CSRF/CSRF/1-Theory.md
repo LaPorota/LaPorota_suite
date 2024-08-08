@@ -87,11 +87,6 @@ Se define mediantne el protocolo, el host(incluyendo dentro de él los subdomini
 - Pueden ser GET o HEAD sin custom headers
 - Pueden ser POST sin custom headers, content-type, application/x-www-form-urlencoded, multipart/form-data o text/plain
 
-#### Preflight requests
-Son todas las que no son simple requests
-
-# CONTINUARÁ...
-
 ### Headers de CORS:
 
 | header | desc |
@@ -103,7 +98,19 @@ Son todas las que no son simple requests
 |Access-Control-Allow-Credentials | Si se setea en **true** define las excepciones de la SOP inclusive si la request cross-origin contiene credenciales (cookies o authorization headers) |
 |Access-Control-Max-Age | Define cuanto tiempo va a ser capturada la información de los CORS-headers sin necesitar una nueva request preflight |
 
+#### Preflight requests
+- Son todas las que no cumplen con las condiciones de las simple requests.
+- Son enviadas por el browser antes de enviar la request cross-origin mediante el verbo OPTIONS
+- Contiene todos los parámetros que serán enviados en la request real. De esta manera el server decide si la request cross-origin será permitida o no.
 
+El browser espera la respuesta del servidor y solo continúa enviando la cross-origin request si la respuesta es satisfactoria seteando los headers CORS correspondientes en la response.
+
+##### Cabeceras de la preflight request
+
+| Header | desc |
+|----|---|
+|Access-Control-Request-Method | informa al server sobre el verbo HTTP que se va a usar en la request |
+|Access-Control-Request-Headers | Infomra al server sobre los header HTTP que se van a usar en la request |
 
 
 
