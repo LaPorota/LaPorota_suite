@@ -24,7 +24,7 @@ wss:// = Mensajes por el protocolo HTTPS
     const socket = new WebSocket('ws://websockets.com/echo');
 
 ### WebSocket handshake
-
+#### Request
     GET /echo HTTP/1.1
     Host: websockets.htb
     Connection: Upgrade
@@ -41,3 +41,23 @@ wss:// = Mensajes por el protocolo HTTPS
 |Sec-WebSocket-version | 13 | Muesta la versión del protocolo websocket elegida por el cliente |
 |Sec-WebSocket-Key | \<key\> | Contiene un valor único que confirma que el cliente quiere establecer una conexión. No aporta ninuna seuridad. |
 |Origin | \<origen\> | Contiene el origen de la request como en todo HTTP |
+
+
+#### Response
+
+    HTTP/1.1 101 Switching Protocols
+    Connection: Upgrade
+    Upgrade: websocket
+    Sec-WebSocket-Accept: QU/gD/2y41z9ygrOaGWgaC+Pm2M=
+
+##### Headers
+
+| header | value | desc |
+|---|---|---|
+|Http 101 | X | El status 101 indica que se completó la conexión entre websockets |
+|Sec-WebSocket-Accept | \<key\> | contiene un valor deliverado salido del valor enviado por el cliente en la sec-websocket-key y confirma que el server quiere establecer la conexión |
+
+
+#### Websockets Handbook:
+
+    https://pages.ably.com/hubfs/the-websocket-handbook.pdf
