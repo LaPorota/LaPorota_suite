@@ -13,6 +13,7 @@ Son muy útiles en aplicaciones en tiempo real como un **chat**. De no ser por l
 Los WebSockets pueden reconocerse por **ws://** y **wss://**:
 
 ws:// = Mensajes por protocolo HTTP
+
 wss:// = Mensajes por el protocolo HTTPS
 
 
@@ -38,5 +39,5 @@ wss:// = Mensajes por el protocolo HTTPS
 |---|---|---|
 |Connection y Upgrade | Upgrade y Websocket | indican que el cliente quiere establecer una conexión mediante websockets |
 |Sec-WebSocket-version | 13 | Muesta la versión del protocolo websocket elegida por el cliente |
-|Sec-WebSocket-Key | <key> | Contiene un valor único que confirma que el cliente quiere establecer una conexión. No aporta ninuna seuridad. |
-|Origin | <origen> | Contiene el origen de la request como en todo HTTP |
+|Sec-WebSocket-Key | \<key\> | Contiene un valor único que confirma que el cliente quiere establecer una conexión. No aporta ninuna seuridad. |
+|Origin | \<origen\> | Contiene el origen de la request como en todo HTTP |
