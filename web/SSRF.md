@@ -27,9 +27,16 @@ como "/admin".Para evadirlos podemos:
   
 2. Crear nuestro propio dominio que apunte a la dirección interna **127.0.0.1**
 
-Existen sitios que permiten hacer esto entre ellos:
+Existen sitios que permiten hacer esto. Entre ellos:
 - spoofed.burpcollaborator.net
 - localtest.me
+
+
+Otra Opción es crear un servidor en php
+
+
+    <?php header('Location: http://127.0.0.1/<sección a llamar>'); ?>
+
 3. Usar URL encode
 
 Deberemos probar una conjunción de las mismas para pasar todos los métodos de validación.
