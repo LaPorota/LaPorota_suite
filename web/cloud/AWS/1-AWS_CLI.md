@@ -121,6 +121,9 @@ La política con más privilegios en aws es
 
     aws iam list-attached-user-policies --user-name <user>
 
+#### Obtener información de una política
+
+    aws iam get-policy --policy-arn <arn>
 
 #### Listar roles de un usuario
 
@@ -133,7 +136,6 @@ La política con más privilegios en aws es
 #### Listar usuarios diponibles
 
     aws iam list-users
-
 
 
 
