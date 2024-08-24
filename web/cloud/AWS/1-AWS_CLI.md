@@ -121,6 +121,11 @@ La política con más privilegios en aws es
 
     aws iam list-attached-user-policies --user-name <user>
 
+
+#### Listar roles de un usuario
+
+    aws iam list-roles
+
 #### Crear claves de acceso para un usuario
 
     aws iam create-access-key --user-name <user>
