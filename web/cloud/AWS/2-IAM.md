@@ -44,9 +44,6 @@ Define sobre qué recursos se aplican las acciones. Los recursos son especificad
 
 Es opcional. Define las condiciones en las que se aplican las reglas del statement. Las condiciones pueden incluir: Fecha y dirección IP, entre otras cosas.
 
-### Tipos de políticas de IAM
-
-# Continuará...
 
 ---
 
