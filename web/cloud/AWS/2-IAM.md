@@ -4,6 +4,44 @@ Iam es el servicio/sistema que utiliza AWS para gestionar identidades. Se encarg
 
 ---
 
+## Políticas
+
+Una política de IAM es un documento que define los permisos sobre los recursos de AWS. Actúa como contrato entre AWS y una identidad(usuario, grupo o rol) o recurso.
+
+### Estructura de una política
+##### Ejemplo de política
+
+    {
+        "Version": "2012-10-17",
+        "Statement": {
+            "Effect": "Allow",
+            "Action": [
+                "iam:Get*",
+                "iam:List*",
+                "iam:Generate*"
+            ],
+            "Resource": "*"
+        }
+    }
+#### Statement
+- Cada política tiene uno o varios statement.
+- Son bloques de construcción de las políticas.
+- Incluye información sobre las acciones permitidas o denegadas, recursos a los que se aplican y bajo qué condiciones.
+
+#### Effect
+Se setea en Allow o Deny dependiendo de si las acciones consecuentes se encuentran permitidas o denegadas.
+
+#### Action
+
+Especifica la lista de acciones permitidas o denegadas. Son operaciones específicas de en los servicios de AWS.
+
+#### Resourse
+
+Define sobre qué recursos se aplican las acciones. Los recursos son especificados por un ARN(Amazon Resource Names)
+
+#### Condition
+
+
 ## Prefijo de ID de IAM
 
 Las claves access_key_id de Iam tienen prefijos que distinguen su naturaleza:
