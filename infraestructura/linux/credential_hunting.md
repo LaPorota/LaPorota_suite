@@ -46,3 +46,14 @@ Luego:
 
       python3.9 firefox_decrypt.py
 
+#### Obtener credenciales de AWS
+
+Cuando realizamos una autenticación en AWS utilizando el cli o el sdk se genera un conjunto de credenciales que incluyen un Access Key Id y un Secret Access Key. Suele guardarse en:
+
+##### Root:
+    /root/.aws/credentials
+
+##### User:
+
+      /home/NombreDeUsuario/.aws/credentials
+
