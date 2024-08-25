@@ -58,7 +58,7 @@
 
 ### Enumerar versiones de una política
 
-** Las políticas pueden ser actualizadas y se manejan por versiones. Enumerar versiones de políticas y sus detalles específicos nos permite acceder a versiones anteriores que incluyan problemas de configuración.**
+**Las políticas pueden ser actualizadas y se manejan por versiones. Enumerar versiones de políticas y sus detalles específicos nos permite acceder a versiones anteriores que incluyan problemas de configuración.**
 
     aws iam list-policy-versions --policy-arn <arn> --profile <perfil>
 
