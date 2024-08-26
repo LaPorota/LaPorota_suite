@@ -11,6 +11,5 @@ Las políticas son el mecanismo principal por el cual se otorgan o restringen pe
 |iam:AttachUserPolicy | Permite adjuntar políticas a usuarios de manera directa, logrando así conseguir acceso no autorizado a recursos críticos |
 |iam:AttachGroupPolicy | Permite asignar políticas a un grupo permitiendo así ampliar los permisos a los miembros del grupo |
 |iam:AttachRolePolicy | Permite adjuntar políticas a roles |
-|iam:PutUserPolicy | Permiten la inserción de políticas en línea directamente en usuarios, grupos y roles, respectivamente. Estos permisos permiten la modificación directa de los permisos asignados, facilitando la escalada de privilegios. |
-|iam:PutGroupPolicy |
-| iam:PutRolePolicy |
+|iam:PutUserPolicy, iam:PutGroupPolicy, iam:PutRolePolicy | Permiten la inserción de políticas en línea directamente en usuarios, grupos y roles, respectivamente. Estos permisos permiten la modificación directa de los permisos asignados, facilitando la escalada de privilegios. |
+
