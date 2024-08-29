@@ -19,6 +19,11 @@
 
     aws s3 cp s3://nombre-del-bucket/archivo ./
 
+##### hacerlo sin enviar credenciales
+
+    aws s3 cp s3://nombre-del-bucket/archivo ./ --no-sign-request
+
+
 ### Subir archivos
 
     aws cp .\archivo s3://nombre-del-bucket/
