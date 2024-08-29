@@ -25,7 +25,9 @@ El networking en Amazon EC2 brinda la arquitectura necesaria para conectar las i
 - Posee tablas de ruteo que determinan cómo el tráfico es dirigido entre las subredes, internet y otros servicios de AWS.
 - IGW (internet gateway) permite la comunicación entre instancias de la VPC e internet
 - Nat Gateway permite que las instancias en una subred privada accedan a servicios en internet u otros servicios de AWS mientras se mantienen inaccesibles desde internet.
-
+- VGW (Gateway privada virtual): SIrve como punto de conexión para VPNs, permitiendo la conexión segura entre la VPC y la red corporativa del usuario.
+- VPC Endpoints: Ofrecen una ruta privada para acceder a servicios de AWS sin necesidad de pasar por Internet.
+- Gateway de Internet de Salida Única (Egress-Only Internet Gateway):Permite el tráfico de salida a internet desde una VPC para direcciones IPv6 y bloquea la entrada.
 ---
 
 # IMDS
@@ -63,3 +65,9 @@ Actualmente IMDS tiene dos versiones: v1 y v2.
 |---|--|---|
 |V1 | No posee medidas de seguridad más que la imposibilidad de acceder a los datos fuera de la instancia.| Puede ser consultado si la aplicación servida en la instancia es vulnerable a ssrf|
 |v2 | Posee tokens de sesión conseguidos mediante un método put desde la instancia, tiene métodos http restringidos a PUT y GET y los tokens tienen una vida útil de 6hs| Solamente es vulnerable en el caso de que esté sirviendo una app vulnerable a SSRF en un formulario que se envíe por método PUT (casi imposible) y otro por método get. |
+
+
+# AWS Security Token
+
+- Permiten a los usuarios obtener acceso limitado para realizar tareas específicas.
+- **Solo tienen sentido si el entorno está implementado con una seguridad robusta**
