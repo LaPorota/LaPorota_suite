@@ -32,3 +32,22 @@ podemos modificar listas con hashcat aplicandole reglas para que estas sean modi
 
 Hashcat trae una serie de reglas por defecto dentro de la carpeta:
     /usr/share/hashcat/rules/
+
+### Crear listas mediante script bash
+Agregar bucle for por cada nuevo "index" de caracteres a agregar"
+
+    #!/bin/bash
+
+    palabra="palabra"
+    caracteres_a_agregar=("q" "w" "e" "r" "t" "y" "u" "i" "o" "p" "a" "s" "d" "f" "g" "h" "j" "k" "l" "z" "x" "c" "v" "b" "n" "m" "1" "2" "3" "4" "5" "6" "7" "8" "9" "0" "!" "?" "-" "_" "@" "Q" "W" "E" "R" "T" "Y" "U" "I" "O" "P" "A" "S" ">
+
+    # Crear o sobrescribir el archivo lista.txt
+    > lista.txt
+
+    # Bucle para agregar caracteres a la palabra y escribir en el archivo
+    for char in "${caracteres_a_agregar[@]}"; do
+        for char2 in "${caracteres_a_agregar[@]}"; do
+                echo "${palabra}${char}${char2}" >> lista.txt
+    done
+    done
+
