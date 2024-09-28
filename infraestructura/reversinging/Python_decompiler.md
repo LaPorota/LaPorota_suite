@@ -11,4 +11,13 @@ Lo llamamos directamente por su nombre
 
 ### Python 2.7
 
-    https://github.com/wibiti/uncompyle2
+##### Bajamos el repo
+    git clone https://github.com/wibiti/uncompyle2.git
+
+##### Instalamos desde el source code
+
+    python2.7 setup.py install
+
+##### Corremos desde la ubicación del archivo a decompilar
+
+    uncompyle2 <archivo>
