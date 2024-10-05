@@ -31,6 +31,9 @@ O la lista de usuarios en un json:
 
 #### Enumerar todo el sitio y plugins:
         wpscan -url "" --enumerate  --api-token <api-token>
+#### Enumerar plugins de manera agresiva:
+        wpscan -url "" --enumerate ap --plugins-detection agressive --api-token <api-token>
+        
 #### BF:
         wpscan -url "" --usernames "" --passwords "dictio"
 
@@ -38,6 +41,9 @@ también puede hacerse:
 
         sudo wpscan --password-attack xmlrpc -t 20 -U <user> -P <dictio> --url <sitio>
 
+### Metasploit
+
+    auxiliary/scanner/http/wordpress_scanner
 
 ### Explotar una WP desde la página de error 404
 #### Acceder a la pagina php con la shell
