@@ -63,6 +63,8 @@ Tabla de funciones para reconocimiento:
 
     Get-DomainObjectACL -ResolveGUIDs -Identity * | ? {$_.SecurityIdentifier -eq $sid} 
 
+---
+
 ### Referidas a las computadoras
 
 ##### Enumerar qué GPOs se linkean a una computadora
