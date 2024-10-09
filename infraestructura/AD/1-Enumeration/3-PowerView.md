@@ -57,6 +57,10 @@ A cada función podemos agregarle el **-Help** para que nos muestre todos los pa
 
     .\SharpView.exe Get-DomainGroup -AdminCount
 
+##### Buscar miembros de un grupo
+
+    .\SharpView.exe Get-DomainGroupMember -Identity 'Help Desk'
+
 ##### Buscar managed security groups
 
     Find-ManagedSecurityGroups | select GroupName
