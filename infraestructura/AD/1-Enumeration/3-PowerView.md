@@ -25,6 +25,7 @@ A cada función podemos agregarle el **-Help** para que nos muestre todos los pa
 
     .\SharpView.exe Get-DomainOU | findstr /b "name"
 
+
 ##### Enumerar usuarios que no necesiten kerberos preauth
 
     .\SharpView.exe Get-DomainUser -KerberosPreauthNotRequired
@@ -45,7 +46,35 @@ A cada función podemos agregarle el **-Help** para que nos muestre todos los pa
 
 ---
 
+## Referido a los grupos
 
+##### Obtener grupos de un dominio
+
+    Get-DomainGroup -Properties Name
+
+##### Buscar protected groups
+
+    .\SharpView.exe Get-DomainGroup -AdminCount
+
+##### Buscar managed security groups
+
+    Find-ManagedSecurityGroups | select GroupName
+
+##### Buscar managers de los security groups
+
+    Get-DomainManagedSecurityGroup
+
+Luego podemos ver qué permisos tiene el manager sobre el grupo
+
+    $sid = ConvertTo-SID joe.evans
+    Get-DomainObjectAcl -Identity 'Security Operations' | ?{ $_.SecurityIdentifier -eq $sid}
+
+
+##### Listar grupos locales de un host
+
+    .\SharpView.exe Get-NetLocalGroupMember -ComputerName WS01
+
+---
 
 ## Referido a los usuarios
 
