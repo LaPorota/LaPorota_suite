@@ -40,7 +40,7 @@ Tabla de funciones para reconocimiento:
 
     Get-DomainTrust
 
-
+---
 ### Referido a los usuarios
 
 ##### Convertir name a SID
@@ -58,7 +58,10 @@ Tabla de funciones para reconocimiento:
 ##### Ver en qué computadoras los usuarios están logueados
 
     Find-DomainUserLocation
-    
+
+##### Listar ACLs de un user
+
+    Get-DomainObjectACL -ResolveGUIDs -Identity * | ? {$_.SecurityIdentifier -eq $sid} 
 
 ### Referidas a las computadoras
 
