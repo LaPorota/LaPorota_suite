@@ -146,6 +146,15 @@ Luego podremos buscar usuarios kerberosteables de ese dominio externo.
 
 ## Referidas a las computadoras
 
+
+##### Enumerar computadoras de un dominio
+
+    .\SharpView.exe Get-DomainComputer -Properties dnshostname,operatingsystem,lastlogontimestamp,useraccountcontrol
+
+##### Enumerar computadoras con constrained delegation
+
+    Get-DomainComputer -TrustedToAuth | select -Property dnshostname,useraccountcontrol
+
 ##### Enumerar qué GPOs se linkean a una computadora
 
     Get-DomainGPO -ComputerIdentity WS01 | select displayname
