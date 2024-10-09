@@ -15,7 +15,7 @@ Tabla de funciones para reconocimiento:
 
 # Funciones básicas
 
-### <u> Referidas al dominio </u>
+## <u> Referidas al dominio </u>
 
 ##### Obtener información de un dominio
 
@@ -41,7 +41,7 @@ Tabla de funciones para reconocimiento:
     Get-DomainTrust
 
 ---
-### Referido a los usuarios
+## Referido a los usuarios
 
 ##### Convertir name a SID
 
@@ -65,7 +65,7 @@ Tabla de funciones para reconocimiento:
 
 ---
 
-### Referidas a las computadoras
+## Referidas a las computadoras
 
 ##### Enumerar qué GPOs se linkean a una computadora
 
