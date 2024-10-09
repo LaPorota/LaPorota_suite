@@ -29,9 +29,18 @@
 
      Get-ADUser -Filter * | Measure-Object
 
+### Enumerar cantidad de usuarios de un grupo:
+
+     (Get-ADUser -SearchBase "OU=Employees,DC=INLANEFREIGHT,DC=LOCAL" -SearchScope Subtree -Filter *).count
+
 ### Enumerar usuarios con LDAP:
 
      Get-ADObject -LDAPFilter '(&(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=2))' -Properties * | select samaccountname,useraccountcontrol
+
+### Enumerar usuarios de confianza
+
+     Get-ADUser -Properties * -LDAPFilter '(userAccountControl:1.2.840.113556.1.4.803:=524288)' | select Name,memberof, servicePrincipalName,TrustedForDelegation | fl
+
 ### Enumerar un usuario por su nombre:
 
      Get-ADUser -Filter "name -eq 'sally jones'"
@@ -47,6 +56,10 @@ Estos usuarios son potencialmente kerberosteables.
 
      Get-ADUser -Filter "adminCount -eq '1'" -Properties * | where servicePrincipalName -ne $null | select SamAccountName,MemberOf,ServicePrincipalName | fl
 
+### Enumerar usuarios con el password en blanco
+
+     Get-AdUser -LDAPFilter '(&(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=32))(adminCount=1)' -Properties * | select name,memberof | fl
+
 ---
 
 # Enumeración de computadoras:
@@ -58,3 +71,7 @@ Estos usuarios son potencialmente kerberosteables.
 ### Enumerar computadoras que tengan un nombre parcial:
 
      Get-ADComputer  -Filter "DNSHostName -like 'SQL*'"
+### Enumerar computadoras de confianza
+
+     Get-ADComputer -Properties * -LDAPFilter '(userAccountControl:1.2.840.113556.1.4.803:=524288)' | select DistinguishedName,servicePrincipalName,TrustedForDelegation | fl
+
