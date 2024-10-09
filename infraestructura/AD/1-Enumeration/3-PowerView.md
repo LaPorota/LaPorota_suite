@@ -15,7 +15,7 @@ Tabla de funciones para reconocimiento:
 
 # Funciones básicas
 
-### <u>Referidas al dominio</u>
+### <u> Referidas al dominio </u>
 
 ##### Obtener información de un dominio
 
