@@ -18,7 +18,7 @@
 
 ### Obtener miembros de un grupo
 
-    net localgroup DNSAdmins /domain
+    Get-ADGroupMember -Identity "<grupo>" | Select-Object Name, SamAccountName, DistinguishedName
 
 
 ---
