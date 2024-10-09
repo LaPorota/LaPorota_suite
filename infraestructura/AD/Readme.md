@@ -82,4 +82,14 @@ Los ACE están conformados por 4 componentes:
 4) Una marca de acceso(valor de 32bits que define los permisos otorgados sobre el objeto)
 
 Los ACEs son importantes porque podemos abusar de ellos y usualmente, en empresas de grandes tamaños, son difíciles de manejar. Sus fallas de configuración tampoco saltan en scanners.
+
+---
+
+# LDAP
+
+LDAP es un protocolo cross-platform y open-source utilizado para la autenticación contra varios servicios de directorio (inlcuido el AD). Es la forma en la que los sistemas en el entorno pueden comunicarse con el AD.
+
+Más info:
+
+    https://github.com/LaPorota/LaPorota_suite/tree/main/web/LDAP
   
