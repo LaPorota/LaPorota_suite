@@ -45,6 +45,10 @@
 
      Get-ADUser -Filter "name -eq 'sally jones'"
 
+### Enumerar grupos a los que pertenece el usuaro de manera recursiva(nested groups)
+
+     Get-ADGroup -Filter 'member -RecursiveMatch "CN=Harry Jones,OU=Network Ops,OU=IT,OU=Employees,DC=INLANEFREIGHT,DC=LOCAL"' | select name
+
 ### Enumerar usuarios administrativos que no requeran preauth.
 
 Estos usuarios pueden ser ASREPRoasted.
