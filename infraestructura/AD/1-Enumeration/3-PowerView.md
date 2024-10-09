@@ -175,4 +175,17 @@ Luego podremos buscar usuarios kerberosteables de ese dominio externo.
     
     Find-InterestingDomainAcl -Domain inlanefreight.local -ResolveGUIDs
 
+##### Ver quienes tienen GenericALL sobre un usuario específico
+
+    Get-ObjectAcl -SamAccountName "joe.evans" -ResolveGUIDs | Where-Object { $_.ActiveDirectoryRights -match "GenericAll" } | ForEach-Object {
+        $sid = $_.SecurityIdentifier
+        $name = (Get-ADUser -Filter {SID -eq $sid} -ErrorAction SilentlyContinue).SamAccountName
+        if (-not $name) {
+            $name = (Get-ADGroup -Filter {SID -eq $sid} -ErrorAction SilentlyContinue).SamAccountName
+        }
+        [PSCustomObject]@{
+            IdentityReference = $name
+            ActiveDirectoryRights = $_.ActiveDirectoryRights
+        }
+    }
 
