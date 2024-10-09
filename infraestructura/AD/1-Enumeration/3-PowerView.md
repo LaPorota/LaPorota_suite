@@ -93,6 +93,11 @@ A cada función podemos agregarle el **-Help** para que nos muestre todos los pa
 
     Get-DomainUser -Properties samaccountname,description | Where {$_.description -ne $null}
 
+
+##### Buscar usuarios con kerberos constrained delegation
+
+    .\SharpView.exe Get-DomainUser -TrustedToAuth -Properties samaccountname,useraccountcontrol,memberof
+
 ##### Encontrar usuarios foraneos en grupos del dominio
 
     Find-ForeignGroup
