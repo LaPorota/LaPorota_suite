@@ -175,6 +175,13 @@ Luego podremos buscar usuarios kerberosteables de ese dominio externo.
     
     Find-InterestingDomainAcl -Domain inlanefreight.local -ResolveGUIDs
 
+##### Buscar users con permisos de DCSync
+
+    $dcsync = Get-ObjectACL "DC=inlanefreight,DC=local" -ResolveGUIDs | ? { ($_.ObjectAceType -match 'Replication-Get')} | Select-Object -ExpandProperty SecurityIdentifier | Select -ExpandProperty value
+
+Luego
+
+    Convert-SidToName $dcsync
 ##### Ver quienes tienen GenericALL sobre un usuario específico
 
     Get-ObjectAcl -SamAccountName "joe.evans" -ResolveGUIDs | Where-Object { $_.ActiveDirectoryRights -match "GenericAll" } | ForEach-Object {
@@ -188,4 +195,3 @@ Luego podremos buscar usuarios kerberosteables de ese dominio externo.
             ActiveDirectoryRights = $_.ActiveDirectoryRights
         }
     }
-
