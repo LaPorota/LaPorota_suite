@@ -23,8 +23,10 @@
      crackmapexec smb 172.16.5.5 --users
 
 ### LDAPSEARCH:
+##### Listar Usuarios
      ldapsearch -H ldap://172.16.5.5 -x -b "DC=INLANEFREIGHT,DC=LOCAL" -s sub "(&(objectclass=user))"  | grep sAMAccountName: | cut -f2 -d" "
-
+##### Listar usuarios con información 
+     ldapsearch -H ldap://172.16.5.5 -x -b "DC=INLANEFREIGHT,DC=LOCAL" -s sub "(&(objectclass=user))"
 ### LdapSearch-ad
 
 #### Información del Ad
