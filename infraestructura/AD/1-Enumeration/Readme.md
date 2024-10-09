@@ -25,6 +25,12 @@
 ### LDAPSEARCH:
      ldapsearch -H ldap://172.16.5.5 -x -b "DC=INLANEFREIGHT,DC=LOCAL" -s sub "(&(objectclass=user))"  | grep sAMAccountName: | cut -f2 -d" "
 
+### LdapSearch-ad
+
+#### Información del Ad
+     python3 ldapsearch-ad.py -l 10.129.1.207 -t info
+
+
 ### WINDAPSEARCH:
 
 ##### Listar Usuarios
@@ -32,3 +38,4 @@
 ##### Listar Computadoras
 
     python3 windapsearch.py --dc-ip 10.129.1.207 -u "" -C
+
