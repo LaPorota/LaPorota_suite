@@ -16,8 +16,8 @@ Para filtrar en powershell podemos usar el Parámetro "-Filter".
 |-bor	| Bitwise OR |
 |-band |	Bitwise AND |
 |-recursivematch |	Recursive match|
-|-like |	Like |
-|-notlike	| Not like |
+|-like |	Like | "like '%Microsoft%'"
+|-notlike	| Not like | 
 |-and	|Boolean AND|
 |-or	| Boolean OR|
 |-not	|Boolean NOT|
