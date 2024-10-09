@@ -19,7 +19,7 @@ A cada función podemos agregarle el **-Help** para que nos muestre todos los pa
 
 ## Referidas al dominio 
 
-##### Obtener información de un dominio
+#### Obtener información de un dominio
 
     .\SharpView.exe Get-Domain
 ##### Enumerar las OUs del dominio
@@ -27,7 +27,7 @@ A cada función podemos agregarle el **-Help** para que nos muestre todos los pa
     .\SharpView.exe Get-DomainOU | findstr /b "name"
 
 
-##### Enumerar usuarios que no necesiten kerberos preauth
+#### Enumerar usuarios que no necesiten kerberos preauth
 
     .\SharpView.exe Get-DomainUser -KerberosPreauthNotRequired
 
