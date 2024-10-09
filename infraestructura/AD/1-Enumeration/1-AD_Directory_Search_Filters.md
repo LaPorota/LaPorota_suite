@@ -16,8 +16,13 @@ Para filtrar en powershell podemos usar el Parámetro "-Filter".
 |-bor	| Bitwise OR |
 |-band |	Bitwise AND |
 |-recursivematch |	Recursive match|
-|-like |	Like | "like '%Microsoft%'"
+|-like |	Like | "like 'joe*'"
 |-notlike	| Not like | 
 |-and	|Boolean AND|
 |-or	| Boolean OR|
 |-not	|Boolean NOT|
+
+### Ejemplos:
+
+    Get-ADUser -Filter "name -eq 'sally jones'"
+
