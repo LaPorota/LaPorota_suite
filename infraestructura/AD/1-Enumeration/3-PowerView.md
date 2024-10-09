@@ -112,9 +112,7 @@ Luego podemos ver qué permisos tiene el manager sobre el grupo
 
     Find-DomainUserLocation
 
-##### Listar ACLs de un user
-
-    Get-DomainObjectACL -ResolveGUIDs -Identity * | ? {$_.SecurityIdentifier -eq $sid} 
+    
 ##### Conseguir todos los users ASREPRoasteables
 
     .\SharpView.exe Get-DomainUser -KerberosPreauthNotRequired -Properties samaccountname,useraccountcontrol,memberof
@@ -164,4 +162,17 @@ Luego podremos buscar usuarios kerberosteables de ese dominio externo.
 ##### Ver si un host tiene SMB shares
 
     .\SharpView.exe Get-NetShare -ComputerName DC01
+
+---
+
+## Referidas a los ACLs
+
+##### Listar ACLs de un user
+
+    Get-DomainObjectAcl -Identity harry.jones -Domain inlanefreight.local -ResolveGUIDs
+
+##### Listar ACLs interesantes de un dominio
+    
+    Find-InterestingDomainAcl -Domain inlanefreight.local -ResolveGUIDs
+
 
