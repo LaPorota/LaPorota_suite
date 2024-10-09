@@ -1,12 +1,15 @@
 # Enumeración de grupos:
 
-### Obtener vantidad de grupos dentro de un dominio
+### Obtener cantidad de grupos dentro de un dominio
 
      Get-ADGroup -Filter * | Measure-Object
 
 ### Obtener grupos de un dominio mediante LDAP
 
      Get-ADObject -LDAPFilter '(objectClass=group)' | select name
+### Obtener grupos administrativos:
+
+     Get-ADGroup -Filter "adminCount -eq 1" | select Name
 
 ### Obtener propiedades de un grupo
 
@@ -17,7 +20,9 @@
 
     net localgroup DNSAdmins /domain
 
+
 ---
+
 # Enumeración de usuarios:
 
 ### Enumerar cantidad de usuarios de un dominio:
@@ -27,9 +32,29 @@
 ### Enumerar usuarios con LDAP:
 
      Get-ADObject -LDAPFilter '(&(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=2))' -Properties * | select samaccountname,useraccountcontrol
+### Enumerar un usuario por su nombre:
+
+     Get-ADUser -Filter "name -eq 'sally jones'"
+
+### Enumerar usuarios administrativos que no requeran preauth.
+
+Estos usuarios pueden ser ASREPRoasted.
+
+     Get-ADUser -Filter {adminCount -eq '1' -and DoesNotRequirePreAuth -eq 'True'}
+### Enumerar usuarios administrativos con el ServicePrincipalName
+
+Estos usuarios son potencialmente kerberosteables.
+
+     Get-ADUser -Filter "adminCount -eq '1'" -Properties * | where servicePrincipalName -ne $null | select SamAccountName,MemberOf,ServicePrincipalName | fl
+
+---
 
 # Enumeración de computadoras:
      
 ### Enumerar cantidad de computadoras de un dominio
 
      Get-ADComputer -Filter * | Measure-Object
+
+### Enumerar computadoras que tengan un nombre parcial:
+
+     Get-ADComputer  -Filter "DNSHostName -like 'SQL*'"
