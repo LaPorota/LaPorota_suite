@@ -12,6 +12,7 @@ Tabla de funciones para reconocimiento:
     https://powersploit.readthedocs.io/en/latest/Recon/
 
 A cada función podemos agregarle el **-Help** para que nos muestre todos los parámetros aceptados
+
 ---
 
 # Funciones básicas
