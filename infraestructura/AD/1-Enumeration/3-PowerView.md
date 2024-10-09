@@ -11,6 +11,7 @@ Tabla de funciones para reconocimiento:
 
     https://powersploit.readthedocs.io/en/latest/Recon/
 
+A cada función podemos agregarle el **-Help** para que nos muestre todos los parámetros aceptados
 ---
 
 # Funciones básicas
@@ -40,9 +41,19 @@ Tabla de funciones para reconocimiento:
 
     Get-DomainTrust
 
+
+
 ---
+
+
+
 ## Referido a los usuarios
 
+
+##### Enumerar cantidad de usuarios en un dominio
+
+    (Get-DomainUser).count
+    
 ##### Convertir name a SID
 
     .\SharpView.exe ConvertTo-SID -Name sally.jones
@@ -50,6 +61,14 @@ Tabla de funciones para reconocimiento:
 ##### Convertir Sid a Name
 
     .\SharpView.exe Convert-ADName -ObjectName S-1-5-21-2974783224-3764228556-2640795941-1724
+
+##### Conseguir la información más importante de un user
+
+    Get-DomainUser -Identity harry.jones -Domain inlanefreight.local | Select-Object -Property name,samaccountname,description,memberof,whencreated,pwdlastset,lastlogontimestamp,accountexpires,admincount,userprincipalname,serviceprincipalname,mail,useraccountcontrol
+
+##### Conseguir la información más útil de todos los usuarios del dominio
+
+    Get-DomainUser * -Domain inlanefreight.local | Select-Object -Property name,samaccountname,description,memberof,whencreated,pwdlastset,lastlogontimestamp,accountexpires,admincount,userprincipalname,serviceprincipalname,mail,useraccountcontrol | Export-Csv .\inlanefreight_users.csv -NoTypeInformation
 
 ##### Listar UACs de un user
 
@@ -62,6 +81,27 @@ Tabla de funciones para reconocimiento:
 ##### Listar ACLs de un user
 
     Get-DomainObjectACL -ResolveGUIDs -Identity * | ? {$_.SecurityIdentifier -eq $sid} 
+##### Conseguir todos los users ASREPRoasteables
+
+    .\SharpView.exe Get-DomainUser -KerberosPreauthNotRequired -Properties samaccountname,useraccountcontrol,memberof
+
+##### Conseguir todos los usuarios kerberosteables
+
+    .\SharpView.exe Get-DomainUser -SPN -Properties samaccountname,memberof,serviceprincipalname
+
+##### Buscar usuarios para ver si en su descripción tienen el password
+
+    Get-DomainUser -Properties samaccountname,description | Where {$_.description -ne $null}
+
+##### Encontrar usuarios foraneos en grupos del dominio
+
+    Find-ForeignGroup
+
+Si luego convertimos el SID to Name, vamos a poder saber de qué dominio es nativo el user
+
+Luego podremos buscar usuarios kerberosteables de ese dominio externo.
+
+    Get-DomainUser -SPN -Domain freightlogistics.local | select samaccountname,memberof,serviceprincipalname | fl
 
 ---
 
