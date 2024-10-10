@@ -15,7 +15,7 @@ Se requiere:
 
 1) Agregamos el repo de java al source list
 
-    echo "deb http://httpredir.debian.org/debian stretch-backports main" | sudo tee -a /etc/apt/sources.list.d/stretch-backports.list
+        echo "deb http://httpredir.debian.org/debian stretch-backports main" | sudo tee -a /etc/apt/sources.list.d/stretch-backports.list
 
 2) Descargamos la key para el repo de neo4J
 
