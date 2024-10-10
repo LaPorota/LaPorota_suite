@@ -146,3 +146,7 @@ Lo mismo pasa con los Edges, si hacemos click derecho sobre los mismos tendremos
   - Opsec Considerations
   - References
 - Delete edge
+
+### Database
+
+La tabla de Database Info 
