@@ -32,3 +32,29 @@ Se requiere:
 5) instalamos neo4j
 
         sudo apt install neo4j
+
+6) descargamos la última versión de bloodhound
+
+        https://github.com/BloodHoundAD/BloodHound/releases
+7) Descomprimimos fichero
+
+        unzip BloodHound-linux-x64.zip && cd BloodHound-linux-x64/
+
+8) lo corremos
+
+        ./BloodHound --no-sandbox
+
+# Uso
+
+Iniciamos el neo4j con:
+
+        sudo systemctl start neo4j
+
+# COnfiguración del primer uso
+
+Una vez iniciado el proceso, vamos al servicio iniciado en el localhost e iniciamos sesión con el user y pass neo4j
+
+        http://localhost:7474/
+
+Reestablecemos la contraseña.
+
