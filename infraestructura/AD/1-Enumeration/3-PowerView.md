@@ -43,7 +43,9 @@ A cada función podemos agregarle el **-Help** para que nos muestre todos los pa
 
     Get-DomainTrust
 
+##### Enumerar relaciones de confianza
 
+    Get-DomainPolicy
 
 ---
 
