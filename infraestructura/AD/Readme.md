@@ -121,8 +121,8 @@ Relaciones transitivas y no transitivas:
 ##### Transitivas
 Extienden las trust a objetos que el los que el child domain confía. Ejemplo:
               
-              Si el Domain A tiene una una relaciónd e confianza con el Domain B, y el Domain B tiene una relación transitiva con el Domain C, 
-              entonces el Domain A va a confiar automáticamente en el Domain C.
+    Si el Domain A tiene una una relaciónd e confianza con el Domain B, y el Domain B tiene una relación transitiva con el Domain C, 
+    entonces el Domain A va a confiar automáticamente en el Domain C.
 ##### No transitiva
 
 El child domain es el único en quien confía.
