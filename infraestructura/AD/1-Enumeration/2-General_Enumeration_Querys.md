@@ -79,3 +79,11 @@ Estos usuarios son potencialmente kerberosteables.
 
      Get-ADComputer -Properties * -LDAPFilter '(userAccountControl:1.2.840.113556.1.4.803:=524288)' | select DistinguishedName,servicePrincipalName,TrustedForDelegation | fl
 
+---
+# Enumeración de confianzas
+
+
+### AD Powershell:
+     
+     Import-Module activedirectory
+     Get-ADTrust -Filter *
