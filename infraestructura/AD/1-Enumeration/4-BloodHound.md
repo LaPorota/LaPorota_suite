@@ -70,14 +70,14 @@ Para recolectar información en los entornos de windows usamos SharpHound.
 |DCOnly | Colecta data solamente del DC sin preguntar al resto de los dispositivos domain-joined. Va a traer: Users, computadoras, security groups memberships, domain trusts, privilegios abusables dentro de los objetos. Entre otras cosas |
 |Computer Only | Va a colectar información solamente de los equipos domain-joined |
 
-.\SharpHound.exe -c <metodo>
+        .\SharpHound.exe -c <metodo>
 
 ### Entornos monitorizados
 En un escenario donde el entorno se encuentra monitorizado, deberíamos realizar dos recolecciones con SHarpHound.
 
 Primero realizamos una de tipo DCOnly, luego analizamos los resultados buscando computadoras que sean interesantes, creamos una lista de las mismas y luego corremos una computerOnly agregando la flag --computerfile y el file creado de las computadoras
 
-.\SharpHound.exe -c ComputerOnly --computerfile <file>
+        .\SharpHound.exe -c ComputerOnly --computerfile <file>
 
 
 
