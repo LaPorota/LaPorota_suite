@@ -137,6 +137,9 @@ Si hacemos click en un nodo se nos desplegará la **info tab** debajo de la sear
 |Delete node | elimina un nodo de la base de datos |
 
 
+Lo mismo pasa con los Edges, si hacemos click derecho sobre los mismos tendremos dos opciones:
 
-
+- Help - Abrirá un popup con tres opciones:
+        - Info
+        - Abuse info
 
