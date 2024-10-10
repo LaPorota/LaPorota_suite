@@ -195,3 +195,13 @@ Luego
             ActiveDirectoryRights = $_.ActiveDirectoryRights
         }
     }
+
+## Referidas a las relaciones de confianza
+
+##### Listar relaciones de confianza
+
+    Get-DomainTrust
+
+##### Listar relaciones de nuestro dominio y dominios alcanzables
+
+    Get-DomainTrustMapping
