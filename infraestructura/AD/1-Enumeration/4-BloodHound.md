@@ -136,13 +136,13 @@ Si hacemos click en un nodo se nos desplegará la **info tab** debajo de la sear
 | Mark/Unmark Group as High Value | Marca o desmarca un nodo como de gran valor. Podemos aprivechar esto para buscar vectores de ataque usando la query "shortest paths to high-value assets" |
 |Delete node | elimina un nodo de la base de datos |
 
+##### Edges
 
 Lo mismo pasa con los Edges, si hacemos click derecho sobre los mismos tendremos dos opciones:
 
-- Help - Abrirá un popup con tres opciones:
-        + Info
-        + Abuse info
-
-- Elemento 2
-  - Sub-elemento 2.1
-  - Sub-elemento 2.2
+- Help 
+  - Info
+  - Abuse info
+  - Opsec Considerations
+  - References
+- Delete edge
