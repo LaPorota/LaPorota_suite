@@ -140,6 +140,6 @@ Si hacemos click en un nodo se nos desplegará la **info tab** debajo de la sear
 Lo mismo pasa con los Edges, si hacemos click derecho sobre los mismos tendremos dos opciones:
 
 - Help - Abrirá un popup con tres opciones:
-+ Info
-+ Abuse info
+        + Info
+        + Abuse info
 
