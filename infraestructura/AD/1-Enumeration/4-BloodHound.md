@@ -142,7 +142,7 @@ Lo mismo pasa con los Edges, si hacemos click derecho sobre los mismos tendremos
 
 - Help 
   - Info
-  - Abuse info
+  - Abuse info <== muesta formas y comandos para explotar
   - Opsec Considerations
   - References
 - Delete edge
