@@ -46,9 +46,19 @@ Se requiere:
 
 # Uso
 
-Iniciamos el neo4j con:
+Iniciamos el servicio neo4j con:
 
         sudo systemctl start neo4j
+
+Levantamos la consola
+
+        sudo neo4j console
+
+##### Si nos salta un error referido a la versión de java:
+Corremos el siguiente comando y elegimos el numero de la versión correspondiente a **java 11**
+
+        sudo update-alternatives --config java
+
 
 ## COnfiguración del primer uso
 
