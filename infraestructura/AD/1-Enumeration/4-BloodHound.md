@@ -167,3 +167,11 @@ La tabla de Database Info
 | Clear sessions | Borra todas las sesiones guardadas en la DB |
 | Refresh database stats | Hace un update de las estadisticas mostradas para mostrar los cambios en la DB |
 |Warming up DB | Pone la base de dato entera en memoria. Cuesta en recursos y tiempo para completar el proceso, pero las querys son mucho más rápidas |
+
+### Cypher querys
+
+Blood hound nos permite generar querys  en la barra inferior 
+
+El criterio recide en crear un objeto del cual extraer propiedades.
+
+        MATCH (u:User) WHERE u.name = "PETER@INLANEFREIGHT.HTB" RETURN u
