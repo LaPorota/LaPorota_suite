@@ -1,4 +1,4 @@
-# Ifo
+# Info
 Usualmente está alojado en el puerto 3389
 
 #### Recon con nmap
