@@ -111,6 +111,7 @@ Crea un servicio dentro del ADMIN$ subiendo un binario con nombre alatorio y nos
 
         services.py INLANEFREIGHT/helen:'RedRiot88'@172.20.0.52 delete -name 'Service Backdoor'
 
+
 ##### Modificar un servicio
 1. Listamos los servicios
 2. Elegimos el servicio y le indicamos que corra con nuestro binario malicioso.
@@ -119,6 +120,11 @@ Crea un servicio dentro del ADMIN$ subiendo un binario con nombre alatorio y nos
 3. Iniciamos el servicio
 
         impacket-services INLANEFREIGHT/helen:'RedRiot88'@172.20.0.52 start -name Spooler
+
+#### Atención!
+
+Puede que algunas veces el servidor no pueda llegar al archivo que tenemos en nuestro SMB. Podemos aprovechar a colocarlo en otra carpeta compartida dentro de la red. Si tuvieramos acceso con otro user al servidor y el mismo no tuviera acceso a archivos puntuales que necesitemos leer, podemos subir nuestro binario al servidor e indicarle la ruta local. (Esto es raro, pero en el lab de HTB no hubo otra forma xD)
+
 
 ### atexec.py
 
