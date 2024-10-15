@@ -99,4 +99,6 @@ Podemos solucionarlo con el siguiente comando
 
     evil-winrm -i 10.129.229.244 -u 'inlanefreight.local\frewdy' -p Kiosko093
 
+Podemos hacer también pass the hash con la flag **-H**
+
 Podemos ver los comandos disponibles una vez iniciada la sesión con el comando **menu**
