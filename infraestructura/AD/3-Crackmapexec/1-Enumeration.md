@@ -19,6 +19,19 @@ Podemos ver los distintos protocolos que soporta con el help (-h) y tenemos un m
 ### Generar una lista con todos los HOST vulnerables a SMBRelay
 
     crackmapexec smb 192.168.1.0/24 --gen-relay-list relaylistOutputFilename.txt
+
+### Abusando de los Null Session
+
+##### Enumerar users del dominio
+    crackmapexec smb 10.129.203.121 -u '' -p '' --users
+##### Enumerar grupos del dominio
+
+    crackmapexec smb 10.129.203.121 -u '' -p '' --groups
+##### Enumerar carpetas compartidas
+    crackmapexec smb 10.129.203.121 -u '' -p '' --shares
+##### Enumerar Password Policy
+    crackmapexec smb 10.129.203.121 -u '' -p '' --pass-pol
+
 --- 
 
 ## Con credenciales
