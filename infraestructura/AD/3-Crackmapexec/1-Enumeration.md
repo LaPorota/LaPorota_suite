@@ -6,6 +6,9 @@ Podemos ver los distintos protocolos que soporta con el help (-h) y tenemos un m
 
     crackmapexec <prot> -h
 
+Para exportar podemos usar la función export pero está buggeada así que lo resolveríamos agregando el fullpath o
+
+    --export $(pwd)/export.txt
 ---
 
 # Enumeración
@@ -23,7 +26,12 @@ Podemos ver los distintos protocolos que soporta con el help (-h) y tenemos un m
 ### Abusando de los Null Session
 
 ##### Enumerar users del dominio
-    crackmapexec smb 10.129.203.121 -u '' -p '' --users
+    crackmapexec smb 10.129.203.121 -u '' -p '' --users --export $(pwd)/users.txt
+
+Luego transformamos lo extraido en una lista
+
+    sed -i "s/'/\"/g" users.txt && jq -r '.[]' users.txt > userslist.txt
+    
 ##### Enumerar grupos del dominio
 
     crackmapexec smb 10.129.203.121 -u '' -p '' --groups
@@ -37,7 +45,11 @@ Podemos ver los distintos protocolos que soporta con el help (-h) y tenemos un m
 ## Con credenciales
 ### Enumeración de usuarios:
 
-    sudo crackmapexec smb <ip_DC> -u <user> -p <pass> --users
+    sudo crackmapexec smb <ip_DC> -u <user> -p <pass> --users --export $(pwd)/users.txt
+
+Luego transformamos lo extraido en una lista
+
+    sed -i "s/'/\"/g" users.txt && jq -r '.[]' users.txt > userslist.txt
 
 ### Enumeración de grupos de dominio:
     sudo crackmapexec smb <ip_DC> -u <user> -p <pass> --groups
