@@ -36,4 +36,5 @@ Luego de hacer un spidering, se guardará un archivo con json de todo lo encontr
 
 
 Probar un rango de hosts buscando logins con users:
-crackmapexec winrm 192.168.110.0/24 -u riley -p P@ssw0rd
+
+    crackmapexec winrm 192.168.110.0/24 -u riley -p P@ssw0rd
