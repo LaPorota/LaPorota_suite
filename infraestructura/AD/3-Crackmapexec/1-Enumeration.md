@@ -36,7 +36,7 @@ Luego transformamos lo extraido en una lista
 
     crackmapexec smb 10.129.203.121 -u '' -p '' --groups
 ##### Enumerar carpetas compartidas
-    crackmapexec smb 10.129.203.121 -u '' -p '' --shares
+    crackmapexec smb 10.129.203.121 -u guest -p '' --shares
 ##### Enumerar Password Policy
     crackmapexec smb 10.129.203.121 -u '' -p '' --pass-pol
 
