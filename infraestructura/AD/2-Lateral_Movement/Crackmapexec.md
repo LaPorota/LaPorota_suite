@@ -2,7 +2,9 @@
 
 Crackmapexec es una herramienta completa para enumerar AD.
 
-Podemos ver los distintos protocolos que soporta con el help (-h) y tenemos un menú aparte de ayuda para cada protocolo si lo nombramos (**crackmapexec <prot> -h**)
+Podemos ver los distintos protocolos que soporta con el help (-h) y tenemos un menú aparte de ayuda para cada protocolo si lo nombramos 
+
+    crackmapexec <prot> -h
 
 # Enumeración
 
