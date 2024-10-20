@@ -6,8 +6,22 @@ Podemos ver los distintos protocolos que soporta con el help (-h) y tenemos un m
 
     crackmapexec <prot> -h
 
+---
+
 # Enumeración
 
+## Sin Credenciales
+
+### Enumerar los HOST e información de los mismos dentro de una red
+
+    crackmapexec smb 192.168.133.0/24
+
+### Enumerar todos los HOST vulnerables a SMBRelay
+
+    crackmapexec smb 192.168.1.0/24 --gen-relay-list relaylistOutputFilename.txt
+--- 
+
+## Con credenciales
 ### Enumeración de usuarios:
 
     sudo crackmapexec smb <ip_DC> -u <user> -p <pass> --users
