@@ -1,10 +1,17 @@
-
+# Intro
 Si es un circuito cerrado, agregamos la ip y el dns base al etc/hosts.
 
-
+### Buscar los nameserver records
     dig ns <dns> @<dns>
 
 agregamos los resultados como ns o ns1, ns2, etc al hosts
+
+
+### Buscar la ip de un host
+
+host url
+
+
 
 
 vamos a la carpeta de subbrute (git clone https://github.com/TheRook/subbrute.git >> /dev/null 2>&1)
