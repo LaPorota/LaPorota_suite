@@ -47,6 +47,10 @@ Otra herramienta popular para enumerar DNS
 
     dnsenum <url>
 
+
+
+### Subbrute
+
 vamos a la carpeta de subbrute (git clone https://github.com/TheRook/subbrute.git >> /dev/null 2>&1)
 
 agregamos el zonetransfer que queremos investigar:
