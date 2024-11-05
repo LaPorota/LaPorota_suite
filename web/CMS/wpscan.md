@@ -51,3 +51,8 @@ también puede hacerse:
 
 si la reverse shell es la monkey, para migrar a una shell más estable:
         python -c 'import pty;pty.spawn("/bin/bash")' 
+
+
+### Crear un plugin malicioso con reverseshell
+
+    https://github.com/wetw0rk/malicious-wordpress-plugin
