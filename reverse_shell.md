@@ -1,3 +1,7 @@
+### Kali tiene una serie de shells nativas
+
+    /usr/share/webshells/
+
 ### Java (jenkins)
 conseguir shell inversa desde el script console
 
