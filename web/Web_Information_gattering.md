@@ -35,4 +35,12 @@ Cancelar 404 o filesize
 
 ### Enumerar Apis
 
-        gobuster dir -u http://192.168.50.16:5002 -w /usr/share/wordlists/dirb/big.txt -p pattern
+Podemos en primera instancia crear un archivo con un patron
+
+    {GOBUSTER}/v1
+    {GOBUSTER}/v2
+
+
+Luego utilizarlo para buscar apis
+
+    gobuster dir -u http://192.168.50.16:5002 -w /usr/share/wordlists/dirb/big.txt -p pattern
