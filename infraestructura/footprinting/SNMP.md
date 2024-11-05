@@ -15,10 +15,11 @@
 nos va a devolver (si encuentra algo) información sobre el server. entre corchetes va a estar la etiqueta
 
 
-## sbnowalk
+## snmpwalk
 
-    snmpwalk -v2c -c <etiqueta> <ip>
+    snmpwalk -v2c -c <etiqueta> <ip> -Oa 
 
+La flag Oa traduce de hexa a ascii ;)
 
 ### Listar los usuarios
 
