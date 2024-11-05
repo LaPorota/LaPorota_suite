@@ -1,3 +1,7 @@
+### ATENCION
+
+NO todo funciona en burp, probar con curl y agregando el comando --path-as-is
+
 ### LFI
 
 intentar movimientos de path transversal:
