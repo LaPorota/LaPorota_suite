@@ -33,4 +33,6 @@ Cancelar 404 o filesize
 
         ffuf -w subdomains-10000.txt -H “Host: FUZZ.inlanefreight.local” -u http://MACHINE_IP -fs {size}
 
+### Enumerar Apis
 
+        gobuster dir -u http://192.168.50.16:5002 -w /usr/share/wordlists/dirb/big.txt -p pattern
