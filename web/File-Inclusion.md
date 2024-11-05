@@ -33,10 +33,14 @@ la request e intentar, si hay una variable de entorno que lo llama, un path tran
 
 Aveces la funcionalidad que carga los archivos tiene una validación de extensión para determinar que el file es el correcto.
 esto podemos bypassearlo agregando algunos chars como 00%:
+
         filename=../../../etc/passwd%00.png
 
 Recordar, una vez que tengamos el **passwd** buscar llegar a las id_rsa de los users ;) 
 
+#### Usar filtro para leer el contenido de una página
+
+        php://filter/convert.base64-encode/resource=admin.php
 
 ### RCE
 
