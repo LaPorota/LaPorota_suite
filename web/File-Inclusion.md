@@ -31,6 +31,9 @@ Aveces la funcionalidad que carga los archivos tiene una validaci√≥n de extensi√
 esto podemos bypassearlo agregando algunos chars como 00%:
         filename=../../../etc/passwd%00.png
 
+Recordar, una vez que tengamos el **passwd** buscar llegar a las id_rsa de los users ;) 
+
+
 ### RCE
 
 podemos lograr rce utilizando el filtro "data" si el parametro allow_url_include se encuentra habilitado:
