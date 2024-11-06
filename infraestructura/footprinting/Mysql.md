@@ -59,7 +59,9 @@
     ALTER TABLE <tabla> MODIFY <columna a modificar> <tipo de dato al que se cambia>;
     ALTER TABLE <tabla> DROP <columna>
 
+### Modificar un dato de un registro:
 
+    UPDATE <tabla> SET <columna> = <valor> WHERE <condición (ej: "id > 1")>;
 
     
 
