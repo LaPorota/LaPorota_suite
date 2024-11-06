@@ -15,6 +15,10 @@ algunos backends corren código para hacer querys sobre aplicaciones légacy ;)
 podemos luego de encontrar el conector entre comandos, si hay algún filtro posterior utilizar diferentes secuencias:
 
 
+## Test
+
+    test"&&ls"
+
 ${IFS} inserta un espacio y una tabulación y luego el comando
 
 
