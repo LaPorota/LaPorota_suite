@@ -45,3 +45,8 @@ Con esta técnica no terminará el handshacke. De esta manera **no se enviará l
 ### Escaneo profundo
 
 Podemos hacer un escaneo profundo agregando el OS detection, script scanning y traceroute con la opción -A
+
+
+### Buscar NSE que sean exploits
+
+    grep Exploits /usr/share/nmap/scripts/*.nse
