@@ -38,6 +38,10 @@ podemos modificar listas con hashcat aplicandole reglas para que estas sean modi
 Hashcat trae una serie de reglas por defecto dentro de la carpeta:
     /usr/share/hashcat/rules/
 
+###### crear una regla que duplique las palabras y las vuelva uper
+
+    echo "u d" > rule.rule
+
 ### Crear listas mediante script bash
 Agregar bucle for por cada nuevo "index" de caracteres a agregar"
 
