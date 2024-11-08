@@ -6,6 +6,11 @@
 #### Prefijo
     sed 's/^/prefijo/' diccionario.txt > diccionario_modificado.txt
 
+#### Duplicar las palabras de la lista y volver a la segunda upper
+
+    sed 's/\(.*\)/\1\n\U\1/' input.txt > dictio.txt
+
+
 
 ### Crear listas personalizadas de password:
 
