@@ -6,7 +6,7 @@
     hydra -l <nombre_de_usuario> -P <ruta_al_diccionario> <dirección_IP> ftp -f
 
 #### Simplehttp auth:
-    hydra -C dictionariy_compuesto ip -s port http-get "/path-to-login" -f
+    hydra  -l user -P diccionario ip -s port http-get "/path-to-login" -f
 
 #### Login por método post:
     hydra -l user -P diccionario -f host/ip -s puerto http-post-form "path-to-login:variable_username=^USER^&variable_password=^PASS^:elemento html para comparación(mensaje de error de logueo, formulario, etc)"
