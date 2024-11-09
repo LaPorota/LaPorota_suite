@@ -22,7 +22,7 @@
     sed -ri '/[0-9]+/!d' diccionario           # remove no numbers
     sed -i '/[A-Z]/!d' diccionario             # remueve las palabras sin mayusculas
     sed -i 's/\b[a-z][a-zA-Z0-9]*\b//g' diccionario #remueve todas las palabras que no inicien con mayuscula
-
+    sed -i '/^<caracter>/d' diccionario    # Remueve todas las palabras que inicien con un caracter
     
 
 
@@ -31,16 +31,32 @@
     git clone https://github.com/urbanadventurer/username-anarchy.git
     ./username-anarchy nombre_apellido > diccionario donde almacernar los resultados
 
-podemos modificar listas con hashcat aplicandole reglas para que estas sean modificadas en base a las mismas:
+
+# Hashcat rules
+
+
+Podemos modificar listas con hashcat aplicandole reglas para que estas sean modificadas en base a las mismas:
 
     hashcat --force password.list -r custom.rule --stdout | sort -u > mut_password.list
 
-Hashcat trae una serie de reglas por defecto dentro de la carpeta:
-    /usr/share/hashcat/rules/
+
+Las rules de hashcat se indican con chars dentro de un documento. ejemplo:
 
 ###### crear una regla que duplique las palabras y las vuelva uper
 
     echo "u d" > rule.rule
+
+
+### Listado de comandos que afectan a las rules
+
+
+    https://hashcat.net/wiki/doku.php?id=rule_based_attack
+
+
+Hashcat trae una serie de reglas por defecto dentro de la carpeta:
+    
+    /usr/share/hashcat/rules/
+
 
 ### Crear listas mediante script bash
 Agregar bucle for por cada nuevo "index" de caracteres a agregar"
