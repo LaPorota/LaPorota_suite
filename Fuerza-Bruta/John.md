@@ -24,3 +24,9 @@ luego podemos crackear el hash resultante con john.
 para encontrar estas herramientas: 
 
             locate *2john*
+
+### Crack keepass
+
+      keepass2john Database.kdbx > keepass.hash
+
+##### Hashcat mode 13400
