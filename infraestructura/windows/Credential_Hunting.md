@@ -130,3 +130,7 @@ para esto podemos usar SessionGopher
 Cuando realizamos una autenticación en AWS utilizando el cli o el sdk se enera un conjunto de credenciales que incluyen un Access Key Id y un Secret Access Key. Suele uardarse en:
 
     C:\Users\NombreDeUsuario\.aws\credentials
+
+### Buscar bases de datos de keepass
+
+    Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue
