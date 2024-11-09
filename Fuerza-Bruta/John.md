@@ -30,3 +30,9 @@ para encontrar estas herramientas:
       keepass2john Database.kdbx > keepass.hash
 
 ##### Hashcat mode 13400 (si nos da un error de salt, eliminar lo anterior al $keepass)
+
+### Crack RSA
+
+      ssh2john id_rsa > ssh.hash
+
+# Continuará
