@@ -29,18 +29,25 @@ C:\Windows\Temp
 
 #### Listar grupos en el sistema:
     net localgroup
+##### Desde powershell
+    Get-LocalGroup
 
 #### ver miembros de un grupo:
     net localgroup <GRUPO>
+##### Desde Powershell
+    Get-LocalGroupMember <grupo>
 
 #### LISTAR USUARIOS  
     net user
+##### desde powershell
 
+    Get-LocalUser
 #### ver los usuarios logueados y datos de sus sessiones:
     query user
 
 
 ## Sobre el sistema
+
 #### Conocer las apps/binarios bloqueados en el sistema:
     GetAppLockerPolicy == https://docs.microsoft.com/en-us/powershell/module/applocker/get-applockerpolicy?view=windowsserver2019-ps
 
@@ -53,7 +60,8 @@ ese tiempo)
 
 #### Listar procesos:
     tasklist /svc
-
+##### desde powershell
+    Get-Process
 #### Ver variables de entorno:
     set
 
@@ -65,12 +73,13 @@ ese tiempo)
     Get-HotFix | ft -AustoSize
 
 ##### Ver los programas instalados:
-##### cmd
+###### cmd
     wmic product get name
-##### powershell
+###### powershell
     $INSTALLED = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* |  Select-Object DisplayName, DisplayVersion, InstallLocation
     $INSTALLED += Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion, InstallLocation
     $INSTALLED | ?{ $_.DisplayName -ne $null } | sort-object -Property DisplayName -Unique | Format-Table -AutoSize
+
 ### Ver las conexiones TCP y UDP en la pc:
     
     netstat -ano
