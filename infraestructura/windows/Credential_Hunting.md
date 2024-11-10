@@ -134,3 +134,8 @@ Cuando realizamos una autenticación en AWS utilizando el cli o el sdk se enera 
 ### Buscar bases de datos de keepass
 
     Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue
+
+### Buscar informacipon sensible de servidores XAMPP
+
+    Get-ChildItem -Path C:\xampp -Include *.txt,*.ini -File -Recurse -ErrorAction SilentlyContinue
+
