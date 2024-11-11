@@ -1,4 +1,32 @@
-# Enumeración de grupos:
+# Desde CMD
+
+## Referido a los usuarios
+
+### traer usuarios del dominio
+
+     net user /domain
+
+### Traer información básica de un user
+
+     net user <user> /domain
+
+## Referido a los grupos
+
+### Enumerar grupos del dominio
+
+     net group /domain
+### Enumerar miembros de un grupo
+
+     net group "<grupo>" /domain
+
+
+
+---
+---
+
+# Desde Powershell
+
+## Enumeración de grupos:
 
 ### Obtener cantidad de grupos dentro de un dominio
 
@@ -23,7 +51,7 @@
 
 ---
 
-# Enumeración de usuarios:
+## Enumeración de usuarios:
 
 ### Enumerar cantidad de usuarios de un dominio:
 
@@ -66,7 +94,7 @@ Estos usuarios son potencialmente kerberosteables.
 
 ---
 
-# Enumeración de computadoras:
+## Enumeración de computadoras:
      
 ### Enumerar cantidad de computadoras de un dominio
 
@@ -80,7 +108,7 @@ Estos usuarios son potencialmente kerberosteables.
      Get-ADComputer -Properties * -LDAPFilter '(userAccountControl:1.2.840.113556.1.4.803:=524288)' | select DistinguishedName,servicePrincipalName,TrustedForDelegation | fl
 
 ---
-# Enumeración de confianzas
+## Enumeración de confianzas
 
 
 ### AD Powershell:
