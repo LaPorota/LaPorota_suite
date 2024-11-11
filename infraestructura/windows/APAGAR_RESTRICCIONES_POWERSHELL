@@ -1,5 +1,10 @@
 Permitir correr scripts:
 set-executionpolicy remotesigned
 
+
+o
+
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
+
 Apagar antivirus
 Powershell -ep bypass
