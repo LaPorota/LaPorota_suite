@@ -100,6 +100,10 @@ Estos usuarios son potencialmente kerberosteables.
 
      Get-ADComputer -Filter * | Measure-Object
 
+### Enumerar computadoras de un dominio
+
+     Get-NetComputer | select operatingsystem,dnshostname
+
 ### Enumerar computadoras que tengan un nombre parcial:
 
      Get-ADComputer  -Filter "DNSHostName -like 'SQL*'"
