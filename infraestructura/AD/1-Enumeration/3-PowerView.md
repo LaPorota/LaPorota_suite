@@ -166,7 +166,8 @@ Luego podremos buscar usuarios kerberosteables de ese dominio externo.
     Get-DomainGPO -ComputerIdentity WS01 | select displayname
 ##### Ver si nuestro user tiene permisos de administrador en otro host
 
-    Test-AdminAccess -ComputerName SQL01
+    Find-LocalAdminAccess
+    
 ##### Ver si un host tiene SMB shares
 
     .\SharpView.exe Get-NetShare -ComputerName DC01
