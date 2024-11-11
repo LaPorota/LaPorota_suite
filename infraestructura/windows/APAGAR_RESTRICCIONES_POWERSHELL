@@ -8,3 +8,16 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 
 Apagar antivirus
 Powershell -ep bypass
+
+
+Podemos usar shellter para crear binarios maliciosos con shell reversas que evadan los antivirus
+
+apt-cache search shellter
+
+sudo apt install shellter
+
+sudo apt install wine
+
+dpkg --add-architecture i386 && apt-get update && apt-get install wine32
+
+Luego corremos shellter como comando y creamos nuestro binario malicioso.
