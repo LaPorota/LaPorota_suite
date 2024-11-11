@@ -51,6 +51,7 @@ A cada función podemos agregarle el **-Help** para que nos muestre todos los pa
 
 ## Referido a los grupos
 
+
 ##### Obtener grupos de un dominio
 
     Get-DomainGroup -Properties Name
@@ -86,10 +87,15 @@ Luego podemos ver qué permisos tiene el manager sobre el grupo
 ## Referido a los usuarios
 
 
+
 ##### Enumerar cantidad de usuarios en un dominio
 
     (Get-DomainUser).count
-    
+
+##### traer los usuarios del dominio
+
+    Get-NetUser | select cn
+
 ##### Convertir name a SID
 
     .\SharpView.exe ConvertTo-SID -Name sally.jones
