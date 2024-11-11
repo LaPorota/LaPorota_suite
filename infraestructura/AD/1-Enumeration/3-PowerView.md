@@ -168,9 +168,9 @@ Luego podremos buscar usuarios kerberosteables de ese dominio externo.
 
     Find-LocalAdminAccess
     
-##### Ver si un host tiene SMB shares
+##### Ver SMB shares del dominio
 
-    .\SharpView.exe Get-NetShare -ComputerName DC01
+    Find-DomainShare
 
 ---
 
