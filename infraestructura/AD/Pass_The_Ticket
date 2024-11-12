@@ -4,6 +4,7 @@ Para llevar adelante este ataque necesitamos un ticket válido de kerberos. Pued
 -Un TGS(ticket granting service) el ticket específico para un servicio.
 -Un TGT (Ticket granting ticket) que sirve para pedir la generación de tickets para un servicio puntual.
 
+
 ####Buscando tickets de kerberos:
 ##Windows
 En windows los tickets de kerberos son guardados en el LSASS. Para extraer todos los tickets necesitamos privilegios de admin.
@@ -12,8 +13,19 @@ En windows los tickets de kerberos son guardados en el LSASS. Para extraer todos
 mimikatz.exe privilege::debug "sekurlsa::tickets /export" exit
 dir *.kirbi
 
+Vamos a ver una serie de tickets que podemos usar para diversos equipos o servicios. Elegimos el del servicio que nos es inaccesible
+
+
 Los tickets que terminan con "$" son de la cuenta de la computadora y son los necesarios para transaccionar con el AD.
 los tickets se componen por : [randomvalue]-username@service-domain.local.kirbi
+
+volvemos a mimikatz
+
+kerberos::ptt [0;12bd0]-0-0-40810000-dave@cifs-web04.kirbi
+
+Luego tiramos un klist para ver si el ticket se importó, de ser así buscamos acceder al servicio.
+
+
 
 #extraerlos con Rubeus:
 Rubeus.exe dump /nowrap
