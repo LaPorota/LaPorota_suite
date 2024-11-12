@@ -68,8 +68,9 @@ Una vez iniciado el proceso, vamos al servicio iniciado en el localhost e inicia
 
 Reestablecemos la contraseña.
 
-## Recolección de información
+# Recolección de información
 
+## Desde windows
 Para recolectar información en los entornos de windows usamos SharpHound.
 
 ##### Modos de recolección:
@@ -119,6 +120,16 @@ Podríamos entonces levantar un smb y enviar el resultado de bloodhound al mismo
 **<u>Atención:</u> **
 
 Si el archivo que guardamos tiene password vamos a tener que descomprimirlo y luego enviar los archivos resultantes a bloodhound. Si no tiene password, indiferentemente de la extención del mismo, podemos sumarlo a bloodhound.
+
+## Desde linux
+
+         git clone https://github.com/fox-it/BloodHound.py -q 
+         cd Bloodhound.py  
+         sudo python setup.py install
+
+### Uso
+
+         bloodhound-python -d inlanefreight.htb -c DCOnly -u htb-student -p HTBRocks! -ns 10.129.204.207 -k
 
 ### Searchbar
 
