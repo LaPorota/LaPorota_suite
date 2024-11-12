@@ -26,7 +26,7 @@ Una vez que lo metimos en la pc victima lo corremos con:
 
 #### también podemos usar el findr por cmd:
 
-    findstr /SIM /C:"password" *.txt *.ini *.cfg *.config *.xml *.git *.ps1 *.yml
+    findstr /SIM /C:"password" *.txt *.ini *.cfg *.config *.xml *.git *.ps1 *.yml *.settings
 
 #### Powershell History
 
