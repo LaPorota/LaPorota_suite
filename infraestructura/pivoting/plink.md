@@ -1,3 +1,7 @@
+primero tenemos que iniciar ssh
+
+    sudo systemctl start ssh
+
 ### Dinamic remote port forwarding
 Nos conectamos a nuestra maquina atacante mediante ssh y redireccionamos el tráfico a un puerto de una pc inaccesible a un puerto de nuestra máquinola atacante
 
