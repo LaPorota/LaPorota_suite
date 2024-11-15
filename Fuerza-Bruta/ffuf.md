@@ -25,4 +25,4 @@
 name values dictionary= SecLists/Usernames/xato-net-10-million-usernames.tx
 
 
-
+seclists/Discovery/Web-Content/raft-medium-directories.txt
