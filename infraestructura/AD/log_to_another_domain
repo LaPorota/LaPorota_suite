@@ -5,5 +5,7 @@ PS C:\htb> Enter-PSSession -ComputerName ACADEMY-EA-DB01 -Credential $cred
 
 Sacar archivos del host remoto
 
+$session = Enter-PSSession -Computername <pc>
 Copy-Item -Path "C:\RutaRemota\Archivo.txt" -Destination "C:\RutaLocal\Archivo.txt" -FromSession $session
 
+Funciona a la inversa con -ToSession
