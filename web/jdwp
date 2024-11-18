@@ -1,0 +1,6 @@
+Si la máquina tiene el jdwp podemos usar el shellifier.
+
+https://github.com/IOActive/jdwp-shellifier
+
+
+luego de correr los comandos, cuando se queda a la espera, le pegamos con netcat a la máquina al puerto 5000 para que se dispare una acción.
