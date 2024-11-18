@@ -10,3 +10,4 @@ REVERSE PORT FORWARDING:
 Creamos un archivo malicioso para abrir una reverse shell y la hacemos llegar al target final.
 portfwd add -R -l <puerto_local> -p <puerto_donde_recibe_conexión_máquina_pivoting> -L <ip_maquina_pivoting>
 
+Podemos forwardear más de un puerto
