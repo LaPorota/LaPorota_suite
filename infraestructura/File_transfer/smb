@@ -24,3 +24,10 @@ windows
 move <file> \\<IP>\CompData
 linux:
 smbclient //<server>/<share> -U <username>%<password>
+
+
+crear smb en windows
+
+Start-Service -Name LanmanServer
+
+New-SmbShare -Name "MiShare" -Path "C:\CarpetaEjemplo" -FullAccess "Everyone"
