@@ -9,4 +9,6 @@ luego hacemos un remote port forwarding para recibir la conexión establecida en
 
 ssh -R <IP_subred_no_alcanzable>:<puerto_donde_se_genera_la_conección>:0.0.0.0:<puerto_multi_handler> ubuntu@<ipAddressofTarget> -vN
 
+
+Podemos forwardear más de un puerto
 ejecutamos el archivo malicioso y esperamos la conección en el multihandler.
