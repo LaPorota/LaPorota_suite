@@ -10,3 +10,4 @@
 
 - [ ] Enumerar bien los directorios web (tomate tu tiempo tenés 24 hs para romper 3 boludeces)
 - [ ] Buscar exploits tanto en searchsploit como en goolge (por esto te tardaste varias veces, menso)
+- [ ] Cuando te encuentres con un login, buscá las credenciales por defecto, no andes buscando la fuerza bruta.
