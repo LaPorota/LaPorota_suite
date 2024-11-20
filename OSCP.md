@@ -8,6 +8,7 @@
 
 ### Máquinas solas
 
-- [ ] Enumerar bien los directorios web (tomate tu tiempo tenés 24 hs para romper 3 boludeces)
-- [ ] Buscar exploits tanto en searchsploit como en goolge (por esto te tardaste varias veces, menso)
-- [ ] Cuando te encuentres con un login, buscá las credenciales por defecto, no andes buscando la fuerza bruta.
+- [ ] Enumerar bien los directorios web (tomate tu tiempo tenés 24 hs para romper 3 boludeces).
+- [ ] Acordate de la regla de esto: Tecnología que encontrás, tecnología en la que salís a buscar exploits. Es un examen de script kiddies, no uno pro...
+- [ ] Buscar exploits tanto en searchsploit como en goolge (por esto te tardaste varias veces, menso).
+- [ ] Cuando te encuentres con un login, buscá las credenciales por defecto,  la fuerza bruta es una mala idea.
