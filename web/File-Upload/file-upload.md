@@ -86,12 +86,11 @@ Si nos encontramos un filtro de blacklist, podemos hacer fuerza bruta sobre la e
 Podemos encontrarnos que no hay una extensión permitida dentro de las shells que necesitamos o que, aunque hubiera alguna, no hubiera permisos de ejecución. 
 Podemos subir un archivo .htaccess envenenado que nos permita la ejecucion:
 
-##### 1)repetimos la subida cabiando los siguientes parámetros:
-        filename= .htaccess
-        content-type = text/plain
-        payload= AddType application/x-httpd-php .l33t (con esto habilitamos la ejecución de archivos con la extensión l33t)
+##### 1)creamos un archivo .htaccess y lo subimos:
 
-##### 2)Subimos nuevamente la shell con la extensión ".l33t" y ejecutamos.
+        echo "AddType application/x-httpd-php .dork" > .htaccess
+
+##### 2)Subimos nuevamente la shell con la extensión ".dork" y ejecutamos.
 
 #### Recursión de extensiones:
 
