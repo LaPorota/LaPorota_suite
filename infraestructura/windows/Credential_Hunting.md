@@ -30,7 +30,7 @@ Una vez que lo metimos en la pc victima lo corremos con:
 
 #### Powershell History
 
-    gc (Get-PSReadLineOption).HistorySavePath
+    (Get-PSReadLineOption).HistorySavePath
 
 #### Podemos también en un oneliner recorrer todos los archivos historicos de powershell a los que tenemos acceso
 
