@@ -1,6 +1,7 @@
 ## No pruebes nada que esté fuera del contenido, de otra forma, lo que puedas hacer es seguramente un rabbithole
 ### AD
-
+- [ ] WinPEAS va a encontrar lo mismo que vos y te lo va a filtrar, CONFIÁ EN WINPEAS
+- [ ] No importa cuan poco relevante parezca, si encontrás una DB por protocolo abrila.
 - [ ]  Buscar los logs de la powershell antes que nada. (después te lo embarrás, boludo)
 - [ ]  Probar cada user encontrado en las otras máquinas 
 - [ ]  Probar nuevamente como cuenta local
