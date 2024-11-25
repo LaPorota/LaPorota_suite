@@ -31,3 +31,9 @@ DELE id	//// Requests the server to delete the requested email by ID.
 CAPA	//// Requests the server to display the server capabilities.
 RSET	//// Requests the server to reset the transmitted information.
 QUIT
+
+
+Si encontramos que tenemos un email válido y que podemos hacer un ataque de phishing dirigido con un binario malicioso o un documento envenenado, podemos hacerlo mediante sendemail
+
+sendemail -f <mail_sender> -t <victima> -s <ip_server/lab>:25 -u <titulo> -m <contenido del mensaje> -a <binariomalicioso>
+
