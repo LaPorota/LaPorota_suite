@@ -18,4 +18,14 @@
 
     aws ec2 describe-security-groups
 
+# Listar imágenes de aws
 
+    aws --profile attacker ec2 describe-images --owners amazon --executable-users all
+
+si buscamos algo puntual podemos agregar la flag filter
+
+    aws --profile attacker ec2 describe-images --executable-users all --filters "Name=name,Values=*Offseclab*"
+
+# Buscar snapshots
+
+    aws --profile attacker ec2 describe-snapshots --filters "Name=description,Values=*offseclab*"
