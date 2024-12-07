@@ -245,3 +245,7 @@ Cuarda la pass de los webdav
 
         /var/www/html/webdav/passwd.dav
 
+
+# Descargar un archivo que encontramos por LFI
+
+        Curl --path-as-is url-lfi
