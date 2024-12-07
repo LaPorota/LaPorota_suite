@@ -13,3 +13,4 @@
 - [ ] Acordate de la regla de esto: Tecnología que encontrás, tecnología en la que salís a buscar exploits. Es un examen de script kiddies, no uno pro...
 - [ ] Buscar exploits tanto en searchsploit como en goolge (por esto te tardaste varias veces, menso).
 - [ ] Cuando te encuentres con un login, buscá las credenciales por defecto,  la fuerza bruta es una mala idea.
+- [ ] Si encontrás un LFI, acordate de buscar primero los archivos importantes de la tecnología con la vulnerabilidad. Te están testeando en eso, Monster inc.
