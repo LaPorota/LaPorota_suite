@@ -31,3 +31,9 @@ crear smb en windows
 Start-Service -Name LanmanServer
 
 New-SmbShare -Name "MiShare" -Path "C:\CarpetaEjemplo" -FullAccess "Everyone"
+
+
+enviar archivos con curl
+
+curl --upload-file mi_archivo.txt smb://192.168.1.100/compartido/mi_archivo.txt --user admin:1234
+
