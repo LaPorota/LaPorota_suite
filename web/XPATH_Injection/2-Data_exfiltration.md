@@ -46,3 +46,6 @@ Debemos entonces iterar hasta encontrar la profundidad del esquema completo del 
 
 Podremos entonces iterando una y otra vez llegar a la profundidad del esquema y exfiltrar todo cambiando los indexes para buscar datos concretos.
 
+### Buscar etiquetas con la palabra password que tengan "a"
+
+    %27)%5D/password%20%7C%20a%5Bcontains(a,%27
