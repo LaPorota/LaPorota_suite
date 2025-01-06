@@ -7,7 +7,9 @@
 
 #### Simplehttp auth:
     hydra  -l user -P diccionario ip -s port http-get "/path-to-login" -f
+o
 
+    hydra -C /usr/share/wordlists/SecLists/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt 192.168.177.183 ftp
 #### Login por método post:
     hydra -l user -P diccionario -f host/ip -s puerto http-post-form "path-to-login:variable_username=^USER^&variable_password=^PASS^:elemento html para comparación(mensaje de error de logueo, formulario, etc)"
 
