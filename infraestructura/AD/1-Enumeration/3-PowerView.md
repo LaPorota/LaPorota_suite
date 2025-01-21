@@ -180,6 +180,10 @@ Luego podremos buscar usuarios kerberosteables de ese dominio externo.
 
     Get-DomainObjectAcl -Identity harry.jones -Domain inlanefreight.local -ResolveGUIDs
 
+##### Listar los ACLs que tiene un user sobre otro
+    $userSID = (Get-DomainUser -Identity {user}).objectsid
+    Get-DomainObjectAcl -Identity {TARGET} | ?{$_.SecurityIdentifier -eq $userSID}
+
 ##### Listar ACLs interesantes de un dominio
     
     Find-InterestingDomainAcl -Domain inlanefreight.local -ResolveGUIDs
