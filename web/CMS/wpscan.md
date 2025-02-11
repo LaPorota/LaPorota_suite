@@ -32,7 +32,7 @@ O la lista de usuarios en un json:
 #### Enumerar todo el sitio y plugins:
         wpscan -url "" --enumerate  --api-token <api-token>
 #### Enumerar plugins de manera agresiva:
-        wpscan -url "" --enumerate ap --plugins-detection agressive --api-token <api-token>
+        wpscan -url "" --enumerate ap --plugins-detection aggressive --api-token <api-token>
         
 #### BF:
         wpscan -url "" --usernames "" --passwords "dictio"
