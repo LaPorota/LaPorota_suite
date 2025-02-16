@@ -5,6 +5,10 @@
 - En la carpeta conf <tomcat-users.xml se encuentran las credenciales de los usuarios ;)
 - Usuales contraseñas: tomcat:tomcat admin:admin
 
+#### archivos importantes
+
+- /opt/tomcat/conf/tomcat-users.xml 
+
 #### Discovery
 ##### Versiones:
 Si el server trabaja detrás de un reverse proxy podemos impulsar un error 404. Si la página está por defecto entonces nos dirá la versión
