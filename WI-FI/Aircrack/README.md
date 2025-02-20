@@ -7,7 +7,7 @@ WPA, WPA2 y WPA3 soportan 2 tipos de autenticaciones: **Pre-shared Keys (PSK)** 
 **WPA3** tiene similitudes con **WPA** pero usa **Simultaneous Authentication of Equals (SAE)** y no es vulnerable a ataques offline.
 
 
-# Proceso
+# Deautenticated Attack
 
 #### 1) Ponemos nuestra interface en modo monitor
 
