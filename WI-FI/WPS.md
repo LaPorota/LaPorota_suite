@@ -14,4 +14,18 @@ WPS distingue 2 roles
 
 
 
+# Teoría del ataque
+
+Los ataques se dan sobre la implementación basada en pin.
+
+La validación del PIN se realiza en dos partes. Se valida la primera mitad (primeros 4 dígitos), luego la segunda mitad(3) y el último número es una suma de comprobación.
+
+La primera mitad del pin se valida entre los mensajes M1 a M4. SI recibimos el M5 quiere decir que es correcto. El si la segunda mitad es correcta recibimos el M7 junto con la config.
+
+
+# Ataque
+
+### Buscar redes WEP
+
+    wash -i <interfaz_mon>
 
