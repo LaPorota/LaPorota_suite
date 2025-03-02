@@ -2,6 +2,7 @@
 
 Permite capturar el tráfico que pasa por una interfaz de red.
 
+Por defecto Airodump busca solamente redes en la banda 2.4 GHz 
 # Iniciar airodump
 
     sudo airodump-ng <interface>
@@ -15,6 +16,7 @@ Usualmente vamos a usar 3 criterios al momento de capturar tráfico:
 | -w | Nos permite agregar un prefijo a los archivos generados de la captura |
 |--bssid | Nos permite indicar que bssid capturar de manera específica |
 | -c | Fuera a airodump a capturar un canal en específico |
+| --band | busca bandas entre 2.4 y 5 GHZ.  **a**= 5 ghZ, **b** = 2.4 GHz, **g** = 2.4 GHz|
 
 
 # La finalidad de su uso
