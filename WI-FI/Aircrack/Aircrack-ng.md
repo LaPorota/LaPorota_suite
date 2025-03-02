@@ -11,3 +11,14 @@ Nos permite hacer la prueba de cuántas pass-phrases puede crackear nuestro CPU 
     aircrack-ng -S
 
 
+# Crackear claves WEP
+
+Luego de capturar muchos paquetes de IVs con Airodump.
+
+    aircrack-ng -K <captura.ivs>
+
+# Crackear WPA
+
+Luego de capturar el "four-way handshake" podemos realizar un ataque de diccionario sobre el pcap
+
+    aircrack-ng <pcap> -w <dictio>
