@@ -17,7 +17,7 @@ Usualmente vamos a usar 3 criterios al momento de capturar tráfico:
 |--bssid | Nos permite indicar que bssid capturar de manera específica |
 | -c | Fuera a airodump a capturar un canal en específico |
 | --band | busca bandas entre 2.4 y 5 GHZ.  **a**= 5 ghZ, **b** = 2.4 GHz, **g** = 2.4 GHz|
-
+| --ivs | captura solamente los IVs (Initialization Vectors) **Permite a AIRCRACK crackear claves WEP** |
 
 # La finalidad de su uso
 
