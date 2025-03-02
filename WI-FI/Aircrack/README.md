@@ -1,3 +1,16 @@
+# Info
+
+Aircrack es una suite diseñada para auditorías de WIFI.
+
+| Tool | Desc |
+|-----|------|
+|Airmon-ng |	Airmon-ng puede habilitar y deshabilitar el modo monitor en interfaces inalámbricas.|
+|Airodump-ng |	Airodump-ng puede capturar fotogramas 802.11 sin formato.|
+|Airgraph-ng |	Airgraph-ng se puede utilizar para crear gráficos de redes inalámbricas utilizando los archivos CSV generados por Airodump-ng.|
+|Aireplay-ng |	Aireplay-ng puede generar tráfico inalámbrico.|
+|Airdecap-ng |	Airdecap-ng puede descifrar archivos de captura WEP, WPA PSK o WPA2 PSK.|
+|Aircrack-ng |	Aircrack-ng puede descifrar redes WEP y WPA/WPA2 que utilizan claves preshared o PMKID.|
+
 # Cracking de hashes
 
 WPA, WPA2 y WPA3 soportan 2 tipos de autenticaciones: **Pre-shared Keys (PSK)** y **Enterprise**
