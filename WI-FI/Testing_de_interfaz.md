@@ -21,3 +21,6 @@
     sudo ifconfig wlan0 down
     sudo iwconfig wlan0 freq "5.52G"
     sudo ifconfig wlan0 up
+# Setear la interfaz en un canal
+
+    sudo iw dev wlan0mon set channel 1
