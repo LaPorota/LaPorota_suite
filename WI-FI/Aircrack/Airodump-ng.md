@@ -46,3 +46,7 @@ Los modos de fuerza bruta son:
 | lower and uppercase plus numbers | m|
 
     sudo mdk3 <interfaz> p -b <modo> -c <channel> -t <BSSID>
+
+### Buscar su nombre por ataque de diccionario
+
+    sudo mdk3 <interfaz> p -f <dictio> -t <BSSID>
