@@ -26,3 +26,23 @@ El fin de esta utilidad es capturar un protocolo de enlace(handshake) WPA. Esto 
     CH  2 ][ Elapsed: 12 s ][ 2011-11-06 13:31 ][ WPA handshake: C8:BC:C8:FE:D9:65
 
 Luego de esto, podemos realizar una nueva captura sobre la bssid de la que encontramos el handshake.
+
+# Descubrimiento de redes ocultas
+
+Algunas redes se encuentran como ocultas de una manera simple para las interfaces comunes por GUI mediante un ESSID "vacío".
+
+Con airmon apareceran pero, dentro del ESSID se encontrará un length.
+
+### Buscar su nombre por fuerza bruta
+Los modos de fuerza bruta son:
+
+
+| modo | letra |
+|---|---|
+|Upper case | u |
+|digits | n|
+| all printed | a |
+|lower and upper case | c |
+| lower and uppercase plus numbers | m|
+
+    sudo mdk3 <interfaz> p -b <modo> -c <channel> -t <BSSID>
