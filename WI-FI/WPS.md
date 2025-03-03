@@ -29,3 +29,4 @@ La primera mitad del pin se valida entre los mensajes M1 a M4. SI recibimos el M
 
     wash -i <interfaz_mon>
 
+# COntinuará!
