@@ -2,7 +2,7 @@
 
 - **WPS(Wi-FI Protected setup)** fue creado para unificar a los proveedores de tencología con el fin de compartir passphrases WPA y WPA2 de manera segura utilizando métodos diferentes.
 - Permite en muchos casos configurar dispositivos fácil para usuarios sin conocimiento (al punto de que en la mayoría de los casos lo único que hay que poner es un pin o tocar un botón)
-
+  
 # Roles
 
 WPS distingue 2 roles
@@ -26,6 +26,7 @@ La primera mitad del pin se valida entre los mensajes M1 a M4. SI recibimos el M
 # Ataque
 
 ### Buscar redes WEP
+BUscamos WPS 1.0 y que no estén loocked.
 
     wash -i <interfaz_mon>
 
