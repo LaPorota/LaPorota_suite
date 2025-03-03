@@ -54,3 +54,22 @@ Lo mismo que lo anterior pero con otro archivo de configuración
       identity="HTB\Administrator"
       password="Admin@123"
     }
+
+# MAC spoof
+
+Muchas veces las redes tienen una whitelist de MACs que pueden conectarse a la AP. Debido a esto, aunque tengamos los datos correspondientes para conectarnos, no podremos lograrlo. Para esto haremos un spoof de una MAC de un cliente que se encuentra conectado.
+
+
+#### 1) Damos de baja la interfaz
+
+    sudo ifconfig <interfaz> down
+
+#### 2) Cambiamos nuestra mac por la MAC de algún cliente(station) conectado a la AP
+
+    sudo macchanger <interfaz> -m <MAC>
+
+#### 3) Levantamos la interfaz
+
+    sudo ifconfig <interfaz> up
+
+#### 4) Nos conectamos otra vez
