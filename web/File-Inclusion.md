@@ -2,6 +2,10 @@
 
 NO todo funciona en burp, probar con curl y agregando el comando --path-as-is
 
+### Archivos importantes
+
+Si conocemos users del sistema, podemos aprovechar para buscar la carpeta .ssh y dentro el id_rsa
+
 ### LFI
 
 intentar movimientos de path transversal:
