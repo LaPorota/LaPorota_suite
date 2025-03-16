@@ -60,3 +60,10 @@ Podemos extraer más información usando canary token y haciendolo llegar a la v
 
 
 ### Ponemos un listener y esperamos que se vuelva a abrir.
+
+
+# OpenOffice
+
+Podemos crearlo con metasploit con 
+
+    use multi/misc/openoffice_document_macro
