@@ -14,11 +14,7 @@ Para exportar podemos usar la función export pero está buggeada así que lo re
 
     --local-auth
 
-### Para enumerar mediante LDAP
 
-Debemos agregar al DC a nuestro archivo hosts con el nombre completo, de otra manera nos dará un error:
-
-    dc.domain.local
 
 ---
 
