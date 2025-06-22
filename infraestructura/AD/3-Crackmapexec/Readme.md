@@ -18,6 +18,8 @@ Luego elegimos la opción con -o
 
 Las opciones se modifican de forma clave=valor
 
+    crackmapexec ldap dc01.inlanefreight.htb -u grace -p Inlanefreight01! -M user-desc -o KEYWORDS=pwd,admin
+    
 # Status responses
 
 CME nos va a dar respuestas en distintos casos de intentos de logueo:
