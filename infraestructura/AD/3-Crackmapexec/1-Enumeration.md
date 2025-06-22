@@ -13,6 +13,13 @@ Para exportar podemos usar la función export pero está buggeada así que lo re
 ### Recordar siempre probar los users como local account si no encontramos nada como cuentas de dominio
 
     --local-auth
+
+### Para enumerar mediante LDAP
+
+Debemos agregar al DC a nuestro archivo hosts con el nombre completo, de otra manera nos dará un error:
+
+    dc.domain.local
+
 ---
 
 # Enumeración
