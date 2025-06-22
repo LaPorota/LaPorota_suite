@@ -14,7 +14,7 @@ SMB         10.129.203.121  445    DC01             [-] inlanefreight.htb\peter:
 |----|----|
 |STATUS_INVALID_LOGON_HOURS | Probar en otro horario |
 |STATUS_INVALID_WORKSTATION  |  Probar en otra computadora |
-|STATUS_PASSWORD_MUST_CHANGE |  Podemos cambiar el pass del user|
+|STATUS_PASSWORD_MUST_CHANGE |  El password es correcto pero "venció" y debemos cambiarlo|
 
 ### STATUS_PASSWORD_MUST_CHANGE
 
