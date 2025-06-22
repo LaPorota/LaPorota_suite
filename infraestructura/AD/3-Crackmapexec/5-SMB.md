@@ -18,6 +18,14 @@
 
     crackmapexec smb 10.129.204.177 -u grace -p Inlanefreight01! --spider <carpeta> --content --regex <palabra>
 
+## Listar todos los archivos de un smb
+
+    crackmapexec smb 10.129.203.121 -u grace -p 'Inlanefreight01!' -M spider_plus 
+
+Luego 
+
+    cat /tmp/cme_spider_plus/<ip>.json 
+
 
 # Gestión de archivos
 
