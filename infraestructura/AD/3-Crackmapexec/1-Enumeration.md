@@ -9,6 +9,10 @@ Podemos ver los distintos protocolos que soporta con el help (-h) y tenemos un m
 Para exportar podemos usar la función export pero está buggeada así que lo resolveríamos agregando el fullpath o
 
     --export $(pwd)/export.txt
+
+### Recordar siempre probar los users como local account si no encontramos nada como cuentas de dominio
+
+    --local-auth
 ---
 
 # Enumeración
@@ -39,6 +43,11 @@ Luego transformamos lo extraido en una lista
     crackmapexec smb 10.129.203.121 -u guest -p '' --shares
 ##### Enumerar Password Policy
     crackmapexec smb 10.129.203.121 -u '' -p '' --pass-pol
+
+### Password spraying
+
+    crackmapexec smb 10.129.203.121 -u users.txt -p Welcome1 --continue-on-success
+
 
 --- 
 
@@ -77,3 +86,8 @@ Luego de hacer un spidering, se guardará un archivo con json de todo lo encontr
 Probar un rango de hosts buscando logins con users:
 
     crackmapexec winrm 192.168.110.0/24 -u riley -p P@ssw0rd
+
+### Probar si las contraseñas de varios usuarios siguen vigentes:
+Creamos dos archivos: uno con los users y otro con los passwords en orden lógico(misma posición de un user con su password en cada archivo)
+
+    crackmapexec smb 10.129.203.121 -u users.txt -p pass.txt --no-bruteforce --continue-on-success
