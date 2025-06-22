@@ -1,4 +1,24 @@
-# Intro
+# Modulos
+
+Cada protocolo tiene una serie de módulos que se pueden desplegar con la flag -L
+
+    crackmapexec smb -L
+
+Para seleccionar un módulo utilizamos -M
+
+    crackmapexec smb -M <modulo>
+
+A cada uno de estos módulos podemos listarle las opciones con --options
+
+    crackmapexec smb -M <modulo> --options
+
+Luego elegimos la opción con -o
+
+    crackmapexec smb -M <modulo> -o <opcion>
+
+Las opciones se modifican de forma clave=valor
+
+# Status responses
 
 CME nos va a dar respuestas en distintos casos de intentos de logueo:
 
@@ -19,3 +39,4 @@ SMB         10.129.203.121  445    DC01             [-] inlanefreight.htb\peter:
 ### STATUS_PASSWORD_MUST_CHANGE
 
     smbpasswd -r 10.129.203.121 -U peter
+
