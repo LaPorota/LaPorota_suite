@@ -42,6 +42,32 @@ Debemos agregar al DC a nuestro archivo hosts con el nombre completo, de otra ma
 Luego transformamos lo extraido en una lista
 
     sed -i "s/'/\"/g" users.txt && jq -r '.[]' users.txt > userslist.txt
+
+Si jq no funciona:
+
+    awk '
+    BEGIN { RS=""; FS="\n" }
+    {
+        print "{"
+        for (i=1; i<=NF; i++) {
+            line = $i
+            sub(/^[ \t]+/, "", line)
+            key = substr(line, 1, index(line, ":") - 1)
+            value = substr(line, index(line, ":") + 1)
+            gsub(/^ +| +$/, "", key)
+            gsub(/^ +| +$/, "", value)
+            gsub(/"/, "\\\"", value)
+            printf("  \"%s\": \"%s\"", key, value)
+            if (i < NF) print ","; else print ""
+        }
+        print "},"
+    }
+    ' users.txt | sed '$s/},/}/' > users.json
+
+Luego
+
+    grep '"samaccountname"' users.json | cut -d'"' -f4 > userslist.txt
+
     
 ##### Enumerar grupos del dominio
 
