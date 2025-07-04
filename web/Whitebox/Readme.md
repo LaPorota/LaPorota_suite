@@ -10,7 +10,8 @@
 | 4 | Patching & remediation | Parchear la vulnerabilidad y todas sus causas |
 
 
-# Code review
+1) Para lograr esto, hay varios enfoques:
+- Buscar funciones que utilicen métodos base del lenguaje que conocemos como inseguros. Ej: En php podríamos buscar exec, system, passthru, etc. Y luego rastrear los llamados a las funciones que las utilizan para poder entender cómo es que el imput del user puede alcanzar a alguna de estas.
+- Seleccionar funciones en base a nuestro entendimiento de la aplicación.
+- Seleccionar funciones en base al uso de la aplicación: Si estamos probando una app y de pronto encontramos alguna funcionalidad que genere muchos errores, podríamos enfocarnos en esa sección.
 
-## 1) Conseguir un entendimiento de las funciones/módulos que componen la aplicación.
-## 2) Priorizar funciones por su sensitividad.
