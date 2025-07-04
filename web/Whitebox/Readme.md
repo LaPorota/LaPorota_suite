@@ -1,6 +1,6 @@
-### Pasos:
+# Pasos:
 
-Pasos de un withebox ordenado.
+#### Pasos de un withebox ordenado.
 
 | orden  | paso | desc |
 |-----|-----|------|
@@ -10,3 +10,7 @@ Pasos de un withebox ordenado.
 | 4 | Patching & remediation | Parchear la vulnerabilidad y todas sus causas |
 
 
+# Code review
+
+## 1) Conseguir un entendimiento de las funciones/módulos que componen la aplicación.
+## 2) Priorizar funciones por su sensitividad.
