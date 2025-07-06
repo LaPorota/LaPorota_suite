@@ -25,4 +25,4 @@
 |setTimeout	|subprocess.run	|popen	|		
 |constructor.constructor	|os.system	|shell_exec |			
 |child_process.exec	|os.popen	|passthru	|system	|System.Diagnostics.Process.Start	|Runtime.getRuntime().exec|
-|child_process.spawn	|	system	|popen	 |	
+|child_process.spawn	| |	system	|popen	 |	
