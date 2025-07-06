@@ -15,3 +15,14 @@
 - Seleccionar funciones en base a nuestro entendimiento de la aplicación.
 - Seleccionar funciones en base al uso de la aplicación: Si estamos probando una app y de pronto encontramos alguna funcionalidad que genere muchos errores, podríamos enfocarnos en esa sección.
 
+#### Cuadro de funciones importantes para code injection
+
+|JavaScript 'NodeJS'	|Python	|PHP	|C/C++	|C#	|Java|
+|-----|----|---|---|---|---|
+|eval	|eval	|eval	|execlp| |   |		
+|Function	|exec	|exec	|execvp	|	|  |
+|setInterval |	subprocess.open	|proc_open	|ShellExecute |		| |
+|setTimeout	|subprocess.run	|popen	|		
+|constructor.constructor	|os.system	|shell_exec |			
+|child_process.exec	|os.popen	|passthru	|system	|System.Diagnostics.Process.Start	|Runtime.getRuntime().exec|
+|child_process.spawn	|	system	|popen	 |	
