@@ -2,7 +2,7 @@
 
 ### Jerga
 
-| Acción | Desc |
+| Acción | Descripción |
 |----|-----|
 | Ingeniería inversa | Deconstruir una pieza de software |
 | Cracking | Modificar el curso de una pieza de software |
@@ -11,3 +11,5 @@
 | Quemar cromo | Modificar el archivo binario de un software para lograr la desprotección del mismo| 
 | Datapath | Camino o flujo de los datos que se mueven en la ejecución a nivel CPU |
 | Crackme | Pieza de software educativo para ingeniería inversa conformada por la extracción de la pieza de validación de un programa|
+| Offset | Cantidad de posiciones que uno se tiene que desplazar desde el bit 0 hasta la rutina de comparación (mago blanco o mago negro) |
+
