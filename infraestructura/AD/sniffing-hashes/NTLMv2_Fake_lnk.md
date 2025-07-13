@@ -6,6 +6,10 @@ Podemos aprovechar el modulo slinky para crear de manera automática un lnk en t
 
 Luego corremos responder
 
+
+Para poder limpiar la evidencia:
+
+    crackmapexec smb 172.16.1.10 -u grace -p Inlanefreight01! -M slinky -o NAME=important CLEANUP=YES
 # Manual
 
 Si podemos subir un archivo a una carpeta smb, podemos crear un falso lnk que nos permita aprovechar a responder para envenenar el tráfico ntlmv2 
