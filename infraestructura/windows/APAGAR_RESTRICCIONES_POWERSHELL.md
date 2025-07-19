@@ -1,14 +1,21 @@
-Permitir correr scripts:
-set-executionpolicy remotesigned
+### Permitir correr scripts:
+
+    set-executionpolicy remotesigned
 
 
 o
 
-Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
+    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 
-Apagar antivirus
-Powershell -ep bypass
+### Apagar antivirus
 
+    Powershell -ep bypass
+
+### Apagar protección en tiempo real
+
+    Set-MpPreference -DisableRealTimeMonitoring $true
+
+### Shellter
 
 Podemos usar shellter para crear binarios maliciosos con shell reversas que evadan los antivirus
 
