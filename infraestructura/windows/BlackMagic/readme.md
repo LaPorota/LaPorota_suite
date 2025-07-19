@@ -17,8 +17,15 @@ Encodear 2 veces
 
 # Archivos
 
-### Csharprevshell
+### Csharp_revshell
 
 Reverse shell simple creada para baypassear el análisis dinámico del Defender
 
-###
+### Defender_Static_bypass_shell
+
+Reverse shell para bypassear el análisis estático del Defender.
+
+Comprende 3 formas de uso:
+1. payload en bitecode
+2. Payload pasado por Xor
+3. payload encriptado en Aes
