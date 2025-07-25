@@ -127,3 +127,21 @@ Extienden las trust a objetos que el los que el child domain confía. Ejemplo:
 
 El child domain es el único en quien confía.
 
+
+# Kerberos Delegations
+
+Con kerberos, un usuario se autentica en un servicio. Las delegaciones de kerberos permiten a un servicio autenticarse en otro servicio en nombre de un usuario.
+
+Los usuarios que pueden setear delegations sobre otros son los que tienen el privilegio **SeEnableDelegationPrivilege** y aparece en los UAC del usuario como **TRUSTED_FOR_DELEGATION**
+
+
+Hay 3 tipos de delegaciones en kerberos:
+
+
+| tipo | Desc |
+|----|------|
+| Constrained | Permite a un servicio impersonar a un usuario contra una lista limitada de servicios. |
+| Unconstrained | Permite a un servicio impersonar a un usuario contra cualquier otro servicio. |
+| resource-based constrained | En este caso el servicio posee una lista de aplicativos que pueden comunicarse con él impersonando usuarios (en este caso, cada servicio puede modificar su propia lista) |
+
+
