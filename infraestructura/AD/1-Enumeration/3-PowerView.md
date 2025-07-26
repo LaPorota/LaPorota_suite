@@ -138,6 +138,10 @@ Luego podemos ver qué permisos tiene el manager sobre el grupo
 
     .\SharpView.exe Get-DomainUser -TrustedToAuth -Properties samaccountname,useraccountcontrol,memberof
 
+##### Buscar usuarios con kerberos Unconstrained delegation
+
+    Get-DomainUser -LDAPFilter "(userAccountControl:1.2.840.113556.1.4.803:=524288)"
+
 ##### Encontrar usuarios foraneos en grupos del dominio
 
     Find-ForeignGroup
