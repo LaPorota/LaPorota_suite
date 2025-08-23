@@ -152,6 +152,10 @@ Luego podremos buscar usuarios kerberosteables de ese dominio externo.
 
     Get-DomainUser -SPN -Domain freightlogistics.local | select samaccountname,memberof,serviceprincipalname | fl
 
+##### Buscar usuarios con el atributo msDS-KeyCredentialLink no vacío (para shadow credentials)
+
+    Get-DomainUser -Filter '(msDS-KeyCredentialLink=\*)'
+
 ---
 
 ## Referidas a las computadoras
