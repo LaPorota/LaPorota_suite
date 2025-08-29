@@ -23,32 +23,6 @@ Se accede a los objetos mediante una URL única compuesta por:
 
   ** EL nombre del bucket puede ir despues del .com/**
 
-#Enumeración de buckets
-
-### Automatización
-Podriamos enumerar un S3 mediante la herramienta cloud_enum
-
-    cloud_enum -k <bucket_name> --quickscan --disable-azure --disable-gcp
-
-
-Si encontramos un bucket que responde a nomenclaturas de ambientes:
-
-    https://s3.amazonaws.com/LaPorota-public-asda/
-
-podríamos probar cambiar el **public** por **private**.
-
-Lo mismo en caso de ver **prod** por **dev** o **qa**
-
-Podríamos automatizarlo utilizando clud_enum con una lista:
-
-##### Creamos la lista
-
-    for key in "public" "private" "dev" "prod" "development" "production"; do echo "LaPorota-$key-asda"; done | tee lista.txt
-
-Luego:
-
-    cloud_enum -kf lista.txt -qs --disable-azure --disable-gcp
-
 # Políticas de Bucket
 
 - Solo el propietario tiene autoridad para asociar una política de bucket
