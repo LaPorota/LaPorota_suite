@@ -21,6 +21,15 @@ Se accede a los objetos mediante una URL única compuesta por:
 
     https://DOC-EXAMPLE-BUCKET.s3.us-west-2.amazonaws.com/photos/puppy.jpg
 
+#Enumeración de buckets
+Si encontramos un bucket que responde a nomenclaturas de ambientes:
+
+    https://s3.amazonaws.com/LaPorota-public-asda/
+
+podríamos probar cambiar el **public** por **private**.
+
+Lo mismo en caso de ver **prod** por **dev** o **qa**
+
 
 # Políticas de Bucket
 
