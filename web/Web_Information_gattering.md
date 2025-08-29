@@ -1,3 +1,7 @@
+#### Enumeración de infraestructura
+##### Verificar si la infra es de alguna cloud
+
+    host 34.229.231.128
 #### ENUMERACIÓN DE SUBDOMINIOS:
 ##### Asset Finder
     assetfinder --subs-only pagina
