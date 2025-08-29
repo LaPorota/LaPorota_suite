@@ -21,6 +21,8 @@ Se accede a los objetos mediante una URL única compuesta por:
 
     https://DOC-EXAMPLE-BUCKET.s3.us-west-2.amazonaws.com/photos/puppy.jpg
 
+  ** EL nombre del bucket puede ir despues del .com/**
+
 #Enumeración de buckets
 Si encontramos un bucket que responde a nomenclaturas de ambientes:
 
@@ -30,6 +32,10 @@ podríamos probar cambiar el **public** por **private**.
 
 Lo mismo en caso de ver **prod** por **dev** o **qa**
 
+### Automatización
+Podriamos enumerar un S3 mediante la herramienta cloud_enum
+
+    cloud_enum -k <bucket_name> --quickscan --disable-azure --disable-gcp
 
 # Políticas de Bucket
 
