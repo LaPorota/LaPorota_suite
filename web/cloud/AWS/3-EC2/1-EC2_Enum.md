@@ -22,9 +22,11 @@
 
     aws --profile attacker ec2 describe-images --owners amazon --executable-users all
 
-si buscamos algo puntual podemos agregar la flag filter
+si buscamos algo puntual podemos agregar la flag filter.
 
-    aws --profile attacker ec2 describe-images --executable-users all --filters "Name=name,Values=*Offseclab*"
+    aws --profile attacker ec2 describe-images --executable-users all --filters "Name=Description,Values=*Offseclab*"
+
+El atributo name se refiere al nombre de "clave" del Json con los datos de la instancia, en el caso anterior: Description.
 
 # Buscar snapshots
 
