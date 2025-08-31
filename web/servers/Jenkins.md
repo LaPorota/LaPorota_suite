@@ -10,6 +10,10 @@
 
     http://jenkins.inlanefreight.local:8000/configureSecurity/
 
+#### Metasploit
+
+    auxiliary/scanner/http/jenkins_enum
+
 ##### Login page:
 
     http://jenkins.inlanefreight.local:8000/login?from=%2F
