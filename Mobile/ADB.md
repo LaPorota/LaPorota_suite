@@ -40,6 +40,10 @@
 
     adb logcat
 
+#### Entrar a un device como root
+
+    adb root
+
 ## Manual
 
     https://developer.android.com/tools/adb?hl=es-419
