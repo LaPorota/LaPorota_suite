@@ -25,24 +25,24 @@
 
 #### transormar el cert en pem
 
-  openssl x509 -inform DER -in cacert.der -out cacert.pem
+    openssl x509 -inform DER -in cacert.der -out cacert.pem
 
 #### sacar el hash
 
-  openssl x509 -inform PEM -subject_hash_old -in cacert.pem |head -1
+    openssl x509 -inform PEM -subject_hash_old -in cacert.pem |head -1
 
 #### Crear el cert
 
-  mv cacert.pem <hash>.0
+    mv cacert.pem <hash>.0
 
 
 #### Agrergarlo
 
-abd root
-abd remount
-adb push <cert>.0 /sdcard/
-adb shell
-mv /sdcard/<cert>.0 /system/etc/security/cacerts/
-chmod 644 /system/etc/security/cacarts/<cert>.o
-reboot
+    abd root
+    abd remount
+    adb push <cert>.0 /sdcard/
+    adb shell
+    mv /sdcard/<cert>.0 /system/etc/security/cacerts/
+    chmod 644 /system/etc/security/cacarts/<cert>.o
+    reboot
 
