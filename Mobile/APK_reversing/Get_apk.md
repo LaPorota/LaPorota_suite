@@ -15,3 +15,9 @@
 hacemos un pull con el path absoluto a la apk que queremos
 
     adb pull /data/...*....apk
+
+# Aplicaciones conocidas en la store
+
+    https://apkmirror.com/
+
+    https://apkpure.com
