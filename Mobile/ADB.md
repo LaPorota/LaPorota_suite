@@ -14,32 +14,32 @@ sudo apt update && sudo apt install android-tools-adb
 
 #### Listar dispositivos
 
-  adb devices
+    adb devices
 
 #### Conectarse a un dispositivo
 
-  adb connect
+    adb connect
 
 #### Instalar un apk
 
-  adb install
+    adb install
 
 #### Iniciar una shell en el dispositivo
 
-  adb shell
+    adb shell
 
 #### Uploadear archivos
 
-  adb push
+    adb push
 
 #### Descargar archivos
 
-  adb pull
+    adb pull
 
 #### Ver el log de adb
 
-  adb logcat
+    adb logcat
 
 ## Manual
 
-  https://developer.android.com/tools/adb?hl=es-419
+    https://developer.android.com/tools/adb?hl=es-419
