@@ -4,11 +4,11 @@
 
 #### Linux
 
-  sudo apt update && sudo apt install android-tools-adb
+    sudo apt update && sudo apt install android-tools-adb
 
 #### Windows
 
-  https://developer.android.com/tools/releases/platform-tools?hl=es-419
+    https://developer.android.com/tools/releases/platform-tools?hl=es-419
 
 ## Comandos básicos
 
