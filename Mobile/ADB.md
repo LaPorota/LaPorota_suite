@@ -44,6 +44,10 @@
 
     adb root
 
+#### Proxy para burp
+
+    adb shell settings put global http_proxy [burp_host_ip]:8080
+
 ## Manual
 
     https://developer.android.com/tools/adb?hl=es-419
