@@ -17,3 +17,32 @@
  7. Configurar la regla de enrutamientoEn el menú principal de Postern, ve a la opción Reglas (Rules).
  8. Añade una nueva regla.En Coincidencia de objetivos (Match Method), selecciona Cualquiera (Any).
  9. En Objetivo (Target), selecciona el proxy que acabas de configurar y guarda la regla.
+
+# Importar certificado
+
+1. Crear el certificado en burp con formato DER
+2. Transformarlo en certificado de android
+
+#### transormar el cert en pem
+
+  openssl x509 -inform DER -in cacert.der -out cacert.pem
+
+#### sacar el hash
+
+  openssl x509 -inform PEM -subject_hash_old -in cacert.pem |head -1
+
+#### Crear el cert
+
+  mv cacert.pem <hash>.0
+
+
+#### Agrergarlo
+
+abd root
+abd remount
+adb push <cert>.0 /sdcard/
+adb shell
+mv /sdcard/<cert>.0 /system/etc/security/cacerts/
+chmod 644 /system/etc/security/cacarts/<cert>.o
+reboot
+
