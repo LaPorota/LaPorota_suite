@@ -21,4 +21,3 @@
     adb install r <apk>
 
 
-
