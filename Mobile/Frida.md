@@ -50,6 +50,10 @@ Creamos un archivo .js
 
     frida -U -p <PID> -l archivo.js
 
+### Correr los codeshares
+
+    frida --codeshare <codeshare> -U -p <PID>
+
 
 # Frida Codeshare
 
