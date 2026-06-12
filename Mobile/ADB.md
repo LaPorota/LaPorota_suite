@@ -43,7 +43,10 @@
 #### Entrar a un device como root
 
     adb root
+#### Listar apps de terceros instaladas
 
+    adb shell pm list packages -f -3
+    
 #### Proxy para burp
 
     adb shell settings put global http_proxy [burp_host_ip]:8080
