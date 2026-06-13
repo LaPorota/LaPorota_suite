@@ -18,11 +18,11 @@
 
 #### Conectarse a un dispositivo
 
-    adb connect
+    adb connect <device o ip>
 
 #### Instalar un apk
 
-    adb install
+    adb install -r <apk>
 
 #### Iniciar una shell en el dispositivo
 
