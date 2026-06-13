@@ -52,3 +52,12 @@ Supongams que tenemos una variable que es estática y necesitamos cambiarle el v
         <class_reference>.<variable>.value = <value>;
         }, 2000); // Retrasa la ejecución 2 segundos
     });
+
+### Instanciar un objeto para correr un método del mismo
+
+    Java.perform(function() {
+        var class_reference = Java.use("<package_name>.<class>");
+        var class_instance = class_reference.$new(); // Class Object
+        var res = class_instance.<method>(); // Calling the method
+        console.log(res);
+    });
