@@ -1,4 +1,14 @@
-# instalación
+# Info
+
+### ¿Qué es?
+Frida es una herramienta que permite ver qué está pasando dentro de una app. Podríamos comparar su proceder con el de un debugger.
+
+### Hooking
+
+Dentro de frida, se llama **HOOKING** a la técnica de interceptar y alterar funcionalidades o métodos dentro de una aplicación o el SO.
+
+
+# Instalación
 
     pip3 install frida-tools
     pip3 install objection
@@ -6,6 +16,10 @@
 #### descargar la versión correspondiente a la versión instalada:
 
     https://github.com/frida/frida/releases
+
+Si no sabemos qué versión de SO estamos atacando:
+
+    adb shell getprop ro.product.cpu.abi
 
 #### Extraer los archivos
 
@@ -21,11 +35,22 @@
 
     adb shell "/data/local/tmp/frida-server &"
 
+# Usos importantes
+
+1. Permite capturar funciones de una app "on the fly".
+2. Nos permite ver qué está pasando por detrás del programa mientras corre y cambiar cosas.
+3. Nos permite debuggear programas en tiempo real
+
+
 ### Listar apps instaladas con el PID
 
     frida-ps -Uai
 
-### Conectarse mediante las APIs de frida mediante una app
+### Comenzar a trabajar con una app mediante el nombre
+
+    frida -U -f package_name
+
+### Conectarse mediante las APIs de frida a una app
 
     frida -U -p <PID>
 
@@ -40,10 +65,13 @@
 Creamos un archivo .js
 
 
-    Java.use("android.webkit.WebView")loadUrl.overload("java.lang.String").implementation = function(url) {
-        console.log("WebView.loadUrl() called with URL: " + url);
-        const newURL= "urlmaliciosa";
-        this.loadUrl.overload("java.lang.String").call(this, newUrl);
+    Java.perform(function() {
+      var classRef = Java.use("<package_name>.<class>");
+      classRef.<method_to_hook>.implementation = function(args) {
+        // Custom logic to execute when the method is called
+      }
+    });
+
 
 
 ### Interceptamos con frida el browser y lo mandamos y le decimos que ejecte el archivo
