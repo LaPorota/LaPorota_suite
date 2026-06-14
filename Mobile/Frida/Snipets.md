@@ -61,3 +61,57 @@ Supongams que tenemos una variable que es estática y necesitamos cambiarle el v
         var res = class_instance.<method>(); // Calling the method
         console.log(res);
     });
+
+
+### Llamar a un método de un objeto existente
+
+Hay muchos objetos instanciados al inicio de un programa, por ejemplo: El mainActivity.
+
+Debido a que suele generar problemas de loops por problemas de hilos en el ciclo de vida del software, es más correcto directamente llamar al objeto ya instanciado
+
+
+    Java.performNow(function() {
+      Java.choose('package.class', {
+        onMatch: function(instance) { // "instance" is the instance for the class
+          console.log("Instance found");
+          instance.<method>; // Calling the function
+        },
+        onComplete: function() {}
+      });
+    });
+
+### Crear y enviar un objeto 
+Este funciona desde la consola de frida 
+
+
+    Java.performNow(function() {
+        Java.choose('package.class', {
+            onMatch: function(instance) {
+                console.log("Instance found");
+    
+                var obj_class = Java.use("package.class_objeto_a_crear");
+                var obj_created  = obj_class.$new();  // Class Object
+                obj_created.<variable>.value = 1337; 
+                obj_created.<ariable>.value = 1200; 
+                instance.<method>(obj_created); // invoking the  method
+    
+            },
+            onComplete: function() {}
+        });
+    });
+
+Hay algunos casos en los que se requiere que el objeto se envie mediante el hilo principal. Si el objeto de arriba no funcionó, probá con este
+
+    Java.performNow(function() {
+      Java.choose('package.class', {
+        onMatch: function(instance) {
+          Java.scheduleOnMainThread(function() {
+            var obj_class = Java.use("package.class_object");
+            var obj_created = obj_class.$new(value, value); 
+            instance.<method>(obj_created); 
+          });
+        },
+        onComplete: function() {
+        }
+      });
+    });
